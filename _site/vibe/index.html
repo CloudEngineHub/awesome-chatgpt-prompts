@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ page.title | default: site.title }} — awesome AI prompts</title>
-    {% seo %}
+    <title>/vibe — awesome AI prompts</title>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>/vibe | prompts.chat</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="/vibe" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This repo includes ChatGPT prompt curation to use ChatGPT and other LLM tools better." />
+<meta property="og:description" content="This repo includes ChatGPT prompt curation to use ChatGPT and other LLM tools better." />
+<link rel="canonical" href="http://localhost:4000/vibe/" />
+<meta property="og:url" content="http://localhost:4000/vibe/" />
+<meta property="og:site_name" content="prompts.chat" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="/vibe" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"This repo includes ChatGPT prompt curation to use ChatGPT and other LLM tools better.","headline":"/vibe","url":"http://localhost:4000/vibe/"}</script>
+<!-- End Jekyll SEO tag -->
+
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ "/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="/style.css?v=a8a69caf7649bb8f02c225029af543967973a65f">
   </head>
-  <body class="{{ page.body_class | default: '' }}">
+  <body class="vibe">
     <div class="layout-wrapper">
       <!-- Copilot Suggestion Modal Backdrop -->
       <div class="copilot-suggestion-backdrop"></div>
@@ -33,36 +49,11 @@
       </div>
       <header class="site-header">
         <div class="header-left">
-          <h1 class="site-title">{{ page.title | default: site.title }}</h1>
-          <p class="site-slogan">{{ page.subtitle | default: site.subtitle }}
-            {% if page.subpage != true %}
-            <a href="/vibe" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 hover:bg-green-200 transition-colors">
-              New: Try Vibe Coding Mode!
-            </a>
-            {% endif %}
+          <h1 class="site-title">/vibe</h1>
+          <p class="site-slogan">awesome vibe coding prompts to help you build simple apps
+            
           </p>
-          {% if page.hide_platform_selector != true %}
-          <div class="site-description">
-            <p class="platform-hint">Choose your AI platform</p>
-            <div class="platform-pills">
-              <button class="platform-tag" data-platform="github-copilot" data-url="https://github.com/copilot">GitHub Copilot</button>
-              <button class="platform-tag" data-platform="chatgpt" data-url="https://chat.openai.com">ChatGPT</button>
-              <div class="platform-tag-container">
-                <button class="platform-tag" data-platform="grok" data-url="https://grok.com/chat?reasoningMode=none">Grok</button>
-                <div class="grok-mode-dropdown" style="display: none;">
-                  <div class="grok-mode-option" data-url="https://grok.com/chat?reasoningMode=none">Grok</div>
-                  <div class="grok-mode-option" data-url="https://grok.com/chat?reasoningMode=deepsearch">Grok Deep Search</div>
-                  <div class="grok-mode-option" data-url="https://grok.com/chat?reasoningMode=think">Grok Thinking</div>
-                </div>
-              </div>
-              <button class="platform-tag" data-platform="claude" data-url="https://claude.ai/new">Claude</button>
-              <button class="platform-tag" data-platform="perplexity" data-url="https://perplexity.ai">Perplexity</button>
-              <button class="platform-tag" data-platform="mistral" data-url="https://chat.mistral.ai/chat">Mistral</button>
-              <button class="platform-tag" data-platform="gemini" data-url="https://gemini.google.com">Gemini</button>
-              <button class="platform-tag" data-platform="llama" data-url="https://meta.ai">Meta</button>
-            </div>
-          </div>
-          {% endif %}
+          
         </div>
         <div class="header-right">
           <a href="https://cursor.com" target="_blank" class="cursor-logo" title="Built with Cursor AI">
@@ -110,55 +101,11 @@
           </div>
         </div>
         <div class="main-content">
-          {% if page.hide_platform_selector != true %}
-          <div class="main-content-header">
-            <div class="header-content">
-              <div class="platform-selectors">
-                Reply in <select id="languageSelect" class="custom-select">
-                  <option value="English">English</option>
-                  <option value="Spanish">Spanish</option>
-                  <option value="French">French</option>
-                  <option value="German">German</option>
-                  <option value="Italian">Italian</option>
-                  <option value="Portuguese">Portuguese</option>
-                  <option value="Russian">Russian</option>
-                  <option value="Chinese">Chinese</option>
-                  <option value="Japanese">Japanese</option>
-                  <option value="Korean">Korean</option>
-                  <option value="Turkish">Turkish</option>
-                  <option value="custom">Custom...</option>
-                </select>
-                <input type="text" id="customLanguage" class="custom-input" placeholder="language..." style="display: none;">
-                using <select id="toneSelect" class="custom-select">
-                  <option value="professional">professional</option>
-                  <option value="casual">casual</option>
-                  <option value="friendly">friendly</option>
-                  <option value="formal">formal</option>
-                  <option value="technical">technical</option>
-                  <option value="creative">creative</option>
-                  <option value="enthusiastic">enthusiastic</option>
-                  <option value="humorous">humorous</option>
-                  <option value="authoritative">authoritative</option>
-                  <option value="empathetic">empathetic</option>
-                  <option value="analytical">analytical</option>
-                  <option value="conversational">conversational</option>
-                  <option value="academic">academic</option>
-                  <option value="persuasive">persuasive</option>
-                  <option value="inspirational">inspirational</option>
-                  <option value="custom">Custom...</option>
-                </select>
-                <input type="text" id="customTone" class="custom-input" placeholder="tone..." style="display: none;">
-                tone, for <select id="audienceSelect" class="custom-select">
-                  <option value="everyone">everyone</option>
-                  <option value="developers">developers</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          {% endif %}
+          
           <div class="container-lg markdown-body">
             <div id="promptContent">
-              {{ content }}
+              
+
             </div>
           </div>
         </div>
@@ -228,87 +175,7 @@
       </footer>
     </div>
     <script src="script.js"></script>
-    {% if page.hide_tone_selector != true %}
-    <script>
-      // Initialize audience selector
-      const audienceSelect = document.getElementById('audienceSelect');
-      
-      // Handle Grok platform selection
-      document.addEventListener('DOMContentLoaded', () => {
-        const grokButton = document.querySelector('[data-platform="grok"]');
-        const grokDropdown = document.querySelector('.grok-mode-dropdown');
-        const grokOptions = document.querySelectorAll('.grok-mode-option');
-        let isGrokDropdownVisible = false;
-
-        // Add event listeners for all platform buttons
-        const platformButtons = document.querySelectorAll('.platform-tag');
-        platformButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            const platform = button.getAttribute('data-platform');
-            // If platform is not github-copilot, set audience to "everyone"
-            if (platform !== 'github-copilot') {
-              audienceSelect.value = 'everyone';
-              document.body.classList.remove('dev-mode');
-              // Trigger filtering if needed
-              if (typeof filterPrompts === 'function') {
-                filterPrompts();
-              }
-            }
-          });
-        });
-
-        // Hide dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-          if (!e.target.closest('.platform-tag-container')) {
-            grokDropdown.style.display = 'none';
-            isGrokDropdownVisible = false;
-          }
-        });
-
-        // Toggle dropdown
-        grokButton.addEventListener('click', (e) => {
-          e.stopPropagation();
-          isGrokDropdownVisible = !isGrokDropdownVisible;
-          grokDropdown.style.display = isGrokDropdownVisible ? 'block' : 'none';
-        });
-
-        // Handle option selection
-        grokOptions.forEach(option => {
-          option.addEventListener('click', (e) => {
-            const selectedUrl = option.dataset.url;
-            const selectedText = option.textContent;
-            grokButton.dataset.url = selectedUrl;
-            grokButton.textContent = selectedText;
-            grokDropdown.style.display = 'none';
-            isGrokDropdownVisible = false;
-            
-            // Also set audience to "everyone" for Grok options
-            audienceSelect.value = 'everyone';
-            document.body.classList.remove('dev-mode');
-            // Trigger filtering if needed
-            if (typeof filterPrompts === 'function') {
-              filterPrompts();
-            }
-          });
-        });
-      });
-      
-      // Set initial state based on URL params or default
-      const urlParams = new URLSearchParams(window.location.search);
-      const initialAudience = urlParams.get('audience') || 'everyone';
-      audienceSelect.value = initialAudience;
-      document.body.classList.toggle('dev-mode', initialAudience === 'developers');
-      
-      // Handle audience changes
-      audienceSelect.addEventListener('change', (e) => {
-        const isDevMode = e.target.value === 'developers';
-        document.body.classList.toggle('dev-mode', isDevMode);
-        
-        // Trigger prompt filtering
-        filterPrompts();
-      });
-    </script>
-    {% endif %}
+    
     <style>
       video { max-width: 100% !important; }
       
