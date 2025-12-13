@@ -19,8 +19,13 @@ export interface ThemeConfig {
   };
 }
 
+export type AuthProvider = "credentials" | "google" | "azure" | "github" | string;
+
 export interface AuthConfig {
-  provider: "credentials" | "google" | "azure" | "github" | string;
+  /** @deprecated Use `providers` array instead */
+  provider?: AuthProvider;
+  /** Array of auth providers to enable (e.g., ["github", "google"]) */
+  providers?: AuthProvider[];
   allowRegistration: boolean;
 }
 
@@ -49,6 +54,8 @@ export interface Sponsor {
 }
 
 export interface HomepageConfig {
+  // Hide prompts.chat repo branding (achievements, GitHub links) and use clone's branding
+  useCloneBranding?: boolean;
   achievements?: {
     enabled: boolean;
   };
@@ -102,7 +109,7 @@ export async function getConfig(): Promise<PromptsConfig> {
         },
       },
       auth: {
-        provider: "credentials",
+        providers: ["credentials"],
         allowRegistration: true,
       },
       storage: {

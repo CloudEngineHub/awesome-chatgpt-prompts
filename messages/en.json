@@ -32,6 +32,7 @@
   },
   "nav": {
     "home": "Home",
+    "feed": "Feed",
     "promptmasters": "Promptmasters",
     "prompts": "Prompts",
     "categories": "Categories",
@@ -164,7 +165,11 @@
     "pinned": "Pinned to profile",
     "unpinned": "Unpinned from profile",
     "pinFailed": "Failed to update pin",
-    "pinnedPrompts": "Pinned"
+    "pinnedPrompts": "Pinned",
+    "previous": "Previous",
+    "next": "Next",
+    "mediaLoadError": "The media for this prompt could not be loaded. The URL may be invalid or the resource is no longer available.",
+    "mediaUnavailable": "Media unavailable"
   },
   "changeRequests": {
     "title": "Change Requests",
@@ -200,10 +205,16 @@
     "reopen": "Reopen",
     "reopenedSuccess": "Change request reopened",
     "noRequests": "No change requests",
+    "submittedTo": "Submitted to {author}",
+    "receivedFrom": "Received from {author}",
     "edit": "Edit",
     "preview": "Preview",
     "noChangesYet": "No changes yet",
-    "changesDetected": "Changes detected"
+    "changesDetected": "Changes detected",
+    "dismiss": "Dismiss",
+    "dismissed": "Change request dismissed",
+    "dismissConfirmTitle": "Dismiss Change Request?",
+    "dismissConfirmDescription": "This will permanently delete your change request. This action cannot be undone."
   },
   "categories": {
     "title": "Categories",
@@ -300,6 +311,11 @@
       "deleteFailed": "Failed to delete user",
       "roleUpdated": "User role updated",
       "roleUpdateFailed": "Failed to update role",
+      "verify": "Verify",
+      "unverify": "Unverify",
+      "verified": "User verified",
+      "unverified": "User unverified",
+      "verifyFailed": "Failed to update verification",
       "deleteConfirmTitle": "Delete User?",
       "deleteConfirmDescription": "This action cannot be undone. All user data will be permanently deleted."
     },
@@ -454,7 +470,12 @@
     "createFirstPrompt": "Create your first prompt",
     "upvotesReceived": "upvotes received",
     "editProfile": "Edit Profile",
-    "unclaimedUser": "Unclaimed"
+    "unclaimedUser": "Unclaimed",
+    "contributions": "Contributions",
+    "contributionsCount": "contributions",
+    "noContributions": "No contributions yet",
+    "noContributionsOwner": "You haven't contributed to any prompts yet",
+    "contributedTo": "Contributed to {author}'s prompt"
   },
   "subscription": {
     "subscribe": "Subscribe",
@@ -465,7 +486,9 @@
     "loginToSubscribe": "Please login to subscribe"
   },
   "vote": {
-    "loginToVote": "Please login to upvote",
+    "loginRequired": "Login Required",
+    "loginToVote": "Please login to upvote prompts and save your votes.",
+    "goToLogin": "Go to Login",
     "upvote": "upvote",
     "upvotes": "upvotes"
   },
@@ -523,7 +546,9 @@
     "heroFeature2": "Self-host for Privacy",
     "heroFeature3": "For Teams & Organizations",
     "cloneOnGithub": "Clone on GitHub",
+    "beStargazer": "Be the {count}{ordinal} stargazer on GitHub",
     "browsePrompts": "Browse Prompts",
+    "viewFeed": "View Feed",
     "readyToStart": "Ready to get started?",
     "freeAndOpen": "Free and open source.",
     "createAccount": "Create Account",

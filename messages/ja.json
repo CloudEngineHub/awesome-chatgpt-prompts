@@ -32,6 +32,7 @@
   },
   "nav": {
     "home": "ホーム",
+    "feed": "フィード",
     "promptmasters": "Promptmasters",
     "prompts": "プロンプト",
     "categories": "カテゴリー",
@@ -148,7 +149,11 @@
     "pinned": "プロフィールに固定しました",
     "unpinned": "固定を解除しました",
     "pinFailed": "固定の更新に失敗しました",
-    "pinnedPrompts": "固定済み"
+    "pinnedPrompts": "固定済み",
+    "previous": "前へ",
+    "next": "次へ",
+    "mediaLoadError": "このプロンプトのメディアを読み込めませんでした。URLが無効であるか、リソースが利用できなくなっている可能性があります。",
+    "mediaUnavailable": "メディアを利用できません"
   },
   "changeRequests": {
     "title": "変更リクエスト",
@@ -184,10 +189,16 @@
     "reopen": "再開",
     "reopenedSuccess": "変更リクエストを再開しました",
     "noRequests": "変更リクエストはありません",
+    "submittedTo": "{author}に送信済み",
+    "receivedFrom": "{author}から受信",
     "edit": "編集",
     "preview": "プレビュー",
     "noChangesYet": "まだ変更はありません",
-    "changesDetected": "変更を検出しました"
+    "changesDetected": "変更を検出しました",
+    "dismiss": "取り下げ",
+    "dismissed": "変更リクエストを取り下げました",
+    "dismissConfirmTitle": "変更リクエストを取り下げますか？",
+    "dismissConfirmDescription": "変更リクエストは完全に削除されます。この操作は取り消せません。"
   },
   "categories": {
     "title": "カテゴリー",
@@ -260,6 +271,11 @@
       "deleteFailed": "ユーザーの削除に失敗しました",
       "roleUpdated": "ユーザーの役割を更新しました",
       "roleUpdateFailed": "役割の更新に失敗しました",
+      "verify": "認証",
+      "unverify": "認証解除",
+      "verified": "ユーザーを認証しました",
+      "unverified": "ユーザーの認証を解除しました",
+      "verifyFailed": "認証の更新に失敗しました",
       "deleteConfirmTitle": "ユーザーを削除しますか？",
       "deleteConfirmDescription": "この操作は取り消せません。すべてのユーザーデータが完全に削除されます。"
     },
@@ -350,7 +366,12 @@
     "noPromptsOwner": "まだプロンプトを作成していません",
     "createFirstPrompt": "最初のプロンプトを作成",
     "upvotesReceived": "獲得した高評価",
-    "editProfile": "プロフィールを編集"
+    "editProfile": "プロフィールを編集",
+    "contributions": "コントリビューション",
+    "contributionsCount": "コントリビューション",
+    "noContributions": "コントリビューションはまだありません",
+    "noContributionsOwner": "まだどのプロンプトにも貢献していません",
+    "contributedTo": "{author}のプロンプトに貢献"
   },
   "subscription": {
     "subscribe": "購読",
@@ -360,7 +381,9 @@
     "loginToSubscribe": "購読するにはログインしてください"
   },
   "vote": {
-    "loginToVote": "高評価するにはログインしてください",
+    "loginRequired": "ログインが必要です",
+    "loginToVote": "プロンプトに高評価を付けて投票を保存するにはログインしてください。",
+    "goToLogin": "ログインへ",
     "upvote": "高評価",
     "upvotes": "高評価"
   },
@@ -418,7 +441,9 @@
     "heroFeature2": "プライバシーのためセルフホスト",
     "heroFeature3": "チーム & 組織向け",
     "cloneOnGithub": "GitHubでクローン",
+    "beStargazer": "GitHubで{count}番目のスターになる",
     "browsePrompts": "プロンプトを見る",
+    "viewFeed": "フィードを見る",
     "readyToStart": "始める準備はできましたか？",
     "freeAndOpen": "無料でオープンソース。",
     "createAccount": "アカウントを作成",

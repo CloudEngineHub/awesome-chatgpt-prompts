@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Noto_Sans_Arabic } from "next/font/google";
 import { getMessages, getLocale } from "next-intl/server";
 import { Providers } from "@/components/providers";
@@ -20,6 +21,7 @@ const notoSansArabic = Noto_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXTAUTH_URL || "http://localhost:3000"),
   title: "prompts.chat",
   description: "Collect, organize, and share AI prompts",
   icons: {
@@ -93,6 +95,22 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={isRtl ? "rtl" : "ltr"} suppressHydrationWarning className={themeClasses} style={themeStyles}>
       <body className={`${fontClasses} antialiased`}>
+        {process.env.GOOGLE_ANALYTICS_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <Providers locale={locale} messages={messages} theme={config.theme} branding={config.branding}>
           <div className="relative min-h-screen flex flex-col">
             <Header authProvider={config.auth.provider} allowRegistration={config.auth.allowRegistration} />

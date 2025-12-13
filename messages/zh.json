@@ -32,6 +32,7 @@
   },
   "nav": {
     "home": "首页",
+    "feed": "动态",
     "promptmasters": "Promptmasters",
     "prompts": "提示词",
     "categories": "分类",
@@ -148,7 +149,11 @@
     "pinned": "已置顶到个人资料",
     "unpinned": "已从个人资料取消置顶",
     "pinFailed": "置顶更新失败",
-    "pinnedPrompts": "已置顶"
+    "pinnedPrompts": "已置顶",
+    "previous": "上一个",
+    "next": "下一个",
+    "mediaLoadError": "无法加载此提示词的媒体。URL可能无效或资源已不可用。",
+    "mediaUnavailable": "媒体不可用"
   },
   "changeRequests": {
     "title": "变更请求",
@@ -184,10 +189,16 @@
     "reopen": "重新开启",
     "reopenedSuccess": "变更请求已重新开启",
     "noRequests": "暂无变更请求",
+    "submittedTo": "提交给 {author}",
+    "receivedFrom": "来自 {author}",
     "edit": "编辑",
     "preview": "预览",
     "noChangesYet": "暂无变更",
-    "changesDetected": "检测到变更"
+    "changesDetected": "检测到变更",
+    "dismiss": "撤回",
+    "dismissed": "变更请求已撤回",
+    "dismissConfirmTitle": "撤回变更请求？",
+    "dismissConfirmDescription": "这将永久删除您的变更请求。此操作无法撤销。"
   },
   "categories": {
     "title": "分类",
@@ -260,6 +271,11 @@
       "deleteFailed": "删除用户失败",
       "roleUpdated": "用户角色已更新",
       "roleUpdateFailed": "更新角色失败",
+      "verify": "验证",
+      "unverify": "取消验证",
+      "verified": "用户已验证",
+      "unverified": "用户验证已取消",
+      "verifyFailed": "更新验证失败",
       "deleteConfirmTitle": "删除用户？",
       "deleteConfirmDescription": "此操作无法撤销。所有用户数据将被永久删除。"
     },
@@ -350,7 +366,12 @@
     "noPromptsOwner": "您还没有创建任何提示词",
     "createFirstPrompt": "创建您的第一个提示词",
     "upvotesReceived": "收到的点赞",
-    "editProfile": "编辑资料"
+    "editProfile": "编辑资料",
+    "contributions": "贡献",
+    "contributionsCount": "贡献",
+    "noContributions": "暂无贡献",
+    "noContributionsOwner": "您还没有对任何提示词做出贡献",
+    "contributedTo": "贡献给 {author} 的提示词"
   },
   "subscription": {
     "subscribe": "订阅",
@@ -360,7 +381,9 @@
     "loginToSubscribe": "请登录后订阅"
   },
   "vote": {
-    "loginToVote": "请登录后点赞",
+    "loginRequired": "需要登录",
+    "loginToVote": "请登录后点赞并保存您的投票。",
+    "goToLogin": "去登录",
     "upvote": "赞",
     "upvotes": "赞"
   },
@@ -418,7 +441,9 @@
     "heroFeature2": "自托管保护隐私",
     "heroFeature3": "适用于团队和组织",
     "cloneOnGithub": "在 GitHub 上克隆",
+    "beStargazer": "成为 GitHub 上第 {count} 位 Star 用户",
     "browsePrompts": "浏览提示词",
+    "viewFeed": "查看动态",
     "readyToStart": "准备好开始了吗？",
     "freeAndOpen": "免费且开源。",
     "createAccount": "创建账户",

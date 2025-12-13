@@ -102,18 +102,43 @@ function CustomPrismaAdapter(): Adapter {
   };
 }
 
+// Helper to get providers from config (supports both old `provider` and new `providers` array)
+function getConfiguredProviders(config: Awaited<ReturnType<typeof getConfig>>): string[] {
+  // Support new `providers` array
+  if (config.auth.providers && config.auth.providers.length > 0) {
+    return config.auth.providers;
+  }
+  // Backward compatibility with old `provider` string
+  if (config.auth.provider) {
+    return [config.auth.provider];
+  }
+  // Default to credentials
+  return ["credentials"];
+}
+
 // Build auth config dynamically based on prompts.config.ts
 async function buildAuthConfig() {
   const config = await getConfig();
-  const authPlugin = getAuthPlugin(config.auth.provider);
+  const providerIds = getConfiguredProviders(config);
+  
+  const authProviders = providerIds
+    .map((id) => {
+      const plugin = getAuthPlugin(id);
+      if (!plugin) {
+        console.warn(`Auth plugin "${id}" not found, skipping`);
+        return null;
+      }
+      return plugin.getProvider();
+    })
+    .filter((p): p is NonNullable<typeof p> => p !== null);
 
-  if (!authPlugin) {
-    throw new Error(`Auth plugin "${config.auth.provider}" not found`);
+  if (authProviders.length === 0) {
+    throw new Error(`No valid auth plugins found. Configured: ${providerIds.join(", ")}`);
   }
 
   return {
     adapter: CustomPrismaAdapter(),
-    providers: [authPlugin.getProvider()],
+    providers: authProviders,
     session: {
       strategy: "jwt" as const,
     },
@@ -124,19 +149,26 @@ async function buildAuthConfig() {
     },
     callbacks: {
       async jwt({ token, user, trigger }: { token: any; user?: any; trigger?: string }) {
-        // On sign in, add user data to token
-        if (user) {
-          token.id = user.id;
-          token.role = (user as User).role;
-          token.username = (user as User).username;
-          token.locale = (user as User).locale;
+        // On sign in, look up the actual database user by email to ensure correct ID
+        if (user && user.email) {
+          const dbUser = await db.user.findUnique({
+            where: { email: user.email },
+            select: { id: true, role: true, username: true, locale: true },
+          });
+          
+          if (dbUser) {
+            token.id = dbUser.id;
+            token.role = dbUser.role;
+            token.username = dbUser.username;
+            token.locale = dbUser.locale;
+          }
         }
         
-        // Always verify user exists in database
-        if (token.id) {
+        // On subsequent requests, verify user exists and refresh data
+        if (token.id && !user) {
           const dbUser = await db.user.findUnique({
             where: { id: token.id as string },
-            select: { role: true, username: true, locale: true },
+            select: { id: true, role: true, username: true, locale: true },
           });
           
           // User no longer exists - invalidate token
@@ -144,7 +176,7 @@ async function buildAuthConfig() {
             return null;
           }
           
-          // Update token with latest user data
+          // Update token with latest user data on explicit update or if data missing
           if (trigger === "update" || !token.username) {
             token.role = dbUser.role;
             token.username = dbUser.username;
