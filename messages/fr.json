@@ -74,6 +74,16 @@
   "prompts": {
     "title": "Prompts",
     "create": "Créer un Prompt",
+    "hfDataStudio": {
+      "button": "HF Data Studio",
+      "sqlQuery": "Requête SQL",
+      "openDataset": "Ouvrir le Dataset",
+      "runQuery": "Exécuter la Requête sur HF",
+      "examples": "Exemples",
+      "selectExample": "Sélectionner un exemple...",
+      "aiGenerate": "Générer IA",
+      "aiPlaceholder": "Décrivez la requête SQL dont vous avez besoin..."
+    },
     "edit": "Modifier le Prompt",
     "delete": "Supprimer le Prompt",
     "myPrompts": "Mes Prompts",
@@ -97,6 +107,8 @@
     "promptPublic": "Public",
     "feature": "Mettre en avant",
     "featured": "En vedette",
+    "unlist": "Retirer",
+    "relist": "Remettre",
     "adminArea": "Zone Admin",
     "types": {
       "text": "Texte",
@@ -134,6 +146,10 @@
     "promptCreated": "Prompt créé",
     "promptUpdated": "Prompt mis à jour",
     "run": "Exécuter",
+    "promptCopied": "Prompt copié",
+    "promptCopiedDescription": "Le prompt a été copié dans le presse-papiers. Collez-le dans {platform} après l'ouverture.",
+    "openPlatform": "Ouvrir {platform}",
+    "cancel": "Annuler",
     "titleRequired": "Le titre est requis",
     "contentRequired": "Le contenu est requis",
     "titlePlaceholder": "Entrez un titre pour votre prompt",
@@ -150,6 +166,12 @@
     "mediaUrl": "URL du Média",
     "mediaUrlPlaceholder": "https://...",
     "mediaUrlDescription": "Entrez l'URL du fichier média pour ce prompt",
+    "mediaImage": "Image Média",
+    "clickToUpload": "Cliquez pour télécharger une image",
+    "uploading": "Téléchargement...",
+    "maxFileSize": "Taille max: 5Mo (JPEG, PNG, GIF, WebP)",
+    "fileTooLarge": "Fichier trop volumineux. La taille maximale est de 5Mo.",
+    "invalidFileType": "Type de fichier invalide. Seuls JPEG, PNG, GIF et WebP sont autorisés.",
     "privateDescription": "Les prompts privés ne sont visibles que par vous",
     "requiresMediaUpload": "Nécessite un Upload de Média",
     "requiresMediaUploadDescription": "Les utilisateurs doivent fournir des fichiers média pour utiliser ce prompt",
@@ -169,7 +191,15 @@
     "previous": "Précédent",
     "next": "Suivant",
     "mediaLoadError": "Le média de ce prompt n'a pas pu être chargé. L'URL est peut-être invalide ou la ressource n'est plus disponible.",
-    "mediaUnavailable": "Média non disponible"
+    "mediaUnavailable": "Média non disponible",
+    "variableWarningTitle": "Modèles de variables détectés",
+    "variableWarningDescription": "Nous avons trouvé des espaces réservés qui pourraient être convertis en variables dynamiques, permettant aux utilisateurs de personnaliser les valeurs lors de l'utilisation de ce prompt.",
+    "convertVariables": "Tout convertir",
+    "more": "de plus",
+    "supportedFormat": "Format supporté",
+    "or": "ou",
+    "detectedVariables": "Variables",
+    "clickToEdit": "Cliquez pour modifier"
   },
   "changeRequests": {
     "title": "Demandes de Modification",
@@ -273,12 +303,37 @@
       "categories": "Catégories",
       "tags": "Tags",
       "webhooks": "Webhooks",
-      "prompts": "Prompts"
+      "prompts": "Prompts",
+      "reports": "Signalements"
+    },
+    "reports": {
+      "title": "Gestion des Signalements",
+      "description": "Examiner et gérer les prompts signalés",
+      "prompt": "Prompt",
+      "reason": "Raison",
+      "reportedBy": "Signalé par",
+      "status": "Statut",
+      "date": "Date",
+      "noReports": "Aucun signalement pour l'instant",
+      "viewPrompt": "Voir le Prompt",
+      "markReviewed": "Marquer comme Examiné",
+      "dismiss": "Rejeter",
+      "markedReviewed": "Signalement marqué comme examiné",
+      "dismissed": "Signalement rejeté",
+      "updateFailed": "Échec de la mise à jour du signalement",
+      "statuses": {
+        "pending": "En attente",
+        "reviewed": "Examiné",
+        "dismissed": "Rejeté"
+      }
     },
     "prompts": {
       "title": "Gestion des Prompts",
       "description": "Importez des prompts depuis prompts.csv et gérez les embeddings IA",
       "import": "Importer CSV",
+      "export": "Exporter CSV",
+      "exportInfo": "Télécharger les prompts en CSV pour GitHub/HuggingFace",
+      "exportSuccess": "Prompts exportés avec succès",
       "importSuccess": "{count} prompts importés",
       "allSkipped": "Tous les prompts existent déjà",
       "importResult": "Importés : {imported}, Ignorés : {skipped}",
@@ -457,7 +512,8 @@
     "search": "Rechercher",
     "clear": "Effacer",
     "found": "{count} trouvés",
-    "aiSearch": "Recherche IA"
+    "aiSearch": "Recherche IA",
+    "searchTags": "Rechercher des tags..."
   },
   "user": {
     "profile": "Profil",
@@ -601,5 +657,27 @@
     "browsePrompts": "Parcourir les Prompts",
     "categories": "Catégories",
     "createPrompt": "Créer un Prompt"
+  },
+  "report": {
+    "report": "Signaler",
+    "reportPrompt": "Signaler le Prompt",
+    "reportDescription": "Aidez-nous à maintenir la communauté en sécurité en signalant les contenus inappropriés.",
+    "reason": "Raison",
+    "selectReason": "Sélectionnez une raison",
+    "reasons": {
+      "spam": "Spam ou publicité",
+      "inappropriate": "Contenu inapproprié",
+      "copyright": "Violation des droits d'auteur",
+      "misleading": "Information trompeuse ou fausse",
+      "other": "Autre"
+    },
+    "details": "Détails supplémentaires",
+    "detailsPlaceholder": "Veuillez fournir plus de contexte sur ce signalement...",
+    "optional": "optionnel",
+    "submitReport": "Envoyer le Signalement",
+    "reportSubmitted": "Signalement envoyé avec succès",
+    "reportFailed": "Échec de l'envoi du signalement",
+    "reasonRequired": "Veuillez sélectionner une raison",
+    "alreadyReported": "Vous avez déjà signalé ce prompt"
   }
 }

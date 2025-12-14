@@ -74,6 +74,16 @@
   "prompts": {
     "title": "Promptlar",
     "create": "Prompt Oluştur",
+    "hfDataStudio": {
+      "button": "HF Veri Stüdyosu",
+      "sqlQuery": "SQL Sorgusu",
+      "openDataset": "Veri Setini Aç",
+      "runQuery": "HF'de Sorguyu Çalıştır",
+      "examples": "Örnekler",
+      "selectExample": "Bir örnek seçin...",
+      "aiGenerate": "AI Oluştur",
+      "aiPlaceholder": "Nasıl bir prompt bulmak istiyorsunuz?"
+    },
     "edit": "Prompt Düzenle",
     "delete": "Prompt Sil",
     "myPrompts": "Promptlarım",
@@ -97,6 +107,8 @@
     "promptPublic": "Herkese Açık",
     "feature": "Öne Çıkar",
     "featured": "Öne Çıkan",
+    "unlist": "Listeden Kaldır",
+    "relist": "Listeye Ekle",
     "adminArea": "Yönetici Alanı",
     "types": {
       "text": "Metin",
@@ -134,6 +146,10 @@
     "promptCreated": "Prompt oluşturuldu",
     "promptUpdated": "Prompt güncellendi",
     "run": "Çalıştır",
+    "promptCopied": "Prompt Kopyalandı",
+    "promptCopiedDescription": "Prompt panoya kopyalandı. Açtıktan sonra {platform}'a yapıştırın.",
+    "openPlatform": "{platform}'u Aç",
+    "cancel": "İptal",
     "titleRequired": "Başlık gerekli",
     "contentRequired": "İçerik gerekli",
     "titlePlaceholder": "Promptunuz için bir başlık girin",
@@ -150,6 +166,12 @@
     "mediaUrl": "Medya URL",
     "mediaUrlPlaceholder": "https://...",
     "mediaUrlDescription": "Bu prompt için medya dosyasının URL'sini girin",
+    "mediaImage": "Medya Görseli",
+    "clickToUpload": "Görsel yüklemek için tıklayın",
+    "uploading": "Yükleniyor...",
+    "maxFileSize": "Maksimum dosya boyutu: 5MB (JPEG, PNG, GIF, WebP)",
+    "fileTooLarge": "Dosya çok büyük. Maksimum boyut 5MB'dir.",
+    "invalidFileType": "Geçersiz dosya türü. Yalnızca JPEG, PNG, GIF ve WebP'ye izin verilir.",
     "privateDescription": "Özel promptlar yalnızca size görünür",
     "requiresMediaUpload": "Medya Yüklemesi Gerekli",
     "requiresMediaUploadDescription": "Bu promptu kullanmak için medya dosyası gereklidir",
@@ -169,7 +191,15 @@
     "previous": "Önceki",
     "next": "Sonraki",
     "mediaLoadError": "Bu prompt için medya yüklenemedi. URL geçersiz olabilir veya kaynak artık mevcut değil.",
-    "mediaUnavailable": "Medya kullanılamıyor"
+    "mediaUnavailable": "Medya kullanılamıyor",
+    "variableWarningTitle": "Değişken benzeri kalıplar tespit edildi",
+    "variableWarningDescription": "Dinamik değişkenlere dönüştürülebilecek yer tutucular bulduk. Bu, kullanıcıların bu promptu kullanırken değerleri özelleştirmesine olanak tanır.",
+    "convertVariables": "Tümünü Dönüştür",
+    "more": "daha fazla",
+    "supportedFormat": "Desteklenen format",
+    "or": "veya",
+    "detectedVariables": "Değişkenler",
+    "clickToEdit": "Düzenlemek için tıklayın"
   },
   "changeRequests": {
     "title": "Değişiklik İstekleri",
@@ -273,12 +303,37 @@
       "categories": "Kategoriler",
       "tags": "Etiketler",
       "webhooks": "Webhooklar",
-      "prompts": "Promptlar"
+      "prompts": "Promptlar",
+      "reports": "Şikayetler"
+    },
+    "reports": {
+      "title": "Şikayet Yönetimi",
+      "description": "Şikayet edilen promptları incele ve yönet",
+      "prompt": "Prompt",
+      "reason": "Sebep",
+      "reportedBy": "Şikayet Eden",
+      "status": "Durum",
+      "date": "Tarih",
+      "noReports": "Henüz şikayet yok",
+      "viewPrompt": "Promptu Görüntüle",
+      "markReviewed": "İncelendi Olarak İşaretle",
+      "dismiss": "Reddet",
+      "markedReviewed": "Şikayet incelendi olarak işaretlendi",
+      "dismissed": "Şikayet reddedildi",
+      "updateFailed": "Şikayet güncellenemedi",
+      "statuses": {
+        "pending": "Beklemede",
+        "reviewed": "İncelendi",
+        "dismissed": "Reddedildi"
+      }
     },
     "prompts": {
       "title": "Prompt Yönetimi",
       "description": "prompts.csv'den prompt içe aktar ve AI gömme vektörlerini yönet",
       "import": "CSV İçe Aktar",
+      "export": "CSV Dışa Aktar",
+      "exportInfo": "GitHub/HuggingFace için promptları CSV olarak indir",
+      "exportSuccess": "Promptlar başarıyla dışa aktarıldı",
       "importSuccess": "{count} prompt içe aktarıldı",
       "allSkipped": "Tüm promptlar zaten mevcut",
       "importResult": "İçe aktarılan: {imported}, Atlanan: {skipped}",
@@ -457,7 +512,8 @@
     "search": "Ara",
     "clear": "Temizle",
     "found": "{count} bulundu",
-    "aiSearch": "AI ile Ara"
+    "aiSearch": "AI ile Ara",
+    "searchTags": "Etiket ara..."
   },
   "user": {
     "profile": "Profil",
@@ -601,5 +657,27 @@
     "browsePrompts": "Promptlara Göz At",
     "categories": "Kategoriler",
     "createPrompt": "Prompt Oluştur"
+  },
+  "report": {
+    "report": "Şikayet Et",
+    "reportPrompt": "Promptu Şikayet Et",
+    "reportDescription": "Uygunsuz içerikleri bildirerek topluluğumuzu güvende tutmamıza yardımcı olun.",
+    "reason": "Sebep",
+    "selectReason": "Bir sebep seçin",
+    "reasons": {
+      "spam": "Spam veya reklam",
+      "inappropriate": "Uygunsuz içerik",
+      "copyright": "Telif hakkı ihlali",
+      "misleading": "Yanıltıcı veya yanlış bilgi",
+      "other": "Diğer"
+    },
+    "details": "Ek detaylar",
+    "detailsPlaceholder": "Bu şikayet hakkında daha fazla bilgi verin...",
+    "optional": "isteğe bağlı",
+    "submitReport": "Şikayeti Gönder",
+    "reportSubmitted": "Şikayet başarıyla gönderildi",
+    "reportFailed": "Şikayet gönderilemedi",
+    "reasonRequired": "Lütfen bir sebep seçin",
+    "alreadyReported": "Bu promptu zaten şikayet ettiniz"
   }
 }

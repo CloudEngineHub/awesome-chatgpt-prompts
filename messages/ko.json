@@ -74,6 +74,16 @@
   "prompts": {
     "title": "프롬프트",
     "create": "프롬프트 생성",
+    "hfDataStudio": {
+      "button": "HF 데이터 스튜디오",
+      "sqlQuery": "SQL 쿼리",
+      "openDataset": "데이터셋 열기",
+      "runQuery": "HF에서 쿼리 실행",
+      "examples": "예제",
+      "selectExample": "예제 선택...",
+      "aiGenerate": "AI 생성",
+      "aiPlaceholder": "필요한 SQL 쿼리를 설명하세요..."
+    },
     "edit": "프롬프트 편집",
     "delete": "프롬프트 삭제",
     "myPrompts": "내 프롬프트",
@@ -97,6 +107,8 @@
     "promptPublic": "공개",
     "feature": "추천",
     "featured": "추천됨",
+    "unlist": "숨기기",
+    "relist": "다시 표시",
     "adminArea": "관리자 영역",
     "types": {
       "text": "텍스트",
@@ -134,6 +146,10 @@
     "promptCreated": "프롬프트 생성됨",
     "promptUpdated": "프롬프트 업데이트됨",
     "run": "실행",
+    "promptCopied": "프롬프트 복사됨",
+    "promptCopiedDescription": "프롬프트가 클립보드에 복사되었습니다. {platform}을 연 후 붙여넣기 하세요.",
+    "openPlatform": "{platform} 열기",
+    "cancel": "취소",
     "titleRequired": "제목은 필수입니다",
     "contentRequired": "내용은 필수입니다",
     "titlePlaceholder": "프롬프트 제목을 입력하세요",
@@ -150,6 +166,12 @@
     "mediaUrl": "미디어 URL",
     "mediaUrlPlaceholder": "https://...",
     "mediaUrlDescription": "이 프롬프트의 미디어 파일 URL을 입력하세요",
+    "mediaImage": "미디어 이미지",
+    "clickToUpload": "클릭하여 이미지 업로드",
+    "uploading": "업로드 중...",
+    "maxFileSize": "최대 파일 크기: 5MB (JPEG, PNG, GIF, WebP)",
+    "fileTooLarge": "파일이 너무 큽니다. 최대 크기는 5MB입니다.",
+    "invalidFileType": "잘못된 파일 형식입니다. JPEG, PNG, GIF, WebP만 허용됩니다.",
     "privateDescription": "비공개 프롬프트는 본인만 볼 수 있습니다",
     "requiresMediaUpload": "미디어 업로드 필요",
     "requiresMediaUploadDescription": "이 프롬프트를 사용하려면 미디어 파일을 제공해야 합니다",
@@ -169,7 +191,15 @@
     "previous": "이전",
     "next": "다음",
     "mediaLoadError": "이 프롬프트의 미디어를 불러올 수 없습니다. URL이 잘못되었거나 리소스를 더 이상 사용할 수 없습니다.",
-    "mediaUnavailable": "미디어를 사용할 수 없음"
+    "mediaUnavailable": "미디어를 사용할 수 없음",
+    "variableWarningTitle": "변수와 유사한 패턴 감지됨",
+    "variableWarningDescription": "동적 변수로 변환할 수 있는 플레이스홀더를 발견했습니다. 이를 통해 사용자가 이 프롬프트를 사용할 때 값을 사용자 지정할 수 있습니다.",
+    "convertVariables": "모두 변환",
+    "more": "개 더",
+    "supportedFormat": "지원 형식",
+    "or": "또는",
+    "detectedVariables": "변수",
+    "clickToEdit": "클릭하여 편집"
   },
   "changeRequests": {
     "title": "변경 요청",
@@ -273,12 +303,37 @@
       "categories": "카테고리",
       "tags": "태그",
       "webhooks": "웹훅",
-      "prompts": "프롬프트"
+      "prompts": "프롬프트",
+      "reports": "신고"
+    },
+    "reports": {
+      "title": "신고 관리",
+      "description": "신고된 프롬프트를 검토하고 관리합니다",
+      "prompt": "프롬프트",
+      "reason": "사유",
+      "reportedBy": "신고자",
+      "status": "상태",
+      "date": "날짜",
+      "noReports": "아직 신고가 없습니다",
+      "viewPrompt": "프롬프트 보기",
+      "markReviewed": "검토 완료로 표시",
+      "dismiss": "기각",
+      "markedReviewed": "신고가 검토 완료로 표시되었습니다",
+      "dismissed": "신고가 기각되었습니다",
+      "updateFailed": "신고 업데이트에 실패했습니다",
+      "statuses": {
+        "pending": "대기 중",
+        "reviewed": "검토 완료",
+        "dismissed": "기각됨"
+      }
     },
     "prompts": {
       "title": "프롬프트 관리",
       "description": "prompts.csv에서 프롬프트 가져오기 및 AI 임베딩 관리",
       "import": "CSV 가져오기",
+      "export": "CSV 내보내기",
+      "exportInfo": "GitHub/HuggingFace용 CSV로 프롬프트 다운로드",
+      "exportSuccess": "프롬프트가 성공적으로 내보내졌습니다",
       "importSuccess": "{count}개 프롬프트 가져옴",
       "allSkipped": "모든 프롬프트가 이미 존재합니다",
       "importResult": "가져옴: {imported}, 건너뜀: {skipped}",
@@ -457,7 +512,8 @@
     "search": "검색",
     "clear": "지우기",
     "found": "{count}개 찾음",
-    "aiSearch": "AI 검색"
+    "aiSearch": "AI 검색",
+    "searchTags": "태그 검색..."
   },
   "user": {
     "profile": "프로필",
@@ -601,5 +657,27 @@
     "browsePrompts": "프롬프트 둘러보기",
     "categories": "카테고리",
     "createPrompt": "프롬프트 만들기"
+  },
+  "report": {
+    "report": "신고",
+    "reportPrompt": "프롬프트 신고",
+    "reportDescription": "부적절한 콘텐츠를 신고하여 커뮤니티를 안전하게 유지하는 데 도움을 주세요.",
+    "reason": "사유",
+    "selectReason": "사유를 선택하세요",
+    "reasons": {
+      "spam": "스팸 또는 광고",
+      "inappropriate": "부적절한 콘텐츠",
+      "copyright": "저작권 침해",
+      "misleading": "오해의 소지가 있거나 허위 정보",
+      "other": "기타"
+    },
+    "details": "추가 세부사항",
+    "detailsPlaceholder": "이 신고에 대한 자세한 내용을 입력하세요...",
+    "optional": "선택사항",
+    "submitReport": "신고 제출",
+    "reportSubmitted": "신고가 성공적으로 제출되었습니다",
+    "reportFailed": "신고 제출에 실패했습니다",
+    "reasonRequired": "사유를 선택하세요",
+    "alreadyReported": "이미 이 프롬프트를 신고하셨습니다"
   }
 }

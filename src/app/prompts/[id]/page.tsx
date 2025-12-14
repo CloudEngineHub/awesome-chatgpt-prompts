@@ -19,7 +19,9 @@ import { DeleteVersionButton } from "@/components/prompts/delete-version-button"
 import { VersionCompareModal } from "@/components/prompts/version-compare-modal";
 import { VersionCompareButton } from "@/components/prompts/version-compare-button";
 import { FeaturePromptButton } from "@/components/prompts/feature-prompt-button";
+import { UnlistPromptButton } from "@/components/prompts/unlist-prompt-button";
 import { MediaPreview } from "@/components/prompts/media-preview";
+import { ReportPromptDialog } from "@/components/prompts/report-prompt-dialog";
 
 interface PromptPageProps {
   params: Promise<{ id: string }>;
@@ -113,6 +115,11 @@ export default async function PromptPage({ params }: PromptPageProps) {
 
   // Check if user can view private prompt
   if (prompt.isPrivate && prompt.authorId !== session?.user?.id) {
+    notFound();
+  }
+
+  // Check if user can view unlisted prompt (only owner and admins can see)
+  if (prompt.isUnlisted && prompt.authorId !== session?.user?.id && session?.user?.role !== "ADMIN") {
     notFound();
   }
 
@@ -380,6 +387,12 @@ export default async function PromptPage({ params }: PromptPageProps) {
               <InteractivePromptContent content={prompt.content} title={t("promptContent")} />
             )}
           </div>
+          {/* Report link */}
+          {!isOwner && (
+            <div className="flex justify-end pt-2">
+              <ReportPromptDialog promptId={prompt.id} isLoggedIn={!!session?.user} />
+            </div>
+          )}
         </TabsContent>
 
         <TabsContent value="versions" className="mt-0">
@@ -538,6 +551,10 @@ export default async function PromptPage({ params }: PromptPageProps) {
             <FeaturePromptButton
               promptId={prompt.id}
               isFeatured={prompt.isFeatured}
+            />
+            <UnlistPromptButton
+              promptId={prompt.id}
+              isUnlisted={prompt.isUnlisted}
             />
             <Button variant="outline" size="sm" asChild>
               <Link href={`/prompts/${id}/edit`}>

@@ -74,6 +74,16 @@
   "prompts": {
     "title": "Prompts",
     "create": "Criar Prompt",
+    "hfDataStudio": {
+      "button": "HF Data Studio",
+      "sqlQuery": "Consulta SQL",
+      "openDataset": "Abrir Dataset",
+      "runQuery": "Executar Consulta no HF",
+      "examples": "Exemplos",
+      "selectExample": "Selecione um exemplo...",
+      "aiGenerate": "Gerar com IA",
+      "aiPlaceholder": "Descreva a consulta SQL que você precisa..."
+    },
     "edit": "Editar Prompt",
     "delete": "Excluir Prompt",
     "myPrompts": "Meus Prompts",
@@ -97,6 +107,8 @@
     "promptPublic": "Público",
     "feature": "Destacar",
     "featured": "Destacado",
+    "unlist": "Ocultar",
+    "relist": "Mostrar",
     "adminArea": "Área Admin",
     "types": {
       "text": "Texto",
@@ -134,6 +146,10 @@
     "promptCreated": "Prompt criado",
     "promptUpdated": "Prompt atualizado",
     "run": "Executar",
+    "promptCopied": "Prompt copiado",
+    "promptCopiedDescription": "O prompt foi copiado para a área de transferência. Cole-o no {platform} após abrir.",
+    "openPlatform": "Abrir {platform}",
+    "cancel": "Cancelar",
     "titleRequired": "Título é obrigatório",
     "contentRequired": "Conteúdo é obrigatório",
     "titlePlaceholder": "Digite um título para seu prompt",
@@ -150,6 +166,12 @@
     "mediaUrl": "URL da Mídia",
     "mediaUrlPlaceholder": "https://...",
     "mediaUrlDescription": "Digite a URL do arquivo de mídia para este prompt",
+    "mediaImage": "Imagem de Mídia",
+    "clickToUpload": "Clique para enviar uma imagem",
+    "uploading": "Enviando...",
+    "maxFileSize": "Tamanho máximo: 5MB (JPEG, PNG, GIF, WebP)",
+    "fileTooLarge": "Arquivo muito grande. O tamanho máximo é 5MB.",
+    "invalidFileType": "Tipo de arquivo inválido. Apenas JPEG, PNG, GIF e WebP são permitidos.",
     "privateDescription": "Prompts privados são visíveis apenas para você",
     "requiresMediaUpload": "Requer Upload de Mídia",
     "requiresMediaUploadDescription": "Usuários precisam fornecer arquivos de mídia para usar este prompt",
@@ -169,7 +191,15 @@
     "previous": "Anterior",
     "next": "Próximo",
     "mediaLoadError": "A mídia deste prompt não pôde ser carregada. A URL pode ser inválida ou o recurso não está mais disponível.",
-    "mediaUnavailable": "Mídia indisponível"
+    "mediaUnavailable": "Mídia indisponível",
+    "variableWarningTitle": "Padrões semelhantes a variáveis detectados",
+    "variableWarningDescription": "Encontramos marcadores que podem ser convertidos em variáveis dinâmicas, permitindo que os usuários personalizem valores ao usar este prompt.",
+    "convertVariables": "Converter tudo",
+    "more": "mais",
+    "supportedFormat": "Formato suportado",
+    "or": "ou",
+    "detectedVariables": "Variáveis",
+    "clickToEdit": "Clique para editar"
   },
   "changeRequests": {
     "title": "Solicitações de Alteração",
@@ -273,12 +303,37 @@
       "categories": "Categorias",
       "tags": "Tags",
       "webhooks": "Webhooks",
-      "prompts": "Prompts"
+      "prompts": "Prompts",
+      "reports": "Denúncias"
+    },
+    "reports": {
+      "title": "Gestão de Denúncias",
+      "description": "Revise e gerencie prompts denunciados",
+      "prompt": "Prompt",
+      "reason": "Motivo",
+      "reportedBy": "Denunciado por",
+      "status": "Estado",
+      "date": "Data",
+      "noReports": "Nenhuma denúncia ainda",
+      "viewPrompt": "Ver Prompt",
+      "markReviewed": "Marcar como Revisado",
+      "dismiss": "Descartar",
+      "markedReviewed": "Denúncia marcada como revisada",
+      "dismissed": "Denúncia descartada",
+      "updateFailed": "Falha ao atualizar denúncia",
+      "statuses": {
+        "pending": "Pendente",
+        "reviewed": "Revisado",
+        "dismissed": "Descartado"
+      }
     },
     "prompts": {
       "title": "Gerenciamento de Prompts",
       "description": "Importe prompts do prompts.csv e gerencie embeddings de IA",
       "import": "Importar CSV",
+      "export": "Exportar CSV",
+      "exportInfo": "Baixar prompts como CSV para GitHub/HuggingFace",
+      "exportSuccess": "Prompts exportados com sucesso",
       "importSuccess": "{count} prompts importados",
       "allSkipped": "Todos os prompts já existem",
       "importResult": "Importados: {imported}, Ignorados: {skipped}",
@@ -457,7 +512,8 @@
     "search": "Buscar",
     "clear": "Limpar",
     "found": "{count} encontrados",
-    "aiSearch": "Busca por IA"
+    "aiSearch": "Busca por IA",
+    "searchTags": "Pesquisar tags..."
   },
   "user": {
     "profile": "Perfil",
@@ -601,5 +657,27 @@
     "browsePrompts": "Ver Prompts",
     "categories": "Categorias",
     "createPrompt": "Criar Prompt"
+  },
+  "report": {
+    "report": "Denunciar",
+    "reportPrompt": "Denunciar Prompt",
+    "reportDescription": "Ajude-nos a manter a comunidade segura denunciando conteúdo inadequado.",
+    "reason": "Motivo",
+    "selectReason": "Selecione um motivo",
+    "reasons": {
+      "spam": "Spam ou publicidade",
+      "inappropriate": "Conteúdo inadequado",
+      "copyright": "Violação de direitos autorais",
+      "misleading": "Informação enganosa ou falsa",
+      "other": "Outro"
+    },
+    "details": "Detalhes adicionais",
+    "detailsPlaceholder": "Forneça mais contexto sobre esta denúncia...",
+    "optional": "opcional",
+    "submitReport": "Enviar Denúncia",
+    "reportSubmitted": "Denúncia enviada com sucesso",
+    "reportFailed": "Falha ao enviar denúncia",
+    "reasonRequired": "Por favor, selecione um motivo",
+    "alreadyReported": "Você já denunciou este prompt"
   }
 }

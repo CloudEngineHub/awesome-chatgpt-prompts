@@ -6,12 +6,13 @@ import { db } from "@/lib/db";
 import { Prisma } from "@prisma/client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, FolderTree, Tags, FileText, Webhook } from "lucide-react";
+import { Users, FolderTree, Tags, FileText, Webhook, Flag } from "lucide-react";
 import { UsersTable } from "@/components/admin/users-table";
 import { CategoriesTable } from "@/components/admin/categories-table";
 import { TagsTable } from "@/components/admin/tags-table";
 import { WebhooksTable } from "@/components/admin/webhooks-table";
 import { PromptsManagement } from "@/components/admin/prompts-management";
+import { ReportsTable } from "@/components/admin/reports-table";
 import { isAISearchEnabled } from "@/lib/ai/embeddings";
 
 export const metadata: Metadata = {
@@ -37,19 +38,29 @@ export default async function AdminPage() {
     isAISearchEnabled(),
   ]);
   
-  // Count prompts without embeddings (JSON null check requires separate query)
+  // Count prompts without embeddings and total public prompts
   let promptsWithoutEmbeddings = 0;
+  let totalPublicPrompts = 0;
   if (aiSearchEnabled) {
-    promptsWithoutEmbeddings = await db.prompt.count({
-      where: {
-        isPrivate: false,
-        embedding: { equals: Prisma.DbNull },
-      },
-    });
+    [promptsWithoutEmbeddings, totalPublicPrompts] = await Promise.all([
+      db.prompt.count({
+        where: {
+          isPrivate: false,
+          deletedAt: null,
+          embedding: { equals: Prisma.DbNull },
+        },
+      }),
+      db.prompt.count({
+        where: {
+          isPrivate: false,
+          deletedAt: null,
+        },
+      }),
+    ]);
   }
 
   // Fetch data for tables
-  const [users, categories, tags, webhooks] = await Promise.all([
+  const [users, categories, tags, webhooks, reports] = await Promise.all([
     db.user.findMany({
       orderBy: { createdAt: "desc" },
       select: {
@@ -97,6 +108,25 @@ export default async function AdminPage() {
     }),
     db.webhookConfig.findMany({
       orderBy: { createdAt: "desc" },
+    }),
+    db.promptReport.findMany({
+      orderBy: { createdAt: "desc" },
+      include: {
+        prompt: {
+          select: {
+            id: true,
+            title: true,
+          },
+        },
+        reporter: {
+          select: {
+            id: true,
+            username: true,
+            name: true,
+            avatar: true,
+          },
+        },
+      },
     }),
   ]);
 
@@ -170,6 +200,15 @@ export default async function AdminPage() {
             <FileText className="h-4 w-4" />
             {t("tabs.prompts")}
           </TabsTrigger>
+          <TabsTrigger value="reports" className="gap-2">
+            <Flag className="h-4 w-4" />
+            {t("tabs.reports")}
+            {reports.filter(r => r.status === "PENDING").length > 0 && (
+              <span className="ml-1 px-1.5 py-0.5 text-xs bg-destructive text-white rounded-full">
+                {reports.filter(r => r.status === "PENDING").length}
+              </span>
+            )}
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="users">
@@ -191,8 +230,13 @@ export default async function AdminPage() {
         <TabsContent value="prompts">
           <PromptsManagement 
             aiSearchEnabled={aiSearchEnabled} 
-            promptsWithoutEmbeddings={promptsWithoutEmbeddings} 
+            promptsWithoutEmbeddings={promptsWithoutEmbeddings}
+            totalPublicPrompts={totalPublicPrompts}
           />
+        </TabsContent>
+
+        <TabsContent value="reports">
+          <ReportsTable reports={reports} />
         </TabsContent>
       </Tabs>
     </div>
