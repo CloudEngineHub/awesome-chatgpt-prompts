@@ -16,6 +16,8 @@
     "copied": "Copiado!",
     "reset": "Redefinir",
     "variables": "Variáveis",
+    "fillVariables": "Preencher Variáveis",
+    "fillVariablesDescription": "Por favor preencha as variáveis necessárias antes de executar o prompt.",
     "copiedToClipboard": "Copiado para a área de transferência",
     "failedToCopy": "Falha ao copiar",
     "submit": "Enviar",
@@ -82,7 +84,8 @@
       "examples": "Exemplos",
       "selectExample": "Selecione um exemplo...",
       "aiGenerate": "Gerar com IA",
-      "aiPlaceholder": "Descreva a consulta SQL que você precisa..."
+      "aiPlaceholder": "Descreva a consulta SQL que você precisa...",
+      "generateSql": "Gerar SQL"
     },
     "edit": "Editar Prompt",
     "delete": "Excluir Prompt",
@@ -117,6 +120,27 @@
       "audio": "Áudio",
       "structured": "Estruturado",
       "document": "Documento"
+    },
+    "inputType": "Prompt do Usuário",
+    "outputType": "Resposta da IA",
+    "inputTypeDescription": "Como seu prompt está formatado",
+    "outputTypeDescription": "Tipo de resposta que a IA irá gerar",
+    "outputTypeStructuredNote": "Prompts estruturados podem produzir vários tipos de saída",
+    "inputTypes": {
+      "text": "Prompt de Texto",
+      "structured": "Estruturado (JSON/YAML)"
+    },
+    "outputTypes": {
+      "text": "Texto",
+      "image": "Imagem",
+      "video": "Vídeo",
+      "audio": "Áudio/Voz"
+    },
+    "outputPreview": {
+      "text": "✨ A magia acontece aqui... sua IA escreverá algo brilhante!",
+      "imageUpload": "Envie uma imagem de exemplo",
+      "videoUpload": "Envie um vídeo/GIF de exemplo",
+      "audio": "Prévia de áudio"
     },
     "structuredFormat": "Formato",
     "structuredFormatDescription": "Selecione o formato para seu prompt estruturado",
@@ -346,6 +370,7 @@
       "confirm": "Importar",
       "delete": "Excluir",
       "generateEmbeddings": "Gerar Embeddings",
+      "regenerateEmbeddings": "Regenerar todos os embeddings",
       "pending": "pendente",
       "embeddingsSuccess": "{count} embeddings gerados",
       "embeddingsResult": "Gerados: {success}, Falhas: {failed}"
@@ -648,6 +673,20 @@
     "tokens": "tokens",
     "noChanges": "Sem alterações"
   },
+  "heroPromptInput": {
+    "placeholder": "Descreva o prompt que você quer criar...",
+    "ariaLabel": "Descreva o prompt que você quer criar",
+    "submit": "Criar prompt",
+    "hint": "Clique para começar a criar com IA",
+    "modelName": "Agente de Prompts",
+    "examples": {
+      "codeReview": "Crie um assistente de revisão de código que detecta bugs",
+      "emailWriter": "Construa um escritor de emails profissionais para qualquer ocasião",
+      "studyPlanner": "Projete um gerador de planos de estudo personalizados",
+      "recipeGenerator": "Crie um gerador de receitas baseado em ingredientes disponíveis",
+      "interviewCoach": "Crie um coach de preparação para entrevistas"
+    }
+  },
   "notFound": {
     "title": "Página Não Encontrada",
     "description": "A página que você está procurando não existe ou foi movida.",
@@ -657,6 +696,28 @@
     "browsePrompts": "Ver Prompts",
     "categories": "Categorias",
     "createPrompt": "Criar Prompt"
+  },
+  "promptBuilder": {
+    "title": "Agente Construtor de Prompts",
+    "openBuilder": "Agente de Prompts",
+    "welcomeTitle": "Criar prompts com IA",
+    "welcomeDescription": "Descreva o que você quer criar e eu vou ajudá-lo a construir passo a passo.",
+    "tryAsking": "Tente perguntar:",
+    "example1": "Criar um prompt para revisão de código",
+    "example2": "Me ajude a escrever um prompt para escrita criativa",
+    "example3": "Preciso de um prompt para resumir artigos",
+    "inputPlaceholder": "Descreva o que você quer criar...",
+    "thinking": "Pensando...",
+    "errorMessage": "Algo deu errado. Por favor, tente novamente.",
+    "foundExamples": "Encontrados {count} prompts similares:",
+    "currentPrompt": "Construindo:",
+    "stateTitle": "Título",
+    "stateContent": "Conteúdo",
+    "stateTags": "tags",
+    "editAction1": "Preencher campos faltantes, atualizar tags.",
+    "editAction2": "Melhorar variáveis",
+    "editAction3": "Usar variáveis",
+    "editAction4": "Converter para prompt JSON"
   },
   "report": {
     "report": "Denunciar",
@@ -679,5 +740,19 @@
     "reportFailed": "Falha ao enviar denúncia",
     "reasonRequired": "Por favor, selecione um motivo",
     "alreadyReported": "Você já denunciou este prompt"
+  },
+  "mcp": {
+    "button": "Servidor MCP",
+    "title": "Configuração do Servidor MCP",
+    "description": "Use prompts MCP em clientes compatíveis como VS Code, Cursor e Claude Desktop. Adicione esta configuração às suas configurações MCP.",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "customizeFilters": "Personalize os filtros para restringir os prompts:",
+    "users": "Usuários",
+    "userPlaceholder": "Adicionar nome de usuário...",
+    "categories": "Categorias",
+    "categoryPlaceholder": "Adicionar slug da categoria...",
+    "tags": "Tags",
+    "tagPlaceholder": "Adicionar slug da tag..."
   }
 }

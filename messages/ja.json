@@ -16,6 +16,8 @@
     "copied": "コピーしました！",
     "reset": "リセット",
     "variables": "変数",
+    "fillVariables": "変数を入力",
+    "fillVariablesDescription": "プロンプトを実行する前に必要な変数を入力してください。",
     "copiedToClipboard": "クリップボードにコピーしました",
     "failedToCopy": "コピーに失敗しました",
     "submit": "送信",
@@ -82,7 +84,8 @@
       "examples": "例",
       "selectExample": "例を選択...",
       "aiGenerate": "AI生成",
-      "aiPlaceholder": "必要なSQLクエリを説明してください..."
+      "aiPlaceholder": "必要なSQLクエリを説明してください...",
+      "generateSql": "SQL生成"
     },
     "edit": "プロンプトを編集",
     "delete": "プロンプトを削除",
@@ -117,6 +120,27 @@
       "audio": "音声",
       "structured": "構造化",
       "document": "ドキュメント"
+    },
+    "inputType": "ユーザープロンプト",
+    "outputType": "AI レスポンス",
+    "inputTypeDescription": "プロンプトのフォーマット",
+    "outputTypeDescription": "AIが生成するレスポンスの種類",
+    "outputTypeStructuredNote": "構造化プロンプトは様々な出力タイプを生成できます",
+    "inputTypes": {
+      "text": "テキストプロンプト",
+      "structured": "構造化 (JSON/YAML)"
+    },
+    "outputTypes": {
+      "text": "テキスト",
+      "image": "画像",
+      "video": "動画",
+      "audio": "音声/ボイス"
+    },
+    "outputPreview": {
+      "text": "✨ ここで魔法が起こります... AIが素晴らしいものを書きます！",
+      "imageUpload": "サンプル画像をアップロード",
+      "videoUpload": "サンプル動画/GIFをアップロード",
+      "audio": "音声出力プレビュー"
     },
     "insertVariable": "変数を挿入",
     "variableName": "変数名",
@@ -347,6 +371,7 @@
       "delete": "削除",
       "pending": "保留中",
       "generateEmbeddings": "埋め込みを生成",
+      "regenerateEmbeddings": "すべての埋め込みを再生成",
       "embeddingsSuccess": "{count} 件の埋め込みを生成しました",
       "embeddingsResult": "成功: {success}, 失敗: {failed}"
     },
@@ -648,6 +673,20 @@
     "tokens": "トークン",
     "noChanges": "変更なし"
   },
+  "heroPromptInput": {
+    "placeholder": "作成したいプロンプトを説明してください...",
+    "ariaLabel": "作成したいプロンプトを説明してください",
+    "submit": "プロンプトを作成",
+    "hint": "クリックしてAIで作成を開始",
+    "modelName": "プロンプトエージェント",
+    "examples": {
+      "codeReview": "バグを検出するコードレビューアシスタントを作成",
+      "emailWriter": "あらゆる場面に対応するプロフェッショナルなメール作成ツールを構築",
+      "studyPlanner": "パーソナライズされた学習プランジェネレーターを設計",
+      "recipeGenerator": "手持ちの食材でレシピを作成するツールを作成",
+      "interviewCoach": "面接対策コーチを作成"
+    }
+  },
   "notFound": {
     "title": "ページが見つかりません",
     "description": "お探しのページは存在しないか、移動された可能性があります。",
@@ -657,6 +696,28 @@
     "browsePrompts": "プロンプトを見る",
     "categories": "カテゴリー",
     "createPrompt": "プロンプトを作成"
+  },
+  "promptBuilder": {
+    "title": "プロンプト構築エージェント",
+    "openBuilder": "プロンプトエージェント",
+    "welcomeTitle": "AIでプロンプトを作成",
+    "welcomeDescription": "作成したいものを説明してください。ステップバイステップでお手伝いします。",
+    "tryAsking": "質問してみてください：",
+    "example1": "コードレビュー用のプロンプトを作成",
+    "example2": "クリエイティブライティング用のプロンプトを書くのを手伝って",
+    "example3": "記事を要約するプロンプトが必要",
+    "inputPlaceholder": "作成したいものを説明してください...",
+    "thinking": "考え中...",
+    "errorMessage": "エラーが発生しました。もう一度お試しください。",
+    "foundExamples": "{count}件の類似プロンプトが見つかりました：",
+    "currentPrompt": "構築中：",
+    "stateTitle": "タイトル",
+    "stateContent": "内容",
+    "stateTags": "タグ",
+    "editAction1": "不足フィールドを埋め、タグを更新。",
+    "editAction2": "変数を改善",
+    "editAction3": "変数を使用",
+    "editAction4": "JSONプロンプトに変換"
   },
   "report": {
     "report": "報告",
@@ -679,5 +740,19 @@
     "reportFailed": "報告の送信に失敗しました",
     "reasonRequired": "理由を選択してください",
     "alreadyReported": "このプロンプトは既に報告済みです"
+  },
+  "mcp": {
+    "button": "MCPサーバー",
+    "title": "MCPサーバー設定",
+    "description": "VS Code、Cursor、Claude Desktopなどの対応クライアントでMCPプロンプトを使用できます。この設定をMCP設定に追加してください。",
+    "copy": "コピー",
+    "copied": "コピーしました！",
+    "customizeFilters": "フィルターをカスタマイズしてプロンプトを絞り込む：",
+    "users": "ユーザー",
+    "userPlaceholder": "ユーザー名を追加...",
+    "categories": "カテゴリー",
+    "categoryPlaceholder": "カテゴリースラッグを追加...",
+    "tags": "タグ",
+    "tagPlaceholder": "タグスラッグを追加..."
   }
 }

@@ -16,6 +16,8 @@
     "copied": "Kopyalandı!",
     "reset": "Sıfırla",
     "variables": "Değişkenler",
+    "fillVariables": "Değişkenleri Doldurun",
+    "fillVariablesDescription": "Promptu çalıştırmadan önce lütfen gerekli değişkenleri doldurun.",
     "copiedToClipboard": "Panoya kopyalandı",
     "failedToCopy": "Kopyalama başarısız",
     "submit": "Gönder",
@@ -82,7 +84,8 @@
       "examples": "Örnekler",
       "selectExample": "Bir örnek seçin...",
       "aiGenerate": "AI Oluştur",
-      "aiPlaceholder": "Nasıl bir prompt bulmak istiyorsunuz?"
+      "aiPlaceholder": "İhtiyacınız olan SQL sorgusunu tanımlayın...",
+      "generateSql": "SQL Oluştur"
     },
     "edit": "Prompt Düzenle",
     "delete": "Prompt Sil",
@@ -117,6 +120,27 @@
       "audio": "Ses",
       "structured": "Yapılandırılmış",
       "document": "Doküman"
+    },
+    "inputType": "Kullanıcı Promptu",
+    "outputType": "AI Yanıtı",
+    "inputTypeDescription": "Promptunuz nasıl formatlanmış",
+    "outputTypeDescription": "AI'ın üreteceği yanıt türü",
+    "outputTypeStructuredNote": "Yapılandırılmış promptlar çeşitli çıktı türleri üretebilir",
+    "inputTypes": {
+      "text": "Metin Promptu",
+      "structured": "Yapılandırılmış (JSON/YAML)"
+    },
+    "outputTypes": {
+      "text": "Metin",
+      "image": "Görsel",
+      "video": "Video",
+      "audio": "Ses/Sesli"
+    },
+    "outputPreview": {
+      "text": "✨ Sihir burada gerçekleşir... AI harika bir şey yazacak!",
+      "imageUpload": "Örnek görsel çıktısı yükle",
+      "videoUpload": "Örnek video/GIF çıktısı yükle",
+      "audio": "Ses çıktısı önizlemesi"
     },
     "structuredFormat": "Format",
     "structuredFormatDescription": "Yapılandırılmış promptunuz için format seçin",
@@ -346,6 +370,7 @@
       "confirm": "İçe Aktar",
       "delete": "Sil",
       "generateEmbeddings": "Gömme Vektörü Oluştur",
+      "regenerateEmbeddings": "Tüm gömme vektörlerini yeniden oluştur",
       "pending": "bekliyor",
       "embeddingsSuccess": "{count} gömme vektörü oluşturuldu",
       "embeddingsResult": "Oluşturulan: {success}, Başarısız: {failed}"
@@ -648,6 +673,20 @@
     "tokens": "token",
     "noChanges": "Değişiklik yok"
   },
+  "heroPromptInput": {
+    "placeholder": "Oluşturmak istediğiniz promptu tanımlayın...",
+    "ariaLabel": "Oluşturmak istediğiniz promptu tanımlayın",
+    "submit": "Prompt oluştur",
+    "hint": "AI ile oluşturmaya başlamak için tıklayın",
+    "modelName": "Prompt Ajanı",
+    "examples": {
+      "codeReview": "Hataları yakalayan bir kod inceleme asistanı oluştur",
+      "emailWriter": "Her durum için profesyonel e-posta yazıcısı oluştur",
+      "studyPlanner": "Kişiselleştirilmiş çalışma planı oluşturucu tasarla",
+      "recipeGenerator": "Mevcut malzemelere göre tarif oluşturucu yap",
+      "interviewCoach": "Mülakat hazırlık koçu oluştur"
+    }
+  },
   "notFound": {
     "title": "Sayfa Bulunamadı",
     "description": "Aradığınız sayfa mevcut değil veya taşınmış olabilir.",
@@ -657,6 +696,28 @@
     "browsePrompts": "Promptlara Göz At",
     "categories": "Kategoriler",
     "createPrompt": "Prompt Oluştur"
+  },
+  "promptBuilder": {
+    "title": "Prompt Oluşturma Ajanı",
+    "openBuilder": "Prompt Ajanı",
+    "welcomeTitle": "Yapay zeka ile prompt oluştur",
+    "welcomeDescription": "Ne oluşturmak istediğinizi açıklayın, adım adım size yardımcı olacağım.",
+    "tryAsking": "Şunu sormayı deneyin:",
+    "example1": "Kod inceleme promptu oluştur",
+    "example2": "Yaratıcı yazarlık için prompt yazmama yardım et",
+    "example3": "Makale özetleme için bir prompt gerekiyor",
+    "inputPlaceholder": "Ne oluşturmak istediğinizi açıklayın...",
+    "thinking": "Düşünüyor...",
+    "errorMessage": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin.",
+    "foundExamples": "{count} benzer prompt bulundu:",
+    "currentPrompt": "Oluşturuluyor:",
+    "stateTitle": "Başlık",
+    "stateContent": "İçerik",
+    "stateTags": "etiketler",
+    "editAction1": "Eksik alanları doldur, etiketleri güncelle.",
+    "editAction2": "Değişkenleri iyileştir",
+    "editAction3": "Değişkenleri kullan",
+    "editAction4": "JSON promptuna dönüştür"
   },
   "report": {
     "report": "Şikayet Et",
@@ -679,5 +740,19 @@
     "reportFailed": "Şikayet gönderilemedi",
     "reasonRequired": "Lütfen bir sebep seçin",
     "alreadyReported": "Bu promptu zaten şikayet ettiniz"
+  },
+  "mcp": {
+    "button": "MCP Sunucusu",
+    "title": "MCP Sunucu Yapılandırması",
+    "description": "VS Code, Cursor ve Claude Desktop gibi desteklenen istemcilerde MCP promptlarını kullanın. Bu yapılandırmayı MCP ayarlarınıza ekleyin.",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "customizeFilters": "Promptları daraltmak için filtreleri özelleştirin:",
+    "users": "Kullanıcılar",
+    "userPlaceholder": "Kullanıcı adı ekle...",
+    "categories": "Kategoriler",
+    "categoryPlaceholder": "Kategori slug ekle...",
+    "tags": "Etiketler",
+    "tagPlaceholder": "Etiket slug ekle..."
   }
 }

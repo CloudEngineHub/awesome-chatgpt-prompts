@@ -2,12 +2,13 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { generatePromptEmbedding } from "@/lib/ai/embeddings";
 
 const updatePromptSchema = z.object({
   title: z.string().min(1).max(200).optional(),
   description: z.string().max(500).optional(),
   content: z.string().min(1).optional(),
-  type: z.enum(["TEXT", "IMAGE", "VIDEO", "AUDIO", "STRUCTURED"]).optional(),
+  type: z.enum(["TEXT", "IMAGE", "VIDEO", "AUDIO"]).optional(), // Output type only
   structuredFormat: z.enum(["JSON", "YAML"]).optional().nullable(),
   categoryId: z.string().optional().nullable(),
   tagIds: z.array(z.string()).optional(),
@@ -182,6 +183,15 @@ export async function PATCH(
           createdBy: session.user.id,
         },
       });
+    }
+
+    // Regenerate embedding if content, title, or description changed (non-blocking)
+    // Only for public prompts - the function checks if aiSearch is enabled
+    const contentChanged = data.content || data.title || data.description !== undefined;
+    if (contentChanged && !prompt.isPrivate) {
+      generatePromptEmbedding(id).catch((err) =>
+        console.error("Failed to regenerate embedding for prompt:", id, err)
+      );
     }
 
     return NextResponse.json(prompt);

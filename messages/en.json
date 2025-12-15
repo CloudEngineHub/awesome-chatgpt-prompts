@@ -16,6 +16,8 @@
     "copied": "Copied!",
     "reset": "Reset",
     "variables": "Variables",
+    "fillVariables": "Fill in Variables",
+    "fillVariablesDescription": "Please fill in the required variables before running the prompt.",
     "copiedToClipboard": "Copied to clipboard",
     "failedToCopy": "Failed to copy",
     "submit": "Submit",
@@ -82,7 +84,8 @@
       "examples": "Examples",
       "selectExample": "Select an example...",
       "aiGenerate": "AI Generate",
-      "aiPlaceholder": "Describe the SQL query you need..."
+      "aiPlaceholder": "Describe the SQL query you need...",
+      "generateSql": "Generate SQL"
     },
     "edit": "Edit Prompt",
     "delete": "Delete Prompt",
@@ -99,6 +102,8 @@
     "promptType": "Type",
     "promptCategory": "Category",
     "promptTags": "Tags",
+    "searchTags": "Search tags...",
+    "noTagsFound": "No tags found",
     "promptContributors": "Contributors",
     "contributorsDescription": "Other users who helped write this prompt. Users whose change requests are approved are added automatically.",
     "searchContributors": "Search by username...",
@@ -117,6 +122,27 @@
       "audio": "Audio",
       "structured": "Structured",
       "document": "Document"
+    },
+    "inputType": "User Prompt",
+    "outputType": "AI Response",
+    "inputTypeDescription": "How your prompt is formatted",
+    "outputTypeDescription": "What type of response the AI will generate",
+    "outputTypeStructuredNote": "Structured prompts can produce various output types",
+    "inputTypes": {
+      "text": "Text Prompt",
+      "structured": "Structured (JSON/YAML)"
+    },
+    "outputTypes": {
+      "text": "Text",
+      "image": "Image",
+      "video": "Video",
+      "audio": "Audio/Voice"
+    },
+    "outputPreview": {
+      "text": "✨ Magic happens here... your AI will write something brilliant!",
+      "imageUpload": "Upload an example image output",
+      "videoUpload": "Upload an example video/GIF output",
+      "audio": "Audio output preview"
     },
     "structuredFormat": "Format",
     "structuredFormatDescription": "Select the format for your structured prompt",
@@ -166,7 +192,7 @@
     "mediaUrl": "Media URL",
     "mediaUrlPlaceholder": "https://...",
     "mediaUrlDescription": "Enter a URL to the media file for this prompt",
-    "mediaImage": "Media Image",
+    "mediaImage": "Example Media Image",
     "clickToUpload": "Click to upload an image",
     "uploading": "Uploading...",
     "maxFileSize": "Max file size: 5MB (JPEG, PNG, GIF, WebP)",
@@ -174,6 +200,7 @@
     "invalidFileType": "Invalid file type. Only JPEG, PNG, GIF, and WebP are allowed.",
     "privateDescription": "Private prompts are only visible to you",
     "requiresMediaUpload": "Requires Media Upload",
+    "attachedMediaType": "Attached Media Type",
     "requiresMediaUploadDescription": "Users need to provide media files to use this prompt",
     "requiredMediaType": "Media Type",
     "requiredMediaCount": "Number of Files",
@@ -659,6 +686,42 @@
     "categories": "Categories",
     "createPrompt": "Create Prompt"
   },
+  "heroPromptInput": {
+    "placeholder": "Describe the prompt you want to build...",
+    "ariaLabel": "Describe the prompt you want to build",
+    "submit": "Create prompt",
+    "hint": "Click to start building with AI",
+    "modelName": "Prompt Agent",
+    "examples": {
+      "codeReview": "Create a code review assistant that catches bugs",
+      "emailWriter": "Build a professional email writer for any occasion",
+      "studyPlanner": "Design a personalized study plan generator",
+      "recipeGenerator": "Make a recipe creator based on available ingredients",
+      "interviewCoach": "Create an interview preparation coach"
+    }
+  },
+  "promptBuilder": {
+    "title": "Prompt Building Agent",
+    "openBuilder": "Prompt Agent",
+    "welcomeTitle": "Build prompts with AI",
+    "welcomeDescription": "Describe what you want to create and I'll help you build it step by step.",
+    "tryAsking": "Try asking:",
+    "example1": "Create a code review prompt",
+    "example2": "Help me write a prompt for creative writing",
+    "example3": "I need a prompt for summarizing articles",
+    "inputPlaceholder": "Describe what you want to create...",
+    "thinking": "Thinking...",
+    "errorMessage": "Something went wrong. Please try again.",
+    "foundExamples": "Found {count} similar prompts:",
+    "currentPrompt": "Building:",
+    "stateTitle": "Title",
+    "stateContent": "Content",
+    "stateTags": "tags",
+    "editAction1": "Fill missing fields, update tags.",
+    "editAction2": "Make variables better",
+    "editAction3": "Use variables",
+    "editAction4": "Convert to JSON prompt"
+  },
   "report": {
     "report": "Report",
     "reportPrompt": "Report Prompt",
@@ -680,5 +743,19 @@
     "reportFailed": "Failed to submit report",
     "reasonRequired": "Please select a reason",
     "alreadyReported": "You have already reported this prompt"
+  },
+  "mcp": {
+    "button": "MCP Server",
+    "title": "MCP Server Configuration",
+    "description": "Use MCP prompts in supported clients like VS Code, Cursor, and Claude Desktop. Add this config to your MCP settings.",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "customizeFilters": "Customize filters to narrow down prompts:",
+    "users": "Users",
+    "userPlaceholder": "Add username...",
+    "categories": "Categories",
+    "categoryPlaceholder": "Add category slug...",
+    "tags": "Tags",
+    "tagPlaceholder": "Add tag slug..."
   }
 }

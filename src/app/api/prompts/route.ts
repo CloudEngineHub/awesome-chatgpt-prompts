@@ -3,13 +3,14 @@ import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { triggerWebhooks } from "@/lib/webhook";
+import { generatePromptEmbedding } from "@/lib/ai/embeddings";
 
 const promptSchema = z.object({
   title: z.string().min(1).max(200),
   description: z.string().max(500).optional(),
   content: z.string().min(1),
-  type: z.enum(["TEXT", "IMAGE", "VIDEO", "AUDIO", "STRUCTURED"]),
-  structuredFormat: z.enum(["JSON", "YAML"]).optional(),
+  type: z.enum(["TEXT", "IMAGE", "VIDEO", "AUDIO"]), // Output type only
+  structuredFormat: z.enum(["JSON", "YAML"]).optional(), // Input type indicator
   categoryId: z.string().optional(),
   tagIds: z.array(z.string()),
   contributorIds: z.array(z.string()).optional(),
@@ -50,7 +51,7 @@ export async function POST(request: Request) {
         description: description || null,
         content,
         type,
-        structuredFormat: type === "STRUCTURED" ? structuredFormat : null,
+        structuredFormat: structuredFormat || null,
         isPrivate,
         mediaUrl: mediaUrl || null,
         requiresMediaUpload: requiresMediaUpload || false,
@@ -112,6 +113,14 @@ export async function POST(request: Request) {
         category: prompt.category,
         tags: prompt.tags,
       });
+    }
+
+    // Generate embedding for AI search (non-blocking)
+    // Only for public prompts - the function checks if aiSearch is enabled
+    if (!isPrivate) {
+      generatePromptEmbedding(prompt.id).catch((err) =>
+        console.error("Failed to generate embedding for prompt:", prompt.id, err)
+      );
     }
 
     return NextResponse.json(prompt);
@@ -217,8 +226,8 @@ export async function GET(request: Request) {
       db.prompt.count({ where }),
     ]);
 
-    // Transform to include voteCount and contributorCount
-    const prompts = promptsRaw.map((p) => ({
+    // Transform to include voteCount and contributorCount, exclude internal fields
+    const prompts = promptsRaw.map(({ embedding: _e, isPrivate: _p, isUnlisted: _u, unlistedAt: _ua, deletedAt: _d, ...p }) => ({
       ...p,
       voteCount: p._count.votes,
       contributorCount: p._count.contributors,

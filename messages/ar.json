@@ -16,6 +16,8 @@
     "copied": "تم النسخ!",
     "reset": "إعادة تعيين",
     "variables": "المتغيرات",
+    "fillVariables": "املأ المتغيرات",
+    "fillVariablesDescription": "يرجى ملء المتغيرات المطلوبة قبل تشغيل الأمر.",
     "copiedToClipboard": "تم النسخ إلى الحافظة",
     "failedToCopy": "فشل النسخ",
     "submit": "إرسال",
@@ -82,7 +84,8 @@
       "examples": "أمثلة",
       "selectExample": "اختر مثالاً...",
       "aiGenerate": "توليد AI",
-      "aiPlaceholder": "صف استعلام SQL الذي تحتاجه..."
+      "aiPlaceholder": "صف استعلام SQL الذي تحتاجه...",
+      "generateSql": "إنشاء SQL"
     },
     "edit": "تعديل الأمر",
     "delete": "حذف الأمر",
@@ -117,6 +120,27 @@
       "audio": "صوت",
       "structured": "منظم",
       "document": "مستند"
+    },
+    "inputType": "أمر المستخدم",
+    "outputType": "استجابة الذكاء الاصطناعي",
+    "inputTypeDescription": "كيف يتم تنسيق الأمر الخاص بك",
+    "outputTypeDescription": "نوع الاستجابة التي سيولدها الذكاء الاصطناعي",
+    "outputTypeStructuredNote": "الأوامر المنظمة يمكن أن تنتج أنواع مختلفة من المخرجات",
+    "inputTypes": {
+      "text": "أمر نصي",
+      "structured": "منظم (JSON/YAML)"
+    },
+    "outputTypes": {
+      "text": "نص",
+      "image": "صورة",
+      "video": "فيديو",
+      "audio": "صوت/صوتي"
+    },
+    "outputPreview": {
+      "text": "✨ السحر يحدث هنا... الذكاء الاصطناعي سيكتب شيئاً رائعاً!",
+      "imageUpload": "ارفع صورة مثال",
+      "videoUpload": "ارفع فيديو/GIF مثال",
+      "audio": "معاينة الإخراج الصوتي"
     },
     "insertVariable": "إدراج متغير",
     "variableName": "اسم المتغير",
@@ -347,6 +371,7 @@
       "delete": "حذف",
       "pending": "قيد الانتظار",
       "generateEmbeddings": "إنشاء التضمينات",
+      "regenerateEmbeddings": "إعادة إنشاء جميع التضمينات",
       "embeddingsSuccess": "تم إنشاء {count} تضمين",
       "embeddingsResult": "نجاح: {success}, فشل: {failed}"
     },
@@ -648,6 +673,20 @@
     "tokens": "رموز",
     "noChanges": "لا توجد تغييرات"
   },
+  "heroPromptInput": {
+    "placeholder": "صف البرومبت الذي تريد إنشاءه...",
+    "ariaLabel": "صف البرومبت الذي تريد إنشاءه",
+    "submit": "إنشاء برومبت",
+    "hint": "انقر للبدء في الإنشاء بالذكاء الاصطناعي",
+    "modelName": "وكيل البرومبت",
+    "examples": {
+      "codeReview": "أنشئ مساعد مراجعة كود يكتشف الأخطاء",
+      "emailWriter": "أنشئ كاتب بريد إلكتروني احترافي لأي مناسبة",
+      "studyPlanner": "صمم منشئ خطط دراسية مخصصة",
+      "recipeGenerator": "أنشئ منشئ وصفات بناءً على المكونات المتوفرة",
+      "interviewCoach": "أنشئ مدرب تحضير للمقابلات"
+    }
+  },
   "notFound": {
     "title": "الصفحة غير موجودة",
     "description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
@@ -657,6 +696,28 @@
     "browsePrompts": "تصفح الأوامر",
     "categories": "التصنيفات",
     "createPrompt": "إنشاء أمر"
+  },
+  "promptBuilder": {
+    "title": "وكيل بناء الأوامر",
+    "openBuilder": "وكيل الأوامر",
+    "welcomeTitle": "إنشاء أوامر بالذكاء الاصطناعي",
+    "welcomeDescription": "صف ما تريد إنشاءه وسأساعدك في بنائه خطوة بخطوة.",
+    "tryAsking": "جرب أن تسأل:",
+    "example1": "إنشاء أمر لمراجعة الكود",
+    "example2": "ساعدني في كتابة أمر للكتابة الإبداعية",
+    "example3": "أحتاج أمراً لتلخيص المقالات",
+    "inputPlaceholder": "صف ما تريد إنشاءه...",
+    "thinking": "جارٍ التفكير...",
+    "errorMessage": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "foundExamples": "تم العثور على {count} أوامر مشابهة:",
+    "currentPrompt": "قيد الإنشاء:",
+    "stateTitle": "العنوان",
+    "stateContent": "المحتوى",
+    "stateTags": "وسوم",
+    "editAction1": "املأ الحقول الناقصة، حدّث الوسوم.",
+    "editAction2": "حسّن المتغيرات",
+    "editAction3": "استخدم المتغيرات",
+    "editAction4": "حوّل إلى أمر JSON"
   },
   "report": {
     "report": "إبلاغ",
@@ -679,5 +740,19 @@
     "reportFailed": "فشل في إرسال البلاغ",
     "reasonRequired": "يرجى اختيار سبب",
     "alreadyReported": "لقد أبلغت عن هذا الأمر بالفعل"
+  },
+  "mcp": {
+    "button": "خادم MCP",
+    "title": "إعدادات خادم MCP",
+    "description": "استخدم أوامر MCP في العملاء المدعومين مثل VS Code وCursor وClaude Desktop. أضف هذا التكوين إلى إعدادات MCP الخاصة بك.",
+    "copy": "نسخ",
+    "copied": "تم النسخ!",
+    "customizeFilters": "تخصيص الفلاتر لتضييق نطاق الأوامر:",
+    "users": "المستخدمون",
+    "userPlaceholder": "إضافة اسم مستخدم...",
+    "categories": "الفئات",
+    "categoryPlaceholder": "إضافة رمز الفئة...",
+    "tags": "العلامات",
+    "tagPlaceholder": "إضافة رمز العلامة..."
   }
 }

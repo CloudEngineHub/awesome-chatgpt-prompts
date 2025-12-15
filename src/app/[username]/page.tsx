@@ -13,6 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { PromptList } from "@/components/prompts/prompt-list";
 import { PromptCard, type PromptCardProps } from "@/components/prompts/prompt-card";
+import { McpServerPopup } from "@/components/mcp/mcp-server-popup";
 
 interface UserProfilePageProps {
   params: Promise<{ username: string }>;
@@ -231,13 +232,13 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
         },
       },
     }),
-    // CRs received on user's prompts (approved only)
+    // CRs received on user's prompts (all statuses for owner, approved only for others)
     db.changeRequest.findMany({
       where: {
         prompt: {
           authorId: user.id,
         },
-        status: "APPROVED",
+        ...(isOwner ? {} : { status: "APPROVED" }),
         authorId: { not: user.id }, // Exclude self-submitted
       },
       orderBy: { createdAt: "desc" },
@@ -273,7 +274,8 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
     ...receivedChangeRequests.map((cr) => ({ ...cr, type: "received" as const })),
   ].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
-  const pendingCount = submittedChangeRequests.filter((cr) => cr.status === "PENDING").length;
+  const pendingCount = submittedChangeRequests.filter((cr) => cr.status === "PENDING").length +
+    receivedChangeRequests.filter((cr) => cr.status === "PENDING").length;
   const defaultTab = tab === "changes" ? "changes" : tab === "contributions" ? "contributions" : "prompts";
 
   const statusColors = {
@@ -319,15 +321,18 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
               )}
             </p>
           </div>
-          {/* Edit button - desktop only */}
-          {isOwner && (
-            <Button variant="outline" size="sm" asChild className="hidden md:inline-flex shrink-0">
-              <Link href="/settings">
-                <Settings className="h-4 w-4 mr-1.5" />
-                {t("editProfile")}
-              </Link>
-            </Button>
-          )}
+          {/* Actions - desktop only */}
+          <div className="hidden md:flex items-center gap-2 shrink-0">
+            <McpServerPopup initialUsers={[user.username]} />
+            {isOwner && (
+              <Button variant="outline" size="sm" asChild>
+                <Link href="/settings">
+                  <Settings className="h-4 w-4 mr-1.5" />
+                  {t("editProfile")}
+                </Link>
+              </Button>
+            )}
+          </div>
         </div>
 
         {/* Stats - stacked on mobile, inline on desktop */}
@@ -353,17 +358,18 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
           </div>
         </div>
 
-        {/* Edit button - below stats on mobile */}
-        {isOwner && (
-          <div className="md:hidden">
-            <Button variant="outline" size="sm" asChild className="w-full">
+        {/* Actions - mobile only */}
+        <div className="md:hidden flex gap-2">
+          <McpServerPopup initialUsers={[user.username]} />
+          {isOwner && (
+            <Button variant="outline" size="sm" asChild className="flex-1">
               <Link href="/settings">
                 <Settings className="h-4 w-4 mr-1.5" />
                 {t("editProfile")}
               </Link>
             </Button>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* Tabs for Prompts and Change Requests */}

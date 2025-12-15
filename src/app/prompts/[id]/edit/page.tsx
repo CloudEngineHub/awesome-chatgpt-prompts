@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PromptForm } from "@/components/prompts/prompt-form";
+import { isAIGenerationEnabled, getAIModelName } from "@/lib/ai/generation";
 
 interface EditPromptPageProps {
   params: Promise<{ id: string }>;
@@ -74,8 +75,8 @@ export default async function EditPromptPage({ params }: EditPromptPageProps) {
     title: prompt.title,
     description: prompt.description || "",
     content: prompt.content,
-    type: prompt.type as "TEXT" | "IMAGE" | "VIDEO" | "AUDIO" | "STRUCTURED",
-    structuredFormat: (prompt.structuredFormat as "JSON" | "YAML") || "JSON",
+    type: ((prompt.type === "IMAGE" || prompt.type === "VIDEO" || prompt.type === "AUDIO") ? prompt.type : "TEXT") as "TEXT" | "IMAGE" | "VIDEO" | "AUDIO",
+    structuredFormat: prompt.structuredFormat ? (prompt.structuredFormat as "JSON" | "YAML") : undefined,
     categoryId: prompt.categoryId || undefined,
     tagIds: prompt.tags.map((t) => t.tagId),
     isPrivate: prompt.isPrivate,
@@ -84,6 +85,10 @@ export default async function EditPromptPage({ params }: EditPromptPageProps) {
     requiredMediaType: (prompt.requiredMediaType as "IMAGE" | "VIDEO" | "DOCUMENT") || "IMAGE",
     requiredMediaCount: prompt.requiredMediaCount || 1,
   };
+
+  // Check if AI generation is enabled
+  const aiGenerationEnabled = await isAIGenerationEnabled();
+  const aiModelName = getAIModelName();
 
   return (
     <div className="container max-w-3xl py-8">
@@ -94,6 +99,8 @@ export default async function EditPromptPage({ params }: EditPromptPageProps) {
         initialContributors={prompt.contributors}
         promptId={id}
         mode="edit"
+        aiGenerationEnabled={aiGenerationEnabled}
+        aiModelName={aiModelName}
       />
     </div>
   );

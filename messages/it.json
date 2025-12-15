@@ -16,6 +16,8 @@
     "copied": "Copiato!",
     "reset": "Ripristina",
     "variables": "Variabili",
+    "fillVariables": "Compila Variabili",
+    "fillVariablesDescription": "Per favore compila le variabili richieste prima di eseguire il prompt.",
     "copiedToClipboard": "Copiato negli appunti",
     "failedToCopy": "Copia fallita",
     "submit": "Invia",
@@ -82,7 +84,8 @@
       "examples": "Esempi",
       "selectExample": "Seleziona un esempio...",
       "aiGenerate": "Genera AI",
-      "aiPlaceholder": "Descrivi la query SQL di cui hai bisogno..."
+      "aiPlaceholder": "Descrivi la query SQL di cui hai bisogno...",
+      "generateSql": "Genera SQL"
     },
     "edit": "Modifica Prompt",
     "delete": "Elimina Prompt",
@@ -117,6 +120,27 @@
       "audio": "Audio",
       "structured": "Strutturato",
       "document": "Documento"
+    },
+    "inputType": "Prompt Utente",
+    "outputType": "Risposta IA",
+    "inputTypeDescription": "Come è formattato il tuo prompt",
+    "outputTypeDescription": "Tipo di risposta che l'IA genererà",
+    "outputTypeStructuredNote": "I prompt strutturati possono produrre vari tipi di output",
+    "inputTypes": {
+      "text": "Prompt Testuale",
+      "structured": "Strutturato (JSON/YAML)"
+    },
+    "outputTypes": {
+      "text": "Testo",
+      "image": "Immagine",
+      "video": "Video",
+      "audio": "Audio/Voce"
+    },
+    "outputPreview": {
+      "text": "✨ La magia accade qui... la tua IA scriverà qualcosa di brillante!",
+      "imageUpload": "Carica un'immagine di esempio",
+      "videoUpload": "Carica un video/GIF di esempio",
+      "audio": "Anteprima audio"
     },
     "structuredFormat": "Formato",
     "structuredFormatDescription": "Seleziona il formato per il tuo prompt strutturato",
@@ -346,6 +370,7 @@
       "confirm": "Importa",
       "delete": "Elimina",
       "generateEmbeddings": "Genera Embedding",
+      "regenerateEmbeddings": "Rigenera tutti gli embedding",
       "pending": "in attesa",
       "embeddingsSuccess": "{count} embedding generati",
       "embeddingsResult": "Generati: {success}, Falliti: {failed}"
@@ -648,6 +673,20 @@
     "tokens": "token",
     "noChanges": "Nessuna modifica"
   },
+  "heroPromptInput": {
+    "placeholder": "Descrivi il prompt che vuoi creare...",
+    "ariaLabel": "Descrivi il prompt che vuoi creare",
+    "submit": "Crea prompt",
+    "hint": "Clicca per iniziare a creare con l'IA",
+    "modelName": "Agente Prompt",
+    "examples": {
+      "codeReview": "Crea un assistente di revisione codice che rileva bug",
+      "emailWriter": "Costruisci uno scrittore di email professionali per ogni occasione",
+      "studyPlanner": "Progetta un generatore di piani di studio personalizzati",
+      "recipeGenerator": "Crea un generatore di ricette basato sugli ingredienti disponibili",
+      "interviewCoach": "Crea un coach di preparazione ai colloqui"
+    }
+  },
   "notFound": {
     "title": "Pagina Non Trovata",
     "description": "La pagina che stai cercando non esiste o è stata spostata.",
@@ -657,6 +696,28 @@
     "browsePrompts": "Sfoglia Prompt",
     "categories": "Categorie",
     "createPrompt": "Crea Prompt"
+  },
+  "promptBuilder": {
+    "title": "Agente Costruttore di Prompt",
+    "openBuilder": "Agente Prompt",
+    "welcomeTitle": "Crea prompt con l'IA",
+    "welcomeDescription": "Descrivi cosa vuoi creare e ti aiuterò a costruirlo passo dopo passo.",
+    "tryAsking": "Prova a chiedere:",
+    "example1": "Crea un prompt per la revisione del codice",
+    "example2": "Aiutami a scrivere un prompt per la scrittura creativa",
+    "example3": "Ho bisogno di un prompt per riassumere articoli",
+    "inputPlaceholder": "Descrivi cosa vuoi creare...",
+    "thinking": "Sto pensando...",
+    "errorMessage": "Qualcosa è andato storto. Riprova.",
+    "foundExamples": "Trovati {count} prompt simili:",
+    "currentPrompt": "In costruzione:",
+    "stateTitle": "Titolo",
+    "stateContent": "Contenuto",
+    "stateTags": "tag",
+    "editAction1": "Compila i campi mancanti, aggiorna i tag.",
+    "editAction2": "Migliora le variabili",
+    "editAction3": "Usa le variabili",
+    "editAction4": "Converti in prompt JSON"
   },
   "report": {
     "report": "Segnala",
@@ -679,5 +740,19 @@
     "reportFailed": "Impossibile inviare la segnalazione",
     "reasonRequired": "Seleziona un motivo",
     "alreadyReported": "Hai già segnalato questo prompt"
+  },
+  "mcp": {
+    "button": "Server MCP",
+    "title": "Configurazione Server MCP",
+    "description": "Usa i prompt MCP nei client supportati come VS Code, Cursor e Claude Desktop. Aggiungi questa configurazione alle tue impostazioni MCP.",
+    "copy": "Copia",
+    "copied": "Copiato!",
+    "customizeFilters": "Personalizza i filtri per restringere i prompt:",
+    "users": "Utenti",
+    "userPlaceholder": "Aggiungi nome utente...",
+    "categories": "Categorie",
+    "categoryPlaceholder": "Aggiungi slug categoria...",
+    "tags": "Tag",
+    "tagPlaceholder": "Aggiungi slug tag..."
   }
 }

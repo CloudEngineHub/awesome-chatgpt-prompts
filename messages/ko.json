@@ -16,6 +16,8 @@
     "copied": "복사됨!",
     "reset": "초기화",
     "variables": "변수",
+    "fillVariables": "변수 입력",
+    "fillVariablesDescription": "프롬프트를 실행하기 전에 필요한 변수를 입력해 주세요.",
     "copiedToClipboard": "클립보드에 복사됨",
     "failedToCopy": "복사 실패",
     "submit": "제출",
@@ -82,7 +84,8 @@
       "examples": "예제",
       "selectExample": "예제 선택...",
       "aiGenerate": "AI 생성",
-      "aiPlaceholder": "필요한 SQL 쿼리를 설명하세요..."
+      "aiPlaceholder": "필요한 SQL 쿼리를 설명하세요...",
+      "generateSql": "SQL 생성"
     },
     "edit": "프롬프트 편집",
     "delete": "프롬프트 삭제",
@@ -117,6 +120,27 @@
       "audio": "오디오",
       "structured": "구조화",
       "document": "문서"
+    },
+    "inputType": "사용자 프롬프트",
+    "outputType": "AI 응답",
+    "inputTypeDescription": "프롬프트 형식",
+    "outputTypeDescription": "AI가 생성할 응답 유형",
+    "outputTypeStructuredNote": "구조화된 프롬프트는 다양한 출력 유형을 생성할 수 있습니다",
+    "inputTypes": {
+      "text": "텍스트 프롬프트",
+      "structured": "구조화 (JSON/YAML)"
+    },
+    "outputTypes": {
+      "text": "텍스트",
+      "image": "이미지",
+      "video": "비디오",
+      "audio": "오디오/음성"
+    },
+    "outputPreview": {
+      "text": "✨ 마법이 일어나는 곳... AI가 멋진 것을 작성할 거예요!",
+      "imageUpload": "예시 이미지 업로드",
+      "videoUpload": "예시 비디오/GIF 업로드",
+      "audio": "오디오 출력 미리보기"
     },
     "structuredFormat": "형식",
     "structuredFormatDescription": "구조화된 프롬프트의 형식을 선택하세요",
@@ -346,6 +370,7 @@
       "confirm": "가져오기",
       "delete": "삭제",
       "generateEmbeddings": "임베딩 생성",
+      "regenerateEmbeddings": "모든 임베딩 재생성",
       "pending": "대기 중",
       "embeddingsSuccess": "{count}개 임베딩 생성됨",
       "embeddingsResult": "생성됨: {success}, 실패: {failed}"
@@ -648,6 +673,20 @@
     "tokens": "토큰",
     "noChanges": "변경 없음"
   },
+  "heroPromptInput": {
+    "placeholder": "만들고 싶은 프롬프트를 설명하세요...",
+    "ariaLabel": "만들고 싶은 프롬프트를 설명하세요",
+    "submit": "프롬프트 만들기",
+    "hint": "클릭하여 AI로 만들기 시작",
+    "modelName": "프롬프트 에이전트",
+    "examples": {
+      "codeReview": "버그를 잡아내는 코드 리뷰 어시스턴트 만들기",
+      "emailWriter": "모든 상황에 맞는 전문 이메일 작성기 만들기",
+      "studyPlanner": "맞춤형 학습 계획 생성기 설계",
+      "recipeGenerator": "가용 재료로 레시피 생성기 만들기",
+      "interviewCoach": "면접 준비 코치 만들기"
+    }
+  },
   "notFound": {
     "title": "페이지를 찾을 수 없습니다",
     "description": "찾고 계신 페이지가 존재하지 않거나 이동되었습니다.",
@@ -657,6 +696,28 @@
     "browsePrompts": "프롬프트 둘러보기",
     "categories": "카테고리",
     "createPrompt": "프롬프트 만들기"
+  },
+  "promptBuilder": {
+    "title": "프롬프트 빌딩 에이전트",
+    "openBuilder": "프롬프트 에이전트",
+    "welcomeTitle": "AI로 프롬프트 만들기",
+    "welcomeDescription": "만들고 싶은 것을 설명해 주시면 단계별로 도와드리겠습니다.",
+    "tryAsking": "질문해 보세요:",
+    "example1": "코드 리뷰 프롬프트 만들기",
+    "example2": "창작 글쓰기 프롬프트 작성 도와주세요",
+    "example3": "기사 요약 프롬프트가 필요해요",
+    "inputPlaceholder": "만들고 싶은 것을 설명해 주세요...",
+    "thinking": "생각 중...",
+    "errorMessage": "문제가 발생했습니다. 다시 시도해 주세요.",
+    "foundExamples": "{count}개의 유사한 프롬프트를 찾았습니다:",
+    "currentPrompt": "구축 중:",
+    "stateTitle": "제목",
+    "stateContent": "내용",
+    "stateTags": "태그",
+    "editAction1": "누락된 필드 채우기, 태그 업데이트.",
+    "editAction2": "변수 개선",
+    "editAction3": "변수 사용",
+    "editAction4": "JSON 프롬프트로 변환"
   },
   "report": {
     "report": "신고",
@@ -679,5 +740,19 @@
     "reportFailed": "신고 제출에 실패했습니다",
     "reasonRequired": "사유를 선택하세요",
     "alreadyReported": "이미 이 프롬프트를 신고하셨습니다"
+  },
+  "mcp": {
+    "button": "MCP 서버",
+    "title": "MCP 서버 설정",
+    "description": "VS Code, Cursor, Claude Desktop과 같은 지원 클라이언트에서 MCP 프롬프트를 사용하세요. 이 설정을 MCP 설정에 추가하세요.",
+    "copy": "복사",
+    "copied": "복사됨!",
+    "customizeFilters": "필터를 사용자 정의하여 프롬프트 범위를 좁히세요:",
+    "users": "사용자",
+    "userPlaceholder": "사용자 이름 추가...",
+    "categories": "카테고리",
+    "categoryPlaceholder": "카테고리 슬러그 추가...",
+    "tags": "태그",
+    "tagPlaceholder": "태그 슬러그 추가..."
   }
 }

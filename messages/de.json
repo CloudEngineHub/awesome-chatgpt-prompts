@@ -16,6 +16,8 @@
     "copied": "Kopiert!",
     "reset": "Zurücksetzen",
     "variables": "Variablen",
+    "fillVariables": "Variablen ausfüllen",
+    "fillVariablesDescription": "Bitte füllen Sie die erforderlichen Variablen aus, bevor Sie den Prompt ausführen.",
     "copiedToClipboard": "In die Zwischenablage kopiert",
     "failedToCopy": "Kopieren fehlgeschlagen",
     "submit": "Absenden",
@@ -82,7 +84,8 @@
       "examples": "Beispiele",
       "selectExample": "Beispiel auswählen...",
       "aiGenerate": "KI Generieren",
-      "aiPlaceholder": "Beschreiben Sie die benötigte SQL-Abfrage..."
+      "aiPlaceholder": "Beschreiben Sie die SQL-Abfrage, die Sie benötigen...",
+      "generateSql": "SQL generieren"
     },
     "edit": "Prompt bearbeiten",
     "delete": "Prompt löschen",
@@ -117,6 +120,27 @@
       "audio": "Audio",
       "structured": "Strukturiert",
       "document": "Dokument"
+    },
+    "inputType": "Benutzer-Prompt",
+    "outputType": "KI-Antwort",
+    "inputTypeDescription": "Wie Ihr Prompt formatiert ist",
+    "outputTypeDescription": "Welche Art von Antwort die KI generieren wird",
+    "outputTypeStructuredNote": "Strukturierte Prompts können verschiedene Ausgabetypen erzeugen",
+    "inputTypes": {
+      "text": "Text-Prompt",
+      "structured": "Strukturiert (JSON/YAML)"
+    },
+    "outputTypes": {
+      "text": "Text",
+      "image": "Bild",
+      "video": "Video",
+      "audio": "Audio/Stimme"
+    },
+    "outputPreview": {
+      "text": "✨ Hier passiert die Magie... Ihre KI wird etwas Brillantes schreiben!",
+      "imageUpload": "Beispielbild hochladen",
+      "videoUpload": "Beispielvideo/GIF hochladen",
+      "audio": "Audio-Vorschau"
     },
     "structuredFormat": "Format",
     "structuredFormatDescription": "Wählen Sie das Format für Ihren strukturierten Prompt",
@@ -346,6 +370,7 @@
       "confirm": "Importieren",
       "delete": "Löschen",
       "generateEmbeddings": "Embeddings generieren",
+      "regenerateEmbeddings": "Alle Embeddings neu generieren",
       "pending": "ausstehend",
       "embeddingsSuccess": "{count} Embeddings generiert",
       "embeddingsResult": "Generiert: {success}, Fehlgeschlagen: {failed}"
@@ -648,6 +673,20 @@
     "tokens": "Token",
     "noChanges": "Keine Änderungen"
   },
+  "heroPromptInput": {
+    "placeholder": "Beschreiben Sie den Prompt, den Sie erstellen möchten...",
+    "ariaLabel": "Beschreiben Sie den Prompt, den Sie erstellen möchten",
+    "submit": "Prompt erstellen",
+    "hint": "Klicken Sie, um mit KI zu erstellen",
+    "modelName": "Prompt-Agent",
+    "examples": {
+      "codeReview": "Erstellen Sie einen Code-Review-Assistenten, der Bugs findet",
+      "emailWriter": "Bauen Sie einen professionellen E-Mail-Verfasser für jeden Anlass",
+      "studyPlanner": "Entwerfen Sie einen personalisierten Lernplan-Generator",
+      "recipeGenerator": "Erstellen Sie einen Rezeptgenerator basierend auf verfügbaren Zutaten",
+      "interviewCoach": "Erstellen Sie einen Vorstellungsgespräch-Coach"
+    }
+  },
   "notFound": {
     "title": "Seite nicht gefunden",
     "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
@@ -657,6 +696,28 @@
     "browsePrompts": "Prompts durchsuchen",
     "categories": "Kategorien",
     "createPrompt": "Prompt erstellen"
+  },
+  "promptBuilder": {
+    "title": "Prompt-Erstellungsagent",
+    "openBuilder": "Prompt-Agent",
+    "welcomeTitle": "Prompts mit KI erstellen",
+    "welcomeDescription": "Beschreiben Sie, was Sie erstellen möchten, und ich helfe Ihnen Schritt für Schritt dabei.",
+    "tryAsking": "Versuchen Sie zu fragen:",
+    "example1": "Erstelle einen Code-Review-Prompt",
+    "example2": "Hilf mir, einen Prompt für kreatives Schreiben zu erstellen",
+    "example3": "Ich brauche einen Prompt zum Zusammenfassen von Artikeln",
+    "inputPlaceholder": "Beschreiben Sie, was Sie erstellen möchten...",
+    "thinking": "Denke nach...",
+    "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "foundExamples": "{count} ähnliche Prompts gefunden:",
+    "currentPrompt": "Erstellen:",
+    "stateTitle": "Titel",
+    "stateContent": "Inhalt",
+    "stateTags": "Tags",
+    "editAction1": "Fehlende Felder ausfüllen, Tags aktualisieren.",
+    "editAction2": "Variablen verbessern",
+    "editAction3": "Variablen verwenden",
+    "editAction4": "In JSON-Prompt konvertieren"
   },
   "report": {
     "report": "Melden",
@@ -679,5 +740,19 @@
     "reportFailed": "Meldung konnte nicht gesendet werden",
     "reasonRequired": "Bitte wählen Sie einen Grund",
     "alreadyReported": "Sie haben diesen Prompt bereits gemeldet"
+  },
+  "mcp": {
+    "button": "MCP-Server",
+    "title": "MCP-Server-Konfiguration",
+    "description": "Verwenden Sie MCP-Prompts in unterstützten Clients wie VS Code, Cursor und Claude Desktop. Fügen Sie diese Konfiguration zu Ihren MCP-Einstellungen hinzu.",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "customizeFilters": "Filter anpassen, um Prompts einzugrenzen:",
+    "users": "Benutzer",
+    "userPlaceholder": "Benutzername hinzufügen...",
+    "categories": "Kategorien",
+    "categoryPlaceholder": "Kategorie-Slug hinzufügen...",
+    "tags": "Tags",
+    "tagPlaceholder": "Tag-Slug hinzufügen..."
   }
 }
