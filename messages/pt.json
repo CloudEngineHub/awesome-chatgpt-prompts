@@ -102,6 +102,8 @@
     "promptType": "Tipo",
     "promptCategory": "Categoria",
     "promptTags": "Tags",
+    "searchTags": "Buscar tags...",
+    "noTagsFound": "Nenhuma tag encontrada",
     "promptContributors": "Contribuidores",
     "contributorsDescription": "Outros usuários que ajudaram a escrever este prompt. Usuários cujas solicitações de alteração são aprovadas são adicionados automaticamente.",
     "searchContributors": "Buscar por nome de usuário...",
@@ -198,6 +200,7 @@
     "invalidFileType": "Tipo de arquivo inválido. Apenas JPEG, PNG, GIF e WebP são permitidos.",
     "privateDescription": "Prompts privados são visíveis apenas para você",
     "requiresMediaUpload": "Requer Upload de Mídia",
+    "attachedMediaType": "Tipo de Mídia Anexada",
     "requiresMediaUploadDescription": "Usuários precisam fornecer arquivos de mídia para usar este prompt",
     "requiredMediaType": "Tipo de Mídia",
     "requiredMediaCount": "Número de Arquivos",
@@ -637,11 +640,15 @@
     "latestPrompts": "Prompts Recentes",
     "achievements": {
       "featuredIn": "Destaque na",
+      "referencedBy": "Referenciado por",
       "forbes": "Forbes",
+      "harvardUniversity": "Universidade de Harvard",
       "mostLikedDataset": "#1 Dataset Mais Curtido no Hugging Face",
       "githubStars": "Estrelas no GitHub",
       "mostStarredRepo": "#33 Repositório Mais Estrelado do Mundo",
       "usedByThousands": "Usado por Milhares Diariamente",
+      "githubStaffPick": "Escolha da Equipe GitHub",
+      "fullyOpenSource": "A única biblioteca de prompts 100% gratuita & open source",
       "sponsoredBy": "Patrocinado por",
       "becomeSponsor": "Torne-se um Patrocinador"
     }

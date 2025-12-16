@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { ArrowRight, Star, Heart, Trophy, Users, HeartHandshake, Code, Lock, Building2, Github } from "lucide-react";
+import { ArrowRight, Star, Heart, Trophy, Users, HeartHandshake, Code, Lock, Building2, Github, GraduationCap } from "lucide-react";
 import { auth } from "@/lib/auth";
 import { getConfig } from "@/lib/config";
 import { Button } from "@/components/ui/button";
@@ -185,6 +185,15 @@ export default async function HomePage() {
                 <span>{tHomepage("achievements.featuredIn")} <strong>{tHomepage("achievements.forbes")}</strong></span>
               </Link>
               <Link 
+                href="https://www.huit.harvard.edu/news/ai-prompts" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <GraduationCap className="h-4 w-4 text-[#A51C30]" />
+                <span>{tHomepage("achievements.referencedBy")} <strong>{tHomepage("achievements.harvardUniversity")}</strong></span>
+              </Link>
+              <Link 
                 href="https://huggingface.co/datasets/fka/awesome-chatgpt-prompts" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -214,6 +223,19 @@ export default async function HomePage() {
               <span className="flex items-center gap-2 text-muted-foreground">
                 <Users className="h-4 w-4 text-green-500" />
                 <span>{tHomepage("achievements.usedByThousands")}</span>
+              </span>
+              <Link 
+                href="https://spotlights-feed.github.com/spotlights/prompts-chat/index/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Github className="h-4 w-4 text-purple-600" />
+                <span>{tHomepage("achievements.githubStaffPick")}</span>
+              </Link>
+              <span className="flex items-center gap-2 text-muted-foreground">
+                <Code className="h-4 w-4 text-blue-500" />
+                <span>{tHomepage("achievements.fullyOpenSource")}</span>
               </span>
             </div>
           </div>
@@ -264,40 +286,42 @@ export default async function HomePage() {
       {/* Featured & Latest Prompts Section */}
       <DiscoveryPrompts isHomepage />
 
-      {/* CTA Section */}
-      <section className="py-12">
-        <div className="container">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-6 rounded-lg border bg-muted/30">
-            <div className="flex items-center gap-4">
-              <Image
-                src={config.branding.logo}
-                alt={config.branding.name}
-                width={48}
-                height={48}
-                className="h-12 w-12 dark:hidden"
-              />
-              <Image
-                src={config.branding.logoDark || config.branding.logo}
-                alt={config.branding.name}
-                width={48}
-                height={48}
-                className="h-12 w-12 hidden dark:block"
-              />
-              <div>
-                <h2 className="font-semibold">{tHomepage("readyToStart")}</h2>
-                <p className="text-sm text-muted-foreground">{tHomepage("freeAndOpen")}</p>
+      {/* CTA Section - only show if not using clone branding */}
+      {!useCloneBranding && (
+        <section className="py-12">
+          <div className="container">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-6 rounded-lg border bg-muted/30">
+              <div className="flex items-center gap-4">
+                <Image
+                  src={config.branding.logo}
+                  alt={config.branding.name}
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 dark:hidden"
+                />
+                <Image
+                  src={config.branding.logoDark || config.branding.logo}
+                  alt={config.branding.name}
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 hidden dark:block"
+                />
+                <div>
+                  <h2 className="font-semibold">{tHomepage("readyToStart")}</h2>
+                  <p className="text-sm text-muted-foreground">{tHomepage("freeAndOpen")}</p>
+                </div>
               </div>
+              {showRegisterButton && (
+                <Button asChild>
+                  <Link href={isOAuth ? "/login" : "/register"}>
+                    {isOAuth ? tNav("login") : tHomepage("createAccount")}
+                  </Link>
+                </Button>
+              )}
             </div>
-            {showRegisterButton && (
-              <Button asChild>
-                <Link href={isOAuth ? "/login" : "/register"}>
-                  {isOAuth ? tNav("login") : tHomepage("createAccount")}
-                </Link>
-              </Button>
-            )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 }

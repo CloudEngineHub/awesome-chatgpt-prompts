@@ -102,6 +102,8 @@
     "promptType": "Typ",
     "promptCategory": "Kategorie",
     "promptTags": "Tags",
+    "searchTags": "Tags suchen...",
+    "noTagsFound": "Keine Tags gefunden",
     "promptContributors": "Mitwirkende",
     "contributorsDescription": "Andere Benutzer, die bei diesem Prompt mitgeholfen haben. Benutzer, deren Änderungsanfragen genehmigt werden, werden automatisch hinzugefügt.",
     "searchContributors": "Nach Benutzernamen suchen...",
@@ -198,6 +200,7 @@
     "invalidFileType": "Ungültiger Dateityp. Nur JPEG, PNG, GIF und WebP sind erlaubt.",
     "privateDescription": "Private Prompts sind nur für Sie sichtbar",
     "requiresMediaUpload": "Medien-Upload erforderlich",
+    "attachedMediaType": "Angehängter Medientyp",
     "requiresMediaUploadDescription": "Benutzer müssen Mediendateien bereitstellen, um diesen Prompt zu verwenden",
     "requiredMediaType": "Medientyp",
     "requiredMediaCount": "Anzahl der Dateien",
@@ -637,11 +640,15 @@
     "latestPrompts": "Neueste Prompts",
     "achievements": {
       "featuredIn": "Vorgestellt in",
+      "referencedBy": "Referenziert von",
       "forbes": "Forbes",
+      "harvardUniversity": "Harvard University",
       "mostLikedDataset": "#1 Beliebtester Datensatz auf Hugging Face",
       "githubStars": "GitHub-Sterne",
       "mostStarredRepo": "#33 Meist-Gesterntes Repo der Welt",
       "usedByThousands": "Täglich von Tausenden genutzt",
+      "githubStaffPick": "GitHub Staff Pick",
+      "fullyOpenSource": "Die einzige 100% kostenlose & Open Source Prompt-Bibliothek",
       "sponsoredBy": "Gesponsert von",
       "becomeSponsor": "Sponsor werden"
     }

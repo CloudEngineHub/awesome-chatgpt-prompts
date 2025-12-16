@@ -102,6 +102,8 @@
     "promptType": "النوع",
     "promptCategory": "التصنيف",
     "promptTags": "الوسوم",
+    "searchTags": "البحث عن الوسوم...",
+    "noTagsFound": "لم يتم العثور على وسوم",
     "promptContributors": "المساهمون",
     "contributorsDescription": "المستخدمون الآخرون الذين ساعدوا في كتابة هذا الأمر. يتم إضافة المستخدمين الذين تمت الموافقة على طلبات التغيير الخاصة بهم تلقائياً.",
     "searchContributors": "البحث بواسطة اسم المستخدم...",
@@ -149,6 +151,7 @@
     "variableHint": "استخدم صيغة $'{'اسم'}' أو $'{'اسم:افتراضي'}'",
     "insert": "إدراج",
     "requiresMediaUpload": "يتطلب رفع وسائط",
+    "attachedMediaType": "نوع الوسائط المرفقة",
     "requiresMediaUploadDescription": "يحتاج المستخدمون إلى توفير ملفات وسائط لاستخدام هذا الأمر",
     "requiredMediaType": "نوع الوسائط",
     "requiredMediaCount": "عدد الملفات",
@@ -637,11 +640,15 @@
     "latestPrompts": "أحدث الأوامر",
     "achievements": {
       "featuredIn": "ظهر في",
+      "referencedBy": "مرجع في",
       "forbes": "Forbes",
+      "harvardUniversity": "جامعة هارفارد",
       "mostLikedDataset": "#1 مجموعة البيانات الأكثر إعجاباً على Hugging Face",
       "githubStars": "نجوم GitHub",
       "mostStarredRepo": "#33 المستودع الأكثر نجومية في العالم",
       "usedByThousands": "يستخدمه الآلاف يومياً",
+      "githubStaffPick": "اختيار فريق GitHub",
+      "fullyOpenSource": "مكتبة الأوامر الوحيدة المجانية والمفتوحة المصدر 100%",
       "sponsoredBy": "برعاية",
       "becomeSponsor": "كن راعياً"
     }

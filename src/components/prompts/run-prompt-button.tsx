@@ -21,6 +21,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { analyticsPrompt } from "@/lib/analytics";
 
 interface Platform {
   id: string;
@@ -31,6 +32,7 @@ interface Platform {
 }
 
 const platforms: Platform[] = [
+  { id: "ai2sql", name: "AI2SQL", baseUrl: "https://builder.ai2sql.io/dashboard/builder-all-lp?tab=generate" },
   { id: "chatgpt", name: "ChatGPT", baseUrl: "https://chatgpt.com" },
   { id: "claude", name: "Claude", baseUrl: "https://claude.ai/new" },
   { id: "copilot", name: "Copilot", baseUrl: "https://copilot.microsoft.com", supportsQuerystring: false },
@@ -62,6 +64,8 @@ function buildUrl(platformId: string, baseUrl: string, promptText: string): stri
   const encoded = encodeURIComponent(promptText);
   
   switch (platformId) {
+    case "ai2sql":
+      return `${baseUrl}&prompt=${encoded}`;
     case "chatgpt":
       return `${baseUrl}/?q=${encoded}`;
     case "claude":
@@ -106,6 +110,7 @@ interface RunPromptButtonProps {
   unfilledVariables?: UnfilledVariable[];
   onVariablesFilled?: (values: Record<string, string>) => void;
   getContentWithVariables?: (values: Record<string, string>) => string;
+  promptId?: string;
 }
 
 export function RunPromptButton({ 
@@ -115,7 +120,8 @@ export function RunPromptButton({
   className,
   unfilledVariables = [],
   onVariablesFilled,
-  getContentWithVariables
+  getContentWithVariables,
+  promptId
 }: RunPromptButtonProps) {
   const t = useTranslations("prompts");
   const tCommon = useTranslations("common");
@@ -154,8 +160,9 @@ export function RunPromptButton({
         window.open(url, "_blank");
         setPendingPlatform(null);
       }
+      analyticsPrompt.run(promptId, pendingPlatform.name);
     }
-  }, [variableValues, onVariablesFilled, pendingPlatform, getContentWithVariables, content]);
+  }, [variableValues, onVariablesFilled, pendingPlatform, getContentWithVariables, content, promptId]);
 
   const handleRun = (platform: Platform, baseUrl: string) => {
     // Check if there are unfilled variables (empty values)
@@ -171,9 +178,11 @@ export function RunPromptButton({
       navigator.clipboard.writeText(content);
       setPendingPlatform({ id: platform.id, name: platform.name, baseUrl, supportsQuerystring: platform.supportsQuerystring });
       setDialogOpen(true);
+      analyticsPrompt.run(promptId, platform.name);
     } else {
       const url = buildUrl(platform.id, baseUrl, content);
       window.open(url, "_blank");
+      analyticsPrompt.run(promptId, platform.name);
     }
   };
 
