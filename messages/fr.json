@@ -46,6 +46,31 @@
     "register": "Inscription",
     "logout": "Déconnexion"
   },
+  "brand": {
+    "copyLogoSvg": "Copier le logo SVG",
+    "brandAssets": "Ressources de marque",
+    "title": "Ressources de marque",
+    "description": "Logos officiels, couleurs et directives de marque pour {name}. Gratuit pour la presse, les partenariats et les projets communautaires.",
+    "logos": "Logos",
+    "logo": "Logo",
+    "logoWithName": "Logo avec nom",
+    "forLightBackgrounds": "Pour fonds clairs",
+    "forDarkBackgrounds": "Pour fonds sombres",
+    "brandColors": "Couleurs de marque",
+    "clickToCopy": "Cliquez pour copier la valeur hex",
+    "primary": "Couleur de marque principale",
+    "background": "Fond clair",
+    "accent": "Couleur d'accentuation indigo",
+    "muted": "Couleur de texte atténuée",
+    "usageGuidelines": "Directives d'utilisation",
+    "guideline1": "Ne pas étirer, déformer ou faire pivoter le logo",
+    "guideline2": "Maintenir un espacement adéquat autour du logo",
+    "guideline3": "Utiliser le logo sombre sur les fonds clairs et vice versa",
+    "guideline4": "Ne pas ajouter d'effets comme des ombres ou des dégradés au logo",
+    "guideline5": "Le logo doit être clairement visible sur le fond",
+    "license": "Licence",
+    "licenseText": "Les ressources de marque {name} sont fournies sous <link>CC0 1.0 Universal</link>. Vous êtes libre d'utiliser ces ressources à toutes fins sans attribution."
+  },
   "auth": {
     "login": "Connexion",
     "loginDescription": "Entrez vos identifiants pour continuer",
@@ -226,7 +251,11 @@
     "supportedFormat": "Format supporté",
     "or": "ou",
     "detectedVariables": "Variables",
-    "clickToEdit": "Cliquez pour modifier"
+    "clickToEdit": "Cliquez pour modifier",
+    "translateToLanguage": "Traduire dans votre langue",
+    "translated": "Contenu traduit",
+    "translationFailed": "Échec de la traduction",
+    "alreadyTranslated": "Déjà traduit"
   },
   "changeRequests": {
     "title": "Demandes de Modification",
@@ -376,7 +405,12 @@
       "regenerateEmbeddings": "Régénérer tous les embeddings",
       "pending": "en attente",
       "embeddingsSuccess": "{count} embeddings générés",
-      "embeddingsResult": "Générés : {success}, Échecs : {failed}"
+      "embeddingsResult": "Générés : {success}, Échecs : {failed}",
+      "slugsTitle": "Slugs d'URL",
+      "generateSlugs": "Générer les slugs",
+      "regenerateSlugs": "Régénérer tous les slugs (traduit les titres en anglais)",
+      "slugsSuccess": "{count} slugs générés",
+      "slugsResult": "Générés : {success}, Échecs : {failed}"
     },
     "users": {
       "title": "Gestion des Utilisateurs",
@@ -760,6 +794,27 @@
     "categories": "Catégories",
     "categoryPlaceholder": "Ajouter un slug de catégorie...",
     "tags": "Tags",
-    "tagPlaceholder": "Ajouter un slug de tag..."
+    "tagPlaceholder": "Ajouter un slug de tag...",
+    "generateApiKey": "Générez une clé API pour enregistrer des prompts via MCP"
+  },
+  "apiKey": {
+    "title": "Clé API MCP",
+    "description": "Générez une clé API pour enregistrer des prompts via MCP et accéder à vos prompts privés.",
+    "yourApiKey": "Votre Clé API",
+    "keyWarning": "Gardez cette clé secrète. Toute personne possédant cette clé peut accéder à vos prompts privés et créer des prompts en votre nom.",
+    "noApiKey": "Vous n'avez pas encore généré de clé API.",
+    "generate": "Générer une Clé API",
+    "regenerate": "Régénérer",
+    "revoke": "Révoquer",
+    "regenerateTitle": "Régénérer la Clé API ?",
+    "regenerateDescription": "Cela invalidera votre clé API actuelle. Les clients MCP utilisant l'ancienne clé devront être mis à jour.",
+    "revokeTitle": "Révoquer la Clé API ?",
+    "revokeDescription": "Cela supprimera définitivement votre clé API. Vous ne pourrez pas utiliser les fonctionnalités MCP nécessitant une authentification jusqu'à ce que vous génériez une nouvelle clé.",
+    "keyGenerated": "Clé API générée avec succès",
+    "keyRegenerated": "Clé API régénérée avec succès",
+    "keyRevoked": "Clé API révoquée",
+    "publicByDefault": "Prompts publics par défaut",
+    "publicByDefaultDescription": "Lors de l'enregistrement de prompts via MCP, les rendre publics par défaut au lieu de privés.",
+    "settingUpdated": "Paramètre mis à jour"
   }
 }

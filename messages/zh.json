@@ -46,6 +46,31 @@
     "register": "注册",
     "logout": "退出登录"
   },
+  "brand": {
+    "copyLogoSvg": "复制Logo SVG",
+    "brandAssets": "品牌资源",
+    "title": "品牌资源",
+    "description": "{name}的官方标志、颜色和品牌指南。可免费用于新闻、合作和社区项目。",
+    "logos": "标志",
+    "logo": "标志",
+    "logoWithName": "带名称的标志",
+    "forLightBackgrounds": "适用于浅色背景",
+    "forDarkBackgrounds": "适用于深色背景",
+    "brandColors": "品牌颜色",
+    "clickToCopy": "点击复制十六进制值",
+    "primary": "主要品牌颜色",
+    "background": "浅色背景",
+    "accent": "靛蓝强调色",
+    "muted": "柔和文本颜色",
+    "usageGuidelines": "使用指南",
+    "guideline1": "请勿拉伸、扭曲或旋转标志",
+    "guideline2": "保持标志周围有足够的间距",
+    "guideline3": "在浅色背景上使用深色标志，反之亦然",
+    "guideline4": "请勿为标志添加阴影或渐变等效果",
+    "guideline5": "标志应在背景上清晰可见",
+    "license": "许可证",
+    "licenseText": "{name}品牌资源根据<link>CC0 1.0 Universal</link>提供。您可以自由使用这些资源，无需署名。"
+  },
   "auth": {
     "login": "登录",
     "loginDescription": "输入您的凭据以继续",
@@ -226,7 +251,11 @@
     "supportedFormat": "支持的格式",
     "or": "或",
     "detectedVariables": "变量",
-    "clickToEdit": "点击编辑"
+    "clickToEdit": "点击编辑",
+    "translateToLanguage": "翻译成你的语言",
+    "translated": "内容已翻译",
+    "translationFailed": "翻译失败",
+    "alreadyTranslated": "已翻译"
   },
   "changeRequests": {
     "title": "变更请求",
@@ -376,7 +405,12 @@
       "generateEmbeddings": "生成嵌入",
       "regenerateEmbeddings": "重新生成所有嵌入",
       "embeddingsSuccess": "{count} 个嵌入生成成功",
-      "embeddingsResult": "成功: {success}, 失败: {failed}"
+      "embeddingsResult": "成功: {success}, 失败: {failed}",
+      "slugsTitle": "URL 别名",
+      "generateSlugs": "生成别名",
+      "regenerateSlugs": "重新生成所有别名（将标题翻译为英文）",
+      "slugsSuccess": "{count} 个别名生成成功",
+      "slugsResult": "成功: {success}, 失败: {failed}"
     },
     "users": {
       "title": "用户管理",
@@ -760,6 +794,27 @@
     "categories": "分类",
     "categoryPlaceholder": "添加分类标识...",
     "tags": "标签",
-    "tagPlaceholder": "添加标签标识..."
+    "tagPlaceholder": "添加标签标识...",
+    "generateApiKey": "生成 API 密钥以通过 MCP 保存提示词"
+  },
+  "apiKey": {
+    "title": "MCP API 密钥",
+    "description": "生成 API 密钥以通过 MCP 保存提示词并访问您的私有提示词。",
+    "yourApiKey": "您的 API 密钥",
+    "keyWarning": "请保密此密钥。任何拥有此密钥的人都可以访问您的私有提示词并以您的名义创建提示词。",
+    "noApiKey": "您尚未生成 API 密钥。",
+    "generate": "生成 API 密钥",
+    "regenerate": "重新生成",
+    "revoke": "撤销",
+    "regenerateTitle": "重新生成 API 密钥？",
+    "regenerateDescription": "这将使您当前的 API 密钥失效。使用旧密钥的 MCP 客户端需要更新。",
+    "revokeTitle": "撤销 API 密钥？",
+    "revokeDescription": "这将永久删除您的 API 密钥。在生成新密钥之前，您将无法使用需要身份验证的 MCP 功能。",
+    "keyGenerated": "API 密钥生成成功",
+    "keyRegenerated": "API 密钥重新生成成功",
+    "keyRevoked": "API 密钥已撤销",
+    "publicByDefault": "默认公开提示词",
+    "publicByDefaultDescription": "通过 MCP 保存提示词时，默认设为公开而非私有。",
+    "settingUpdated": "设置已更新"
   }
 }

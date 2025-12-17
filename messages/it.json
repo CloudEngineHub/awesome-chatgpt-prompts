@@ -46,6 +46,31 @@
     "register": "Registrati",
     "logout": "Esci"
   },
+  "brand": {
+    "copyLogoSvg": "Copia Logo SVG",
+    "brandAssets": "Risorse del marchio",
+    "title": "Risorse del marchio",
+    "description": "Loghi ufficiali, colori e linee guida del marchio per {name}. Gratuito per stampa, partnership e progetti della comunità.",
+    "logos": "Loghi",
+    "logo": "Logo",
+    "logoWithName": "Logo con nome",
+    "forLightBackgrounds": "Per sfondi chiari",
+    "forDarkBackgrounds": "Per sfondi scuri",
+    "brandColors": "Colori del marchio",
+    "clickToCopy": "Clicca per copiare il valore hex",
+    "primary": "Colore primario del marchio",
+    "background": "Sfondo chiaro",
+    "accent": "Colore accento indaco",
+    "muted": "Colore testo attenuato",
+    "usageGuidelines": "Linee guida per l'uso",
+    "guideline1": "Non allungare, distorcere o ruotare il logo",
+    "guideline2": "Mantenere una spaziatura adeguata intorno al logo",
+    "guideline3": "Usare il logo scuro su sfondi chiari e viceversa",
+    "guideline4": "Non aggiungere effetti come ombre o sfumature al logo",
+    "guideline5": "Il logo deve essere chiaramente visibile sullo sfondo",
+    "license": "Licenza",
+    "licenseText": "Le risorse del marchio {name} sono fornite sotto <link>CC0 1.0 Universal</link>. Sei libero di utilizzare queste risorse per qualsiasi scopo senza attribuzione."
+  },
   "auth": {
     "login": "Accedi",
     "loginDescription": "Inserisci le tue credenziali per continuare",
@@ -226,7 +251,11 @@
     "supportedFormat": "Formato supportato",
     "or": "o",
     "detectedVariables": "Variabili",
-    "clickToEdit": "Clicca per modificare"
+    "clickToEdit": "Clicca per modificare",
+    "translateToLanguage": "Traduci nella tua lingua",
+    "translated": "Contenuto tradotto",
+    "translationFailed": "Traduzione fallita",
+    "alreadyTranslated": "Già tradotto"
   },
   "changeRequests": {
     "title": "Richieste di Modifica",
@@ -376,7 +405,12 @@
       "regenerateEmbeddings": "Rigenera tutti gli embedding",
       "pending": "in attesa",
       "embeddingsSuccess": "{count} embedding generati",
-      "embeddingsResult": "Generati: {success}, Falliti: {failed}"
+      "embeddingsResult": "Generati: {success}, Falliti: {failed}",
+      "slugsTitle": "Slug URL",
+      "generateSlugs": "Genera Slug",
+      "regenerateSlugs": "Rigenera tutti gli slug (traduce i titoli in inglese)",
+      "slugsSuccess": "{count} slug generati",
+      "slugsResult": "Generati: {success}, Falliti: {failed}"
     },
     "users": {
       "title": "Gestione Utenti",
@@ -760,6 +794,27 @@
     "categories": "Categorie",
     "categoryPlaceholder": "Aggiungi slug categoria...",
     "tags": "Tag",
-    "tagPlaceholder": "Aggiungi slug tag..."
+    "tagPlaceholder": "Aggiungi slug tag...",
+    "generateApiKey": "Genera una chiave API per salvare prompt tramite MCP"
+  },
+  "apiKey": {
+    "title": "Chiave API MCP",
+    "description": "Genera una chiave API per salvare prompt tramite MCP e accedere ai tuoi prompt privati.",
+    "yourApiKey": "La Tua Chiave API",
+    "keyWarning": "Mantieni questa chiave segreta. Chiunque abbia questa chiave può accedere ai tuoi prompt privati e creare prompt a tuo nome.",
+    "noApiKey": "Non hai ancora generato una chiave API.",
+    "generate": "Genera Chiave API",
+    "regenerate": "Rigenera",
+    "revoke": "Revoca",
+    "regenerateTitle": "Rigenerare la Chiave API?",
+    "regenerateDescription": "Questo invaliderà la tua chiave API attuale. I client MCP che usano la vecchia chiave dovranno essere aggiornati.",
+    "revokeTitle": "Revocare la Chiave API?",
+    "revokeDescription": "Questo eliminerà permanentemente la tua chiave API. Non potrai usare le funzionalità MCP che richiedono autenticazione fino a quando non genererai una nuova chiave.",
+    "keyGenerated": "Chiave API generata con successo",
+    "keyRegenerated": "Chiave API rigenerata con successo",
+    "keyRevoked": "Chiave API revocata",
+    "publicByDefault": "Prompt pubblici per impostazione predefinita",
+    "publicByDefaultDescription": "Quando salvi prompt tramite MCP, rendili pubblici per impostazione predefinita invece che privati.",
+    "settingUpdated": "Impostazione aggiornata"
   }
 }

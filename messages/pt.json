@@ -46,6 +46,31 @@
     "register": "Cadastrar",
     "logout": "Sair"
   },
+  "brand": {
+    "copyLogoSvg": "Copiar Logo SVG",
+    "brandAssets": "Recursos da Marca",
+    "title": "Recursos da Marca",
+    "description": "Logotipos oficiais, cores e diretrizes de marca para {name}. Gratuito para imprensa, parcerias e projetos comunitários.",
+    "logos": "Logotipos",
+    "logo": "Logo",
+    "logoWithName": "Logo com Nome",
+    "forLightBackgrounds": "Para fundos claros",
+    "forDarkBackgrounds": "Para fundos escuros",
+    "brandColors": "Cores da Marca",
+    "clickToCopy": "Clique para copiar o valor hex",
+    "primary": "Cor primária da marca",
+    "background": "Fundo claro",
+    "accent": "Cor de destaque índigo",
+    "muted": "Cor de texto suave",
+    "usageGuidelines": "Diretrizes de Uso",
+    "guideline1": "Não estique, distorça ou gire o logo",
+    "guideline2": "Mantenha espaçamento adequado ao redor do logo",
+    "guideline3": "Use o logo escuro em fundos claros e vice-versa",
+    "guideline4": "Não adicione efeitos como sombras ou gradientes ao logo",
+    "guideline5": "O logo deve ser claramente visível contra o fundo",
+    "license": "Licença",
+    "licenseText": "Os recursos de marca {name} são fornecidos sob <link>CC0 1.0 Universal</link>. Você é livre para usar estes recursos para qualquer finalidade sem atribuição."
+  },
   "auth": {
     "login": "Entrar",
     "loginDescription": "Digite suas credenciais para continuar",
@@ -226,7 +251,11 @@
     "supportedFormat": "Formato suportado",
     "or": "ou",
     "detectedVariables": "Variáveis",
-    "clickToEdit": "Clique para editar"
+    "clickToEdit": "Clique para editar",
+    "translateToLanguage": "Traduzir para o seu idioma",
+    "translated": "Conteúdo traduzido",
+    "translationFailed": "Falha na tradução",
+    "alreadyTranslated": "Já traduzido"
   },
   "changeRequests": {
     "title": "Solicitações de Alteração",
@@ -376,7 +405,12 @@
       "regenerateEmbeddings": "Regenerar todos os embeddings",
       "pending": "pendente",
       "embeddingsSuccess": "{count} embeddings gerados",
-      "embeddingsResult": "Gerados: {success}, Falhas: {failed}"
+      "embeddingsResult": "Gerados: {success}, Falhas: {failed}",
+      "slugsTitle": "Slugs de URL",
+      "generateSlugs": "Gerar Slugs",
+      "regenerateSlugs": "Regenerar todos os slugs (traduz títulos para inglês)",
+      "slugsSuccess": "{count} slugs gerados",
+      "slugsResult": "Gerados: {success}, Falhas: {failed}"
     },
     "users": {
       "title": "Gerenciamento de Usuários",
@@ -760,6 +794,27 @@
     "categories": "Categorias",
     "categoryPlaceholder": "Adicionar slug da categoria...",
     "tags": "Tags",
-    "tagPlaceholder": "Adicionar slug da tag..."
+    "tagPlaceholder": "Adicionar slug da tag...",
+    "generateApiKey": "Gere uma chave API para salvar prompts via MCP"
+  },
+  "apiKey": {
+    "title": "Chave API MCP",
+    "description": "Gere uma chave API para salvar prompts via MCP e acessar seus prompts privados.",
+    "yourApiKey": "Sua Chave API",
+    "keyWarning": "Mantenha esta chave em segredo. Qualquer pessoa com esta chave pode acessar seus prompts privados e criar prompts em seu nome.",
+    "noApiKey": "Você ainda não gerou uma chave API.",
+    "generate": "Gerar Chave API",
+    "regenerate": "Regenerar",
+    "revoke": "Revogar",
+    "regenerateTitle": "Regenerar Chave API?",
+    "regenerateDescription": "Isso invalidará sua chave API atual. Os clientes MCP que usam a chave antiga precisarão ser atualizados.",
+    "revokeTitle": "Revogar Chave API?",
+    "revokeDescription": "Isso excluirá permanentemente sua chave API. Você não poderá usar recursos MCP que requerem autenticação até gerar uma nova chave.",
+    "keyGenerated": "Chave API gerada com sucesso",
+    "keyRegenerated": "Chave API regenerada com sucesso",
+    "keyRevoked": "Chave API revogada",
+    "publicByDefault": "Prompts públicos por padrão",
+    "publicByDefaultDescription": "Ao salvar prompts via MCP, torná-los públicos por padrão em vez de privados.",
+    "settingUpdated": "Configuração atualizada"
   }
 }

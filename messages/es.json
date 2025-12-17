@@ -46,6 +46,31 @@
     "register": "Registrarse",
     "logout": "Cerrar sesión"
   },
+  "brand": {
+    "copyLogoSvg": "Copiar Logo SVG",
+    "brandAssets": "Recursos de Marca",
+    "title": "Recursos de Marca",
+    "description": "Logotipos oficiales, colores y directrices de marca para {name}. Gratis para prensa, asociaciones y proyectos comunitarios.",
+    "logos": "Logotipos",
+    "logo": "Logo",
+    "logoWithName": "Logo con Nombre",
+    "forLightBackgrounds": "Para fondos claros",
+    "forDarkBackgrounds": "Para fondos oscuros",
+    "brandColors": "Colores de Marca",
+    "clickToCopy": "Haz clic para copiar el valor hex",
+    "primary": "Color primario de marca",
+    "background": "Fondo claro",
+    "accent": "Color de acento índigo",
+    "muted": "Color de texto atenuado",
+    "usageGuidelines": "Directrices de Uso",
+    "guideline1": "No estires, distorsiones ni gires el logo",
+    "guideline2": "Mantén un espacio adecuado alrededor del logo",
+    "guideline3": "Usa el logo oscuro en fondos claros y viceversa",
+    "guideline4": "No añadas efectos como sombras o degradados al logo",
+    "guideline5": "El logo debe ser claramente visible contra el fondo",
+    "license": "Licencia",
+    "licenseText": "Los recursos de marca de {name} se proporcionan bajo <link>CC0 1.0 Universal</link>. Eres libre de usar estos recursos para cualquier propósito sin atribución."
+  },
   "auth": {
     "login": "Iniciar sesión",
     "loginDescription": "Ingresa tus credenciales para continuar",
@@ -226,7 +251,11 @@
     "supportedFormat": "Formato soportado",
     "or": "o",
     "detectedVariables": "Variables",
-    "clickToEdit": "Clic para editar"
+    "clickToEdit": "Clic para editar",
+    "translateToLanguage": "Traducir a tu idioma",
+    "translated": "Contenido traducido",
+    "translationFailed": "Error en la traducción",
+    "alreadyTranslated": "Ya traducido"
   },
   "changeRequests": {
     "title": "Solicitudes de Cambio",
@@ -376,7 +405,12 @@
       "generateEmbeddings": "Generar Embeddings",
       "regenerateEmbeddings": "Regenerar todos los embeddings",
       "embeddingsSuccess": "{count} embeddings generados",
-      "embeddingsResult": "Éxito: {success}, Fallidos: {failed}"
+      "embeddingsResult": "Éxito: {success}, Fallidos: {failed}",
+      "slugsTitle": "Slugs de URL",
+      "generateSlugs": "Generar Slugs",
+      "regenerateSlugs": "Regenerar todos los slugs (traduce títulos al inglés)",
+      "slugsSuccess": "{count} slugs generados",
+      "slugsResult": "Generados: {success}, Fallidos: {failed}"
     },
     "users": {
       "title": "Gestión de Usuarios",
@@ -760,6 +794,27 @@
     "categories": "Categorías",
     "categoryPlaceholder": "Añadir slug de categoría...",
     "tags": "Etiquetas",
-    "tagPlaceholder": "Añadir slug de etiqueta..."
+    "tagPlaceholder": "Añadir slug de etiqueta...",
+    "generateApiKey": "Genera una clave API para guardar prompts vía MCP"
+  },
+  "apiKey": {
+    "title": "Clave API MCP",
+    "description": "Genera una clave API para guardar prompts vía MCP y acceder a tus prompts privados.",
+    "yourApiKey": "Tu Clave API",
+    "keyWarning": "Mantén esta clave en secreto. Cualquiera con esta clave puede acceder a tus prompts privados y crear prompts en tu nombre.",
+    "noApiKey": "Aún no has generado una clave API.",
+    "generate": "Generar Clave API",
+    "regenerate": "Regenerar",
+    "revoke": "Revocar",
+    "regenerateTitle": "¿Regenerar Clave API?",
+    "regenerateDescription": "Esto invalidará tu clave API actual. Los clientes MCP que usen la clave antigua necesitarán ser actualizados.",
+    "revokeTitle": "¿Revocar Clave API?",
+    "revokeDescription": "Esto eliminará permanentemente tu clave API. No podrás usar las funciones MCP que requieren autenticación hasta que generes una nueva clave.",
+    "keyGenerated": "Clave API generada exitosamente",
+    "keyRegenerated": "Clave API regenerada exitosamente",
+    "keyRevoked": "Clave API revocada",
+    "publicByDefault": "Prompts públicos por defecto",
+    "publicByDefaultDescription": "Al guardar prompts vía MCP, hacerlos públicos por defecto en lugar de privados.",
+    "settingUpdated": "Configuración actualizada"
   }
 }

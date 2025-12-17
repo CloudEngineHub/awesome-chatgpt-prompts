@@ -46,6 +46,31 @@
     "register": "إنشاء حساب",
     "logout": "تسجيل الخروج"
   },
+  "brand": {
+    "copyLogoSvg": "نسخ شعار SVG",
+    "brandAssets": "موارد العلامة التجارية",
+    "title": "موارد العلامة التجارية",
+    "description": "الشعارات الرسمية والألوان وإرشادات العلامة التجارية لـ {name}. مجاني للصحافة والشراكات ومشاريع المجتمع.",
+    "logos": "الشعارات",
+    "logo": "الشعار",
+    "logoWithName": "الشعار مع الاسم",
+    "forLightBackgrounds": "للخلفيات الفاتحة",
+    "forDarkBackgrounds": "للخلفيات الداكنة",
+    "brandColors": "ألوان العلامة التجارية",
+    "clickToCopy": "انقر لنسخ قيمة hex",
+    "primary": "لون العلامة التجارية الأساسي",
+    "background": "خلفية فاتحة",
+    "accent": "لون التمييز النيلي",
+    "muted": "لون النص المكتوم",
+    "usageGuidelines": "إرشادات الاستخدام",
+    "guideline1": "لا تمدد أو تشوه أو تدور الشعار",
+    "guideline2": "حافظ على مسافة كافية حول الشعار",
+    "guideline3": "استخدم الشعار الداكن على الخلفيات الفاتحة والعكس",
+    "guideline4": "لا تضف تأثيرات مثل الظلال أو التدرجات للشعار",
+    "guideline5": "يجب أن يكون الشعار مرئيًا بوضوح على الخلفية",
+    "license": "الترخيص",
+    "licenseText": "يتم توفير موارد العلامة التجارية {name} بموجب <link>CC0 1.0 Universal</link>. أنت حر في استخدام هذه الموارد لأي غرض دون إسناد."
+  },
   "auth": {
     "login": "تسجيل الدخول",
     "loginDescription": "أدخل بياناتك للمتابعة",
@@ -226,7 +251,11 @@
     "supportedFormat": "الصيغة المدعومة",
     "or": "أو",
     "detectedVariables": "المتغيرات",
-    "clickToEdit": "انقر للتعديل"
+    "clickToEdit": "انقر للتعديل",
+    "translateToLanguage": "ترجم إلى لغتك",
+    "translated": "تمت ترجمة المحتوى",
+    "translationFailed": "فشلت الترجمة",
+    "alreadyTranslated": "مترجم بالفعل"
   },
   "changeRequests": {
     "title": "طلبات التغيير",
@@ -376,7 +405,12 @@
       "generateEmbeddings": "إنشاء التضمينات",
       "regenerateEmbeddings": "إعادة إنشاء جميع التضمينات",
       "embeddingsSuccess": "تم إنشاء {count} تضمين",
-      "embeddingsResult": "نجاح: {success}, فشل: {failed}"
+      "embeddingsResult": "نجاح: {success}, فشل: {failed}",
+      "slugsTitle": "روابط URL",
+      "generateSlugs": "إنشاء الروابط",
+      "regenerateSlugs": "إعادة إنشاء جميع الروابط (ترجمة العناوين إلى الإنجليزية)",
+      "slugsSuccess": "تم إنشاء {count} رابط",
+      "slugsResult": "نجاح: {success}, فشل: {failed}"
     },
     "users": {
       "title": "إدارة المستخدمين",
@@ -760,6 +794,27 @@
     "categories": "الفئات",
     "categoryPlaceholder": "إضافة رمز الفئة...",
     "tags": "العلامات",
-    "tagPlaceholder": "إضافة رمز العلامة..."
+    "tagPlaceholder": "إضافة رمز العلامة...",
+    "generateApiKey": "أنشئ مفتاح API لحفظ الأوامر عبر MCP"
+  },
+  "apiKey": {
+    "title": "مفتاح API لـ MCP",
+    "description": "أنشئ مفتاح API لحفظ الأوامر عبر MCP والوصول إلى أوامرك الخاصة.",
+    "yourApiKey": "مفتاح API الخاص بك",
+    "keyWarning": "احتفظ بهذا المفتاح سرياً. يمكن لأي شخص لديه هذا المفتاح الوصول إلى أوامرك الخاصة وإنشاء أوامر نيابة عنك.",
+    "noApiKey": "لم تقم بإنشاء مفتاح API بعد.",
+    "generate": "إنشاء مفتاح API",
+    "regenerate": "إعادة الإنشاء",
+    "revoke": "إلغاء",
+    "regenerateTitle": "إعادة إنشاء مفتاح API؟",
+    "regenerateDescription": "سيؤدي هذا إلى إبطال مفتاح API الحالي. ستحتاج عملاء MCP الذين يستخدمون المفتاح القديم إلى التحديث.",
+    "revokeTitle": "إلغاء مفتاح API؟",
+    "revokeDescription": "سيؤدي هذا إلى حذف مفتاح API الخاص بك نهائياً. لن تتمكن من استخدام ميزات MCP التي تتطلب المصادقة حتى تنشئ مفتاحاً جديداً.",
+    "keyGenerated": "تم إنشاء مفتاح API بنجاح",
+    "keyRegenerated": "تم إعادة إنشاء مفتاح API بنجاح",
+    "keyRevoked": "تم إلغاء مفتاح API",
+    "publicByDefault": "أوامر عامة افتراضياً",
+    "publicByDefaultDescription": "عند حفظ الأوامر عبر MCP، اجعلها عامة افتراضياً بدلاً من خاصة.",
+    "settingUpdated": "تم تحديث الإعداد"
   }
 }

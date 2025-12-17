@@ -46,6 +46,31 @@
     "register": "Registrieren",
     "logout": "Abmelden"
   },
+  "brand": {
+    "copyLogoSvg": "Logo SVG kopieren",
+    "brandAssets": "Markenressourcen",
+    "title": "Markenressourcen",
+    "description": "Offizielle Logos, Farben und Markenrichtlinien für {name}. Kostenlos für Presse, Partnerschaften und Community-Projekte.",
+    "logos": "Logos",
+    "logo": "Logo",
+    "logoWithName": "Logo mit Namen",
+    "forLightBackgrounds": "Für helle Hintergründe",
+    "forDarkBackgrounds": "Für dunkle Hintergründe",
+    "brandColors": "Markenfarben",
+    "clickToCopy": "Klicken zum Kopieren des Hex-Werts",
+    "primary": "Primäre Markenfarbe",
+    "background": "Heller Hintergrund",
+    "accent": "Indigo Akzentfarbe",
+    "muted": "Gedämpfte Textfarbe",
+    "usageGuidelines": "Verwendungsrichtlinien",
+    "guideline1": "Das Logo nicht strecken, verzerren oder drehen",
+    "guideline2": "Ausreichend Abstand um das Logo einhalten",
+    "guideline3": "Dunkles Logo auf hellen Hintergründen verwenden und umgekehrt",
+    "guideline4": "Keine Effekte wie Schatten oder Verläufe zum Logo hinzufügen",
+    "guideline5": "Das Logo sollte vor dem Hintergrund deutlich sichtbar sein",
+    "license": "Lizenz",
+    "licenseText": "Die {name} Markenressourcen werden unter <link>CC0 1.0 Universal</link> bereitgestellt. Sie können diese Ressourcen ohne Quellenangabe für jeden Zweck frei verwenden."
+  },
   "auth": {
     "login": "Anmelden",
     "loginDescription": "Geben Sie Ihre Anmeldedaten ein, um fortzufahren",
@@ -226,7 +251,11 @@
     "supportedFormat": "Unterstütztes Format",
     "or": "oder",
     "detectedVariables": "Variablen",
-    "clickToEdit": "Zum Bearbeiten klicken"
+    "clickToEdit": "Zum Bearbeiten klicken",
+    "translateToLanguage": "In Ihre Sprache übersetzen",
+    "translated": "Inhalt übersetzt",
+    "translationFailed": "Übersetzung fehlgeschlagen",
+    "alreadyTranslated": "Bereits übersetzt"
   },
   "changeRequests": {
     "title": "Änderungsanfragen",
@@ -376,7 +405,12 @@
       "regenerateEmbeddings": "Alle Embeddings neu generieren",
       "pending": "ausstehend",
       "embeddingsSuccess": "{count} Embeddings generiert",
-      "embeddingsResult": "Generiert: {success}, Fehlgeschlagen: {failed}"
+      "embeddingsResult": "Generiert: {success}, Fehlgeschlagen: {failed}",
+      "slugsTitle": "URL-Slugs",
+      "generateSlugs": "Slugs generieren",
+      "regenerateSlugs": "Alle Slugs neu generieren (Titel ins Englische übersetzen)",
+      "slugsSuccess": "{count} Slugs generiert",
+      "slugsResult": "Generiert: {success}, Fehlgeschlagen: {failed}"
     },
     "users": {
       "title": "Benutzerverwaltung",
@@ -760,6 +794,27 @@
     "categories": "Kategorien",
     "categoryPlaceholder": "Kategorie-Slug hinzufügen...",
     "tags": "Tags",
-    "tagPlaceholder": "Tag-Slug hinzufügen..."
+    "tagPlaceholder": "Tag-Slug hinzufügen...",
+    "generateApiKey": "API-Schlüssel generieren, um Prompts über MCP zu speichern"
+  },
+  "apiKey": {
+    "title": "MCP API-Schlüssel",
+    "description": "Generieren Sie einen API-Schlüssel, um Prompts über MCP zu speichern und auf Ihre privaten Prompts zuzugreifen.",
+    "yourApiKey": "Ihr API-Schlüssel",
+    "keyWarning": "Halten Sie diesen Schlüssel geheim. Jeder mit diesem Schlüssel kann auf Ihre privaten Prompts zugreifen und Prompts in Ihrem Namen erstellen.",
+    "noApiKey": "Sie haben noch keinen API-Schlüssel generiert.",
+    "generate": "API-Schlüssel generieren",
+    "regenerate": "Neu generieren",
+    "revoke": "Widerrufen",
+    "regenerateTitle": "API-Schlüssel neu generieren?",
+    "regenerateDescription": "Dies macht Ihren aktuellen API-Schlüssel ungültig. MCP-Clients, die den alten Schlüssel verwenden, müssen aktualisiert werden.",
+    "revokeTitle": "API-Schlüssel widerrufen?",
+    "revokeDescription": "Dies löscht Ihren API-Schlüssel dauerhaft. Sie können MCP-Funktionen, die eine Authentifizierung erfordern, nicht mehr verwenden, bis Sie einen neuen Schlüssel generieren.",
+    "keyGenerated": "API-Schlüssel erfolgreich generiert",
+    "keyRegenerated": "API-Schlüssel erfolgreich neu generiert",
+    "keyRevoked": "API-Schlüssel widerrufen",
+    "publicByDefault": "Prompts standardmäßig öffentlich",
+    "publicByDefaultDescription": "Beim Speichern von Prompts über MCP standardmäßig öffentlich statt privat machen.",
+    "settingUpdated": "Einstellung aktualisiert"
   }
 }

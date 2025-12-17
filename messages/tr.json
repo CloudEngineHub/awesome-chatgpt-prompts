@@ -46,6 +46,31 @@
     "register": "Kayıt Ol",
     "logout": "Çıkış Yap"
   },
+  "brand": {
+    "copyLogoSvg": "Logo SVG'sini Kopyala",
+    "brandAssets": "Marka Varlıkları",
+    "title": "Marka Varlıkları",
+    "description": "{name} için resmi logolar, renkler ve marka yönergeleri. Basın, ortaklıklar ve topluluk projeleri için ücretsiz kullanılabilir.",
+    "logos": "Logolar",
+    "logo": "Logo",
+    "logoWithName": "İsimli Logo",
+    "forLightBackgrounds": "Açık arka planlar için",
+    "forDarkBackgrounds": "Koyu arka planlar için",
+    "brandColors": "Marka Renkleri",
+    "clickToCopy": "Hex değerini kopyalamak için tıklayın",
+    "primary": "Birincil marka rengi",
+    "background": "Açık arka plan",
+    "accent": "İndigo vurgu rengi",
+    "muted": "Soluk metin rengi",
+    "usageGuidelines": "Kullanım Yönergeleri",
+    "guideline1": "Logoyu esnetmeyin, deforme etmeyin veya döndürmeyin",
+    "guideline2": "Logo etrafında yeterli boşluk bırakın",
+    "guideline3": "Açık arka planlarda koyu logoyu, koyu arka planlarda açık logoyu kullanın",
+    "guideline4": "Logoya gölge veya gradyan gibi efektler eklemeyin",
+    "guideline5": "Logo arka plana karşı açıkça görünür olmalıdır",
+    "license": "Lisans",
+    "licenseText": "{name} marka varlıkları <link>CC0 1.0 Universal</link> altında sağlanmaktadır. Bu varlıkları atıf yapmadan herhangi bir amaçla kullanabilirsiniz."
+  },
   "auth": {
     "login": "Giriş Yap",
     "loginDescription": "Devam etmek için bilgilerinizi girin",
@@ -226,7 +251,11 @@
     "supportedFormat": "Desteklenen format",
     "or": "veya",
     "detectedVariables": "Değişkenler",
-    "clickToEdit": "Düzenlemek için tıklayın"
+    "clickToEdit": "Düzenlemek için tıklayın",
+    "translateToLanguage": "Dilinize çevirin",
+    "translated": "İçerik çevrildi",
+    "translationFailed": "Çeviri başarısız oldu",
+    "alreadyTranslated": "Zaten çevrildi"
   },
   "changeRequests": {
     "title": "Değişiklik İstekleri",
@@ -376,7 +405,12 @@
       "regenerateEmbeddings": "Tüm gömme vektörlerini yeniden oluştur",
       "pending": "bekliyor",
       "embeddingsSuccess": "{count} gömme vektörü oluşturuldu",
-      "embeddingsResult": "Oluşturulan: {success}, Başarısız: {failed}"
+      "embeddingsResult": "Oluşturulan: {success}, Başarısız: {failed}",
+      "slugsTitle": "URL Kısaltmaları",
+      "generateSlugs": "Kısaltma Oluştur",
+      "regenerateSlugs": "Tüm kısaltmaları yeniden oluştur (başlıkları İngilizce'ye çevirir)",
+      "slugsSuccess": "{count} kısaltma oluşturuldu",
+      "slugsResult": "Oluşturulan: {success}, Başarısız: {failed}"
     },
     "users": {
       "title": "Kullanıcı Yönetimi",
@@ -760,6 +794,27 @@
     "categories": "Kategoriler",
     "categoryPlaceholder": "Kategori slug ekle...",
     "tags": "Etiketler",
-    "tagPlaceholder": "Etiket slug ekle..."
+    "tagPlaceholder": "Etiket slug ekle...",
+    "generateApiKey": "MCP ile prompt kaydetmek için API anahtarı oluşturun"
+  },
+  "apiKey": {
+    "title": "MCP API Anahtarı",
+    "description": "MCP ile prompt kaydetmek ve özel promptlarınıza erişmek için bir API anahtarı oluşturun.",
+    "yourApiKey": "API Anahtarınız",
+    "keyWarning": "Bu anahtarı gizli tutun. Bu anahtara sahip olan herkes özel promptlarınıza erişebilir ve sizin adınıza prompt oluşturabilir.",
+    "noApiKey": "Henüz bir API anahtarı oluşturmadınız.",
+    "generate": "API Anahtarı Oluştur",
+    "regenerate": "Yeniden Oluştur",
+    "revoke": "İptal Et",
+    "regenerateTitle": "API Anahtarını Yeniden Oluştur?",
+    "regenerateDescription": "Bu, mevcut API anahtarınızı geçersiz kılacak. Eski anahtarı kullanan MCP istemcilerinin güncellenmesi gerekecek.",
+    "revokeTitle": "API Anahtarını İptal Et?",
+    "revokeDescription": "Bu, API anahtarınızı kalıcı olarak silecek. Yeni bir anahtar oluşturana kadar kimlik doğrulaması gerektiren MCP özelliklerini kullanamazsınız.",
+    "keyGenerated": "API anahtarı başarıyla oluşturuldu",
+    "keyRegenerated": "API anahtarı başarıyla yeniden oluşturuldu",
+    "keyRevoked": "API anahtarı iptal edildi",
+    "publicByDefault": "Varsayılan olarak herkese açık promptlar",
+    "publicByDefaultDescription": "MCP ile prompt kaydederken, varsayılan olarak özel yerine herkese açık yap.",
+    "settingUpdated": "Ayar güncellendi"
   }
 }

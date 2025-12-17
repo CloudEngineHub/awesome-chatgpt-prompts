@@ -46,6 +46,31 @@
     "register": "회원가입",
     "logout": "로그아웃"
   },
+  "brand": {
+    "copyLogoSvg": "로고 SVG 복사",
+    "brandAssets": "브랜드 자산",
+    "title": "브랜드 자산",
+    "description": "{name}의 공식 로고, 색상 및 브랜드 가이드라인입니다. 언론, 파트너십 및 커뮤니티 프로젝트에 무료로 사용할 수 있습니다.",
+    "logos": "로고",
+    "logo": "로고",
+    "logoWithName": "이름이 있는 로고",
+    "forLightBackgrounds": "밝은 배경용",
+    "forDarkBackgrounds": "어두운 배경용",
+    "brandColors": "브랜드 색상",
+    "clickToCopy": "클릭하여 hex 값 복사",
+    "primary": "기본 브랜드 색상",
+    "background": "밝은 배경",
+    "accent": "인디고 강조 색상",
+    "muted": "음소거 텍스트 색상",
+    "usageGuidelines": "사용 지침",
+    "guideline1": "로고를 늘리거나 왜곡하거나 회전하지 마세요",
+    "guideline2": "로고 주위에 적절한 간격을 유지하세요",
+    "guideline3": "밝은 배경에는 어두운 로고를, 어두운 배경에는 밝은 로고를 사용하세요",
+    "guideline4": "로고에 그림자나 그라데이션 같은 효과를 추가하지 마세요",
+    "guideline5": "로고는 배경에 대해 명확하게 보여야 합니다",
+    "license": "라이선스",
+    "licenseText": "{name} 브랜드 자산은 <link>CC0 1.0 Universal</link> 하에 제공됩니다. 귀속 표시 없이 어떤 목적으로든 이러한 자산을 자유롭게 사용할 수 있습니다."
+  },
   "auth": {
     "login": "로그인",
     "loginDescription": "계속하려면 자격 증명을 입력하세요",
@@ -226,7 +251,11 @@
     "supportedFormat": "지원 형식",
     "or": "또는",
     "detectedVariables": "변수",
-    "clickToEdit": "클릭하여 편집"
+    "clickToEdit": "클릭하여 편집",
+    "translateToLanguage": "내 언어로 번역",
+    "translated": "콘텐츠가 번역됨",
+    "translationFailed": "번역 실패",
+    "alreadyTranslated": "이미 번역됨"
   },
   "changeRequests": {
     "title": "변경 요청",
@@ -376,7 +405,12 @@
       "regenerateEmbeddings": "모든 임베딩 재생성",
       "pending": "대기 중",
       "embeddingsSuccess": "{count}개 임베딩 생성됨",
-      "embeddingsResult": "생성됨: {success}, 실패: {failed}"
+      "embeddingsResult": "생성됨: {success}, 실패: {failed}",
+      "slugsTitle": "URL 슬러그",
+      "generateSlugs": "슬러그 생성",
+      "regenerateSlugs": "모든 슬러그 재생성 (제목을 영어로 번역)",
+      "slugsSuccess": "{count}개 슬러그 생성됨",
+      "slugsResult": "생성됨: {success}, 실패: {failed}"
     },
     "users": {
       "title": "사용자 관리",
@@ -760,6 +794,27 @@
     "categories": "카테고리",
     "categoryPlaceholder": "카테고리 슬러그 추가...",
     "tags": "태그",
-    "tagPlaceholder": "태그 슬러그 추가..."
+    "tagPlaceholder": "태그 슬러그 추가...",
+    "generateApiKey": "MCP를 통해 프롬프트를 저장하려면 API 키를 생성하세요"
+  },
+  "apiKey": {
+    "title": "MCP API 키",
+    "description": "MCP를 통해 프롬프트를 저장하고 비공개 프롬프트에 접근하려면 API 키를 생성하세요.",
+    "yourApiKey": "API 키",
+    "keyWarning": "이 키를 비밀로 유지하세요. 이 키를 가진 사람은 비공개 프롬프트에 접근하고 대신 프롬프트를 만들 수 있습니다.",
+    "noApiKey": "아직 API 키를 생성하지 않았습니다.",
+    "generate": "API 키 생성",
+    "regenerate": "재생성",
+    "revoke": "취소",
+    "regenerateTitle": "API 키를 재생성하시겠습니까?",
+    "regenerateDescription": "현재 API 키가 무효화됩니다. 이전 키를 사용하는 MCP 클라이언트는 업데이트가 필요합니다.",
+    "revokeTitle": "API 키를 취소하시겠습니까?",
+    "revokeDescription": "API 키가 영구적으로 삭제됩니다. 새 키를 생성할 때까지 인증이 필요한 MCP 기능을 사용할 수 없습니다.",
+    "keyGenerated": "API 키가 성공적으로 생성되었습니다",
+    "keyRegenerated": "API 키가 성공적으로 재생성되었습니다",
+    "keyRevoked": "API 키가 취소되었습니다",
+    "publicByDefault": "기본적으로 공개 프롬프트",
+    "publicByDefaultDescription": "MCP를 통해 프롬프트를 저장할 때 비공개 대신 기본적으로 공개로 설정합니다.",
+    "settingUpdated": "설정이 업데이트되었습니다"
   }
 }

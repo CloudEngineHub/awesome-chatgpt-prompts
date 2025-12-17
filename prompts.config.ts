@@ -44,7 +44,7 @@ export default defineConfig({
 
   // Internationalization
   i18n: {
-    locales: ["en", "tr", "es", "zh", "ja", "ar", "pt", "fr", "it", "de", "ko", "ru"],
+    locales: ["en", "tr", "es", "zh", "ja", "ar", "pt", "fr", "it", "de", "ko", "ru", "he", "el"],
     defaultLocale: "en",
   },
 
@@ -62,6 +62,8 @@ export default defineConfig({
     aiSearch: true,
     // Enable AI-powered generation features (requires OPENAI_API_KEY)
     aiGeneration: true,
+    // Enable MCP (Model Context Protocol) features including API key generation
+    mcp: true,
   },
 
   // Homepage customization

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import {
@@ -15,6 +16,8 @@ import {
   Globe,
   Moon,
   Sun,
+  Copy,
+  ExternalLink,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -31,6 +34,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu";
 import { NotificationBell } from "@/components/layout/notification-bell";
 import { setLocale } from "@/lib/i18n/client";
 import { useBranding } from "@/components/providers/branding-provider";
@@ -49,6 +58,8 @@ const languages = [
   { code: "ko", name: "한국어" },
   { code: "ar", name: "العربية" },
   { code: "ru", name: "Русский" },
+  { code: "he", name: "עברית" },
+  { code: "el", name: "Ελληνικά" },
 ];
 
 interface HeaderProps {
@@ -64,10 +75,23 @@ export function Header({ authProvider = "credentials", allowRegistration = true 
   const t = useTranslations();
   const { theme, setTheme } = useTheme();
   const branding = useBranding();
+  const router = useRouter();
 
   const user = session?.user;
   const isAdmin = user?.role === "ADMIN";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleCopyLogoSvg = async () => {
+    try {
+      const logoUrl = theme === "dark" ? (branding.logoDark || branding.logo) : branding.logo;
+      if (!logoUrl) return;
+      const response = await fetch(logoUrl);
+      const svgContent = await response.text();
+      await navigator.clipboard.writeText(svgContent);
+    } catch (error) {
+      console.error("Failed to copy logo:", error);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -166,27 +190,65 @@ export function Header({ authProvider = "credentials", allowRegistration = true 
         </Sheet>
 
         {/* Logo */}
-        <Link href="/" className="flex gap-2">
-          {branding.logo && (
-            <>
-              <Image
-                src={branding.logo}
-                alt={branding.name}
-                width={20}
-                height={20}
-                className="h-5 w-5 dark:hidden"
-              />
-              <Image
-                src={branding.logoDark || branding.logo}
-                alt={branding.name}
-                width={20}
-                height={20}
-                className="h-5 w-5 hidden dark:block"
-              />
-            </>
-          )}
-          <span className="font-semibold leading-none">{branding.name}</span>
-        </Link>
+        {!branding.useCloneBranding ? (
+          <ContextMenu>
+            <ContextMenuTrigger asChild>
+              <Link href="/" className="flex gap-2">
+                {branding.logo && (
+                  <>
+                    <Image
+                      src={branding.logo}
+                      alt={branding.name}
+                      width={20}
+                      height={20}
+                      className="h-5 w-5 dark:hidden"
+                    />
+                    <Image
+                      src={branding.logoDark || branding.logo}
+                      alt={branding.name}
+                      width={20}
+                      height={20}
+                      className="h-5 w-5 hidden dark:block"
+                    />
+                  </>
+                )}
+                <span className="font-semibold leading-none">{branding.name}</span>
+              </Link>
+            </ContextMenuTrigger>
+            <ContextMenuContent>
+              <ContextMenuItem onClick={handleCopyLogoSvg}>
+                <Copy className="mr-2 h-4 w-4" />
+                {t("brand.copyLogoSvg")}
+              </ContextMenuItem>
+              <ContextMenuItem onClick={() => router.push("/brand")}>
+                <ExternalLink className="mr-2 h-4 w-4" />
+                {t("brand.brandAssets")}
+              </ContextMenuItem>
+            </ContextMenuContent>
+          </ContextMenu>
+        ) : (
+          <Link href="/" className="flex gap-2">
+            {branding.logo && (
+              <>
+                <Image
+                  src={branding.logo}
+                  alt={branding.name}
+                  width={20}
+                  height={20}
+                  className="h-5 w-5 dark:hidden"
+                />
+                <Image
+                  src={branding.logoDark || branding.logo}
+                  alt={branding.name}
+                  width={20}
+                  height={20}
+                  className="h-5 w-5 hidden dark:block"
+                />
+              </>
+            )}
+            <span className="font-semibold leading-none">{branding.name}</span>
+          </Link>
+        )}
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1 text-sm">

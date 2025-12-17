@@ -3,9 +3,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import { formatDistanceToNow } from "@/lib/date";
-import { Calendar, ArrowBigUp, FileText, Settings, GitPullRequest, Clock, Check, X, Pin, BadgeCheck, Users } from "lucide-react";
+import { getPromptUrl } from "@/lib/urls";
+import { Calendar, ArrowBigUp, FileText, Settings, GitPullRequest, Clock, Check, X, Pin, BadgeCheck, Users, ShieldCheck } from "lucide-react";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
+import config from "@/../prompts.config";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -220,6 +222,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
         prompt: {
           select: {
             id: true,
+            slug: true,
             title: true,
             author: {
               select: {
@@ -254,6 +257,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
         prompt: {
           select: {
             id: true,
+            slug: true,
             title: true,
             author: {
               select: {
@@ -309,7 +313,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
                 <BadgeCheck className="h-5 w-5 text-blue-500 shrink-0" />
               )}
               {user.role === "ADMIN" && (
-                <Badge variant="default" className="text-xs shrink-0">Admin</Badge>
+                <ShieldCheck className="h-5 w-5 text-primary shrink-0" />
               )}
             </div>
             <p className="text-muted-foreground text-sm flex items-center gap-2 flex-wrap">
@@ -323,7 +327,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
           </div>
           {/* Actions - desktop only */}
           <div className="hidden md:flex items-center gap-2 shrink-0">
-            <McpServerPopup initialUsers={[user.username]} />
+            {config.features.mcp !== false && <McpServerPopup initialUsers={[user.username]} />}
             {isOwner && (
               <Button variant="outline" size="sm" asChild>
                 <Link href="/settings">
@@ -360,7 +364,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
 
         {/* Actions - mobile only */}
         <div className="md:hidden flex gap-2">
-          <McpServerPopup initialUsers={[user.username]} />
+          {config.features.mcp !== false && <McpServerPopup initialUsers={[user.username]} />}
           {isOwner && (
             <Button variant="outline" size="sm" asChild className="flex-1">
               <Link href="/settings">
@@ -468,7 +472,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
                 return (
                   <Link 
                     key={cr.id} 
-                    href={`/prompts/${cr.prompt.id}/changes/${cr.id}`}
+                    href={`${getPromptUrl(cr.prompt.id, cr.prompt.slug)}/changes/${cr.id}`}
                     className="flex items-center justify-between px-3 py-2 hover:bg-accent/50 transition-colors"
                   >
                     <div className="min-w-0 flex-1">
