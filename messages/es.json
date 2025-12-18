@@ -138,6 +138,18 @@
     "unlist": "Ocultar",
     "relist": "Mostrar",
     "adminArea": "Área de Administrador",
+    "promptDelisted": "Este prompt ha sido retirado de la lista",
+    "delistReasonTooShort": "Este prompt fue retirado automáticamente porque el contenido es demasiado corto. Seguirá apareciendo en tu perfil, pero no se exportará a GitHub ni aparecerá en las búsquedas.",
+    "delistReasonNotEnglish": "Este prompt fue retirado automáticamente porque no está principalmente en inglés. Seguirá apareciendo en tu perfil, pero no se exportará a GitHub ni aparecerá en las búsquedas.",
+    "delistReasonLowQuality": "Este prompt fue retirado automáticamente debido a problemas de calidad. Seguirá apareciendo en tu perfil, pero no se exportará a GitHub ni aparecerá en las búsquedas.",
+    "delistReasonNotInstruction": "Este prompt fue retirado automáticamente porque no parece ser una instrucción para LLM. Seguirá apareciendo en tu perfil, pero no se exportará a GitHub ni aparecerá en las búsquedas.",
+    "delistReasonManual": "Este prompt fue retirado manualmente por un administrador. Seguirá apareciendo en tu perfil, pero no se exportará a GitHub ni aparecerá en las búsquedas.",
+    "delistReasonUnknown": "Este prompt ha sido retirado de la lista. Seguirá apareciendo en tu perfil, pero no se exportará a GitHub ni aparecerá en las búsquedas.",
+    "delistOwnerNote": "Como este prompt fue retirado por problemas de calidad, puedes eliminarlo si lo deseas.",
+    "deletePrompt": "Eliminar Prompt",
+    "deletePromptTitle": "¿Eliminar este prompt?",
+    "deletePromptDescription": "Esta acción no se puede deshacer. El prompt será eliminado permanentemente.",
+    "deleteError": "Error al eliminar el prompt",
     "noMorePrompts": "Has llegado al final",
     "loading": "Cargando...",
     "types": {
@@ -412,6 +424,29 @@
       "slugsSuccess": "{count} slugs generados",
       "slugsResult": "Generados: {success}, Fallidos: {failed}"
     },
+    "promptsList": {
+      "title": "Todos los Prompts",
+      "description": "Explorar y gestionar todos los prompts del sistema",
+      "noPrompts": "No se encontraron prompts",
+      "private": "Privado",
+      "unlisted": "No listado",
+      "views": "vistas",
+      "votes": "votos",
+      "created": "Creado",
+      "showing": "Mostrando {from}-{to} de {total}",
+      "deleteConfirmTitle": "¿Eliminar Prompt?",
+      "deleteConfirmDescription": "¿Estás seguro de eliminar permanentemente \"{title}\"? Esta acción no se puede deshacer.",
+      "deleted": "Prompt eliminado correctamente",
+      "filters": {
+        "all": "Todos",
+        "public": "Públicos",
+        "private": "Privados",
+        "unlisted": "No listados",
+        "featured": "Destacados",
+        "reported": "Reportados",
+        "deleted": "Eliminados"
+      }
+    },
     "users": {
       "title": "Gestión de Usuarios",
       "description": "Ver y administrar cuentas de usuario",
@@ -434,7 +469,17 @@
       "unverified": "Usuario no verificado",
       "verifyFailed": "Error al actualizar verificación",
       "deleteConfirmTitle": "¿Eliminar Usuario?",
-      "deleteConfirmDescription": "Esta acción no se puede deshacer. Todos los datos del usuario serán eliminados permanentemente."
+      "deleteConfirmDescription": "Esta acción no se puede deshacer. Todos los datos del usuario serán eliminados permanentemente.",
+      "searchPlaceholder": "Buscar usuarios...",
+      "noUsers": "No se encontraron usuarios",
+      "showing": "Mostrando {from}-{to} de {total}",
+      "filters": {
+        "all": "Todos",
+        "admin": "Admins",
+        "user": "Usuarios",
+        "verified": "Verificados",
+        "unverified": "No verificados"
+      }
     },
     "categories": {
       "title": "Gestión de Categorías",
@@ -796,6 +841,12 @@
     "tags": "Etiquetas",
     "tagPlaceholder": "Añadir slug de etiqueta...",
     "generateApiKey": "Genera una clave API para guardar prompts vía MCP"
+  },
+  "footer": {
+    "docs": "Documentación",
+    "api": "API",
+    "privacy": "Privacidad",
+    "terms": "Términos"
   },
   "apiKey": {
     "title": "Clave API MCP",

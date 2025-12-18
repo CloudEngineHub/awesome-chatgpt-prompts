@@ -140,6 +140,18 @@
     "unlist": "Retirer",
     "relist": "Remettre",
     "adminArea": "Zone Admin",
+    "promptDelisted": "Ce prompt a été retiré de la liste",
+    "delistReasonTooShort": "Ce prompt a été retiré automatiquement car le contenu est trop court. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
+    "delistReasonNotEnglish": "Ce prompt a été retiré automatiquement car il n'est pas principalement en anglais. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
+    "delistReasonLowQuality": "Ce prompt a été retiré automatiquement en raison de problèmes de qualité. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
+    "delistReasonNotInstruction": "Ce prompt a été retiré automatiquement car il ne semble pas être une instruction pour LLM. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
+    "delistReasonManual": "Ce prompt a été retiré manuellement par un administrateur. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
+    "delistReasonUnknown": "Ce prompt a été retiré de la liste. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
+    "delistOwnerNote": "Comme ce prompt a été retiré pour des problèmes de qualité, vous pouvez le supprimer si vous le souhaitez.",
+    "deletePrompt": "Supprimer le Prompt",
+    "deletePromptTitle": "Supprimer ce prompt ?",
+    "deletePromptDescription": "Cette action est irréversible. Le prompt sera définitivement supprimé.",
+    "deleteError": "Échec de la suppression du prompt",
     "types": {
       "text": "Texte",
       "image": "Image",
@@ -412,6 +424,29 @@
       "slugsSuccess": "{count} slugs générés",
       "slugsResult": "Générés : {success}, Échecs : {failed}"
     },
+    "promptsList": {
+      "title": "Tous les Prompts",
+      "description": "Parcourir et gérer tous les prompts du système",
+      "noPrompts": "Aucun prompt trouvé",
+      "private": "Privé",
+      "unlisted": "Non listé",
+      "views": "vues",
+      "votes": "votes",
+      "created": "Créé",
+      "showing": "Affichage {from}-{to} sur {total}",
+      "deleteConfirmTitle": "Supprimer le Prompt ?",
+      "deleteConfirmDescription": "Êtes-vous sûr de vouloir supprimer définitivement \"{title}\" ? Cette action est irréversible.",
+      "deleted": "Prompt supprimé avec succès",
+      "filters": {
+        "all": "Tous",
+        "public": "Publics",
+        "private": "Privés",
+        "unlisted": "Non listés",
+        "featured": "En vedette",
+        "reported": "Signalés",
+        "deleted": "Supprimés"
+      }
+    },
     "users": {
       "title": "Gestion des Utilisateurs",
       "description": "Consultez et gérez les comptes utilisateurs",
@@ -434,7 +469,17 @@
       "unverified": "Vérification retirée",
       "verifyFailed": "Échec de la mise à jour de la vérification",
       "deleteConfirmTitle": "Supprimer l'Utilisateur ?",
-      "deleteConfirmDescription": "Cette action ne peut pas être annulée. Toutes les données de l'utilisateur seront définitivement supprimées."
+      "deleteConfirmDescription": "Cette action ne peut pas être annulée. Toutes les données de l'utilisateur seront définitivement supprimées.",
+      "searchPlaceholder": "Rechercher des utilisateurs...",
+      "noUsers": "Aucun utilisateur trouvé",
+      "showing": "Affichage {from}-{to} sur {total}",
+      "filters": {
+        "all": "Tous",
+        "admin": "Admins",
+        "user": "Utilisateurs",
+        "verified": "Vérifiés",
+        "unverified": "Non vérifiés"
+      }
     },
     "categories": {
       "title": "Gestion des Catégories",
@@ -796,6 +841,12 @@
     "tags": "Tags",
     "tagPlaceholder": "Ajouter un slug de tag...",
     "generateApiKey": "Générez une clé API pour enregistrer des prompts via MCP"
+  },
+  "footer": {
+    "docs": "Documentation",
+    "api": "API",
+    "privacy": "Confidentialité",
+    "terms": "Conditions"
   },
   "apiKey": {
     "title": "Clé API MCP",

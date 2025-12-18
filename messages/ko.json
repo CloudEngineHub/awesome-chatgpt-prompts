@@ -140,6 +140,18 @@
     "unlist": "숨기기",
     "relist": "다시 표시",
     "adminArea": "관리자 영역",
+    "promptDelisted": "이 프롬프트가 목록에서 제거되었습니다",
+    "delistReasonTooShort": "이 프롬프트는 내용이 너무 짧아 자동으로 목록에서 제거되었습니다. 프로필에는 계속 표시되지만 GitHub로 내보내지거나 검색에 표시되지 않습니다.",
+    "delistReasonNotEnglish": "이 프롬프트는 주로 영어가 아니어서 자동으로 목록에서 제거되었습니다. 프로필에는 계속 표시되지만 GitHub로 내보내지거나 검색에 표시되지 않습니다.",
+    "delistReasonLowQuality": "이 프롬프트는 품질 문제로 자동으로 목록에서 제거되었습니다. 프로필에는 계속 표시되지만 GitHub로 내보내지거나 검색에 표시되지 않습니다.",
+    "delistReasonNotInstruction": "이 프롬프트는 LLM 지시사항이 아닌 것으로 보여 자동으로 목록에서 제거되었습니다. 프로필에는 계속 표시되지만 GitHub로 내보내지거나 검색에 표시되지 않습니다.",
+    "delistReasonManual": "이 프롬프트는 관리자에 의해 수동으로 목록에서 제거되었습니다. 프로필에는 계속 표시되지만 GitHub로 내보내지거나 검색에 표시되지 않습니다.",
+    "delistReasonUnknown": "이 프롬프트가 목록에서 제거되었습니다. 프로필에는 계속 표시되지만 GitHub로 내보내지거나 검색에 표시되지 않습니다.",
+    "delistOwnerNote": "이 프롬프트가 품질 문제로 목록에서 제거되었으므로 원하시면 삭제할 수 있습니다.",
+    "deletePrompt": "프롬프트 삭제",
+    "deletePromptTitle": "이 프롬프트를 삭제하시겠습니까?",
+    "deletePromptDescription": "이 작업은 취소할 수 없습니다. 프롬프트가 영구적으로 삭제됩니다.",
+    "deleteError": "프롬프트 삭제 실패",
     "types": {
       "text": "텍스트",
       "image": "이미지",
@@ -412,6 +424,29 @@
       "slugsSuccess": "{count}개 슬러그 생성됨",
       "slugsResult": "생성됨: {success}, 실패: {failed}"
     },
+    "promptsList": {
+      "title": "모든 프롬프트",
+      "description": "시스템의 모든 프롬프트 탐색 및 관리",
+      "noPrompts": "프롬프트를 찾을 수 없습니다",
+      "private": "비공개",
+      "unlisted": "목록 제외",
+      "views": "조회",
+      "votes": "투표",
+      "created": "생성일",
+      "showing": "{total}개 중 {from}-{to} 표시",
+      "deleteConfirmTitle": "프롬프트를 삭제하시겠습니까?",
+      "deleteConfirmDescription": "\"{title}\"을(를) 영구적으로 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "deleted": "프롬프트가 삭제되었습니다",
+      "filters": {
+        "all": "전체",
+        "public": "공개",
+        "private": "비공개",
+        "unlisted": "목록 제외",
+        "featured": "추천",
+        "reported": "신고됨",
+        "deleted": "삭제됨"
+      }
+    },
     "users": {
       "title": "사용자 관리",
       "description": "사용자 계정 조회 및 관리",
@@ -434,7 +469,17 @@
       "unverified": "인증 해제됨",
       "verifyFailed": "인증 업데이트 실패",
       "deleteConfirmTitle": "사용자를 삭제하시겠습니까?",
-      "deleteConfirmDescription": "이 작업은 취소할 수 없습니다. 모든 사용자 데이터가 영구적으로 삭제됩니다."
+      "deleteConfirmDescription": "이 작업은 취소할 수 없습니다. 모든 사용자 데이터가 영구적으로 삭제됩니다.",
+      "searchPlaceholder": "사용자 검색...",
+      "noUsers": "사용자를 찾을 수 없습니다",
+      "showing": "{total}명 중 {from}-{to} 표시",
+      "filters": {
+        "all": "전체",
+        "admin": "관리자",
+        "user": "사용자",
+        "verified": "인증됨",
+        "unverified": "미인증"
+      }
     },
     "categories": {
       "title": "카테고리 관리",
@@ -796,6 +841,12 @@
     "tags": "태그",
     "tagPlaceholder": "태그 슬러그 추가...",
     "generateApiKey": "MCP를 통해 프롬프트를 저장하려면 API 키를 생성하세요"
+  },
+  "footer": {
+    "docs": "문서",
+    "api": "API",
+    "privacy": "개인정보",
+    "terms": "이용약관"
   },
   "apiKey": {
     "title": "MCP API 키",

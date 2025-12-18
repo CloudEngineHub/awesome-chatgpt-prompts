@@ -140,6 +140,18 @@
     "unlist": "Unlist",
     "relist": "Relist",
     "adminArea": "Admin Area",
+    "promptDelisted": "This prompt has been delisted",
+    "delistReasonTooShort": "This prompt was automatically delisted because the content is too short. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
+    "delistReasonNotEnglish": "This prompt was automatically delisted because it's not primarily in English. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
+    "delistReasonLowQuality": "This prompt was automatically delisted due to quality issues. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
+    "delistReasonNotInstruction": "This prompt was automatically delisted because it doesn't appear to be an LLM instruction. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
+    "delistReasonManual": "This prompt was manually delisted by an administrator. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
+    "delistReasonUnknown": "This prompt has been delisted. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
+    "delistOwnerNote": "Since this prompt was delisted for quality issues, you can delete it if you wish.",
+    "deletePrompt": "Delete Prompt",
+    "deletePromptTitle": "Delete this prompt?",
+    "deletePromptDescription": "This action cannot be undone. The prompt will be permanently removed.",
+    "deleteError": "Failed to delete prompt",
     "types": {
       "text": "Text",
       "image": "Image",
@@ -412,6 +424,29 @@
       "slugsSuccess": "{count} slugs generated",
       "slugsResult": "Generated: {success}, Failed: {failed}"
     },
+    "promptsList": {
+      "title": "All Prompts",
+      "description": "Browse and manage all prompts in the system",
+      "noPrompts": "No prompts found",
+      "private": "Private",
+      "unlisted": "Unlisted",
+      "views": "views",
+      "votes": "votes",
+      "created": "Created",
+      "showing": "Showing {from}-{to} of {total}",
+      "deleteConfirmTitle": "Delete Prompt?",
+      "deleteConfirmDescription": "Are you sure you want to permanently delete \"{title}\"? This action cannot be undone and will remove all associated data.",
+      "deleted": "Prompt deleted successfully",
+      "filters": {
+        "all": "All",
+        "public": "Public",
+        "private": "Private",
+        "unlisted": "Unlisted",
+        "featured": "Featured",
+        "reported": "Reported",
+        "deleted": "Deleted"
+      }
+    },
     "users": {
       "title": "User Management",
       "description": "View and manage user accounts",
@@ -434,7 +469,17 @@
       "unverified": "User unverified",
       "verifyFailed": "Failed to update verification",
       "deleteConfirmTitle": "Delete User?",
-      "deleteConfirmDescription": "This action cannot be undone. All user data will be permanently deleted."
+      "deleteConfirmDescription": "This action cannot be undone. All user data will be permanently deleted.",
+      "searchPlaceholder": "Search users...",
+      "noUsers": "No users found",
+      "showing": "Showing {from}-{to} of {total}",
+      "filters": {
+        "all": "All",
+        "admin": "Admins",
+        "user": "Users",
+        "verified": "Verified",
+        "unverified": "Unverified"
+      }
     },
     "categories": {
       "title": "Category Management",
@@ -796,6 +841,12 @@
     "tags": "Tags",
     "tagPlaceholder": "Add tag slug...",
     "generateApiKey": "Generate API key to save prompts via MCP"
+  },
+  "footer": {
+    "docs": "Docs",
+    "api": "API",
+    "privacy": "Privacy",
+    "terms": "Terms"
   },
   "apiKey": {
     "title": "MCP API Key",

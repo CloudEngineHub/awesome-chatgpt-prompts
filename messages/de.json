@@ -140,6 +140,18 @@
     "unlist": "Ausblenden",
     "relist": "Wieder einblenden",
     "adminArea": "Admin-Bereich",
+    "promptDelisted": "Dieser Prompt wurde von der Liste entfernt",
+    "delistReasonTooShort": "Dieser Prompt wurde automatisch entfernt, weil der Inhalt zu kurz ist. Er wird weiterhin in Ihrem Profil angezeigt, aber nicht nach GitHub exportiert und erscheint nicht in Suchergebnissen.",
+    "delistReasonNotEnglish": "Dieser Prompt wurde automatisch entfernt, weil er nicht hauptsächlich auf Englisch ist. Er wird weiterhin in Ihrem Profil angezeigt, aber nicht nach GitHub exportiert und erscheint nicht in Suchergebnissen.",
+    "delistReasonLowQuality": "Dieser Prompt wurde automatisch wegen Qualitätsproblemen entfernt. Er wird weiterhin in Ihrem Profil angezeigt, aber nicht nach GitHub exportiert und erscheint nicht in Suchergebnissen.",
+    "delistReasonNotInstruction": "Dieser Prompt wurde automatisch entfernt, weil er keine LLM-Anweisung zu sein scheint. Er wird weiterhin in Ihrem Profil angezeigt, aber nicht nach GitHub exportiert und erscheint nicht in Suchergebnissen.",
+    "delistReasonManual": "Dieser Prompt wurde manuell von einem Administrator entfernt. Er wird weiterhin in Ihrem Profil angezeigt, aber nicht nach GitHub exportiert und erscheint nicht in Suchergebnissen.",
+    "delistReasonUnknown": "Dieser Prompt wurde von der Liste entfernt. Er wird weiterhin in Ihrem Profil angezeigt, aber nicht nach GitHub exportiert und erscheint nicht in Suchergebnissen.",
+    "delistOwnerNote": "Da dieser Prompt wegen Qualitätsproblemen entfernt wurde, können Sie ihn löschen, wenn Sie möchten.",
+    "deletePrompt": "Prompt Löschen",
+    "deletePromptTitle": "Diesen Prompt löschen?",
+    "deletePromptDescription": "Diese Aktion kann nicht rückgängig gemacht werden. Der Prompt wird dauerhaft gelöscht.",
+    "deleteError": "Prompt konnte nicht gelöscht werden",
     "types": {
       "text": "Text",
       "image": "Bild",
@@ -412,6 +424,29 @@
       "slugsSuccess": "{count} Slugs generiert",
       "slugsResult": "Generiert: {success}, Fehlgeschlagen: {failed}"
     },
+    "promptsList": {
+      "title": "Alle Prompts",
+      "description": "Alle Prompts im System durchsuchen und verwalten",
+      "noPrompts": "Keine Prompts gefunden",
+      "private": "Privat",
+      "unlisted": "Nicht gelistet",
+      "views": "Aufrufe",
+      "votes": "Stimmen",
+      "created": "Erstellt",
+      "showing": "Zeige {from}-{to} von {total}",
+      "deleteConfirmTitle": "Prompt löschen?",
+      "deleteConfirmDescription": "Möchten Sie \"{title}\" wirklich dauerhaft löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+      "deleted": "Prompt erfolgreich gelöscht",
+      "filters": {
+        "all": "Alle",
+        "public": "Öffentlich",
+        "private": "Privat",
+        "unlisted": "Nicht gelistet",
+        "featured": "Hervorgehoben",
+        "reported": "Gemeldet",
+        "deleted": "Gelöscht"
+      }
+    },
     "users": {
       "title": "Benutzerverwaltung",
       "description": "Benutzerkonten anzeigen und verwalten",
@@ -434,7 +469,17 @@
       "unverified": "Verifizierung aufgehoben",
       "verifyFailed": "Aktualisierung der Verifizierung fehlgeschlagen",
       "deleteConfirmTitle": "Benutzer löschen?",
-      "deleteConfirmDescription": "Diese Aktion kann nicht rückgängig gemacht werden. Alle Benutzerdaten werden dauerhaft gelöscht."
+      "deleteConfirmDescription": "Diese Aktion kann nicht rückgängig gemacht werden. Alle Benutzerdaten werden dauerhaft gelöscht.",
+      "searchPlaceholder": "Benutzer suchen...",
+      "noUsers": "Keine Benutzer gefunden",
+      "showing": "Zeige {from}-{to} von {total}",
+      "filters": {
+        "all": "Alle",
+        "admin": "Admins",
+        "user": "Benutzer",
+        "verified": "Verifiziert",
+        "unverified": "Nicht verifiziert"
+      }
     },
     "categories": {
       "title": "Kategorieverwaltung",
@@ -796,6 +841,12 @@
     "tags": "Tags",
     "tagPlaceholder": "Tag-Slug hinzufügen...",
     "generateApiKey": "API-Schlüssel generieren, um Prompts über MCP zu speichern"
+  },
+  "footer": {
+    "docs": "Dokumentation",
+    "api": "API",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen"
   },
   "apiKey": {
     "title": "MCP API-Schlüssel",

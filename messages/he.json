@@ -140,6 +140,18 @@
     "unlist": "הסר מהרשימה",
     "relist": "החזר לרשימה",
     "adminArea": "אזור ניהול",
+    "promptDelisted": "פרומפט זה הוסר מהרשימה",
+    "delistReasonTooShort": "פרומפט זה הוסר אוטומטית כי התוכן קצר מדי. הוא עדיין יופיע בפרופיל שלך, אך לא ייוצא ל-GitHub ולא יופיע בתוצאות החיפוש.",
+    "delistReasonNotEnglish": "פרומפט זה הוסר אוטומטית כי הוא לא באנגלית בעיקר. הוא עדיין יופיע בפרופיל שלך, אך לא ייוצא ל-GitHub ולא יופיע בתוצאות החיפוש.",
+    "delistReasonLowQuality": "פרומפט זה הוסר אוטומטית בגלל בעיות איכות. הוא עדיין יופיע בפרופיל שלך, אך לא ייוצא ל-GitHub ולא יופיע בתוצאות החיפוש.",
+    "delistReasonNotInstruction": "פרומפט זה הוסר אוטומטית כי הוא לא נראה כהנחיה ל-LLM. הוא עדיין יופיע בפרופיל שלך, אך לא ייוצא ל-GitHub ולא יופיע בתוצאות החיפוש.",
+    "delistReasonManual": "פרומפט זה הוסר ידנית על ידי מנהל. הוא עדיין יופיע בפרופיל שלך, אך לא ייוצא ל-GitHub ולא יופיע בתוצאות החיפוש.",
+    "delistReasonUnknown": "פרומפט זה הוסר מהרשימה. הוא עדיין יופיע בפרופיל שלך, אך לא ייוצא ל-GitHub ולא יופיע בתוצאות החיפוש.",
+    "delistOwnerNote": "מכיוון שפרומפט זה הוסר בגלל בעיות איכות, אתה יכול למחוק אותו אם תרצה.",
+    "deletePrompt": "מחק פרומפט",
+    "deletePromptTitle": "למחוק את הפרומפט הזה?",
+    "deletePromptDescription": "לא ניתן לבטל פעולה זו. הפרומפט יימחק לצמיתות.",
+    "deleteError": "מחיקת הפרומפט נכשלה",
     "types": {
       "text": "טקסט",
       "image": "תמונה",
@@ -412,6 +424,29 @@
       "slugsSuccess": "{count} כתובות נוצרו",
       "slugsResult": "נוצרו: {success}, נכשלו: {failed}"
     },
+    "promptsList": {
+      "title": "כל הפרומפטים",
+      "description": "עיין ונהל את כל הפרומפטים במערכת",
+      "noPrompts": "לא נמצאו פרומפטים",
+      "private": "פרטי",
+      "unlisted": "לא רשום",
+      "views": "צפיות",
+      "votes": "הצבעות",
+      "created": "נוצר",
+      "showing": "מציג {from}-{to} מתוך {total}",
+      "deleteConfirmTitle": "למחוק פרומפט?",
+      "deleteConfirmDescription": "האם אתה בטוח שברצונך למחוק לצמיתות את \"{title}\"? לא ניתן לבטל פעולה זו.",
+      "deleted": "הפרומפט נמחק בהצלחה",
+      "filters": {
+        "all": "הכל",
+        "public": "ציבורי",
+        "private": "פרטי",
+        "unlisted": "לא רשום",
+        "featured": "מומלץ",
+        "reported": "דווח",
+        "deleted": "נמחק"
+      }
+    },
     "users": {
       "title": "ניהול משתמשים",
       "description": "צפה ונהל חשבונות משתמשים",
@@ -434,7 +469,17 @@
       "unverified": "אימות המשתמש בוטל",
       "verifyFailed": "עדכון האימות נכשל",
       "deleteConfirmTitle": "למחוק משתמש?",
-      "deleteConfirmDescription": "לא ניתן לבטל פעולה זו. כל נתוני המשתמש יימחקו לצמיתות."
+      "deleteConfirmDescription": "לא ניתן לבטל פעולה זו. כל נתוני המשתמש יימחקו לצמיתות.",
+      "searchPlaceholder": "חפש משתמשים...",
+      "noUsers": "לא נמצאו משתמשים",
+      "showing": "מציג {from}-{to} מתוך {total}",
+      "filters": {
+        "all": "הכל",
+        "admin": "מנהלים",
+        "user": "משתמשים",
+        "verified": "מאומתים",
+        "unverified": "לא מאומתים"
+      }
     },
     "categories": {
       "title": "ניהול קטגוריות",
@@ -796,6 +841,12 @@
     "tags": "תגיות",
     "tagPlaceholder": "הוסף slug תגית...",
     "generateApiKey": "צור מפתח API לשמירת פרומפטים דרך MCP"
+  },
+  "footer": {
+    "docs": "תיעוד",
+    "api": "API",
+    "privacy": "פרטיות",
+    "terms": "תנאים"
   },
   "apiKey": {
     "title": "מפתח API ל-MCP",

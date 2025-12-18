@@ -140,6 +140,18 @@
     "unlist": "Nascondi",
     "relist": "Mostra",
     "adminArea": "Area Admin",
+    "promptDelisted": "Questo prompt è stato rimosso dalla lista",
+    "delistReasonTooShort": "Questo prompt è stato rimosso automaticamente perché il contenuto è troppo breve. Apparirà ancora sul tuo profilo, ma non verrà esportato su GitHub e non apparirà nelle ricerche.",
+    "delistReasonNotEnglish": "Questo prompt è stato rimosso automaticamente perché non è principalmente in inglese. Apparirà ancora sul tuo profilo, ma non verrà esportato su GitHub e non apparirà nelle ricerche.",
+    "delistReasonLowQuality": "Questo prompt è stato rimosso automaticamente a causa di problemi di qualità. Apparirà ancora sul tuo profilo, ma non verrà esportato su GitHub e non apparirà nelle ricerche.",
+    "delistReasonNotInstruction": "Questo prompt è stato rimosso automaticamente perché non sembra essere un'istruzione per LLM. Apparirà ancora sul tuo profilo, ma non verrà esportato su GitHub e non apparirà nelle ricerche.",
+    "delistReasonManual": "Questo prompt è stato rimosso manualmente da un amministratore. Apparirà ancora sul tuo profilo, ma non verrà esportato su GitHub e non apparirà nelle ricerche.",
+    "delistReasonUnknown": "Questo prompt è stato rimosso dalla lista. Apparirà ancora sul tuo profilo, ma non verrà esportato su GitHub e non apparirà nelle ricerche.",
+    "delistOwnerNote": "Poiché questo prompt è stato rimosso per problemi di qualità, puoi eliminarlo se lo desideri.",
+    "deletePrompt": "Elimina Prompt",
+    "deletePromptTitle": "Eliminare questo prompt?",
+    "deletePromptDescription": "Questa azione non può essere annullata. Il prompt verrà eliminato definitivamente.",
+    "deleteError": "Impossibile eliminare il prompt",
     "types": {
       "text": "Testo",
       "image": "Immagine",
@@ -412,6 +424,29 @@
       "slugsSuccess": "{count} slug generati",
       "slugsResult": "Generati: {success}, Falliti: {failed}"
     },
+    "promptsList": {
+      "title": "Tutti i Prompt",
+      "description": "Sfoglia e gestisci tutti i prompt nel sistema",
+      "noPrompts": "Nessun prompt trovato",
+      "private": "Privato",
+      "unlisted": "Non elencato",
+      "views": "visualizzazioni",
+      "votes": "voti",
+      "created": "Creato",
+      "showing": "Mostrando {from}-{to} di {total}",
+      "deleteConfirmTitle": "Eliminare il Prompt?",
+      "deleteConfirmDescription": "Sei sicuro di voler eliminare permanentemente \"{title}\"? Questa azione non può essere annullata.",
+      "deleted": "Prompt eliminato con successo",
+      "filters": {
+        "all": "Tutti",
+        "public": "Pubblici",
+        "private": "Privati",
+        "unlisted": "Non elencati",
+        "featured": "In evidenza",
+        "reported": "Segnalati",
+        "deleted": "Eliminati"
+      }
+    },
     "users": {
       "title": "Gestione Utenti",
       "description": "Visualizza e gestisci gli account utente",
@@ -434,7 +469,17 @@
       "unverified": "Verifica utente rimossa",
       "verifyFailed": "Impossibile aggiornare la verifica",
       "deleteConfirmTitle": "Eliminare l'Utente?",
-      "deleteConfirmDescription": "Questa azione non può essere annullata. Tutti i dati dell'utente verranno eliminati permanentemente."
+      "deleteConfirmDescription": "Questa azione non può essere annullata. Tutti i dati dell'utente verranno eliminati permanentemente.",
+      "searchPlaceholder": "Cerca utenti...",
+      "noUsers": "Nessun utente trovato",
+      "showing": "Mostrando {from}-{to} di {total}",
+      "filters": {
+        "all": "Tutti",
+        "admin": "Admin",
+        "user": "Utenti",
+        "verified": "Verificati",
+        "unverified": "Non verificati"
+      }
     },
     "categories": {
       "title": "Gestione Categorie",
@@ -796,6 +841,12 @@
     "tags": "Tag",
     "tagPlaceholder": "Aggiungi slug tag...",
     "generateApiKey": "Genera una chiave API per salvare prompt tramite MCP"
+  },
+  "footer": {
+    "docs": "Documentazione",
+    "api": "API",
+    "privacy": "Privacy",
+    "terms": "Termini"
   },
   "apiKey": {
     "title": "Chiave API MCP",
