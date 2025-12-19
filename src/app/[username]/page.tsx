@@ -16,6 +16,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { PromptList } from "@/components/prompts/prompt-list";
 import { PromptCard, type PromptCardProps } from "@/components/prompts/prompt-card";
 import { McpServerPopup } from "@/components/mcp/mcp-server-popup";
+import { PrivatePromptsNote } from "@/components/prompts/private-prompts-note";
 
 interface UserProfilePageProps {
   params: Promise<{ username: string }>;
@@ -114,10 +115,10 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
       },
     },
     category: {
-      select: {
-        id: true,
-        name: true,
-        slug: true,
+      include: {
+        parent: {
+          select: { id: true, name: true, slug: true },
+        },
       },
     },
     tags: {
@@ -131,7 +132,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
   };
 
   // Fetch prompts, pinned prompts, contributions, and counts
-  const [promptsRaw, total, totalUpvotes, pinnedPromptsRaw, contributionsRaw] = await Promise.all([
+  const [promptsRaw, total, totalUpvotes, pinnedPromptsRaw, contributionsRaw, privatePromptsCount] = await Promise.all([
     db.prompt.findMany({
       where,
       orderBy: { createdAt: "desc" },
@@ -157,6 +158,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
       },
     }),
     // Fetch contributions (prompts where user is contributor but not author)
+    // Limited to 50 to prevent memory issues
     db.prompt.findMany({
       where: {
         contributors: {
@@ -164,10 +166,20 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
         },
         authorId: { not: user.id },
         isPrivate: false,
+        deletedAt: null,
       },
       orderBy: { updatedAt: "desc" },
+      take: 50,
       include: promptInclude,
     }),
+    // Count private prompts (only relevant for owner)
+    isOwner ? db.prompt.count({
+      where: {
+        authorId: user.id,
+        isPrivate: true,
+        deletedAt: null,
+      },
+    }) : Promise.resolve(0),
   ]);
 
   // Transform to include voteCount and contributorCount
@@ -201,6 +213,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
   // Fetch change requests for this user
   // 1. Change requests the user submitted (all statuses for owner, approved only for others)
   // 2. Change requests received on user's prompts (approved ones)
+  // Limited to 100 each to prevent memory issues
   const [submittedChangeRequests, receivedChangeRequests] = await Promise.all([
     // CRs user submitted
     db.changeRequest.findMany({
@@ -210,6 +223,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
         ...(isOwner ? {} : { status: "APPROVED" }),
       },
       orderBy: { createdAt: "desc" },
+      take: 100,
       include: {
         author: {
           select: {
@@ -245,6 +259,7 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
         authorId: { not: user.id }, // Exclude self-submitted
       },
       orderBy: { createdAt: "desc" },
+      take: 100,
       include: {
         author: {
           select: {
@@ -404,6 +419,9 @@ export default async function UserProfilePage({ params, searchParams }: UserProf
         </TabsList>
 
         <TabsContent value="prompts">
+          {/* Private Prompts MCP Note - only shown to owner with private prompts */}
+          {isOwner && <PrivatePromptsNote count={privatePromptsCount} />}
+
           {/* Pinned Prompts Section */}
           {pinnedPrompts.length > 0 && (
             <div className="mb-6 pb-6 border-b">

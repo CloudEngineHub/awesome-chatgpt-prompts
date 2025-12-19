@@ -23,6 +23,7 @@ import { UnlistPromptButton } from "@/components/prompts/unlist-prompt-button";
 import { MediaPreview } from "@/components/prompts/media-preview";
 import { ReportPromptDialog } from "@/components/prompts/report-prompt-dialog";
 import { DelistBanner } from "@/components/prompts/delist-banner";
+import { CommentSection } from "@/components/comments";
 
 interface PromptPageProps {
   params: Promise<{ id: string }>;
@@ -77,7 +78,11 @@ export default async function PromptPage({ params }: PromptPageProps) {
           avatar: true,
         },
       },
-      category: true,
+      category: {
+        include: {
+          parent: true,
+        },
+      },
       tags: {
         include: {
           tag: true,
@@ -412,9 +417,17 @@ export default async function PromptPage({ params }: PromptPageProps) {
                 structuredFormat={(prompt.structuredFormat?.toLowerCase() as "json" | "yaml") || "json"}
                 title={t("promptContent")}
                 isLoggedIn={!!session?.user}
+                categoryName={prompt.category?.name}
+                parentCategoryName={prompt.category?.parent?.name}
               />
             ) : (
-              <InteractivePromptContent content={prompt.content} title={t("promptContent")} isLoggedIn={!!session?.user} />
+              <InteractivePromptContent 
+                content={prompt.content} 
+                title={t("promptContent")} 
+                isLoggedIn={!!session?.user}
+                categoryName={prompt.category?.name}
+                parentCategoryName={prompt.category?.parent?.name}
+              />
             )}
           </div>
           {/* Report link */}
@@ -569,6 +582,17 @@ export default async function PromptPage({ params }: PromptPageProps) {
           </TabsContent>
         )}
       </Tabs>
+
+      {/* Comments Section */}
+      {!prompt.isPrivate && (
+        <CommentSection
+          promptId={prompt.id}
+          currentUserId={session?.user?.id}
+          isAdmin={isAdmin}
+          isLoggedIn={!!session?.user}
+          locale={locale}
+        />
+      )}
 
       {/* Admin Area */}
       {isAdmin && (
