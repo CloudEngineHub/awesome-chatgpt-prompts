@@ -101,6 +101,7 @@
   "prompts": {
     "title": "プロンプト",
     "create": "プロンプトを作成",
+    "createInfo": "このプラットフォームはプロンプトを実行しません — AIプロンプトを共有・発見するためのコミュニティライブラリです。ここでプロンプトを作成すると、他のユーザーがChatGPT、Claude、Geminiなどのお気に入りのAIツールでコピーして使用できます。コミュニティはあなたのプロンプトにコメントしたり、変更リクエストを通じて改善を提案することもできます。",
     "hfDataStudio": {
       "button": "HF Data Studio",
       "sqlQuery": "SQLクエリ",
@@ -162,9 +163,10 @@
       "document": "ドキュメント"
     },
     "inputType": "ユーザープロンプト",
-    "outputType": "AI レスポンス",
-    "inputTypeDescription": "プロンプトのフォーマット",
-    "outputTypeDescription": "AIが生成するレスポンスの種類",
+    "outputType": "AI応答",
+    "afterAiProcessing": "AI処理後...",
+    "inputTypeDescription": "プロンプトの形式",
+    "outputTypeDescription": "AIツールでこのプロンプトを実行したときの結果をコミュニティに示しましょう。お気に入りのAIアプリを使って自分で出力を生成できます。",
     "outputTypeStructuredNote": "構造化プロンプトは様々な出力タイプを生成できます",
     "inputTypes": {
       "text": "テキストプロンプト",
@@ -227,6 +229,14 @@
     "duplicatePromptError": "同じタイトルまたは内容のプロンプトが既にあります",
     "contentExistsError": "この内容のプロンプトは既に存在します：「{title}」（{author}作）",
     "run": "実行",
+    "downloadMarkdown": "MDをダウンロード",
+    "downloadYaml": "YAMLをダウンロード",
+    "copyMarkdownUrl": "MDリンクをコピー",
+    "copyYamlUrl": "YAMLリンクをコピー",
+    "downloadStarted": "ダウンロード開始",
+    "downloadFailed": "ダウンロード失敗",
+    "urlCopied": "リンクをコピーしました",
+    "failedToCopyUrl": "リンクのコピーに失敗",
     "promptCopied": "プロンプトをコピーしました",
     "promptCopiedDescription": "プロンプトがクリップボードにコピーされました。{platform}を開いた後に貼り付けてください。",
     "openPlatform": "{platform}を開く",

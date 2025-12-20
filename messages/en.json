@@ -101,6 +101,7 @@
   "prompts": {
     "title": "Prompts",
     "create": "Create Prompt",
+    "createInfo": "This platform doesn't run or execute prompts — it's a community-driven library for sharing and discovering AI prompts. Create your prompt here, and others can copy and use it in their preferred AI tools like ChatGPT, Claude, Gemini, or any other LLM. The community can also comment on your prompts and suggest improvements through change requests.",
     "hfDataStudio": {
       "button": "HF Data Studio",
       "sqlQuery": "SQL Query",
@@ -163,8 +164,9 @@
     },
     "inputType": "User Prompt",
     "outputType": "AI Response",
+    "afterAiProcessing": "After AI processing...",
     "inputTypeDescription": "How your prompt is formatted",
-    "outputTypeDescription": "What type of response the AI will generate",
+    "outputTypeDescription": "Show the community how this prompt performs when run on AI tools. You can generate outputs yourself using your favorite AI app.",
     "outputTypeStructuredNote": "Structured prompts can produce various output types",
     "inputTypes": {
       "text": "Text Prompt",
@@ -213,6 +215,14 @@
     "duplicatePromptError": "You already have a prompt with the same title or content",
     "contentExistsError": "A prompt with this content already exists: \"{title}\" by {author}",
     "run": "Run",
+    "downloadMarkdown": "Download MD",
+    "downloadYaml": "Download YAML",
+    "copyMarkdownUrl": "Copy MD Link",
+    "copyYamlUrl": "Copy YAML Link",
+    "downloadStarted": "Download started",
+    "downloadFailed": "Download failed",
+    "urlCopied": "Link copied to clipboard",
+    "failedToCopyUrl": "Failed to copy link",
     "promptCopied": "Prompt Copied",
     "promptCopiedDescription": "The prompt has been copied to your clipboard. Paste it in {platform} after opening.",
     "openPlatform": "Open {platform}",

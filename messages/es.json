@@ -101,6 +101,7 @@
   "prompts": {
     "title": "Prompts",
     "create": "Crear Prompt",
+    "createInfo": "Esta plataforma no ejecuta prompts — es una biblioteca comunitaria para compartir y descubrir prompts de IA. Crea tu prompt aquí, y otros podrán copiarlo y usarlo en sus herramientas de IA favoritas como ChatGPT, Claude, Gemini o cualquier otro LLM. La comunidad también puede comentar tus prompts y sugerir mejoras a través de solicitudes de cambio.",
     "hfDataStudio": {
       "button": "HF Data Studio",
       "sqlQuery": "Consulta SQL",
@@ -163,8 +164,9 @@
     },
     "inputType": "Prompt del Usuario",
     "outputType": "Respuesta de IA",
+    "afterAiProcessing": "Después del procesamiento de IA...",
     "inputTypeDescription": "Cómo está formateado tu prompt",
-    "outputTypeDescription": "Qué tipo de respuesta generará la IA",
+    "outputTypeDescription": "Muestra a la comunidad cómo funciona este prompt cuando se ejecuta en herramientas de IA. Puedes generar las salidas tú mismo usando tu aplicación de IA favorita.",
     "outputTypeStructuredNote": "Los prompts estructurados pueden producir varios tipos de salida",
     "inputTypes": {
       "text": "Prompt de Texto",
@@ -227,6 +229,14 @@
     "duplicatePromptError": "Ya tienes un prompt con el mismo título o contenido",
     "contentExistsError": "Ya existe un prompt con este contenido: \"{title}\" por {author}",
     "run": "Ejecutar",
+    "downloadMarkdown": "Descargar MD",
+    "downloadYaml": "Descargar YAML",
+    "copyMarkdownUrl": "Copiar enlace MD",
+    "copyYamlUrl": "Copiar enlace YAML",
+    "downloadStarted": "Descarga iniciada",
+    "downloadFailed": "Error en la descarga",
+    "urlCopied": "Enlace copiado",
+    "failedToCopyUrl": "Error al copiar enlace",
     "promptCopied": "Prompt copiado",
     "promptCopiedDescription": "El prompt se ha copiado al portapapeles. Pégalo en {platform} después de abrirlo.",
     "openPlatform": "Abrir {platform}",

@@ -260,7 +260,7 @@ export default async function HomePage() {
                 </Link>
               </div>
             )}
-            <div className="flex flex-wrap items-center justify-center gap-8">
+            <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 md:gap-8">
               {config.homepage.sponsors.items.map((sponsor) => (
                 <Link
                   key={sponsor.name}
@@ -279,6 +279,40 @@ export default async function HomePage() {
                 </Link>
               ))}
             </div>
+            {!useCloneBranding && (
+              <div className="flex flex-col md:flex-row items-center justify-center gap-1.5 mt-6 pt-7 border-t text-xs text-muted-foreground">
+                <span><b>prompts.chat</b> is built with</span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Link href="https://wind.surf/prompts-chat" target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src="/sponsors/windsurf.svg"
+                      alt="Windsurf"
+                      width={80}
+                      height={20}
+                      className="h-3 w-auto dark:invert"
+                    />
+                  </Link>
+                  <span>and</span>
+                  <Link href="https://devin.ai/?utm_source=prompts.chat" target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src="/sponsors/devin.svg"
+                      alt="Devin"
+                      width={80}
+                      height={20}
+                      className="h-6 w-auto dark:hidden"
+                    />
+                    <Image
+                      src="/sponsors/devin-dark.svg"
+                      alt="Devin"
+                      width={80}
+                      height={20}
+                      className="h-6 w-auto hidden dark:block"
+                    />
+                  </Link>
+                  <span>by Cognition</span>
+                </span>
+              </div>
+            )}
           </div>
         </section>
       )}
