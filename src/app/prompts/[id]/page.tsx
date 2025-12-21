@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import { formatDistanceToNow } from "@/lib/date";
-import { Calendar, Clock, Copy, Share2, Edit, History, GitPullRequest, Check, X, Users, ImageIcon, Video, FileText, Shield } from "lucide-react";
+import { Calendar, Clock, Edit, History, GitPullRequest, Check, X, Users, ImageIcon, Video, FileText, Shield } from "lucide-react";
 import { ShareDropdown } from "@/components/prompts/share-dropdown";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -24,6 +24,7 @@ import { MediaPreview } from "@/components/prompts/media-preview";
 import { ReportPromptDialog } from "@/components/prompts/report-prompt-dialog";
 import { DelistBanner } from "@/components/prompts/delist-banner";
 import { CommentSection } from "@/components/comments";
+import { getConfig } from "@/lib/config";
 
 interface PromptPageProps {
   params: Promise<{ id: string }>;
@@ -70,6 +71,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
   const { id: idParam } = await params;
   const id = extractPromptId(idParam);
   const session = await auth();
+  const config = await getConfig();
   const t = await getTranslations("prompts");
   const locale = await getLocale();
 
@@ -427,6 +429,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
                 parentCategoryName={prompt.category?.parent?.name}
                 promptId={prompt.id}
                 promptSlug={prompt.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}
+                promptType={prompt.type}
               />
             ) : (
               <InteractivePromptContent 
@@ -437,6 +440,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
                 parentCategoryName={prompt.category?.parent?.name}
                 promptId={prompt.id}
                 promptSlug={prompt.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}
+                promptType={prompt.type}
               />
             )}
           </div>
@@ -594,7 +598,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
       </Tabs>
 
       {/* Comments Section */}
-      {!prompt.isPrivate && (
+      {config.features.comments !== false && !prompt.isPrivate && (
         <CommentSection
           promptId={prompt.id}
           currentUserId={session?.user?.id}

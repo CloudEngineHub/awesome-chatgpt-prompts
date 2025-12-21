@@ -64,6 +64,8 @@ export default defineConfig({
     aiGeneration: true,
     // Enable MCP (Model Context Protocol) features including API key generation
     mcp: true,
+    // Enable comments on prompts
+    comments: true,
   },
 
   // Homepage customization

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -12,7 +13,7 @@ const promptSchema = z.object({
   title: z.string().min(1).max(200),
   description: z.string().max(500).optional(),
   content: z.string().min(1),
-  type: z.enum(["TEXT", "IMAGE", "VIDEO", "AUDIO"]), // Output type only
+  type: z.enum(["TEXT", "IMAGE", "VIDEO", "AUDIO", "SKILL"]), // Output type or SKILL
   structuredFormat: z.enum(["JSON", "YAML"]).nullish(), // Input type indicator
   categoryId: z.string().optional(),
   tagIds: z.array(z.string()),
@@ -242,6 +243,11 @@ export async function POST(request: Request) {
       console.log(`[Quality Check] Skipped - prompt ${prompt.id} is private`);
     }
 
+    // Revalidate caches (prompts, categories, tags counts change)
+    revalidateTag("prompts", "max");
+    revalidateTag("categories", "max");
+    revalidateTag("tags", "max");
+
     return NextResponse.json(prompt);
   } catch (error) {
     console.error("Create prompt error:", error);
@@ -295,6 +301,7 @@ export async function GET(request: Request) {
     }
 
     // Build order by clause
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let orderBy: any = { createdAt: "desc" };
     if (sort === "oldest") {
       orderBy = { createdAt: "asc" };
