@@ -48,6 +48,33 @@ export async function POST(request: Request) {
 
     const { title, description, content, type, structuredFormat, categoryId, tagIds, contributorIds, isPrivate, mediaUrl, requiresMediaUpload, requiredMediaType, requiredMediaCount } = parsed.data;
 
+    // Check if user is flagged (for auto-delisting and daily limit)
+    const currentUser = await db.user.findUnique({
+      where: { id: session.user.id },
+      select: { flagged: true },
+    });
+    const isUserFlagged = currentUser?.flagged ?? false;
+
+    // Daily limit for flagged users: 5 prompts per day
+    if (isUserFlagged) {
+      const startOfDay = new Date();
+      startOfDay.setHours(0, 0, 0, 0);
+      
+      const todayPromptCount = await db.prompt.count({
+        where: {
+          authorId: session.user.id,
+          createdAt: { gte: startOfDay },
+        },
+      });
+
+      if (todayPromptCount >= 5) {
+        return NextResponse.json(
+          { error: "daily_limit", message: "You have reached the daily limit of 5 prompts" },
+          { status: 429 }
+        );
+      }
+    }
+
     // Rate limit: Check if user created a prompt in the last 30 seconds
     const thirtySecondsAgo = new Date(Date.now() - 30 * 1000);
     const recentPrompt = await db.prompt.findFirst({
@@ -135,6 +162,7 @@ export async function POST(request: Request) {
     const slug = await generatePromptSlug(title);
 
     // Create prompt with tags
+    // Auto-delist if user is flagged
     const prompt = await db.prompt.create({
       data: {
         title,
@@ -150,6 +178,12 @@ export async function POST(request: Request) {
         requiredMediaCount: requiresMediaUpload ? requiredMediaCount : null,
         authorId: session.user.id,
         categoryId: categoryId || null,
+        // Auto-delist prompts from flagged users
+        ...(isUserFlagged && {
+          isUnlisted: true,
+          unlistedAt: new Date(),
+          delistReason: "UNUSUAL_ACTIVITY",
+        }),
         tags: {
           create: tagIds.map((tagId) => ({
             tagId,
@@ -168,6 +202,7 @@ export async function POST(request: Request) {
             name: true,
             username: true,
             avatar: true,
+            verified: true,
           },
         },
         category: {
@@ -263,7 +298,7 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get("page") || "1");
-    const perPage = parseInt(searchParams.get("perPage") || "12");
+    const perPage = parseInt(searchParams.get("perPage") || "24");
     const type = searchParams.get("type");
     const categoryId = searchParams.get("category");
     const tag = searchParams.get("tag");
@@ -322,6 +357,7 @@ export async function GET(request: Request) {
               name: true,
               username: true,
               avatar: true,
+              verified: true,
             },
           },
           category: {

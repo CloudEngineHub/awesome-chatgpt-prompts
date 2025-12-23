@@ -72,6 +72,7 @@ function getCachedPrompts(
                 name: true,
                 username: true,
                 avatar: true,
+                verified: true,
               },
             },
             category: {
@@ -135,7 +136,7 @@ export default async function PromptsPage({ searchParams }: PromptsPageProps) {
   const tSearch = await getTranslations("search");
   const params = await searchParams;
   
-  const perPage = 12;
+  const perPage = 24;
   const aiSearchAvailable = await isAISearchEnabled();
   const aiGenerationAvailable = await isAIGenerationEnabled();
   const useAISearch = aiSearchAvailable && params.ai === "1" && params.q;

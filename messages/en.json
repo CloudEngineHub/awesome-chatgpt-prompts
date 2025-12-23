@@ -215,6 +215,7 @@
     "promptCreated": "Prompt created",
     "promptUpdated": "Prompt updated",
     "rateLimitError": "Please wait 30 seconds before creating another prompt",
+    "dailyLimitError": "You have reached the daily limit of 5 prompts",
     "duplicatePromptError": "You already have a prompt with the same title or content",
     "contentExistsError": "A prompt with this content already exists: \"{title}\" by {author}",
     "run": "Run",
@@ -502,8 +503,14 @@
         "admin": "Admins",
         "user": "Users",
         "verified": "Verified",
-        "unverified": "Unverified"
-      }
+        "unverified": "Unverified",
+        "flagged": "Flagged"
+      },
+      "flag": "Flag User",
+      "unflag": "Unflag User",
+      "flagged": "User flagged",
+      "unflagged": "User unflagged",
+      "flagFailed": "Failed to update flag status"
     },
     "categories": {
       "title": "Category Management",

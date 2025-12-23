@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { formatDistanceToNow } from "@/lib/date";
 import { getPromptUrl } from "@/lib/urls";
-import { ArrowBigUp, Lock, Copy, ImageIcon, Play } from "lucide-react";
+import { ArrowBigUp, Lock, Copy, ImageIcon, Play, BadgeCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { CodeView } from "@/components/ui/code-view";
 import { toast } from "sonner";
@@ -39,6 +39,7 @@ export interface PromptCardProps {
       name: string | null;
       username: string;
       avatar: string | null;
+      verified?: boolean;
     };
     contributorCount?: number;
     contributors?: Array<{
@@ -82,18 +83,34 @@ export function PromptCard({ prompt, showPinButton = false, isPinned = false }: 
   const hasMediaBackground = prompt.type === "IMAGE" || prompt.type === "VIDEO" || (isStructuredInput && !!prompt.mediaUrl);
   const isVideo = prompt.type === "VIDEO";
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Autoplay video when visible in viewport
+  useEffect(() => {
+    if (!isVideo || !videoRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          videoRef.current?.play().catch(() => {});
+        } else {
+          videoRef.current?.pause();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(videoRef.current);
+    return () => observer.disconnect();
+  }, [isVideo]);
 
   const handleMouseEnter = () => {
-    if (isVideo && videoRef.current) {
-      videoRef.current.play();
-    }
+    // Video autoplay is now handled by IntersectionObserver
   };
 
   const handleMouseLeave = () => {
-    if (isVideo && videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
+    // Video pause is now handled by IntersectionObserver
   };
   const contentHasVariables = hasVariables(prompt.content);
 
@@ -124,34 +141,34 @@ export function PromptCard({ prompt, showPinButton = false, isPinned = false }: 
     >
       {/* Image Background for IMAGE type or STRUCTURED with media */}
       {hasMediaBackground && (
-        <div className="relative h-32 bg-muted">
+        <div className="relative bg-muted">
           {prompt.mediaUrl && !imageError ? (
             isVideo ? (
               <video
                 ref={videoRef}
                 src={prompt.mediaUrl}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="w-full object-cover"
+                style={{ maxHeight: "400px" }}
                 muted
                 loop
                 playsInline
                 preload="metadata"
               />
             ) : (
-              <Image
+              <img
                 src={prompt.mediaUrl}
                 alt={prompt.title}
-                fill
-                className="object-cover"
-                unoptimized
+                className="w-full object-cover object-top"
+                style={{ maxHeight: "400px" }}
                 onError={() => setImageError(true)}
               />
             )
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="h-32 flex items-center justify-center">
               <ImageIcon className="h-8 w-8 text-muted-foreground/30" />
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent pointer-events-none" />
           {/* Badges overlay */}
           <div className="absolute top-2 right-2 flex items-center gap-1.5">
             <Badge variant="secondary" className="text-[10px] bg-background/80 backdrop-blur-sm">
@@ -242,6 +259,7 @@ export function PromptCard({ prompt, showPinButton = false, isPinned = false }: 
                 <AvatarFallback className="text-[8px]">{prompt.author.username[0]?.toUpperCase()}</AvatarFallback>
               </Avatar>
               @{prompt.author.username}
+              {prompt.author.verified && <BadgeCheck className="h-3 w-3 mt-0.5 text-primary shrink-0" />}
             </Link>
             {prompt.contributors && prompt.contributors.length > 0 ? (
               <Tooltip>

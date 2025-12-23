@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { ArrowRight, Clock, Flame, RefreshCw, Star, Users } from "lucide-react";
 import { db } from "@/lib/db";
 import { Button } from "@/components/ui/button";
+import { Masonry } from "@/components/ui/masonry";
 import { PromptCard } from "@/components/prompts/prompt-card";
 
 interface DiscoveryPromptsProps {
@@ -17,7 +18,7 @@ export async function DiscoveryPrompts({ isHomepage = false }: DiscoveryPromptsP
 
   const promptInclude = {
     author: {
-      select: { id: true, name: true, username: true, avatar: true },
+      select: { id: true, name: true, username: true, avatar: true, verified: true },
     },
     category: {
       include: {
@@ -142,11 +143,11 @@ export async function DiscoveryPrompts({ isHomepage = false }: DiscoveryPromptsP
                 </Link>
               </Button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+            <Masonry columnCount={{ default: 1, md: 2, lg: 3 }} gap={16}>
               {featuredPrompts.map((prompt) => (
                 <PromptCard key={prompt.id} prompt={prompt} />
               ))}
-            </div>
+            </Masonry>
           </div>
         </section>
       )}
@@ -167,11 +168,11 @@ export async function DiscoveryPrompts({ isHomepage = false }: DiscoveryPromptsP
                 </Link>
               </Button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+            <Masonry columnCount={{ default: 1, md: 2, lg: 3 }} gap={16}>
               {todaysMostUpvoted.map((prompt) => (
                 <PromptCard key={prompt.id} prompt={prompt} />
               ))}
-            </div>
+            </Masonry>
           </div>
         </section>
       )}
@@ -192,11 +193,11 @@ export async function DiscoveryPrompts({ isHomepage = false }: DiscoveryPromptsP
                 </Link>
               </Button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+            <Masonry columnCount={{ default: 1, md: 2, lg: 3 }} gap={16}>
               {latestPrompts.map((prompt) => (
                 <PromptCard key={prompt.id} prompt={prompt} />
               ))}
-            </div>
+            </Masonry>
           </div>
         </section>
       )}
@@ -217,11 +218,11 @@ export async function DiscoveryPrompts({ isHomepage = false }: DiscoveryPromptsP
                 </Link>
               </Button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+            <Masonry columnCount={{ default: 1, md: 2, lg: 3 }} gap={16}>
               {recentlyUpdated.map((prompt) => (
                 <PromptCard key={prompt.id} prompt={prompt} />
               ))}
-            </div>
+            </Masonry>
           </div>
         </section>
       )}
@@ -242,11 +243,11 @@ export async function DiscoveryPrompts({ isHomepage = false }: DiscoveryPromptsP
                 </Link>
               </Button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+            <Masonry columnCount={{ default: 1, md: 2, lg: 3 }} gap={16}>
               {mostContributed.map((prompt) => (
                 <PromptCard key={prompt.id} prompt={prompt} />
               ))}
-            </div>
+            </Masonry>
           </div>
         </section>
       )}

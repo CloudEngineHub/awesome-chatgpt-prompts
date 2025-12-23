@@ -45,7 +45,7 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
   }
 
   const page = Math.max(1, parseInt(pageParam || "1"));
-  const perPage = 12;
+  const perPage = 24;
 
   // Build where clause
   const where = {
@@ -73,6 +73,7 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
             name: true,
             username: true,
             avatar: true,
+            verified: true,
           },
         },
         category: {
@@ -139,7 +140,7 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-4">
             {prompts.map((prompt) => (
               <PromptCard key={prompt.id} prompt={prompt} />
             ))}
