@@ -573,10 +573,12 @@ export function PromptConnections({
     return null;
   }
 
-  // Don't render if no connections and user can't edit
-  if (!canEdit && outgoing.length === 0 && incoming.length === 0) {
+  // Only show on owner's own prompt
+  if (!canEdit) {
     return null;
   }
+
+  const hasConnections = outgoing.length > 0 || incoming.length > 0;
 
   return (
     <div className="mt-6 space-y-4 rounded-lg border bg-card p-4">
@@ -588,35 +590,33 @@ export function PromptConnections({
           </div>
           <p className="text-xs text-muted-foreground mt-1">{t("description")}</p>
         </div>
-        {canEdit && (
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => {
-                setConnectionType("previous");
-                setDialogOpen(true);
-              }}
-            >
-              <ArrowUp className="h-4 w-4 sm:mr-1" />
-              <span className="hidden sm:inline">{t("addPrevious")}</span>
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => {
-                setConnectionType("next");
-                setDialogOpen(true);
-              }}
-            >
-              <ArrowDown className="h-4 w-4 sm:mr-1" />
-              <span className="hidden sm:inline">{t("addNext")}</span>
-            </Button>
-          </div>
-        )}
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              setConnectionType("previous");
+              setDialogOpen(true);
+            }}
+          >
+            <ArrowUp className="h-4 w-4 sm:mr-1" />
+            <span className="hidden sm:inline">{t("addPrevious")}</span>
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              setConnectionType("next");
+              setDialogOpen(true);
+            }}
+          >
+            <ArrowDown className="h-4 w-4 sm:mr-1" />
+            <span className="hidden sm:inline">{t("addNext")}</span>
+          </Button>
+        </div>
       </div>
 
-      {outgoing.length === 0 && incoming.length === 0 ? (
+      {!hasConnections ? (
         <p className="text-sm text-muted-foreground">{t("noConnections")}</p>
       ) : (
         <div className="w-full">
@@ -634,15 +634,13 @@ export function PromptConnections({
         </div>
       )}
 
-      {canEdit && (
-        <AddConnectionDialog
-          open={dialogOpen}
-          onOpenChange={setDialogOpen}
-          promptId={promptId}
-          connectionType={connectionType}
-          onConnectionAdded={handleConnectionAdded}
-        />
-      )}
+      <AddConnectionDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        promptId={promptId}
+        connectionType={connectionType}
+        onConnectionAdded={handleConnectionAdded}
+      />
     </div>
   );
 }
