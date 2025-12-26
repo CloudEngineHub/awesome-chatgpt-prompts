@@ -44,7 +44,8 @@
     "profile": "الملف الشخصي",
     "login": "تسجيل الدخول",
     "register": "إنشاء حساب",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "ide": "الأوامر المكتوبة"
   },
   "brand": {
     "copyLogoSvg": "نسخ شعار SVG",
@@ -165,7 +166,7 @@
     },
     "inputType": "أمر المستخدم",
     "outputType": "استجابة الذكاء الاصطناعي",
-    "afterAiProcessing": "بعد معالجة الذكاء الاصطناعي...",
+    "afterAiProcessing": "ماذا سينتج أمرك؟",
     "inputTypeDescription": "كيف يتم تنسيق الأمر الخاص بك",
     "outputTypeDescription": "أظهر للمجتمع كيف يعمل هذا الأمر عند تشغيله على أدوات الذكاء الاصطناعي. يمكنك إنشاء المخرجات بنفسك باستخدام تطبيق الذكاء الاصطناعي المفضل لديك.",
     "outputTypeStructuredNote": "الأوامر المنظمة يمكن أن تنتج أنواع مختلفة من المخرجات",
@@ -280,8 +281,14 @@
     "startGeneration": "بدء الإنشاء",
     "generatingMedia": "جارٍ إنشاء الوسائط باستخدام {provider}",
     "doNotCloseWindow": "يرجى عدم إغلاق هذه النافذة أثناء الإنشاء.",
-    "generationComplete": "اكتمل الإنشاء",
-    "generationFailed": "فشل الإنشاء",
+    "aiGenerationAvailable": "✨ التوليد بالذكاء الاصطناعي متاح",
+    "generateWith": "التوليد بالذكاء الاصطناعي",
+    "generateImage": "توليد صورة",
+    "generateVideo": "توليد فيديو",
+    "generateImageDescription": "أنشئ صورة فريدة لأمرك باستخدام الذكاء الاصطناعي — مثالي لعرض أمرك للمجتمع.",
+    "generateVideoDescription": "أنشئ فيديو فريد لأمرك باستخدام الذكاء الاصطناعي — مثالي لعرض أمرك للمجتمع.",
+    "generationComplete": "اكتملت العملية",
+    "generationFailed": "فشلت العملية",
     "mediaAddedToPrompt": "تمت إضافة الوسائط إلى أمرك.",
     "mediaGenerated": "تم إنشاء الوسائط بنجاح!",
     "orGenerateMedia": "أو الإنشاء بالذكاء الاصطناعي",
@@ -798,7 +805,7 @@
     "heroFeature1": "مجاني ومفتوح المصدر",
     "heroFeature2": "استضافة ذاتية للخصوصية",
     "heroFeature3": "للفرق والمؤسسات",
-    "cloneOnGithub": "استنساخ على GitHub",
+    "setupPrivateServer": "انشر خادمك الخاص",
     "beStargazer": "كن النجمة رقم {count} على GitHub",
     "browsePrompts": "تصفح الأوامر",
     "viewFeed": "عرض الموجز",
@@ -1106,5 +1113,15 @@
       "contentConstraints": "قيود المحتوى:",
       "contentExample": "\"لا تضمن آراء شخصية\" / \"ركز فقط على المعلومات الواقعية\""
     }
+  },
+  "ide": {
+    "title": "الأوامر المكتوبة",
+    "subtitle": "بناء أوامر منظمة وآمنة النوع",
+    "editor": "المحرر",
+    "preview": "معاينة",
+    "run": "تشغيل",
+    "reset": "إعادة تعيين",
+    "copied": "تم النسخ إلى الحافظة",
+    "runToPreview": "انقر على تشغيل لمشاهدة معاينة الأمر"
   }
 }

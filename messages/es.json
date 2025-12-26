@@ -44,7 +44,8 @@
     "profile": "Perfil",
     "login": "Iniciar sesión",
     "register": "Registrarse",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "ide": "Prompts Tipados"
   },
   "brand": {
     "copyLogoSvg": "Copiar Logo SVG",
@@ -165,7 +166,7 @@
     },
     "inputType": "Prompt del Usuario",
     "outputType": "Respuesta de IA",
-    "afterAiProcessing": "Después del procesamiento de IA...",
+    "afterAiProcessing": "¿Qué producirá tu prompt?",
     "inputTypeDescription": "Cómo está formateado tu prompt",
     "outputTypeDescription": "Muestra a la comunidad cómo funciona este prompt cuando se ejecuta en herramientas de IA. Puedes generar las salidas tú mismo usando tu aplicación de IA favorita.",
     "outputTypeStructuredNote": "Los prompts estructurados pueden producir varios tipos de salida",
@@ -285,6 +286,12 @@
     "mediaAddedToPrompt": "El multimedia se ha añadido a tu prompt.",
     "mediaGenerated": "¡Multimedia generado exitosamente!",
     "orGenerateMedia": "O generar con IA",
+    "aiGenerationAvailable": "✨ Generación con IA Disponible",
+    "generateWith": "Generar con IA",
+    "generateImage": "Generar Imagen",
+    "generateVideo": "Generar Video",
+    "generateImageDescription": "Genera una imagen única para tu prompt usando IA — perfecto para mostrar tu prompt a la comunidad.",
+    "generateVideoDescription": "Genera un video único para tu prompt usando IA — perfecto para mostrar tu prompt a la comunidad.",
     "close": "Cerrar",
     "mediaGeneration": {
       "connecting": "Conectando al servidor...",
@@ -798,7 +805,7 @@
     "heroFeature1": "Gratis y Código Abierto",
     "heroFeature2": "Auto-hospeda para Privacidad",
     "heroFeature3": "Para Equipos y Organizaciones",
-    "cloneOnGithub": "Clonar en GitHub",
+    "setupPrivateServer": "Despliega Tu Servidor Privado",
     "beStargazer": "Sé el stargazer número {count} en GitHub",
     "browsePrompts": "Explorar Prompts",
     "viewFeed": "Ver Feed",
@@ -1106,5 +1113,15 @@
       "contentConstraints": "Restricciones de contenido:",
       "contentExample": "\"No incluyas opiniones personales\" / \"Enfócate solo en información factual\""
     }
+  },
+  "ide": {
+    "title": "Prompts Tipados",
+    "subtitle": "Construcción de prompts estructurada y con tipado seguro",
+    "editor": "Editor",
+    "preview": "Vista previa",
+    "run": "Ejecutar",
+    "reset": "Restablecer",
+    "copied": "Copiado al portapapeles",
+    "runToPreview": "Haz clic en Ejecutar para ver la vista previa del prompt"
   }
 }

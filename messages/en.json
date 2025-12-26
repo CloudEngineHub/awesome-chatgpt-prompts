@@ -44,7 +44,8 @@
     "profile": "Profile",
     "login": "Login",
     "register": "Register",
-    "logout": "Logout"
+    "logout": "Logout",
+    "ide": "Typed Prompts"
   },
   "brand": {
     "copyLogoSvg": "Copy Logo SVG",
@@ -165,7 +166,7 @@
     },
     "inputType": "User Prompt",
     "outputType": "AI Response",
-    "afterAiProcessing": "After AI processing...",
+    "afterAiProcessing": "What your prompt will produce?",
     "inputTypeDescription": "How your prompt is formatted",
     "outputTypeDescription": "Show the community how this prompt performs when run on AI tools. You can generate outputs yourself using your favorite AI app.",
     "outputTypeStructuredNote": "Structured prompts can produce various output types",
@@ -277,6 +278,12 @@
     "mediaAddedToPrompt": "Media has been added to your prompt.",
     "mediaGenerated": "Media generated successfully!",
     "orGenerateMedia": "Or generate with AI",
+    "aiGenerationAvailable": "✨ AI Generation Available",
+    "generateWith": "Generate with AI",
+    "generateImage": "Generate Image",
+    "generateVideo": "Generate Video",
+    "generateImageDescription": "Generate a unique image for your prompt using AI — perfect for showcasing your prompt to the community.",
+    "generateVideoDescription": "Generate a unique video for your prompt using AI — perfect for showcasing your prompt to the community.",
     "close": "Close",
     "mediaGeneration": {
       "connecting": "Connecting to server...",
@@ -798,7 +805,7 @@
     "heroFeature1": "Free & Open Source",
     "heroFeature2": "Self-host for Privacy",
     "heroFeature3": "For Teams & Organizations",
-    "cloneOnGithub": "Clone on GitHub",
+    "setupPrivateServer": "Deploy Your Private Server",
     "beStargazer": "Be the {count}{ordinal} stargazer on GitHub",
     "browsePrompts": "Browse Prompts",
     "viewFeed": "View Feed",
@@ -1106,5 +1113,15 @@
       "contentConstraints": "Content constraints:",
       "contentExample": "\"Do not include personal opinions\" / \"Focus only on factual information\""
     }
+  },
+  "ide": {
+    "title": "Typed Prompts",
+    "subtitle": "Type-safe, structured prompt building",
+    "editor": "Editor",
+    "preview": "Preview",
+    "run": "Run",
+    "reset": "Reset",
+    "copied": "Copied to clipboard",
+    "runToPreview": "Click Run to see the prompt preview"
   }
 }

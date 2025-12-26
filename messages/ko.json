@@ -44,7 +44,8 @@
     "profile": "프로필",
     "login": "로그인",
     "register": "회원가입",
-    "logout": "로그아웃"
+    "logout": "로그아웃",
+    "ide": "타입 프롬프트"
   },
   "brand": {
     "copyLogoSvg": "로고 SVG 복사",
@@ -165,7 +166,7 @@
     },
     "inputType": "사용자 프롬프트",
     "outputType": "AI 응답",
-    "afterAiProcessing": "AI 처리 후...",
+    "afterAiProcessing": "프롬프트가 무엇을 생성할까요?",
     "inputTypeDescription": "프롬프트 형식",
     "outputTypeDescription": "이 프롬프트가 AI 도구에서 실행될 때 어떻게 작동하는지 커뮤니티에 보여주세요. 좋아하는 AI 앱을 사용하여 직접 출력을 생성할 수 있습니다.",
     "outputTypeStructuredNote": "구조화된 프롬프트는 다양한 출력 유형을 생성할 수 있습니다",
@@ -277,6 +278,12 @@
     "mediaAddedToPrompt": "미디어가 프롬프트에 추가되었습니다.",
     "mediaGenerated": "미디어가 성공적으로 생성되었습니다!",
     "orGenerateMedia": "또는 AI로 생성",
+    "aiGenerationAvailable": "✨ AI 생성 가능",
+    "generateWith": "AI로 생성",
+    "generateImage": "이미지 생성",
+    "generateVideo": "비디오 생성",
+    "generateImageDescription": "AI를 사용하여 프롬프트용 고유한 이미지 생성 — 커뮤니티에 프롬프트를 선보이기에 완벽합니다.",
+    "generateVideoDescription": "AI를 사용하여 프롬프트용 고유한 비디오 생성 — 커뮤니티에 프롬프트를 선보이기에 완벽합니다.",
     "close": "닫기",
     "mediaGeneration": {
       "connecting": "서버에 연결 중...",
@@ -798,7 +805,7 @@
     "heroFeature1": "무료 & 오픈 소스",
     "heroFeature2": "프라이버시를 위한 자체 호스팅",
     "heroFeature3": "팀 & 조직용",
-    "cloneOnGithub": "GitHub에서 클론",
+    "setupPrivateServer": "프라이빗 서버 구축하기",
     "beStargazer": "GitHub에서 {count}번째 스타가 되세요",
     "browsePrompts": "프롬프트 둘러보기",
     "viewFeed": "피드 보기",
@@ -1106,5 +1113,15 @@
       "contentConstraints": "내용 제약:",
       "contentExample": "\"개인적인 의견 포함하지 않음\" / \"사실 정보에만 집중\""
     }
+  },
+  "ide": {
+    "title": "타입 프롬프트",
+    "subtitle": "타입 안전하고 구조화된 프롬프트 빌딩",
+    "editor": "에디터",
+    "preview": "미리보기",
+    "run": "실행",
+    "reset": "재설정",
+    "copied": "클립보드에 복사됨",
+    "runToPreview": "실행을 클릭하여 프롬프트 미리보기 표시"
   }
 }

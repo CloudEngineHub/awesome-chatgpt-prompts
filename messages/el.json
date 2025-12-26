@@ -44,7 +44,8 @@
     "profile": "Προφίλ",
     "login": "Σύνδεση",
     "register": "Εγγραφή",
-    "logout": "Αποσύνδεση"
+    "logout": "Αποσύνδεση",
+    "ide": "Τυποποιημένα Prompts"
   },
   "brand": {
     "copyLogoSvg": "Αντιγραφή Logo SVG",
@@ -165,7 +166,7 @@
     },
     "inputType": "Prompt χρήστη",
     "outputType": "Απάντηση AI",
-    "afterAiProcessing": "Μετά την επεξεργασία AI...",
+    "afterAiProcessing": "Τι θα παράγει το prompt σας;",
     "inputTypeDescription": "Πώς είναι μορφοποιημένο το prompt σας",
     "outputTypeDescription": "Δείξτε στην κοινότητα πώς αποδίδει αυτό το prompt όταν εκτελείται σε εργαλεία AI. Μπορείτε να δημιουργήσετε τα αποτελέσματα μόνοι σας χρησιμοποιώντας την αγαπημένη σας εφαρμογή AI.",
     "outputTypeStructuredNote": "Τα δομημένα prompts μπορούν να παράγουν διάφορους τύπους εξόδου",
@@ -277,6 +278,12 @@
     "mediaAddedToPrompt": "Το μέσο προστέθηκε στο prompt σας.",
     "mediaGenerated": "Το μέσο δημιουργήθηκε επιτυχώς!",
     "orGenerateMedia": "Ή δημιουργία με AI",
+    "aiGenerationAvailable": "✨ Δημιουργία AI Διαθέσιμη",
+    "generateWith": "Δημιουργία με AI",
+    "generateImage": "Δημιουργία Εικόνας",
+    "generateVideo": "Δημιουργία Βίντεο",
+    "generateImageDescription": "Δημιουργήστε μια μοναδική εικόνα για το prompt σας με AI — ιδανικό για να παρουσιάσετε το prompt σας στην κοινότητα.",
+    "generateVideoDescription": "Δημιουργήστε ένα μοναδικό βίντεο για το prompt σας με AI — ιδανικό για να παρουσιάσετε το prompt σας στην κοινότητα.",
     "close": "Κλείσιμο",
     "mediaGeneration": {
       "connecting": "Σύνδεση στον διακομιστή...",
@@ -798,7 +805,7 @@
     "heroFeature1": "Δωρεάν & Ανοιχτού κώδικα",
     "heroFeature2": "Φιλοξενήστε για ιδιωτικότητα",
     "heroFeature3": "Για ομάδες & οργανισμούς",
-    "cloneOnGithub": "Κλωνοποίηση στο GitHub",
+    "setupPrivateServer": "Αναπτύξτε τον Δικό σας Server",
     "beStargazer": "Γίνετε ο {count}ος{ordinal} stargazer στο GitHub",
     "browsePrompts": "Περιήγηση Prompts",
     "viewFeed": "Προβολή Feed",
@@ -1104,7 +1111,17 @@
       "styleConstraints": "Περιορισμοί στυλ:",
       "styleExample": "\"Χρησιμοποιήστε απλή γλώσσα κατάλληλη για αρχάριους\" / \"Να είστε τεχνικοί και ακριβείς\"",
       "contentConstraints": "Περιορισμοί περιεχομένου:",
-      "contentExample": "\"Μη συμπεριλάβετε προσωπικές απόψεις\" / \"Εστιάστε μόνο σε πραγματικές πληροφορίες\""
+      "contentExample": "\"Μη συμπεριλάβετε προσωπικές απόψεις\" / \"Eστιάστε μόνο σε πραγματικές πληροφορίες\""
     }
+  },
+  "ide": {
+    "title": "Τυποποιημένα Prompts",
+    "subtitle": "Δομημένη δημιουργία prompts με ασφάλεια τύπων",
+    "editor": "Επεξεργαστής",
+    "preview": "Προεπισκόπηση",
+    "run": "Εκτέλεση",
+    "reset": "Επαναφορά",
+    "copied": "Αντιγράφηκε στο πρόχειρο",
+    "runToPreview": "Κάντε κλικ στο Εκτέλεση για να δείτε την προεπισκόπηση"
   }
 }

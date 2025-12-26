@@ -44,7 +44,8 @@
     "profile": "פרופיל",
     "login": "התחברות",
     "register": "הרשמה",
-    "logout": "התנתקות"
+    "logout": "התנתקות",
+    "ide": "פרומפטים מוקלדים"
   },
   "brand": {
     "copyLogoSvg": "העתק לוגו SVG",
@@ -165,7 +166,7 @@
     },
     "inputType": "פרומפט משתמש",
     "outputType": "תגובת AI",
-    "afterAiProcessing": "לאחר עיבוד AI...",
+    "afterAiProcessing": "מה הפרומפט שלך ייצור?",
     "inputTypeDescription": "איך הפרומפט שלך מעוצב",
     "outputTypeDescription": "הראה לקהילה איך הפרומפט הזה מתפקד כשהוא רץ בכלי AI. אתה יכול ליצור את התוצרים בעצמך באמצעות אפליקציית ה-AI המועדפת עליך.",
     "outputTypeStructuredNote": "פרומפטים מובנים יכולים לייצר סוגי פלט שונים",
@@ -277,6 +278,12 @@
     "mediaAddedToPrompt": "המדיה נוספה לפרומפט שלך.",
     "mediaGenerated": "המדיה נוצרה בהצלחה!",
     "orGenerateMedia": "או יצירה עם AI",
+    "aiGenerationAvailable": "✨ יצירת AI זמינה",
+    "generateWith": "יצירה עם AI",
+    "generateImage": "יצירת תמונה",
+    "generateVideo": "יצירת וידאו",
+    "generateImageDescription": "צור תמונה ייחודית לפרומפט שלך באמצעות AI — מושלם להצגת הפרומפט שלך לקהילה.",
+    "generateVideoDescription": "צור וידאו ייחודי לפרומפט שלך באמצעות AI — מושלם להצגת הפרומפט שלך לקהילה.",
     "close": "סגור",
     "mediaGeneration": {
       "connecting": "מתחבר לשרת...",
@@ -798,7 +805,7 @@
     "heroFeature1": "חינם וקוד פתוח",
     "heroFeature2": "ארח בשרתים שלך לפרטיות",
     "heroFeature3": "לצוותים וארגונים",
-    "cloneOnGithub": "שכפל ב-GitHub",
+    "setupPrivateServer": "הקם שרת פרטי משלך",
     "beStargazer": "היה הכוכב ה-{count}{ordinal} ב-GitHub",
     "browsePrompts": "עיין בפרומפטים",
     "viewFeed": "צפה בפיד",
@@ -1104,7 +1111,17 @@
       "styleConstraints": "מגבלות סגנון:",
       "styleExample": "\"השתמש בשפה פשוטה המתאימה למתחילים\" / \"היה טכני ומדויק\"",
       "contentConstraints": "מגבלות תוכן:",
-      "contentExample": "\"אל תכלול דעות אישיות\" / \"התמקד רק במידע עובדתי\""
+      "contentExample": "\"\u05d0\u05dc \u05ea\u05db\u05dc\u05d5\u05dc \u05d3\u05e2\u05d5\u05ea \u05d0\u05d9\u05e9\u05d9\u05d5\u05ea\" / \"\u05d4\u05ea\u05de\u05e7\u05d3 \u05e8\u05e7 \u05d1\u05de\u05d9\u05d3\u05e2 \u05e2\u05d5\u05d1\u05d3\u05ea\u05d9\""
     }
+  },
+  "ide": {
+    "title": "פרומפטים מוקלדים",
+    "subtitle": "בניית פרומפטים מובנית ובטוחת טיפוסים",
+    "editor": "עורך",
+    "preview": "תצוגה מקדימה",
+    "run": "הפעל",
+    "reset": "איפוס",
+    "copied": "הועתק ללוח",
+    "runToPreview": "לחץ על הפעל כדי לראות תצוגה מקדימה"
   }
 }

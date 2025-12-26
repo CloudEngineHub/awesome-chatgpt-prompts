@@ -44,7 +44,8 @@
     "profile": "プロフィール",
     "login": "ログイン",
     "register": "登録",
-    "logout": "ログアウト"
+    "logout": "ログアウト",
+    "ide": "型付きプロンプト"
   },
   "brand": {
     "copyLogoSvg": "ロゴSVGをコピー",
@@ -165,7 +166,7 @@
     },
     "inputType": "ユーザープロンプト",
     "outputType": "AI応答",
-    "afterAiProcessing": "AI処理後...",
+    "afterAiProcessing": "プロンプトは何を生成しますか？",
     "inputTypeDescription": "プロンプトの形式",
     "outputTypeDescription": "AIツールでこのプロンプトを実行したときの結果をコミュニティに示しましょう。お気に入りのAIアプリを使って自分で出力を生成できます。",
     "outputTypeStructuredNote": "構造化プロンプトは様々な出力タイプを生成できます",
@@ -285,6 +286,12 @@
     "mediaAddedToPrompt": "メディアがプロンプトに追加されました。",
     "mediaGenerated": "メディアが正常に生成されました！",
     "orGenerateMedia": "またはAIで生成",
+    "aiGenerationAvailable": "✨ AI生成が利用可能",
+    "generateWith": "AIで生成",
+    "generateImage": "画像を生成",
+    "generateVideo": "動画を生成",
+    "generateImageDescription": "AIを使ってプロンプト用のユニークな画像を生成 — コミュニティにプロンプトを紹介するのに最適。",
+    "generateVideoDescription": "AIを使ってプロンプト用のユニークな動画を生成 — コミュニティにプロンプトを紹介するのに最適。",
     "close": "閉じる",
     "mediaGeneration": {
       "connecting": "サーバーに接続中...",
@@ -798,7 +805,7 @@
     "heroFeature1": "無料 & オープンソース",
     "heroFeature2": "プライバシーのためセルフホスト",
     "heroFeature3": "チーム & 組織向け",
-    "cloneOnGithub": "GitHubでクローン",
+    "setupPrivateServer": "プライベートサーバーを構築",
     "beStargazer": "GitHubで{count}番目のスターになる",
     "browsePrompts": "プロンプトを見る",
     "viewFeed": "フィードを見る",
@@ -1106,5 +1113,15 @@
       "contentConstraints": "内容の制約：",
       "contentExample": "「個人的な意見を含めない」/「事実情報のみに焦点を当てる」"
     }
+  },
+  "ide": {
+    "title": "型付きプロンプト",
+    "subtitle": "型安全で構造化されたプロンプト構築",
+    "editor": "エディタ",
+    "preview": "プレビュー",
+    "run": "実行",
+    "reset": "リセット",
+    "copied": "クリップボードにコピーしました",
+    "runToPreview": "実行をクリックしてプロンプトのプレビューを表示"
   }
 }

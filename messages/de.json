@@ -44,7 +44,8 @@
     "profile": "Profil",
     "login": "Anmelden",
     "register": "Registrieren",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "ide": "Typisierte Prompts"
   },
   "brand": {
     "copyLogoSvg": "Logo SVG kopieren",
@@ -165,7 +166,7 @@
     },
     "inputType": "Benutzer-Prompt",
     "outputType": "KI-Antwort",
-    "afterAiProcessing": "Nach KI-Verarbeitung...",
+    "afterAiProcessing": "Was wird Ihr Prompt produzieren?",
     "inputTypeDescription": "Wie Ihr Prompt formatiert ist",
     "outputTypeDescription": "Zeigen Sie der Community, wie dieser Prompt funktioniert, wenn er mit KI-Tools ausgeführt wird. Sie können die Ausgaben selbst mit Ihrer bevorzugten KI-App generieren.",
     "outputTypeStructuredNote": "Strukturierte Prompts können verschiedene Ausgabetypen erzeugen",
@@ -277,6 +278,12 @@
     "mediaAddedToPrompt": "Medien wurden Ihrem Prompt hinzugefügt.",
     "mediaGenerated": "Medien erfolgreich generiert!",
     "orGenerateMedia": "Oder mit KI generieren",
+    "aiGenerationAvailable": "✨ KI-Generierung Verfügbar",
+    "generateWith": "Mit KI generieren",
+    "generateImage": "Bild generieren",
+    "generateVideo": "Video generieren",
+    "generateImageDescription": "Generieren Sie ein einzigartiges Bild für Ihren Prompt mit KI — perfekt, um Ihren Prompt der Community zu präsentieren.",
+    "generateVideoDescription": "Generieren Sie ein einzigartiges Video für Ihren Prompt mit KI — perfekt, um Ihren Prompt der Community zu präsentieren.",
     "close": "Schließen",
     "mediaGeneration": {
       "connecting": "Verbindung zum Server...",
@@ -798,7 +805,7 @@
     "heroFeature1": "Kostenlos & Open Source",
     "heroFeature2": "Selbst hosten für Privatsphäre",
     "heroFeature3": "Für Teams & Organisationen",
-    "cloneOnGithub": "Auf GitHub klonen",
+    "setupPrivateServer": "Eigenen Server Einrichten",
     "beStargazer": "Werden Sie der {count}. Stargazer auf GitHub",
     "browsePrompts": "Prompts durchsuchen",
     "viewFeed": "Feed anzeigen",
@@ -1106,5 +1113,15 @@
       "contentConstraints": "Inhaltsbeschränkungen:",
       "contentExample": "\"Keine persönlichen Meinungen einbeziehen\" / \"Nur auf faktische Informationen konzentrieren\""
     }
+  },
+  "ide": {
+    "title": "Typisierte Prompts",
+    "subtitle": "Typsichere, strukturierte Prompt-Erstellung",
+    "editor": "Editor",
+    "preview": "Vorschau",
+    "run": "Ausführen",
+    "reset": "Zurücksetzen",
+    "copied": "In die Zwischenablage kopiert",
+    "runToPreview": "Klicken Sie auf Ausführen, um die Prompt-Vorschau anzuzeigen"
   }
 }

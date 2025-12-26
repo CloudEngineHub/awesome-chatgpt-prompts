@@ -44,7 +44,8 @@
     "profile": "Profil",
     "login": "Connexion",
     "register": "Inscription",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "ide": "Prompts Typés"
   },
   "brand": {
     "copyLogoSvg": "Copier le logo SVG",
@@ -165,7 +166,7 @@
     },
     "inputType": "Prompt Utilisateur",
     "outputType": "Réponse IA",
-    "afterAiProcessing": "Après traitement IA...",
+    "afterAiProcessing": "Que produira votre prompt ?",
     "inputTypeDescription": "Comment votre prompt est formaté",
     "outputTypeDescription": "Montrez à la communauté comment ce prompt fonctionne lorsqu'il est exécuté sur des outils IA. Vous pouvez générer les résultats vous-même en utilisant votre application IA préférée.",
     "outputTypeStructuredNote": "Les prompts structurés peuvent produire divers types de sortie",
@@ -272,8 +273,14 @@
     "startGeneration": "Démarrer la génération",
     "generatingMedia": "Génération du média avec {provider}",
     "doNotCloseWindow": "Veuillez ne pas fermer cette fenêtre pendant la génération.",
-    "generationComplete": "Génération terminée",
-    "generationFailed": "Échec de la génération",
+    "aiGenerationAvailable": "✨ Génération IA Disponible",
+    "generateWith": "Générer avec l'IA",
+    "generateImage": "Générer une Image",
+    "generateVideo": "Générer une Vidéo",
+    "generateImageDescription": "Générez une image unique pour votre prompt avec l'IA — parfait pour présenter votre prompt à la communauté.",
+    "generateVideoDescription": "Générez une vidéo unique pour votre prompt avec l'IA — parfait pour présenter votre prompt à la communauté.",
+    "generationComplete": "Génération Terminée",
+    "generationFailed": "Échec de la Génération",
     "mediaAddedToPrompt": "Le média a été ajouté à votre prompt.",
     "mediaGenerated": "Média généré avec succès !",
     "orGenerateMedia": "Ou générer avec l'IA",
@@ -798,7 +805,7 @@
     "heroFeature1": "Gratuit & Open Source",
     "heroFeature2": "Auto-hébergez pour la Confidentialité",
     "heroFeature3": "Pour Équipes & Organisations",
-    "cloneOnGithub": "Cloner sur GitHub",
+    "setupPrivateServer": "Déployez Votre Serveur Privé",
     "beStargazer": "Soyez le {count}ème stargazer sur GitHub",
     "browsePrompts": "Parcourir les Prompts",
     "viewFeed": "Voir le Flux",
@@ -1106,5 +1113,15 @@
       "contentConstraints": "Contraintes de contenu :",
       "contentExample": "\"N'incluez pas d'opinions personnelles\" / \"Concentrez-vous uniquement sur les informations factuelles\""
     }
+  },
+  "ide": {
+    "title": "Prompts Typés",
+    "subtitle": "Construction de prompts structurée et typée",
+    "editor": "Éditeur",
+    "preview": "Aperçu",
+    "run": "Exécuter",
+    "reset": "Réinitialiser",
+    "copied": "Copié dans le presse-papiers",
+    "runToPreview": "Cliquez sur Exécuter pour voir l'aperçu du prompt"
   }
 }
