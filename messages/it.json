@@ -342,7 +342,10 @@
     "translated": "Contenuto tradotto",
     "translationFailed": "Traduzione fallita",
     "alreadyTranslated": "Già tradotto",
-    "learnHowToWritePrompts": "Impara a scrivere prompt efficaci →"
+    "learnHowToWritePrompts": "Impara a scrivere prompt efficaci →",
+    "structuredFormatDetected": "Formato {format} rilevato",
+    "structuredFormatWarningDescription": "Il contenuto del tuo prompt sembra essere dati strutturati. Considera di passare alla modalità strutturata per una migliore evidenziazione della sintassi e validazione.",
+    "switchToStructured": "Passa a {format}"
   },
   "changeRequests": {
     "title": "Richieste di Modifica",
@@ -401,6 +404,9 @@
     "noCategories": "Nessuna categoria trovata",
     "noSubcategories": "Nessuna sottocategoria in questa categoria",
     "prompts": "prompt",
+    "subscribers": "iscritti",
+    "promptCount": "{count} prompt",
+    "subscriberCount": "{count} iscritti",
     "confirmDelete": "Sei sicuro di voler eliminare questa categoria?"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "Nessuna (Categoria Principale)",
       "parentHelp": "Lascia vuoto per creare una categoria principale, o seleziona un genitore per creare una sottocategoria",
       "rootCategory": "Principale",
-      "subcategories": "sottocategorie"
+      "subcategories": "sottocategorie",
+      "pin": "Fissa alla Pagina Prompts",
+      "unpin": "Rimuovi dalla Pagina Prompts",
+      "pinned": "Categoria fissata",
+      "unpinned": "Categoria rimossa",
+      "pinnedBadge": "Fissato",
+      "pinnedLabel": "Fissa alla pagina prompts (mostra come filtro rapido)"
     },
     "tags": {
       "title": "Gestione Tag",
@@ -741,7 +753,10 @@
     "clearFilter": "Cancella filtro",
     "noPromptsOnDate": "Nessun prompt trovato in questa data.",
     "noPromptsOnDateOwner": "Non hai prompt in questa data.",
-    "createForToday": "Crea per oggi"
+    "createForToday": "Crea per oggi",
+    "likes": "Mi piace",
+    "noLikes": "Nessun prompt piaciuto ancora",
+    "noLikesOwner": "Non hai ancora messo mi piace a nessun prompt"
   },
   "subscription": {
     "subscribe": "Iscriviti",

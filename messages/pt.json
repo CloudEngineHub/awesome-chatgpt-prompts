@@ -342,7 +342,10 @@
     "translated": "Conteúdo traduzido",
     "translationFailed": "Falha na tradução",
     "alreadyTranslated": "Já traduzido",
-    "learnHowToWritePrompts": "Aprenda a escrever prompts eficazes →"
+    "learnHowToWritePrompts": "Aprenda a escrever prompts eficazes →",
+    "structuredFormatDetected": "Formato {format} detectado",
+    "structuredFormatWarningDescription": "O conteúdo do seu prompt parece ser dados estruturados. Considere mudar para o modo estruturado para melhor destaque de sintaxe e validação.",
+    "switchToStructured": "Mudar para {format}"
   },
   "changeRequests": {
     "title": "Solicitações de Alteração",
@@ -401,6 +404,9 @@
     "noCategories": "Nenhuma categoria encontrada",
     "noSubcategories": "Sem subcategorias nesta categoria ainda",
     "prompts": "prompts",
+    "subscribers": "assinantes",
+    "promptCount": "{count} prompts",
+    "subscriberCount": "{count} assinantes",
     "confirmDelete": "Tem certeza que deseja excluir esta categoria?"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "Nenhuma (Categoria Raiz)",
       "parentHelp": "Deixe vazio para criar uma categoria raiz, ou selecione um pai para criar uma subcategoria",
       "rootCategory": "Raiz",
-      "subcategories": "subcategorias"
+      "subcategories": "subcategorias",
+      "pin": "Fixar na Página de Prompts",
+      "unpin": "Desafixar da Página de Prompts",
+      "pinned": "Categoria fixada",
+      "unpinned": "Categoria desafixada",
+      "pinnedBadge": "Fixado",
+      "pinnedLabel": "Fixar na página de prompts (mostrar como filtro rápido)"
     },
     "tags": {
       "title": "Gerenciamento de Tags",
@@ -741,7 +753,10 @@
     "clearFilter": "Limpar filtro",
     "noPromptsOnDate": "Nenhum prompt encontrado nesta data.",
     "noPromptsOnDateOwner": "Você não tem prompts nesta data.",
-    "createForToday": "Criar para hoje"
+    "createForToday": "Criar para hoje",
+    "likes": "Curtidas",
+    "noLikes": "Nenhum prompt curtido ainda",
+    "noLikesOwner": "Você ainda não curtiu nenhum prompt"
   },
   "subscription": {
     "subscribe": "Inscrever-se",

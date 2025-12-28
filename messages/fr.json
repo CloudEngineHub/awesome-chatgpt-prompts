@@ -342,7 +342,10 @@
     "translated": "Contenu traduit",
     "translationFailed": "Échec de la traduction",
     "alreadyTranslated": "Déjà traduit",
-    "learnHowToWritePrompts": "Apprenez à écrire des prompts efficaces →"
+    "learnHowToWritePrompts": "Apprenez à écrire des prompts efficaces →",
+    "structuredFormatDetected": "Format {format} détecté",
+    "structuredFormatWarningDescription": "Le contenu de votre prompt ressemble à des données structurées. Envisagez de passer en mode structuré pour une meilleure coloration syntaxique et validation.",
+    "switchToStructured": "Passer à {format}"
   },
   "changeRequests": {
     "title": "Demandes de Modification",
@@ -401,6 +404,9 @@
     "noCategories": "Aucune catégorie trouvée",
     "noSubcategories": "Pas encore de sous-catégories dans cette catégorie",
     "prompts": "prompts",
+    "subscribers": "abonnés",
+    "promptCount": "{count} prompts",
+    "subscriberCount": "{count} abonnés",
     "confirmDelete": "Êtes-vous sûr de vouloir supprimer cette catégorie ?"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "Aucune (Catégorie Racine)",
       "parentHelp": "Laissez vide pour créer une catégorie racine, ou sélectionnez un parent pour créer une sous-catégorie",
       "rootCategory": "Racine",
-      "subcategories": "sous-catégories"
+      "subcategories": "sous-catégories",
+      "pin": "Épingler à la page Prompts",
+      "unpin": "Désépingler de la page Prompts",
+      "pinned": "Catégorie épinglée",
+      "unpinned": "Catégorie désépinglée",
+      "pinnedBadge": "Épinglé",
+      "pinnedLabel": "Épingler à la page prompts (afficher comme filtre rapide)"
     },
     "tags": {
       "title": "Gestion des Tags",
@@ -741,7 +753,10 @@
     "clearFilter": "Effacer le filtre",
     "noPromptsOnDate": "Aucun prompt trouvé à cette date.",
     "noPromptsOnDateOwner": "Vous n'avez pas de prompts à cette date.",
-    "createForToday": "Créer pour aujourd'hui"
+    "createForToday": "Créer pour aujourd'hui",
+    "likes": "J'aime",
+    "noLikes": "Pas encore de prompts aimés",
+    "noLikesOwner": "Vous n'avez encore aimé aucun prompt"
   },
   "subscription": {
     "subscribe": "S'abonner",

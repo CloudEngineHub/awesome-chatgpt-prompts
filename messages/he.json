@@ -342,7 +342,10 @@
     "translated": "התוכן תורגם",
     "translationFailed": "התרגום נכשל",
     "alreadyTranslated": "כבר תורגם",
-    "learnHowToWritePrompts": "למדו איך לכתוב פרומפטים יעילים ←"
+    "learnHowToWritePrompts": "למדו איך לכתוב פרומפטים יעילים ←",
+    "structuredFormatDetected": "זוהה פורמט {format}",
+    "structuredFormatWarningDescription": "תוכן הפרומפט שלך נראה כמו נתונים מובנים. שקול לעבור למצב מובנה להדגשת תחביר ואימות טובים יותר.",
+    "switchToStructured": "לעבור ל-{format}"
   },
   "changeRequests": {
     "title": "בקשות שינוי",
@@ -401,6 +404,9 @@
     "noCategories": "לא נמצאו קטגוריות",
     "noSubcategories": "אין תת-קטגוריות בקטגוריה זו עדיין",
     "prompts": "פרומפטים",
+    "subscribers": "מנויים",
+    "promptCount": "{count} פרומפטים",
+    "subscriberCount": "{count} מנויים",
     "confirmDelete": "האם אתה בטוח שברצונך למחוק קטגוריה זו?"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "ללא (קטגוריית שורש)",
       "parentHelp": "השאר ריק ליצירת קטגוריית שורש, או בחר אב ליצירת תת-קטגוריה",
       "rootCategory": "שורש",
-      "subcategories": "תת-קטגוריות"
+      "subcategories": "תת-קטגוריות",
+      "pin": "הצמד לדף הפרומפטים",
+      "unpin": "בטל הצמדה מדף הפרומפטים",
+      "pinned": "הקטגוריה הוצמדה",
+      "unpinned": "הקטגוריה בוטלה הצמדתה",
+      "pinnedBadge": "מוצמד",
+      "pinnedLabel": "הצמד לדף פרומפטים (הצג כמסנן מהיר)"
     },
     "tags": {
       "title": "ניהול תגיות",
@@ -741,7 +753,10 @@
     "clearFilter": "נקה מסנן",
     "noPromptsOnDate": "לא נמצאו פרומפטים בתאריך זה.",
     "noPromptsOnDateOwner": "אין לך פרומפטים בתאריך זה.",
-    "createForToday": "צור להיום"
+    "createForToday": "צור להיום",
+    "likes": "לייקים",
+    "noLikes": "עדיין אין פרומפטים שאהבת",
+    "noLikesOwner": "עדיין לא אהבת אף פרומפט"
   },
   "subscription": {
     "subscribe": "הירשם",

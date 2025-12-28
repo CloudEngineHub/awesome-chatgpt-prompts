@@ -342,7 +342,10 @@
     "translated": "콘텐츠가 번역됨",
     "translationFailed": "번역 실패",
     "alreadyTranslated": "이미 번역됨",
-    "learnHowToWritePrompts": "효과적인 프롬프트 작성법 배우기 →"
+    "learnHowToWritePrompts": "효과적인 프롬프트 작성법 배우기 →",
+    "structuredFormatDetected": "{format} 형식 감지됨",
+    "structuredFormatWarningDescription": "프롬프트 내용이 구조화된 데이터처럼 보입니다. 더 나은 구문 강조 표시 및 유효성 검사를 위해 구조화 모드로 전환하는 것을 고려해 보세요.",
+    "switchToStructured": "{format}으로 전환"
   },
   "changeRequests": {
     "title": "변경 요청",
@@ -401,6 +404,9 @@
     "noCategories": "카테고리가 없습니다",
     "noSubcategories": "이 카테고리에는 아직 하위 카테고리가 없습니다",
     "prompts": "프롬프트",
+    "subscribers": "구독자",
+    "promptCount": "{count}개 프롬프트",
+    "subscriberCount": "{count}명 구독자",
     "confirmDelete": "이 카테고리를 삭제하시겠습니까?"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "없음 (루트 카테고리)",
       "parentHelp": "루트 카테고리를 만들려면 비워두고, 하위 카테고리를 만들려면 상위를 선택하세요",
       "rootCategory": "루트",
-      "subcategories": "하위 카테고리"
+      "subcategories": "하위 카테고리",
+      "pin": "프롬프트 페이지에 고정",
+      "unpin": "프롬프트 페이지에서 고정 해제",
+      "pinned": "카테고리 고정됨",
+      "unpinned": "카테고리 고정 해제됨",
+      "pinnedBadge": "고정됨",
+      "pinnedLabel": "프롬프트 페이지에 고정 (빠른 필터로 표시)"
     },
     "tags": {
       "title": "태그 관리",
@@ -741,7 +753,10 @@
     "clearFilter": "필터 지우기",
     "noPromptsOnDate": "이 날짜에 프롬프트가 없습니다.",
     "noPromptsOnDateOwner": "이 날짜에 프롬프트가 없습니다.",
-    "createForToday": "오늘을 위해 만들기"
+    "createForToday": "오늘을 위해 만들기",
+    "likes": "좋아요",
+    "noLikes": "아직 좋아요한 프롬프트가 없습니다",
+    "noLikesOwner": "아직 프롬프트에 좋아요를 하지 않았습니다"
   },
   "subscription": {
     "subscribe": "구독",

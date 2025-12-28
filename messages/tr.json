@@ -342,7 +342,10 @@
     "translated": "İçerik çevrildi",
     "translationFailed": "Çeviri başarısız oldu",
     "alreadyTranslated": "Zaten çevrildi",
-    "learnHowToWritePrompts": "Etkili promptlar nasıl yazılır öğrenin →"
+    "learnHowToWritePrompts": "Etkili promptlar nasıl yazılır öğrenin →",
+    "structuredFormatDetected": "{format} formatı algılandı",
+    "structuredFormatWarningDescription": "Prompt içeriğiniz yapılandırılmış veriye benziyor. Daha iyi sözdizimi vurgulama ve doğrulama için yapılandırılmış moda geçmeyi düşünün.",
+    "switchToStructured": "{format}'a geç"
   },
   "changeRequests": {
     "title": "Değişiklik İstekleri",
@@ -401,6 +404,9 @@
     "noCategories": "Kategori bulunamadı",
     "noSubcategories": "Bu kategoride henüz alt kategori yok",
     "prompts": "prompt",
+    "subscribers": "abone",
+    "promptCount": "{count} prompt",
+    "subscriberCount": "{count} abone",
     "confirmDelete": "Bu kategoriyi silmek istediğinizden emin misiniz?"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "Yok (Ana Kategori)",
       "parentHelp": "Ana kategori oluşturmak için boş bırakın veya alt kategori oluşturmak için bir üst kategori seçin",
       "rootCategory": "Ana",
-      "subcategories": "alt kategori"
+      "subcategories": "alt kategori",
+      "pin": "Promptlar Sayfasına Sabitle",
+      "unpin": "Promptlar Sayfasından Kaldır",
+      "pinned": "Kategori sabitlendi",
+      "unpinned": "Kategori sabitlemesi kaldırıldı",
+      "pinnedBadge": "Sabitlenmiş",
+      "pinnedLabel": "Promptlar sayfasına sabitle (hızlı filtre olarak göster)"
     },
     "tags": {
       "title": "Etiket Yönetimi",
@@ -741,7 +753,10 @@
     "clearFilter": "Filtreyi temizle",
     "noPromptsOnDate": "Bu tarihte prompt bulunamadı.",
     "noPromptsOnDateOwner": "Bu tarihte promptunuz yok.",
-    "createForToday": "Bugün için oluştur"
+    "createForToday": "Bugün için oluştur",
+    "likes": "Beğeniler",
+    "noLikes": "Henüz beğenilen prompt yok",
+    "noLikesOwner": "Henüz hiçbir promptu beğenmediniz"
   },
   "subscription": {
     "subscribe": "Abone Ol",

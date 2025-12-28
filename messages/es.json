@@ -342,7 +342,10 @@
     "translated": "Contenido traducido",
     "translationFailed": "Error en la traducción",
     "alreadyTranslated": "Ya traducido",
-    "learnHowToWritePrompts": "Aprende a escribir prompts efectivos →"
+    "learnHowToWritePrompts": "Aprende a escribir prompts efectivos →",
+    "structuredFormatDetected": "Formato {format} detectado",
+    "structuredFormatWarningDescription": "El contenido de tu prompt parece ser datos estructurados. Considera cambiar al modo estructurado para mejor resaltado de sintaxis y validación.",
+    "switchToStructured": "Cambiar a {format}"
   },
   "changeRequests": {
     "title": "Solicitudes de Cambio",
@@ -401,6 +404,9 @@
     "noCategories": "No se encontraron categorías",
     "noSubcategories": "Aún no hay subcategorías en esta categoría",
     "prompts": "prompts",
+    "subscribers": "suscriptores",
+    "promptCount": "{count} prompts",
+    "subscriberCount": "{count} suscriptores",
     "confirmDelete": "¿Estás seguro de que quieres eliminar esta categoría?"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "Ninguna (Categoría Raíz)",
       "parentHelp": "Deja vacío para crear una categoría raíz, o selecciona un padre para crear una subcategoría",
       "rootCategory": "Raíz",
-      "subcategories": "subcategorías"
+      "subcategories": "subcategorías",
+      "pin": "Fijar en Página de Prompts",
+      "unpin": "Desfijar de Página de Prompts",
+      "pinned": "Categoría fijada",
+      "unpinned": "Categoría desfijada",
+      "pinnedBadge": "Fijado",
+      "pinnedLabel": "Fijar en página de prompts (mostrar como filtro rápido)"
     },
     "tags": {
       "title": "Gestión de Etiquetas",
@@ -741,7 +753,10 @@
     "clearFilter": "Limpiar filtro",
     "noPromptsOnDate": "No se encontraron prompts en esta fecha.",
     "noPromptsOnDateOwner": "No tienes prompts en esta fecha.",
-    "createForToday": "Crear para hoy"
+    "createForToday": "Crear para hoy",
+    "likes": "Me gusta",
+    "noLikes": "Aún no hay prompts que te gusten",
+    "noLikesOwner": "Aún no te ha gustado ningún prompt"
   },
   "subscription": {
     "subscribe": "Suscribirse",

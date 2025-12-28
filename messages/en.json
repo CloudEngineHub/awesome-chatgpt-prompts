@@ -342,7 +342,10 @@
     "translated": "Content translated",
     "translationFailed": "Translation failed",
     "alreadyTranslated": "Already translated",
-    "learnHowToWritePrompts": "Learn how to write effective prompts →"
+    "learnHowToWritePrompts": "Learn how to write effective prompts →",
+    "structuredFormatDetected": "{format} format detected",
+    "structuredFormatWarningDescription": "Your prompt content looks like structured data. Consider switching to structured mode for better syntax highlighting and validation.",
+    "switchToStructured": "Switch to {format}"
   },
   "changeRequests": {
     "title": "Change Requests",
@@ -401,6 +404,9 @@
     "noCategories": "No categories found",
     "noSubcategories": "No subcategories in this category yet",
     "prompts": "prompts",
+    "subscribers": "subscribers",
+    "promptCount": "{count} prompts",
+    "subscriberCount": "{count} subscribers",
     "confirmDelete": "Are you sure you want to delete this category?"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "None (Root Category)",
       "parentHelp": "Leave empty to create a root category, or select a parent to create a subcategory",
       "rootCategory": "Root",
-      "subcategories": "subcategories"
+      "subcategories": "subcategories",
+      "pin": "Pin to Prompts Page",
+      "unpin": "Unpin from Prompts Page",
+      "pinned": "Category pinned",
+      "unpinned": "Category unpinned",
+      "pinnedBadge": "Pinned",
+      "pinnedLabel": "Pin to prompts page (show as quick filter)"
     },
     "tags": {
       "title": "Tag Management",
@@ -741,7 +753,10 @@
     "clearFilter": "Clear filter",
     "noPromptsOnDate": "No prompts found on this date.",
     "noPromptsOnDateOwner": "You don't have any prompts on this date.",
-    "createForToday": "Create for today"
+    "createForToday": "Create for today",
+    "likes": "Likes",
+    "noLikes": "No liked prompts yet",
+    "noLikesOwner": "You haven't liked any prompts yet"
   },
   "subscription": {
     "subscribe": "Subscribe",

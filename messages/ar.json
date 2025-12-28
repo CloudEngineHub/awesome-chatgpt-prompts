@@ -342,7 +342,10 @@
     "translated": "تمت ترجمة المحتوى",
     "translationFailed": "فشلت الترجمة",
     "alreadyTranslated": "تمت الترجمة بالفعل",
-    "learnHowToWritePrompts": "تعلم كيفية كتابة أوامر فعالة ←"
+    "learnHowToWritePrompts": "تعلم كيفية كتابة أوامر فعالة ←",
+    "structuredFormatDetected": "تم اكتشاف تنسيق {format}",
+    "structuredFormatWarningDescription": "يبدو أن محتوى الأمر الخاص بك يشبه بيانات منظمة. فكر في التبديل إلى الوضع المنظم للحصول على تمييز بنائي وتحقق أفضل.",
+    "switchToStructured": "التبديل إلى {format}"
   },
   "changeRequests": {
     "title": "طلبات التغيير",
@@ -401,6 +404,9 @@
     "noCategories": "لم يتم العثور على تصنيفات",
     "noSubcategories": "لا توجد تصنيفات فرعية في هذا التصنيف بعد",
     "prompts": "أوامر",
+    "subscribers": "مشتركين",
+    "promptCount": "{count} أوامر",
+    "subscriberCount": "{count} مشتركين",
     "confirmDelete": "هل أنت متأكد من حذف هذا التصنيف؟"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "بدون (تصنيف رئيسي)",
       "parentHelp": "اتركه فارغاً لإنشاء تصنيف رئيسي، أو اختر تصنيف أب لإنشاء تصنيف فرعي",
       "rootCategory": "رئيسي",
-      "subcategories": "تصنيفات فرعية"
+      "subcategories": "تصنيفات فرعية",
+      "pin": "تثبيت في صفحة الأوامر",
+      "unpin": "إلغاء التثبيت من صفحة الأوامر",
+      "pinned": "تم تثبيت التصنيف",
+      "unpinned": "تم إلغاء تثبيت التصنيف",
+      "pinnedBadge": "مثبت",
+      "pinnedLabel": "تثبيت في صفحة الأوامر (عرض كفلتر سريع)"
     },
     "tags": {
       "title": "إدارة الوسوم",
@@ -741,7 +753,10 @@
     "clearFilter": "مسح الفلتر",
     "noPromptsOnDate": "لم يتم العثور على أوامر في هذا التاريخ.",
     "noPromptsOnDateOwner": "ليس لديك أي أوامر في هذا التاريخ.",
-    "createForToday": "أنشئ لليوم"
+    "createForToday": "أنشئ لليوم",
+    "likes": "الإعجابات",
+    "noLikes": "لا توجد أوامر معجب بها بعد",
+    "noLikesOwner": "لم تعجب بأي أوامر بعد"
   },
   "subscription": {
     "subscribe": "اشتراك",

@@ -342,7 +342,10 @@
     "translated": "Το περιεχόμενο μεταφράστηκε",
     "translationFailed": "Η μετάφραση απέτυχε",
     "alreadyTranslated": "Ήδη μεταφρασμένο",
-    "learnHowToWritePrompts": "Μάθετε πώς να γράφετε αποτελεσματικά prompts →"
+    "learnHowToWritePrompts": "Μάθετε πώς να γράφετε αποτελεσματικά prompts →",
+    "structuredFormatDetected": "Εντοπίστηκε μορφή {format}",
+    "structuredFormatWarningDescription": "Το περιεχόμενο του prompt σας μοιάζει με δομημένα δεδομένα. Σκεφτείτε να αλλάξετε σε δομημένη λειτουργία για καλύτερη επισήμανση σύνταξης και επικύρωση.",
+    "switchToStructured": "Αλλαγή σε {format}"
   },
   "changeRequests": {
     "title": "Αιτήσεις αλλαγής",
@@ -401,6 +404,9 @@
     "noCategories": "Δεν βρέθηκαν κατηγορίες",
     "noSubcategories": "Δεν υπάρχουν υποκατηγορίες σε αυτή την κατηγορία ακόμα",
     "prompts": "prompts",
+    "subscribers": "συνδρομητές",
+    "promptCount": "{count} prompts",
+    "subscriberCount": "{count} συνδρομητές",
     "confirmDelete": "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτή την κατηγορία;"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "Καμία (Ριζική κατηγορία)",
       "parentHelp": "Αφήστε κενό για ριζική κατηγορία ή επιλέξτε γονική για υποκατηγορία",
       "rootCategory": "Ριζική",
-      "subcategories": "υποκατηγορίες"
+      "subcategories": "υποκατηγορίες",
+      "pin": "Καρφίτσωμα στη σελίδα Prompts",
+      "unpin": "Ξεκαρφίτσωμα από τη σελίδα Prompts",
+      "pinned": "Η κατηγορία καρφιτσώθηκε",
+      "unpinned": "Η κατηγορία ξεκαρφιτσώθηκε",
+      "pinnedBadge": "Καρφιτσωμένο",
+      "pinnedLabel": "Καρφίτσωμα στη σελίδα prompts (εμφάνιση ως γρήγορο φίλτρο)"
     },
     "tags": {
       "title": "Διαχείριση ετικετών",
@@ -741,7 +753,10 @@
     "clearFilter": "Καθαρισμός φίλτρου",
     "noPromptsOnDate": "Δεν βρέθηκαν prompts σε αυτή την ημερομηνία.",
     "noPromptsOnDateOwner": "Δεν έχετε prompts σε αυτή την ημερομηνία.",
-    "createForToday": "Δημιουργία για σήμερα"
+    "createForToday": "Δημιουργία για σήμερα",
+    "likes": "Μου αρέσει",
+    "noLikes": "Δεν υπάρχουν αγαπημένα prompts ακόμα",
+    "noLikesOwner": "Δεν έχετε κάνει like σε κανένα prompt ακόμα"
   },
   "subscription": {
     "subscribe": "Εγγραφή",

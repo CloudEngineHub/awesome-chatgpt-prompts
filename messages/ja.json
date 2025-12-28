@@ -342,7 +342,10 @@
     "translated": "コンテンツを翻訳しました",
     "translationFailed": "翻訳に失敗しました",
     "alreadyTranslated": "すでに翻訳済み",
-    "learnHowToWritePrompts": "効果的なプロンプトの書き方を学ぶ →"
+    "learnHowToWritePrompts": "効果的なプロンプトの書き方を学ぶ →",
+    "structuredFormatDetected": "{format}形式が検出されました",
+    "structuredFormatWarningDescription": "プロンプトの内容が構造化データのようです。より良い構文ハイライトと検証のために構造化モードへの切り替えを検討してください。",
+    "switchToStructured": "{format}に切り替え"
   },
   "changeRequests": {
     "title": "変更リクエスト",
@@ -401,6 +404,9 @@
     "noCategories": "カテゴリーが見つかりません",
     "noSubcategories": "このカテゴリーにはまだサブカテゴリーがありません",
     "prompts": "件のプロンプト",
+    "subscribers": "人の購読者",
+    "promptCount": "{count}件のプロンプト",
+    "subscriberCount": "{count}人の購読者",
     "confirmDelete": "このカテゴリーを削除してもよろしいですか？"
   },
   "tags": {
@@ -602,7 +608,13 @@
       "noParent": "なし（ルートカテゴリー）",
       "parentHelp": "空のままでルートカテゴリーを作成、または親を選択してサブカテゴリーを作成",
       "rootCategory": "ルート",
-      "subcategories": "サブカテゴリー"
+      "subcategories": "サブカテゴリー",
+      "pin": "プロンプトページに固定",
+      "unpin": "プロンプトページから固定解除",
+      "pinned": "カテゴリーを固定しました",
+      "unpinned": "カテゴリーの固定を解除しました",
+      "pinnedBadge": "固定",
+      "pinnedLabel": "プロンプトページに固定（クイックフィルターとして表示）"
     },
     "tags": {
       "title": "タグ管理",
@@ -741,7 +753,10 @@
     "clearFilter": "フィルターをクリア",
     "noPromptsOnDate": "この日付にはプロンプトが見つかりませんでした。",
     "noPromptsOnDateOwner": "この日付にはプロンプトがありません。",
-    "createForToday": "今日用に作成"
+    "createForToday": "今日用に作成",
+    "likes": "いいね",
+    "noLikes": "いいねしたプロンプトはまだありません",
+    "noLikesOwner": "まだプロンプトにいいねしていません"
   },
   "subscription": {
     "subscribe": "購読",
