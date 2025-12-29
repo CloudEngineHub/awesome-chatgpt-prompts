@@ -30,7 +30,11 @@
     "close": "Fechar",
     "all": "Todos",
     "none": "Nenhum",
-    "moreLines": "+{count} mais linhas"
+    "moreLines": "+{count} mais linhas",
+    "codeView": "Código",
+    "treeView": "Árvore",
+    "expandAll": "Expandir Tudo",
+    "collapseAll": "Recolher Tudo"
   },
   "nav": {
     "home": "Início",
@@ -143,6 +147,8 @@
     "unlist": "Ocultar",
     "relist": "Mostrar",
     "adminArea": "Área Admin",
+    "promptDeleted": "Este prompt foi excluído",
+    "promptDeletedDescription": "Este prompt foi excluído e só é visível para administradores. Não aparecerá em buscas ou listagens públicas.",
     "promptDelisted": "Este prompt foi removido da lista",
     "delistReasonTooShort": "Este prompt foi removido automaticamente porque o conteúdo é muito curto. Ele ainda aparecerá no seu perfil, mas não será exportado para o GitHub e não aparecerá nas buscas.",
     "delistReasonNotEnglish": "Este prompt foi removido automaticamente porque não está principalmente em inglês. Ele ainda aparecerá no seu perfil, mas não será exportado para o GitHub e não aparecerá nas buscas.",
@@ -150,11 +156,19 @@
     "delistReasonNotInstruction": "Este prompt foi removido automaticamente porque não parece ser uma instrução para LLM. Ele ainda aparecerá no seu perfil, mas não será exportado para o GitHub e não aparecerá nas buscas.",
     "delistReasonManual": "Este prompt foi removido manualmente por um administrador. Ele ainda aparecerá no seu perfil, mas não será exportado para o GitHub e não aparecerá nas buscas.",
     "delistReasonUnknown": "Este prompt foi removido da lista. Ele ainda aparecerá no seu perfil, mas não será exportado para o GitHub e não aparecerá nas buscas.",
-    "delistOwnerNote": "Como este prompt foi removido por problemas de qualidade, você pode excluí-lo se desejar.",
+    "delistOwnerNote": "Como este prompt foi removido por problemas de qualidade, você pode solicitar uma revisão ou excluí-lo.",
+    "requestListing": "Solicitar Listagem",
+    "relistRequested": "Solicitação Enviada",
+    "relistRequestSent": "Sua solicitação de re-listagem foi enviada. Um administrador a revisará em breve.",
+    "relistRequestAlreadySent": "Você já enviou uma solicitação de re-listagem para este prompt.",
+    "relistRequestError": "Falha ao enviar solicitação de re-listagem. Por favor, tente novamente.",
     "deletePrompt": "Excluir Prompt",
     "deletePromptTitle": "Excluir este prompt?",
     "deletePromptDescription": "Esta ação não pode ser desfeita. O prompt será excluído permanentemente.",
     "deleteError": "Falha ao excluir o prompt",
+    "restorePrompt": "Restaurar Prompt",
+    "promptRestored": "Prompt restaurado com sucesso",
+    "restoreError": "Falha ao restaurar prompt",
     "types": {
       "text": "Texto",
       "image": "Imagem",
@@ -474,7 +488,13 @@
         "pending": "Pendente",
         "reviewed": "Revisado",
         "dismissed": "Descartado"
-      }
+      },
+      "relistPrompt": "Re-listar Prompt",
+      "restorePrompt": "Restaurar Prompt",
+      "promptRelisted": "Prompt re-listado com sucesso",
+      "promptRestored": "Prompt restaurado com sucesso",
+      "relistFailed": "Falha ao re-listar prompt",
+      "restoreFailed": "Falha ao restaurar prompt"
     },
     "prompts": {
       "title": "Gerenciamento de Prompts",
@@ -974,6 +994,7 @@
       "inappropriate": "Conteúdo inadequado",
       "copyright": "Violação de direitos autorais",
       "misleading": "Informação enganosa ou falsa",
+      "relistRequest": "Solicitação de Re-listagem",
       "other": "Outro"
     },
     "details": "Detalhes adicionais",
@@ -1036,6 +1057,18 @@
       "selfHost": {
         "question": "Posso hospedar esta plataforma por conta própria?",
         "answer": "Absolutamente! prompts.chat é totalmente código aberto. Você pode implantar sua própria instância privada para sua equipe ou organização. Confira nossa documentação de auto-hospedagem para instruções de configuração."
+      },
+      "verification": {
+        "question": "Como posso me tornar um usuário verificado?",
+        "answer": "A verificação é concedida pelos administradores a usuários que compartilham consistentemente prompts de qualidade. Não há regras rígidas — se você contribuir com prompts valiosos para a comunidade, um administrador pode selecioná-lo como verificado. Concentre-se em criar prompts úteis e bem elaborados e o reconhecimento virá."
+      },
+      "aiCredits": {
+        "question": "Como funcionam os créditos de geração de prévia com IA?",
+        "answer": "Cada usuário recebe 3 créditos de geração de IA por dia por padrão. Esses créditos permitem que você gere imagens, vídeos ou áudio de prévia para seus prompts usando IA. Os administradores podem ajustar o limite diário de créditos para usuários individuais conforme necessário."
+      },
+      "attribution": {
+        "question": "E se a atribuição de um prompt estiver errada?",
+        "answer": "Se você notar uma atribuição incorreta em um prompt (por exemplo, se você é o autor original mas não foi creditado), por favor abra uma issue em nosso repositório do GitHub. Você pode usar o formulário abaixo para enviar sua questão, e nós a analisaremos e corrigiremos o mais rápido possível."
       }
     },
     "contact": {
@@ -1186,11 +1219,19 @@
     "run": "Executar",
     "reset": "Redefinir",
     "copied": "Copiado para a área de transferência",
-    "runToPreview": "Clique em Executar para ver a pré-visualização do prompt",
+    "runToPreview": "Escreva código para ver a pré-visualização",
     "cannotEvaluate": "Este código não pode ser avaliado.",
     "onlyPromptsChat": "Apenas importações de {library} são suportadas.",
     "desktopOnly": "Apenas Desktop",
     "desktopOnlyDescription": "O Prompt Builder requer uma tela maior para funcionar corretamente. Por favor, abra esta página em um computador desktop ou laptop.",
-    "browsePrompts": "Explorar Prompts"
+    "browsePrompts": "Explorar Prompts",
+    "createPrompt": "Criar Prompt",
+    "random": "Aleatório",
+    "generateRandom": "Gerar exemplo aleatório com IA",
+    "loginToGenerate": "Faça login para gerar exemplos",
+    "rateLimitExceeded": "Aguarde {seconds} segundos antes de gerar novamente",
+    "generateFailed": "Falha ao gerar exemplo",
+    "exampleGenerated": "Novo exemplo gerado!",
+    "ignoreTypeErrors": "Ignorar Erros de Tipo"
   }
 }

@@ -30,7 +30,11 @@
     "close": "Kapat",
     "all": "Tümü",
     "none": "Hiçbiri",
-    "moreLines": "+{count} satır daha"
+    "moreLines": "+{count} satır daha",
+    "codeView": "Kod",
+    "treeView": "Ağaç",
+    "expandAll": "Tümünü Genişlet",
+    "collapseAll": "Tümünü Daralt"
   },
   "nav": {
     "home": "Ana Sayfa",
@@ -143,6 +147,8 @@
     "unlist": "Listeden Kaldır",
     "relist": "Listeye Ekle",
     "adminArea": "Yönetici Alanı",
+    "promptDeleted": "Bu prompt silindi",
+    "promptDeletedDescription": "Bu prompt silindi ve yalnızca yöneticiler tarafından görülebilir. Aramalarda veya herkese açık listelerde görünmeyecek.",
     "promptDelisted": "Bu prompt listeden kaldırıldı",
     "delistReasonTooShort": "Bu prompt içerik çok kısa olduğu için otomatik olarak listeden kaldırıldı fakat profilinizde görünecek, yalnızca GitHub'a aktarılmayacak ve aramalarda görünmeyecek.",
     "delistReasonNotEnglish": "Bu prompt ağırlıklı olarak İngilizce olmadığı için otomatik olarak listeden kaldırıldı fakat profilinizde görünecek, yalnızca GitHub'a aktarılmayacak ve aramalarda görünmeyecek.",
@@ -150,11 +156,19 @@
     "delistReasonNotInstruction": "Bu prompt bir LLM talimatı gibi görünmediği için otomatik olarak listeden kaldırıldı fakat profilinizde görünecek, yalnızca GitHub'a aktarılmayacak ve aramalarda görünmeyecek.",
     "delistReasonManual": "Bu prompt bir yönetici tarafından manuel olarak listeden kaldırıldı fakat profilinizde görünecek, yalnızca GitHub'a aktarılmayacak ve aramalarda görünmeyecek.",
     "delistReasonUnknown": "Bu prompt listeden kaldırıldı fakat profilinizde görünecek, yalnızca GitHub'a aktarılmayacak ve aramalarda görünmeyecek.",
-    "delistOwnerNote": "Bu prompt kalite sorunları nedeniyle listeden kaldırıldığı için isterseniz silebilirsiniz.",
+    "delistOwnerNote": "Bu prompt kalite sorunları nedeniyle listeden kaldırıldığı için inceleme talep edebilir veya silebilirsiniz.",
+    "requestListing": "Listeleme Talep Et",
+    "relistRequested": "Talep Gönderildi",
+    "relistRequestSent": "Yeniden listeleme talebiniz gönderildi. Bir yönetici yakında inceleyecek.",
+    "relistRequestAlreadySent": "Bu prompt için zaten bir yeniden listeleme talebi gönderdiniz.",
+    "relistRequestError": "Yeniden listeleme talebi gönderilemedi. Lütfen tekrar deneyin.",
     "deletePrompt": "Promptu Sil",
     "deletePromptTitle": "Bu promptu silmek istiyor musunuz?",
     "deletePromptDescription": "Bu işlem geri alınamaz. Prompt kalıcı olarak silinecektir.",
     "deleteError": "Prompt silinemedi",
+    "restorePrompt": "Promptu Geri Yükle",
+    "promptRestored": "Prompt başarıyla geri yüklendi",
+    "restoreError": "Geri yükleme başarısız",
     "types": {
       "text": "Metin",
       "image": "Görsel",
@@ -474,7 +488,13 @@
         "pending": "Beklemede",
         "reviewed": "İncelendi",
         "dismissed": "Reddedildi"
-      }
+      },
+      "relistPrompt": "Promptu Yeniden Listele",
+      "restorePrompt": "Promptu Geri Yükle",
+      "promptRelisted": "Prompt başarıyla yeniden listelendi",
+      "promptRestored": "Prompt başarıyla geri yüklendi",
+      "relistFailed": "Yeniden listeleme başarısız",
+      "restoreFailed": "Geri yükleme başarısız"
     },
     "prompts": {
       "title": "Prompt Yönetimi",
@@ -974,6 +994,7 @@
       "inappropriate": "Uygunsuz içerik",
       "copyright": "Telif hakkı ihlali",
       "misleading": "Yanıltıcı veya yanlış bilgi",
+      "relistRequest": "Yeniden Listeleme Talebi",
       "other": "Diğer"
     },
     "details": "Ek detaylar",
@@ -1036,6 +1057,18 @@
       "selfHost": {
         "question": "Bu platformu kendi sunucumda barındırabilir miyim?",
         "answer": "Kesinlikle! prompts.chat tamamen açık kaynaklıdır. Ekibiniz veya kuruluşunuz için kendi özel örneğinizi dağıtabilirsiniz. Kurulum talimatları için self-hosting dokümantasyonumuza göz atın."
+      },
+      "verification": {
+        "question": "Doğrulanmış kullanıcı nasıl olabilirim?",
+        "answer": "Doğrulama, sürekli olarak kaliteli promptlar paylaşan kullanıcılara yöneticiler tarafından verilir. Katı kurallar yoktur — topluluğa değerli promptlar katkıda bulunursanız, bir yönetici sizi doğrulanmış olarak seçebilir. Faydalı, iyi hazırlanmış promptlar oluşturmaya odaklanın ve takdir gelecektir."
+      },
+      "aiCredits": {
+        "question": "AI önizleme oluşturma kredileri nasıl çalışır?",
+        "answer": "Her kullanıcı varsayılan olarak günde 3 AI oluşturma kredisi alır. Bu krediler, AI kullanarak promptlarınız için önizleme görselleri, videolar veya ses dosyaları oluşturmanıza olanak tanır. Yöneticiler, gerektiğinde bireysel kullanıcılar için günlük kredi limitini ayarlayabilir."
+      },
+      "attribution": {
+        "question": "Bir prompttaki atıf yanlışsa ne yapmalıyım?",
+        "answer": "Bir promptta yanlış atıf fark ederseniz (örneğin, orijinal yazar sizseniz ancak kredi verilmemişse), lütfen GitHub deposunda bir issue açın. Sorununuzu göndermek için aşağıdaki formu kullanabilirsiniz, en kısa sürede inceleyip düzelteceğiz."
       }
     },
     "contact": {
@@ -1186,11 +1219,19 @@
     "run": "Çalıştır",
     "reset": "Sıfırla",
     "copied": "Panoya kopyalandı",
-    "runToPreview": "Önizleme için Çalıştır'a tıklayın",
+    "runToPreview": "Önizleme için kod yazın",
     "cannotEvaluate": "Bu kod değerlendirilemiyor.",
     "onlyPromptsChat": "Sadece {library} importları destekleniyor.",
     "desktopOnly": "Yalnızca Masaüstü",
     "desktopOnlyDescription": "Prompt Oluşturucu düzgün çalışması için daha büyük bir ekran gerektirir. Lütfen bu sayfayı bir masaüstü veya dizüstü bilgisayarda açın.",
-    "browsePrompts": "Promptlara Göz At"
+    "browsePrompts": "Promptlara Göz At",
+    "createPrompt": "Prompt Oluştur",
+    "random": "Rastgele",
+    "generateRandom": "AI ile rastgele örnek oluştur",
+    "loginToGenerate": "Örnek oluşturmak için giriş yapın",
+    "rateLimitExceeded": "Tekrar oluşturmak için {seconds} saniye bekleyin",
+    "generateFailed": "Örnek oluşturulamadı",
+    "exampleGenerated": "Yeni örnek oluşturuldu!",
+    "ignoreTypeErrors": "Tip Hatalarını Yoksay"
   }
 }

@@ -30,7 +30,11 @@
     "close": "Close",
     "all": "All",
     "none": "None",
-    "moreLines": "+{count} more lines"
+    "moreLines": "+{count} more lines",
+    "codeView": "Code",
+    "treeView": "Tree",
+    "expandAll": "Expand All",
+    "collapseAll": "Collapse All"
   },
   "nav": {
     "home": "Home",
@@ -143,6 +147,8 @@
     "unlist": "Unlist",
     "relist": "Relist",
     "adminArea": "Admin Area",
+    "promptDeleted": "This prompt has been deleted",
+    "promptDeletedDescription": "This prompt was deleted and is only visible to administrators. It will not appear in searches or public listings.",
     "promptDelisted": "This prompt has been delisted",
     "delistReasonTooShort": "This prompt was automatically delisted because the content is too short. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
     "delistReasonNotEnglish": "This prompt was automatically delisted because it's not primarily in English. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
@@ -150,11 +156,19 @@
     "delistReasonNotInstruction": "This prompt was automatically delisted because it doesn't appear to be an LLM instruction. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
     "delistReasonManual": "This prompt was manually delisted by an administrator. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
     "delistReasonUnknown": "This prompt has been delisted. It will still appear on your profile, but won't be exported to GitHub and won't appear in searches.",
-    "delistOwnerNote": "Since this prompt was delisted for quality issues, you can delete it if you wish.",
+    "delistOwnerNote": "Since this prompt was delisted for quality issues, you can request a review or delete it.",
+    "requestListing": "Request Listing",
+    "relistRequested": "Request Sent",
+    "relistRequestSent": "Your relist request has been submitted. An admin will review it soon.",
+    "relistRequestAlreadySent": "You have already submitted a relist request for this prompt.",
+    "relistRequestError": "Failed to submit relist request. Please try again.",
     "deletePrompt": "Delete Prompt",
     "deletePromptTitle": "Delete this prompt?",
     "deletePromptDescription": "This action cannot be undone. The prompt will be permanently removed.",
     "deleteError": "Failed to delete prompt",
+    "restorePrompt": "Restore Prompt",
+    "promptRestored": "Prompt restored successfully",
+    "restoreError": "Failed to restore prompt",
     "types": {
       "text": "Text",
       "image": "Image",
@@ -474,7 +488,13 @@
         "pending": "Pending",
         "reviewed": "Reviewed",
         "dismissed": "Dismissed"
-      }
+      },
+      "relistPrompt": "Relist Prompt",
+      "restorePrompt": "Restore Prompt",
+      "promptRelisted": "Prompt relisted successfully",
+      "promptRestored": "Prompt restored successfully",
+      "relistFailed": "Failed to relist prompt",
+      "restoreFailed": "Failed to restore prompt"
     },
     "prompts": {
       "title": "Prompts Management",
@@ -974,6 +994,7 @@
       "inappropriate": "Inappropriate content",
       "copyright": "Copyright violation",
       "misleading": "Misleading or false information",
+      "relistRequest": "Relist Request",
       "other": "Other"
     },
     "details": "Additional details",
@@ -1036,6 +1057,18 @@
       "selfHost": {
         "question": "Can I self-host this platform?",
         "answer": "Absolutely! prompts.chat is fully open source. You can deploy your own private instance for your team or organization. Check out our self-hosting documentation for setup instructions."
+      },
+      "verification": {
+        "question": "How can I become a verified user?",
+        "answer": "Verification is granted by administrators to users who consistently share quality prompts. There are no strict rules — if you contribute valuable prompts to the community, an admin may select you as verified. Focus on creating helpful, well-crafted prompts and the recognition will follow."
+      },
+      "aiCredits": {
+        "question": "How do AI preview generation credits work?",
+        "answer": "Each user receives 3 AI generation credits per day by default. These credits allow you to generate preview images, videos, or audio for your prompts using AI. Administrators can adjust the daily credit limit for individual users if needed."
+      },
+      "attribution": {
+        "question": "What if the attribution on a prompt is wrong?",
+        "answer": "If you notice incorrect attribution on a prompt (for example, if you're the original author but not credited), please open an issue on our GitHub repository. You can use the form below to submit your issue, and we'll review and correct it as soon as possible."
       }
     },
     "contact": {
@@ -1186,11 +1219,19 @@
     "run": "Run",
     "reset": "Reset",
     "copied": "Copied to clipboard",
-    "runToPreview": "Click Run to see the prompt preview",
+    "runToPreview": "Write code to see the prompt preview",
     "cannotEvaluate": "This code cannot be evaluated.",
     "onlyPromptsChat": "Only {library} imports are supported.",
     "desktopOnly": "Desktop Only",
     "desktopOnlyDescription": "The Prompt Builder requires a larger screen to work properly. Please open this page on a desktop or laptop computer.",
-    "browsePrompts": "Browse Prompts"
+    "browsePrompts": "Browse Prompts",
+    "createPrompt": "Create Prompt",
+    "random": "Random",
+    "generateRandom": "Generate a random example with AI",
+    "loginToGenerate": "Please log in to generate examples",
+    "rateLimitExceeded": "Please wait {seconds} seconds before generating again",
+    "generateFailed": "Failed to generate example",
+    "exampleGenerated": "New example generated!",
+    "ignoreTypeErrors": "Ignore Type Errors"
   }
 }

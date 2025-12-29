@@ -30,7 +30,11 @@
     "close": "閉じる",
     "all": "すべて",
     "none": "なし",
-    "moreLines": "+{count}行"
+    "moreLines": "+{count}行",
+    "codeView": "コード",
+    "treeView": "ツリー",
+    "expandAll": "すべて展開",
+    "collapseAll": "すべて折りたたむ"
   },
   "nav": {
     "home": "ホーム",
@@ -140,6 +144,8 @@
     "unlist": "非公開にする",
     "relist": "公開に戻す",
     "adminArea": "管理者エリア",
+    "promptDeleted": "このプロンプトは削除されました",
+    "promptDeletedDescription": "このプロンプトは削除され、管理者のみが閲覧できます。検索結果や公開リストには表示されません。",
     "promptDelisted": "このプロンプトは非公開になりました",
     "delistReasonTooShort": "このプロンプトは内容が短すぎるため自動的に非公開になりました。プロフィールには表示されますが、GitHubへのエクスポートや検索結果には表示されません。",
     "delistReasonNotEnglish": "このプロンプトは主に英語ではないため自動的に非公開になりました。プロフィールには表示されますが、GitHubへのエクスポートや検索結果には表示されません。",
@@ -147,11 +153,19 @@
     "delistReasonNotInstruction": "このプロンプトはLLMへの指示ではないため自動的に非公開になりました。プロフィールには表示されますが、GitHubへのエクスポートや検索結果には表示されません。",
     "delistReasonManual": "このプロンプトは管理者により手動で非公開になりました。プロフィールには表示されますが、GitHubへのエクスポートや検索結果には表示されません。",
     "delistReasonUnknown": "このプロンプトは非公開になりました。プロフィールには表示されますが、GitHubへのエクスポートや検索結果には表示されません。",
-    "delistOwnerNote": "このプロンプトは品質上の問題で非公開になったため、削除することができます。",
+    "delistOwnerNote": "このプロンプトは品質上の問題で非公開になったため、レビューを依頼するか削除することができます。",
+    "requestListing": "リスト登録を依頼",
+    "relistRequested": "依頼送信済み",
+    "relistRequestSent": "再公開依頼が送信されました。管理者が確認します。",
+    "relistRequestAlreadySent": "このプロンプトの再公開依頼は既に送信されています。",
+    "relistRequestError": "再公開依頼の送信に失敗しました。もう一度お試しください。",
     "deletePrompt": "プロンプトを削除",
     "deletePromptTitle": "このプロンプトを削除しますか？",
     "deletePromptDescription": "この操作は取り消せません。プロンプトは完全に削除されます。",
     "deleteError": "プロンプトの削除に失敗しました",
+    "restorePrompt": "プロンプトを復元",
+    "promptRestored": "プロンプトが復元されました",
+    "restoreError": "復元に失敗しました",
     "noMorePrompts": "すべて表示しました",
     "loadMore": "もっと読み込む",
     "loading": "読み込み中...",
@@ -474,7 +488,13 @@
         "pending": "保留中",
         "reviewed": "確認済み",
         "dismissed": "却下済み"
-      }
+      },
+      "relistPrompt": "プロンプトを再公開",
+      "restorePrompt": "プロンプトを復元",
+      "promptRelisted": "プロンプトが再公開されました",
+      "promptRestored": "プロンプトが復元されました",
+      "relistFailed": "再公開に失敗しました",
+      "restoreFailed": "復元に失敗しました"
     },
     "prompts": {
       "title": "プロンプト管理",
@@ -974,6 +994,7 @@
       "inappropriate": "不適切なコンテンツ",
       "copyright": "著作権侵害",
       "misleading": "誤解を招く情報または虚偽情報",
+      "relistRequest": "再公開リクエスト",
       "other": "その他"
     },
     "details": "詳細情報",
@@ -1036,6 +1057,18 @@
       "selfHost": {
         "question": "このプラットフォームをセルフホストできますか？",
         "answer": "もちろんです！prompts.chatは完全にオープンソースです。チームや組織のために独自のプライベートインスタンスをデプロイできます。セットアップ手順については、セルフホスティングのドキュメントをご確認ください。"
+      },
+      "verification": {
+        "question": "認証済みユーザーになるにはどうすればいいですか？",
+        "answer": "認証は、質の高いプロンプトを継続的に共有しているユーザーに管理者から付与されます。厳密なルールはありません — コミュニティに価値あるプロンプトを提供していれば、管理者があなたを認証済みとして選ぶかもしれません。有用で丁寧に作られたプロンプトの作成に集中すれば、認知は後からついてきます。"
+      },
+      "aiCredits": {
+        "question": "AIプレビュー生成クレジットはどのように機能しますか？",
+        "answer": "各ユーザーはデフォルトで1日3回のAI生成クレジットを受け取ります。これらのクレジットにより、AIを使用してプロンプトのプレビュー画像、動画、または音声を生成できます。管理者は必要に応じて個々のユーザーの1日のクレジット制限を調整できます。"
+      },
+      "attribution": {
+        "question": "プロンプトの帰属表示が間違っている場合はどうすればいいですか？",
+        "answer": "プロンプトの帰属表示が間違っていることに気づいた場合（例えば、あなたが元の作者なのにクレジットされていない場合）、GitHubリポジトリでissueを開いてください。下のフォームを使用して問題を送信していただければ、できるだけ早く確認して修正いたします。"
       }
     },
     "contact": {
@@ -1186,11 +1219,19 @@
     "run": "実行",
     "reset": "リセット",
     "copied": "クリップボードにコピーしました",
-    "runToPreview": "実行をクリックしてプロンプトのプレビューを表示",
+    "runToPreview": "コードを書いてプレビューを表示",
     "cannotEvaluate": "このコードは評価できません。",
     "onlyPromptsChat": "{library}のインポートのみがサポートされています。",
     "desktopOnly": "デスクトップ専用",
     "desktopOnlyDescription": "プロンプトビルダーは、正常に動作するために大きな画面が必要です。デスクトップまたはラップトップコンピュータでこのページを開いてください。",
-    "browsePrompts": "プロンプトを閲覧"
+    "browsePrompts": "プロンプトを閲覧",
+    "createPrompt": "プロンプトを作成",
+    "random": "ランダム",
+    "generateRandom": "AIでランダムな例を生成",
+    "loginToGenerate": "例を生成するにはログインしてください",
+    "rateLimitExceeded": "再生成まで{seconds}秒お待ちください",
+    "generateFailed": "例の生成に失敗しました",
+    "exampleGenerated": "新しい例が生成されました！",
+    "ignoreTypeErrors": "型エラーを無視"
   }
 }

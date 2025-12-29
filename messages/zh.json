@@ -30,7 +30,11 @@
     "close": "关闭",
     "all": "全部",
     "none": "无",
-    "moreLines": "+{count}行"
+    "moreLines": "+{count}行",
+    "codeView": "代码",
+    "treeView": "树形视图",
+    "expandAll": "全部展开",
+    "collapseAll": "全部折叠"
   },
   "nav": {
     "home": "首页",
@@ -140,6 +144,8 @@
     "unlist": "取消列出",
     "relist": "重新列出",
     "adminArea": "管理员区域",
+    "promptDeleted": "此提示词已被删除",
+    "promptDeletedDescription": "此提示词已被删除，仅管理员可见。它不会出现在搜索结果或公开列表中。",
     "promptDelisted": "此提示词已被下架",
     "delistReasonTooShort": "此提示词因内容过短而被自动下架。它仍会显示在您的个人资料中，但不会导出到GitHub，也不会出现在搜索结果中。",
     "delistReasonNotEnglish": "此提示词因非英语内容为主而被自动下架。它仍会显示在您的个人资料中，但不会导出到GitHub，也不会出现在搜索结果中。",
@@ -147,11 +153,19 @@
     "delistReasonNotInstruction": "此提示词因不像是LLM指令而被自动下架。它仍会显示在您的个人资料中，但不会导出到GitHub，也不会出现在搜索结果中。",
     "delistReasonManual": "此提示词已被管理员手动下架。它仍会显示在您的个人资料中，但不会导出到GitHub，也不会出现在搜索结果中。",
     "delistReasonUnknown": "此提示词已被下架。它仍会显示在您的个人资料中，但不会导出到GitHub，也不会出现在搜索结果中。",
-    "delistOwnerNote": "由于此提示词因质量问题被下架，您可以选择删除它。",
+    "delistOwnerNote": "由于此提示词因质量问题被下架，您可以请求审核或删除它。",
+    "requestListing": "请求上架",
+    "relistRequested": "请求已发送",
+    "relistRequestSent": "您的重新上架请求已提交。管理员将很快审核。",
+    "relistRequestAlreadySent": "您已经为此提示词提交了重新上架请求。",
+    "relistRequestError": "提交重新上架请求失败。请重试。",
     "deletePrompt": "删除提示词",
     "deletePromptTitle": "删除此提示词？",
     "deletePromptDescription": "此操作无法撤销。提示词将被永久删除。",
     "deleteError": "删除提示词失败",
+    "restorePrompt": "恢复提示词",
+    "promptRestored": "提示词已成功恢复",
+    "restoreError": "恢复失败",
     "noMorePrompts": "已经到底了",
     "loadMore": "加载更多",
     "loading": "加载中...",
@@ -474,7 +488,13 @@
         "pending": "待处理",
         "reviewed": "已审核",
         "dismissed": "已驳回"
-      }
+      },
+      "relistPrompt": "重新上架",
+      "restorePrompt": "恢复提示词",
+      "promptRelisted": "提示词已成功重新上架",
+      "promptRestored": "提示词已成功恢复",
+      "relistFailed": "重新上架失败",
+      "restoreFailed": "恢复失败"
     },
     "prompts": {
       "title": "提示词管理",
@@ -974,6 +994,7 @@
       "inappropriate": "不当内容",
       "copyright": "侵犯版权",
       "misleading": "误导性或虚假信息",
+      "relistRequest": "重新上架请求",
       "other": "其他"
     },
     "details": "详细说明",
@@ -1036,6 +1057,18 @@
       "selfHost": {
         "question": "我可以自托管这个平台吗？",
         "answer": "当然可以！prompts.chat是完全开源的。您可以为您的团队或组织部署自己的私有实例。请查看我们的自托管文档了解设置说明。"
+      },
+      "verification": {
+        "question": "如何成为认证用户？",
+        "answer": "认证由管理员授予持续分享高质量提示词的用户。没有严格的规则——如果您为社区贡献了有价值的提示词，管理员可能会选择您为认证用户。专注于创建有用且精心制作的提示词，认可自然会到来。"
+      },
+      "aiCredits": {
+        "question": "AI预览生成积分如何运作？",
+        "answer": "每位用户默认每天获得3个AI生成积分。这些积分允许您使用AI为提示词生成预览图片、视频或音频。管理员可以根据需要调整个别用户的每日积分限制。"
+      },
+      "attribution": {
+        "question": "如果提示词的署名有误怎么办？",
+        "answer": "如果您发现提示词上的署名不正确（例如，您是原作者但未被署名），请在我们的GitHub仓库中开一个issue。您可以使用下面的表单提交您的问题，我们会尽快审核并更正。"
       }
     },
     "contact": {
@@ -1186,11 +1219,19 @@
     "run": "运行",
     "reset": "重置",
     "copied": "已复制到剪贴板",
-    "runToPreview": "点击运行查看提示词预览",
+    "runToPreview": "编写代码查看预览",
     "cannotEvaluate": "此代码无法评估。",
     "onlyPromptsChat": "仅支持 {library} 导入。",
     "desktopOnly": "仅限桌面端",
     "desktopOnlyDescription": "提示词构建器需要更大的屏幕才能正常工作。请在台式电脑或笔记本电脑上打开此页面。",
-    "browsePrompts": "浏览提示词"
+    "browsePrompts": "浏览提示词",
+    "createPrompt": "创建提示词",
+    "random": "随机",
+    "generateRandom": "使用AI生成随机示例",
+    "loginToGenerate": "请登录以生成示例",
+    "rateLimitExceeded": "请等待{seconds}秒后再生成",
+    "generateFailed": "生成示例失败",
+    "exampleGenerated": "新示例已生成！",
+    "ignoreTypeErrors": "忽略类型错误"
   }
 }

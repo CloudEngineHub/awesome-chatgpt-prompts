@@ -30,7 +30,11 @@
     "close": "Fermer",
     "all": "Tout",
     "none": "Aucun",
-    "moreLines": "+{count} lignes supplémentaires"
+    "moreLines": "+{count} lignes supplémentaires",
+    "codeView": "Code",
+    "treeView": "Arborescence",
+    "expandAll": "Tout développer",
+    "collapseAll": "Tout réduire"
   },
   "nav": {
     "home": "Accueil",
@@ -143,6 +147,8 @@
     "unlist": "Retirer",
     "relist": "Remettre",
     "adminArea": "Zone Admin",
+    "promptDeleted": "Ce prompt a été supprimé",
+    "promptDeletedDescription": "Ce prompt a été supprimé et n'est visible que par les administrateurs. Il n'apparaîtra pas dans les recherches ni les listes publiques.",
     "promptDelisted": "Ce prompt a été retiré de la liste",
     "delistReasonTooShort": "Ce prompt a été retiré automatiquement car le contenu est trop court. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
     "delistReasonNotEnglish": "Ce prompt a été retiré automatiquement car il n'est pas principalement en anglais. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
@@ -150,11 +156,19 @@
     "delistReasonNotInstruction": "Ce prompt a été retiré automatiquement car il ne semble pas être une instruction pour LLM. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
     "delistReasonManual": "Ce prompt a été retiré manuellement par un administrateur. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
     "delistReasonUnknown": "Ce prompt a été retiré de la liste. Il apparaîtra toujours sur votre profil, mais ne sera pas exporté vers GitHub et n'apparaîtra pas dans les recherches.",
-    "delistOwnerNote": "Comme ce prompt a été retiré pour des problèmes de qualité, vous pouvez le supprimer si vous le souhaitez.",
+    "delistOwnerNote": "Comme ce prompt a été retiré pour des problèmes de qualité, vous pouvez demander une révision ou le supprimer.",
+    "requestListing": "Demander le Listage",
+    "relistRequested": "Demande Envoyée",
+    "relistRequestSent": "Votre demande de re-listage a été soumise. Un administrateur l'examinera bientôt.",
+    "relistRequestAlreadySent": "Vous avez déjà soumis une demande de re-listage pour ce prompt.",
+    "relistRequestError": "Échec de l'envoi de la demande de re-listage. Veuillez réessayer.",
     "deletePrompt": "Supprimer le Prompt",
     "deletePromptTitle": "Supprimer ce prompt ?",
     "deletePromptDescription": "Cette action est irréversible. Le prompt sera définitivement supprimé.",
     "deleteError": "Échec de la suppression du prompt",
+    "restorePrompt": "Restaurer le Prompt",
+    "promptRestored": "Prompt restauré avec succès",
+    "restoreError": "Échec de la restauration",
     "types": {
       "text": "Texte",
       "image": "Image",
@@ -474,7 +488,13 @@
         "pending": "En attente",
         "reviewed": "Examiné",
         "dismissed": "Rejeté"
-      }
+      },
+      "relistPrompt": "Re-lister le Prompt",
+      "restorePrompt": "Restaurer le Prompt",
+      "promptRelisted": "Prompt re-listé avec succès",
+      "promptRestored": "Prompt restauré avec succès",
+      "relistFailed": "Échec du re-listage",
+      "restoreFailed": "Échec de la restauration"
     },
     "prompts": {
       "title": "Gestion des Prompts",
@@ -974,6 +994,7 @@
       "inappropriate": "Contenu inapproprié",
       "copyright": "Violation des droits d'auteur",
       "misleading": "Information trompeuse ou fausse",
+      "relistRequest": "Demande de Re-listage",
       "other": "Autre"
     },
     "details": "Détails supplémentaires",
@@ -1036,6 +1057,18 @@
       "selfHost": {
         "question": "Puis-je auto-héberger cette plateforme ?",
         "answer": "Absolument ! prompts.chat est entièrement open source. Vous pouvez déployer votre propre instance privée pour votre équipe ou organisation. Consultez notre documentation d'auto-hébergement pour les instructions de configuration."
+      },
+      "verification": {
+        "question": "Comment puis-je devenir un utilisateur vérifié ?",
+        "answer": "La vérification est accordée par les administrateurs aux utilisateurs qui partagent régulièrement des prompts de qualité. Il n'y a pas de règles strictes — si vous contribuez des prompts précieux à la communauté, un administrateur peut vous sélectionner comme vérifié. Concentrez-vous sur la création de prompts utiles et bien conçus et la reconnaissance suivra."
+      },
+      "aiCredits": {
+        "question": "Comment fonctionnent les crédits de génération d'aperçu IA ?",
+        "answer": "Chaque utilisateur reçoit 3 crédits de génération IA par jour par défaut. Ces crédits vous permettent de générer des images, vidéos ou audio d'aperçu pour vos prompts en utilisant l'IA. Les administrateurs peuvent ajuster la limite quotidienne de crédits pour les utilisateurs individuels si nécessaire."
+      },
+      "attribution": {
+        "question": "Que faire si l'attribution d'un prompt est incorrecte ?",
+        "answer": "Si vous remarquez une attribution incorrecte sur un prompt (par exemple, si vous êtes l'auteur original mais n'êtes pas crédité), veuillez ouvrir un issue sur notre dépôt GitHub. Vous pouvez utiliser le formulaire ci-dessous pour soumettre votre problème, et nous l'examinerons et le corrigerons dès que possible."
       }
     },
     "contact": {
@@ -1186,11 +1219,19 @@
     "run": "Exécuter",
     "reset": "Réinitialiser",
     "copied": "Copié dans le presse-papiers",
-    "runToPreview": "Cliquez sur Exécuter pour voir l'aperçu",
+    "runToPreview": "Écrivez du code pour voir l'aperçu",
     "cannotEvaluate": "Ce code ne peut pas être évalué.",
     "onlyPromptsChat": "Seuls les imports {library} sont pris en charge.",
     "desktopOnly": "Bureau uniquement",
     "desktopOnlyDescription": "Le Prompt Builder nécessite un écran plus grand pour fonctionner correctement. Veuillez ouvrir cette page sur un ordinateur de bureau ou portable.",
-    "browsePrompts": "Parcourir les Prompts"
+    "browsePrompts": "Parcourir les Prompts",
+    "createPrompt": "Créer un Prompt",
+    "random": "Aléatoire",
+    "generateRandom": "Générer un exemple aléatoire avec l'IA",
+    "loginToGenerate": "Veuillez vous connecter pour générer des exemples",
+    "rateLimitExceeded": "Veuillez attendre {seconds} secondes avant de générer à nouveau",
+    "generateFailed": "Échec de la génération de l'exemple",
+    "exampleGenerated": "Nouvel exemple généré !",
+    "ignoreTypeErrors": "Ignorer les erreurs de type"
   }
 }
