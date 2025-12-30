@@ -101,7 +101,8 @@
     "usernameTaken": "Имя пользователя уже занято",
     "passwordMismatch": "Пароли не совпадают",
     "passwordTooShort": "Пароль должен быть не менее 6 символов",
-    "registrationFailed": "Ошибка регистрации"
+    "registrationFailed": "Ошибка регистрации",
+    "githubAttributionHint": "Войдите через GitHub, чтобы связать ваш вклад с сообществом Open Source"
   },
   "prompts": {
     "title": "Промпты",
@@ -1233,5 +1234,11 @@
     "generateFailed": "Не удалось сгенерировать пример",
     "exampleGenerated": "Новый пример сгенерирован!",
     "ignoreTypeErrors": "Игнорировать ошибки типов"
+  },
+  "appBanner": {
+    "message": "Скачайте приложение prompts.chat для iPhone, iPad и Mac",
+    "messageShort": "Скачайте приложение для устройств Apple",
+    "download": "Скачать",
+    "dismiss": "Закрыть"
   }
 }

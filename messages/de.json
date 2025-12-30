@@ -101,7 +101,8 @@
     "usernameTaken": "Dieser Benutzername ist bereits vergeben",
     "passwordMismatch": "Passwörter stimmen nicht überein",
     "passwordTooShort": "Passwort muss mindestens 6 Zeichen lang sein",
-    "registrationFailed": "Registrierung fehlgeschlagen"
+    "registrationFailed": "Registrierung fehlgeschlagen",
+    "githubAttributionHint": "Mit GitHub anmelden, um deine Beiträge mit der Open-Source-Community zu verknüpfen"
   },
   "prompts": {
     "title": "Prompts",
@@ -1233,5 +1234,11 @@
     "generateFailed": "Beispiel konnte nicht generiert werden",
     "exampleGenerated": "Neues Beispiel generiert!",
     "ignoreTypeErrors": "Typfehler ignorieren"
+  },
+  "appBanner": {
+    "message": "Hol dir die prompts.chat App für iPhone, iPad und Mac",
+    "messageShort": "Hol dir die App für Apple-Geräte",
+    "download": "Laden",
+    "dismiss": "Schließen"
   }
 }

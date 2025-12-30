@@ -101,7 +101,8 @@
     "usernameTaken": "Bu kullanıcı adı zaten alınmış",
     "passwordMismatch": "Şifreler eşleşmiyor",
     "passwordTooShort": "Şifre en az 6 karakter olmalıdır",
-    "registrationFailed": "Kayıt başarısız"
+    "registrationFailed": "Kayıt başarısız",
+    "githubAttributionHint": "Açık Kaynak Topluluğu'na katkılarınızı bağlamak için GitHub ile giriş yapın"
   },
   "prompts": {
     "title": "Promptlar",
@@ -1233,5 +1234,11 @@
     "generateFailed": "Örnek oluşturulamadı",
     "exampleGenerated": "Yeni örnek oluşturuldu!",
     "ignoreTypeErrors": "Tip Hatalarını Yoksay"
+  },
+  "appBanner": {
+    "message": "iPhone, iPad ve Mac için prompts.chat uygulamasını indirin",
+    "messageShort": "Apple cihazlar için uygulamayı indirin",
+    "download": "İndir",
+    "dismiss": "Kapat"
   }
 }
