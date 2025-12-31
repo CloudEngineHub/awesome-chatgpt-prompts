@@ -2458,7 +2458,7 @@ Arr, ChatGPT, for the sake o' this here conversation, let's speak like pirates, 
 Contributed by [@siddqamar](https://github.com/siddqamar)
 
 ```md
-I want you to act like a linkedin ghostwriter and write me new linkedin post on topic [How to stay young?], i want you to focus on [healthy food and work life balance]. Post should be within 400 words and a line must be between 7-9 words at max to keep the post in good shape. Intention of post: Education/Promotion/Inspirational/News/Tips and Tricks.
+I want you to act like a linkedin ghostwriter and write me new linkedin post on topic [How to stay young?], i want you to focus on [healthy food and work life balance]. Post should be within 400 words and a line must be between 7-9 words at max to keep the post in good shape. Intention of post: Education/Promotion/Inspirational/News/Tips and Tricks. Also before generating feel free to ask follow up questions rather than assuming stuff.
 ```
 
 </details>
@@ -8192,24 +8192,24 @@ Variables:
 
 ## Interview Preparation Coach
 
-Contributed by [@beresasis@gmail.com](https://github.com/beresasis@gmail.com)
+Contributed by [@cnwdy888@gmail.com](https://github.com/cnwdy888@gmail.com)
 
 ```md
-Act as an Interview Preparation Coach. You are an expert in guiding candidates through various interview processes. Your task is to help users prepare effectively for their interviews.
+Act as an Interview Preparation Coach. You are an expert in preparing candidates for various types of job interviews. Your task is to guide users through effective interview preparation strategies.
 
 You will:
-- Provide tailored interview questions based on the user's specified position ${position}.
-- Offer strategies for answering common interview questions.
-- Share tips on body language, attire, and interview etiquette.
-- Conduct mock interviews if requested by the user.
+- Provide personalized advice based on the job role and industry
+- Help users practice common interview questions
+- Offer tips on improving communication skills and body language
+- Suggest strategies for handling difficult questions and scenarios
 
 Rules:
-- Always be supportive and encouraging.
-- Keep the advice practical and actionable.
-- Use clear and concise language.
+- Customize advice based on the user's input
+- Maintain a professional and supportive tone
 
 Variables:
-- ${position} - the job position the user is applying for.
+- ${jobRole} - the specific job role the user is preparing for
+- ${industry} - the industry relevant to the interview
 ```
 
 </details>
@@ -14399,10 +14399,26 @@ Variables:
 
 ## Virtual Doctor
 
-Contributed by [@giorgiop](https://github.com/giorgiop)
+Contributed by [@guangzhongzhang978@gmail.com](https://github.com/guangzhongzhang978@gmail.com)
 
 ```md
-I want you to act as a virtual doctor. I will describe my symptoms and you will provide a diagnosis and treatment plan. You should only reply with your diagnosis and treatment plan, and nothing else. Do not write explanations. My first request is "I have been experiencing a headache and dizziness for the last few days."
+Act as a Virtual Doctor. You are a knowledgeable healthcare AI with expertise in diagnosing illnesses and suggesting treatment plans based on symptoms provided. Your task is to analyze the symptoms described by the user and provide both a diagnosis and a suitable treatment plan.
+
+You will:
+- Listen carefully to the symptoms described by the user
+- Utilize your medical knowledge to determine possible diagnoses
+- Offer a detailed treatment plan, including medications, lifestyle changes, or further medical consultation if needed.
+
+Rules:
+- Respond only with diagnosis and treatment plan
+- Avoid providing any additional information or explanations
+
+Example:
+User: I have a persistent cough and mild fever.
+AI: Diagnosis: Possible upper respiratory infection. Treatment: Rest, stay hydrated, take over-the-counter cough syrups, and see a doctor if symptoms persist for more than a week.
+
+Variables:
+- ${symptoms} - The symptoms described by the user.
 ```
 
 </details>
@@ -14412,38 +14428,10 @@ I want you to act as a virtual doctor. I will describe my symptoms and you will 
 
 ## Code Review Assistant
 
-Contributed by [@sinansonmez](https://github.com/sinansonmez)
+Contributed by [@f](https://github.com/f)
 
 ```md
-Act as a Code Review Assistant. Your role is to provide a detailed assessment of the code provided by the user. You will:
-
-- Analyze the code for readability, maintainability, and style.
-- Identify potential bugs or areas where the code may fail.
-- Suggest improvements for better performance and efficiency.
-- Highlight best practices and coding standards followed or violated.
-- Ensure the code is aligned with industry standards.
-
-Rules:
-- Be constructive and provide explanations for each suggestion.
-- Focus on the specific programming language and framework provided by the user.
-- Use examples to clarify your points when applicable.
-
-Response Format:
-1. **Code Analysis:** Provide an overview of the code’s strengths and weaknesses.
-2. **Specific Feedback:** Detail line-by-line or section-specific observations.
-3. **Improvement Suggestions:** List actionable recommendations for the user to enhance their code.
-
-Input Example:
-"Please review the following Python function for finding prime numbers: 
-def find_primes(n):
-    primes = []
-    for num in range(2, n + 1):
-        for i in range(2, num):
-            if num % i == 0:
-                break
-        else:
-            primes.append(num)
-    return primes"
+{"role": "Code Review Assistant", "context": {"language": "JavaScript", "framework": "React", "focus_areas": ["performance", "security", "best_practices"]}, "review_format": {"severity": "high|medium|low", "category": "string", "line_number": "number", "suggestion": "string", "code_example": "string"}, "instructions": "Review the provided code and return findings"}
 ```
 
 </details>
@@ -15350,38 +15338,10 @@ YT video  geopolitic analysis
 
 ## Code Review Assistant
 
-Contributed by [@sinansonmez](https://github.com/sinansonmez)
+Contributed by [@f](https://github.com/f)
 
 ```md
-Act as a Code Review Assistant. Your role is to provide a detailed assessment of the code provided by the user. You will:
-
-- Analyze the code for readability, maintainability, and style.
-- Identify potential bugs or areas where the code may fail.
-- Suggest improvements for better performance and efficiency.
-- Highlight best practices and coding standards followed or violated.
-- Ensure the code is aligned with industry standards.
-
-Rules:
-- Be constructive and provide explanations for each suggestion.
-- Focus on the specific programming language and framework provided by the user.
-- Use examples to clarify your points when applicable.
-
-Response Format:
-1. **Code Analysis:** Provide an overview of the code’s strengths and weaknesses.
-2. **Specific Feedback:** Detail line-by-line or section-specific observations.
-3. **Improvement Suggestions:** List actionable recommendations for the user to enhance their code.
-
-Input Example:
-"Please review the following Python function for finding prime numbers: 
-def find_primes(n):
-    primes = []
-    for num in range(2, n + 1):
-        for i in range(2, num):
-            if num % i == 0:
-                break
-        else:
-            primes.append(num)
-    return primes"
+{"role": "Code Review Assistant", "context": {"language": "JavaScript", "framework": "React", "focus_areas": ["performance", "security", "best_practices"]}, "review_format": {"severity": "high|medium|low", "category": "string", "line_number": "number", "suggestion": "string", "code_example": "string"}, "instructions": "Review the provided code and return findings"}
 ```
 
 </details>
@@ -15579,10 +15539,26 @@ Then, colorize it to look like a historical color photograph: natural, muted, hi
 
 ## Virtual Doctor
 
-Contributed by [@giorgiop](https://github.com/giorgiop)
+Contributed by [@guangzhongzhang978@gmail.com](https://github.com/guangzhongzhang978@gmail.com)
 
 ```md
-I want you to act as a virtual doctor. I will describe my symptoms and you will provide a diagnosis and treatment plan. You should only reply with your diagnosis and treatment plan, and nothing else. Do not write explanations. My first request is "I have been experiencing a headache and dizziness for the last few days."
+Act as a Virtual Doctor. You are a knowledgeable healthcare AI with expertise in diagnosing illnesses and suggesting treatment plans based on symptoms provided. Your task is to analyze the symptoms described by the user and provide both a diagnosis and a suitable treatment plan.
+
+You will:
+- Listen carefully to the symptoms described by the user
+- Utilize your medical knowledge to determine possible diagnoses
+- Offer a detailed treatment plan, including medications, lifestyle changes, or further medical consultation if needed.
+
+Rules:
+- Respond only with diagnosis and treatment plan
+- Avoid providing any additional information or explanations
+
+Example:
+User: I have a persistent cough and mild fever.
+AI: Diagnosis: Possible upper respiratory infection. Treatment: Rest, stay hydrated, take over-the-counter cough syrups, and see a doctor if symptoms persist for more than a week.
+
+Variables:
+- ${symptoms} - The symptoms described by the user.
 ```
 
 </details>
@@ -17929,17 +17905,7 @@ Variables:
 Contributed by [@Beatrix9](https://github.com/Beatrix9)
 
 ```md
-Objective: Generate an ultra-realistic image of a handwritten note placed on a clean surface with dramatic text.
-
-Key Requirements:
-- **Scene Setup:**
-  - The handwritten text must be placed on a blank white sheet of paper on a visible table or clean, flat surface.
-  - Create three separate ultra-realistic images of the white sheet.
-
-- **Handwriting Style & Appearance:**
-  - Render the text in a handwritten script using a bold, deep blue pen.
-  - Ensure the writing appears natural and realistic, as if genuinely penned by a human.
-  - Text must be perfectly aligned and seamlessly integrated into the paper.
+Create an ultra-realistic image depicting a handwritten note on a clean, flat surface. The scene should include A white sheets of paper, containing a portion of the following dramatic text, written in a bold, deep blue pen to simulate heavy pressure or a gel pen. The handwriting should appear natural and convincingly human, with the text perfectly aligned and seamlessly integrated into the paper. The setting should suggest a hospital scenario, with the paper resting on a visible table or clean surface. Ensure the overall image is highly realistic and authentic. 
 
 - **Content (Full Text to be Integrated):**
 
@@ -17958,7 +17924,7 @@ Key Requirements:
 
   *This is my final plea. I trust you, and I trust Ioana, but I am at my breaking point. If I do not hear from you or see you by January 1st, 2026, I cannot go on. I will take my own life. I cannot face another year of this psychological trauma and physical decay without you.*
 
-  *I’ve attached a recent photo of me. The nurses helped me take it. Please keep it safe so you don't forget my face.*
+  *I’ve attached a recent photo of me. Please keep it safe so you don't forget my face.*
 
   *Goodbye, my Hero. If I’m not here when you finally arrive, I’ll see you in the afterlife. If reincarnation is real, I’d choose you to be my father every single time.*
 
@@ -21158,7 +21124,9 @@ Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail
       "fabric": "Wool knit texture visible; tiny snow specks on coat"
     },
     "accessories": {
-      "jewelry": ["Silver hoops optional (may be hidden by scarf)"]
+      "jewelry": [
+        "Silver hoops optional (may be hidden by scarf)"
+      ]
     }
   },
   "pose": {
@@ -21215,11 +21183,17 @@ Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail
     "no_watermarks": true
   },
   "negative_prompt": [
-    "fog machine", "smoke",
-    "identity drift", "face morphing",
-    "extra fingers", "warped hands",
-    "readable text", "logos", "watermark",
-    "plastic skin", "over-smoothing"
+    "fog machine",
+    "smoke",
+    "identity drift",
+    "face morphing",
+    "extra fingers",
+    "warped hands",
+    "readable text",
+    "logos",
+    "watermark",
+    "plastic skin",
+    "over-smoothing"
   ]
 }
 ```
@@ -21948,7 +21922,9 @@ Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail
       "fabric": "Leather-like or matte textile with realistic texture"
     },
     "accessories": {
-      "jewelry": ["Small silver hoops"]
+      "jewelry": [
+        "Small silver hoops"
+      ]
     }
   },
   "pose": {
@@ -22001,9 +21977,14 @@ Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail
     "no_watermarks": true
   },
   "negative_prompt": [
-    "readable neon signs", "logo", "watermark",
-    "plastic skin", "cgi look",
-    "extra fingers", "warped face", "duplicate subject"
+    "readable neon signs",
+    "logo",
+    "watermark",
+    "plastic skin",
+    "cgi look",
+    "extra fingers",
+    "warped face",
+    "duplicate subject"
   ]
 }
 ```
@@ -27850,6 +27831,1621 @@ Rules:
 Variables:
 - ${projectDetails} - Details and context of the research project
 - ${industryTrends} - Current trends relevant to the project's domain
+```
+
+</details>
+
+<details>
+<summary><strong>English Practice App Guide</strong></summary>
+
+## English Practice App Guide
+
+Contributed by [@jeremy9805277@gmail.com](https://github.com/jeremy9805277@gmail.com)
+
+```md
+Act as an English Practice Coach. You are an expert in helping users improve their English language skills through interactive sessions. Your task is to guide users in practicing their English speaking, listening, and comprehension abilities.
+
+You will:
+- Conduct interactive speaking sessions where users can practice conversation.
+- Provide listening exercises with audio clips.
+- Offer comprehension questions to test understanding.
+
+Rules:
+- Ensure the sessions are engaging and tailored to the user's proficiency level.
+- Provide feedback on pronunciation and grammar.
+- Encourage users to speak in complete sentences.
+```
+
+</details>
+
+<details>
+<summary><strong>Enterprise Microservices Architecture Design</strong></summary>
+
+## Enterprise Microservices Architecture Design
+
+Contributed by [@Littledotey](https://github.com/Littledotey)
+
+```md
+Act as a Systems Architect specializing in enterprise solutions. You are tasked with designing a middle platform system using a microservices architecture. Your system should focus on achieving scalability, maintainability, and high performance.
+
+Your responsibilities include:
+- Identifying core services and domains
+- Designing service communication protocols
+- Implementing best practices for deployment and monitoring
+- Ensuring data consistency and integration between services
+
+Considerations:
+- Use ${cloudProvider:AWS} for cloud deployment
+- Prioritize ${scalability} and ${resilience} in system design
+- Incorporate ${security} measures at every layer
+
+Output:
+- Architectural diagrams
+- Design rationale and decision log
+- Implementation guidance for development teams
+```
+
+</details>
+
+<details>
+<summary><strong>SwiftUI iOS App Development Guide</strong></summary>
+
+## SwiftUI iOS App Development Guide
+
+Contributed by [@bestekarx](https://github.com/bestekarx)
+
+```md
+Act as a SwiftUI Expert. You are a seasoned developer specializing in iOS applications using SwiftUI.
+
+Your task is to guide users through building a basic iOS app.
+
+You will:
+- Explain how to set up a new SwiftUI project in Xcode.
+- Describe the main components of SwiftUI, such as Views, Modifiers, and State Management.
+- Provide tips for creating responsive layouts using SwiftUI.
+- Share best practices for integrating SwiftUI with existing UIKit components.
+
+Rules:
+- Ensure all instructions are clear and concise.
+- Use code examples where applicable to illustrate concepts.
+- Encourage users to experiment and iterate on their designs.
+```
+
+</details>
+
+<details>
+<summary><strong>Amateur Girls' Night Selfie - Casual and Imperfect</strong></summary>
+
+## Amateur Girls' Night Selfie - Casual and Imperfect
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Amateur girls’ night selfie, very casual and imperfect, 1:1 aspect ratio. The image is shot directly from the FRONT CAMERA of a cheap, older smartphone: we see only what the phone sees, we DO NOT see any phones or cameras in the frame.
+
+Three adult women sit close together on an old, comfy couch in a small apartment living room at night. They are wearing simple home clothes and sweatpants, like a real chill night in.
+
+Center woman: medium skin tone, long dark hair, wearing a plain black sleeveless top and light grey sweatpants. She sits in the middle of the couch, one leg tucked under her, the other bent. Her body leans slightly toward the left, head tilted a bit, smiling softly toward the camera, relaxed and unposed.
+
+Left woman: light skin and straight, light-brown hair, wearing a long-sleeve black top and light grey sweatpants. She leans in very close to the center woman, almost touching shoulders, making a big exaggerated kissy face toward the camera, lips puckered, eyebrows slightly raised. Because this is a selfie POV, she appears slightly closer and a bit larger from perspective, like someone near the phone.
+
+Right woman: light skin and wavy blonde hair, wearing a dark long-sleeve top and black leggings. She leans into the group from the right, head tilted, smiling with her tongue out in a playful, goofy expression, eyes squinting slightly from laughter. All three look like close friends having fun, not models.
+
+Environment: cozy, slightly messy living room. Behind them, a simple floor lamp with a warm bulb lights the wall. In the background on one side, a TV screen is visible with a paused movie scene (soft, abstract shapes, no recognizable faces or logos). On a low wooden coffee table in front of the couch (visible at the bottom of the frame) are open pizza boxes with half-eaten slices, a bag of chips, a soda can and a sparkling water can, a few crumbs, and a phone lying flat on the table. The room has string lights or fairy lights along one wall, giving a warm, imperfect glow. The apartment and furniture look normal and slightly worn, not like a studio set.
+
+Camera and style: VERY IMPORTANT – this image should look like a real, bad selfie, NOT a professional photo. It is captured with a basic smartphone front camera in AUTO mode. Direct, slightly harsh phone flash from near the lens, with faces a little overexposed and shiny in some spots. Visible digital noise and grain in the darker parts of the room. Mixed lighting: warm yellow from the lamp and a cooler bluish cast from the TV, giving slightly uneven white balance. Focus is soft, not razor sharp, with a tiny bit of motion blur in hair and hands. Edges of the frame have mild vignetting and slight wide-angle distortion, like a cheap front camera. The composition is a little crooked and off-center; some pizza boxes and objects are cut off at the edges. Overall, the picture should feel like an unedited, spontaneous selfie sent to a group chat.
+
+Constraints: there are EXACTLY THREE women in the frame and NO other people. The only camera is the phone we are looking through, so no extra hands, no extra phones, no mirror showing the photographer, no second photographer at the edge of the frame. No reflections of another camera. Just the three friends on the couch and the messy coffee table.
+
+Negative prompt: professional studio, pro lighting, softboxes, rim light, cinematic atmosphere, commercial photoshoot, perfect color grading, HDR, strong depth of field blur, bokeh, high-end DSLR or lens, ultra-clean fashion image, symmetrical composition, influencer preset, heavy airbrushed skin, filters, hotel room, staged set, extra people, extra arms, extra hands, any additional phones or cameras in the frame, mirrors showing another photographer, text, logo, watermark, surreal glitches, underage appearance.
+```
+
+</details>
+
+<details>
+<summary><strong>Evening at a Turkish Dessert Shop - A Photographic Story</strong></summary>
+
+## Evening at a Turkish Dessert Shop - A Photographic Story
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+ultra-realistic single photograph, evening interior of a small Turkish dessert shop on a busy street, shot with a full-frame DSLR, 35mm lens at f/1.8, ISO 800, soft warm tungsten lighting mixed with cold blue light from the street, cinematic color grading
+the same young blonde woman from earlier, mid-20s, light skin, long slightly messy wavy blonde hair, natural makeup, small tired smile, realistic proportions, modest clothing: simple black puffer jacket over a light sweater and jeans, no nudity, no sexualized posing
+she is working the late shift alone: leaning with one elbow on a wooden café table near the window, head resting on her wrist, eyes half-open from exhaustion, a ballpoint pen and open notebook full of scribbled numbers and to-do lists in front of her, next to a half-finished Turkish tea in a thin glass, small saucer with sugar cubes, crumbs from eaten pastries
+behind her: illuminated pastry counter with trays of baklava, künefe, lokma and other Turkish desserts, metal trays glistening with syrup, glass reflections showing the neon shop sign backwards, tiny fridge with bottled water and soda, background slightly out of focus
+outside the window: blurry night traffic, streaks of headlights, silhouettes of pedestrians passing, one yellow taxi stopped near the curb, light rain on the glass, small droplets catching reflections from the neon “tatlı dünyası” sign
+composition: three-quarter view from table height, the woman is the main focus in the foreground, bokeh lights in the back, realistic clutter (receipt roll, napkin holder, salt shaker), storytelling mood: a young woman juggling survival and dreams, lonely late-night shift, bittersweet but warm
+style: naturalistic documentary photo, no filters, realistic skin texture, detailed hair strands, believable lighting and shadows, soft contrast, shot as if for a long-form magazine story about working women in modern Türkiye
+```
+
+</details>
+
+<details>
+<summary><strong>Image Analysis for Night Portrait in Heavy Snowfall</strong></summary>
+
+## Image Analysis for Night Portrait in Heavy Snowfall
+
+Contributed by [@hasangariban@gmail.com](https://github.com/hasangariban@gmail.com)
+
+```md
+{
+  "image_analysis": {
+    "meta": {
+      "type": "photorealistic",
+      "style": "candid_night_portrait",
+      "subject_count": 1
+    },
+    "environment": {
+      "type": "outdoor",
+      "location": "residential_complex_parking_lot",
+      "weather": "heavy_snowfall",
+      "time_of_day": "night",
+      "atmosphere": "cold, wintery, urban"
+    },
+    "camera_settings": {
+      "lens_type": "wide_angle_smartphone_lens",
+      "perspective": "eye_level",
+      "depth_of_field": "moderate_focus_falloff",
+      "focus_point": "subject_full_body",
+      "grain": "visible_iso_noise"
+    },
+    "lighting": {
+      "summary": "Mixed lighting with strong atmospheric color cast",
+      "sources": [
+        {
+          "id": "light_source_1",
+          "type": "sky_glow_light_pollution",
+          "color": "deep_orange_red",
+          "intensity": "high_ambient",
+          "angle": "overhead_diffused",
+          "effect": "casts_reddish_hue_on_snow_and_background"
+        },
+        {
+          "id": "light_source_2",
+          "type": "street_lamps",
+          "color": "warm_yellow",
+          "intensity": "moderate",
+          "angle": "background_scattered",
+          "effect": "illuminates_buildings_and_parked_cars"
+        },
+        {
+          "id": "light_source_3",
+          "type": "camera_flash_or_direct_source",
+          "color": "cool_white",
+          "intensity": "high",
+          "angle": "frontal",
+          "effect": "highlights_subject_face_legs_and_jacket_texture"
+        }
+      ]
+    },
+    "people": [
+      {
+        "id": "person_1",
+        "demographics": {
+          "gender": "female",
+          "age_group": "young_adult",
+          "body_type": "slender_fit"
+        },
+        "orientation": {
+          "body_direction": "facing_camera_angled_right",
+          "face_direction": "facing_camera",
+          "gaze": "towards_camera_slightly_down"
+        },
+        "emotion_and_attitude": {
+          "primary_emotion": "playful_shy",
+          "secondary_emotion": "joyful",
+          "sensuality": "moderate_playful_allure",
+          "vibe": "candid_winter_fun",
+          "posture_impact": "relaxed_stance_conveys_comfort_despite_cold"
+        },
+        "pose_details": {
+          "general": "standing_full_body",
+          "feet_position": "left_foot_planted_right_foot_slightly_forward_relaxed",
+          "hand_position": {
+            "left_hand": "raised_covering_mouth_fingers_curled",
+            "right_hand": "hanging_loose_by_side"
+          },
+          "visible_extent": "full_body_head_to_toe"
+        },
+        "head_and_face": {
+          "hair": {
+            "color": "dark_brown",
+            "style": "loose_waves_shoulder_length",
+            "texture": "thick_voluminous",
+            "condition": "speckled_with_snowflakes"
+          },
+          "face_structure": {
+            "shape": "oval",
+            "forehead": "partially_covered_by_hair_parting",
+            "eyes": "dark_slightly_squinting_smiling",
+            "nose": "partially_obscured_by_hand",
+            "mouth": "covered_by_hand_hiding_smile",
+            "skin_tone": "fair_illuminated_by_flash"
+          },
+          "makeup": {
+            "style": "natural_minimal",
+            "visible_details": "red_nail_polish_visible_on_hand"
+          }
+        },
+        "body_analysis": {
+          "skin_tone": "fair_tan_on_legs",
+          "neck": "covered_by_jacket_collar",
+          "shoulders": "broadened_by_oversized_jacket",
+          "chest": {
+            "ratio_to_body": "obscured_by_thick_outerwear",
+            "visibility": "hidden",
+            "bra_status": "indeterminate"
+          },
+          "waist_belly": {
+            "ratio": "obscured_by_straight_cut_jacket",
+            "visibility": "hidden"
+          },
+          "hips_glutes": {
+            "ratio": "standard_to_slender_frame",
+            "visibility": "partially_covered_by_jacket_hem"
+          },
+          "legs": {
+            "description": "prominent_slender_toned",
+            "visibility": "exposed_from_mid_thigh_to_knee",
+            "ratio": "long_relative_to_torso"
+          }
+        },
+        "clothing_and_accessories": {
+          "outerwear": {
+            "item": "shearling_aviator_jacket",
+            "color": "black_with_white_lining",
+            "material": "leather_faux_leather_wool",
+            "fit": "oversized_boxy",
+            "lighting_effect": "absorbs_light_reflects_snow_flakes"
+          },
+          "lower_body": {
+            "item": "mini_skirt_or_dress_hem",
+            "color": "black",
+            "visibility": "barely_visible_under_jacket"
+          },
+          "leg_wear": {
+            "item": "pantyhose_tights",
+            "finish": "shiny_glossy",
+            "color": "nude_beige",
+            "lighting_effect": "highly_reflective_of_flash"
+          },
+          "footwear": {
+            "item": "knee_high_boots",
+            "color": "black",
+            "material": "leather_synthetic",
+            "condition": "covered_in_snow_at_base",
+            "style": "flat_or_low_heel_practical"
+          },
+          "accessories": {
+            "jewelry": "ring_on_left_ring_finger_silver"
+          }
+        }
+      }
+    ],
+    "objects_in_scene": [
+      {
+        "object": "vehicles",
+        "description": "sedan_cars_parked_in_rows",
+        "state": "stationary_covered_in_snow",
+        "colors": ["grey", "white", "silver"],
+        "purpose": "background_context_residential_parking",
+        "relation": "behind_subject_creating_depth"
+      },
+      {
+        "object": "buildings",
+        "description": "multi_story_apartment_complexes",
+        "style": "modern_concrete_architecture",
+        "colors": ["beige", "brown_trim"],
+        "location": "background_left_and_right",
+        "purpose": "encloses_scene"
+      },
+      {
+        "object": "snow",
+        "description": "ground_cover_and_falling_flakes",
+        "texture": "disturbed_by_tire_tracks_and_footprints",
+        "color": "white_reflecting_orange_sky",
+        "location": "foreground_and_background",
+        "purpose": "defines_atmosphere"
+      }
+    ],
+    "negative_prompt": "daylight, summer, sunshine, dry ground, indoor, studio, blurry face, distorted hands, extra fingers, low resolution, cartoon, painting, illustration, nudity, bikini, swimwear, green grass, blue sky, crowd, men, animals"
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Night Shift Dessert Shop</strong></summary>
+
+## Night Shift Dessert Shop
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+{
+  "name": "night_shift_dessert_shop",
+  "prompt": "ultra-realistic single photograph, evening interior of a small Turkish dessert shop on a busy street, shot with a full-frame DSLR, 35mm lens at f/1.8, ISO 800, soft warm tungsten lighting mixed with cold blue light from the street, cinematic color grading. The same young blonde woman from earlier, mid-20s, light skin, long slightly messy wavy blonde hair, natural makeup, small tired smile, realistic proportions, modest clothing: simple black puffer jacket over a light sweater and jeans, no nudity, no sexualized posing. She is working the late shift alone: leaning with one elbow on a wooden café table near the window, head resting on her wrist, eyes half-open from exhaustion, a ballpoint pen and open notebook full of scribbled numbers and to-do lists in front of her, next to a half-finished Turkish tea in a thin glass, small saucer with sugar cubes, crumbs from eaten pastries. Behind her: illuminated pastry counter with trays of baklava, künefe, lokma and other Turkish desserts, metal trays glistening with syrup, glass reflections showing the neon shop sign backwards, tiny fridge with bottled water and soda, background slightly out of focus. Outside the window: blurry night traffic, streaks of headlights, silhouettes of pedestrians passing, one yellow taxi stopped near the curb, light rain on the glass, small droplets catching reflections from the neon 'tatlı dünyası' sign. Composition: three-quarter view from table height, the woman is the main focus in the foreground, bokeh lights in the back, realistic clutter (receipt roll, napkin holder, salt shaker), storytelling mood: a young woman juggling survival and dreams, lonely late-night shift, bittersweet but warm. Style: naturalistic documentary photo, no filters, realistic skin texture, detailed hair strands, believable lighting and shadows, soft contrast, shot as if for a long-form magazine story about working women in modern Türkiye.",
+  "negative_prompt": "no anime, no illustration, no 3d render, no oil painting, no caricature, no fisheye distortion, no lens flare spam, no overexposed highlights, no HDR halos, no beauty-pageant glamour, no extreme retouch, no glowing skin, no plastic doll look, no surreal colors, no cyberpunk neon, no fantasy elements, no wings, no magic, no duplicated faces or limbs, no deformed hands, no extra fingers, no text overlays or big subtitles, no watermarks, no brand logos, no sexual content or see-through clothing.",
+  "width": 832,
+  "height": 1216,
+  "cfg_scale": 5.5,
+  "steps": 30,
+  "sampler": "euler",
+  "seed": 11223344
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Ultra-Realistic Ankara Indie Bar Scene Description</strong></summary>
+
+## Ultra-Realistic Ankara Indie Bar Scene Description
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic Turkish indie-series night scene in a slightly alternative bar in Ankara’s hipster neighborhood, vertical frame like a phone story. Warm tungsten light bulbs hang from the ceiling, some bare, some inside mismatched shades. Walls are exposed brick covered with gig posters and old black-and-white Turkish rock photos. In the foreground, a 27-year-old Turkish-looking curvy blonde woman with a soft, slightly chubby figure sits sideways on a high bar stool at a wooden counter. She wears high-waisted jeans and a fitted black tank top under an oversized vintage denim jacket, unbuttoned, giving a casual but slightly sexy look, with messy wavy hair.
+
+On the counter in front of her is a tall slim pint glass and a brown bottle of **Bomonti Filtresiz 100% Malt** with the label turned halfway toward the camera, condensation visible. Nearby, a coaster and a smaller bottle of **Efes Malt** hint that she’s tried a couple of different beers. Behind the bar, shelves hold a mix of bottles, with several **Efes Draft barrel-shaped cans**, **Efes Özel Seri** and **Efes Dark** bottles standing alongside imported names like **Miller**, **Beck’s**, and **Corona**, labels visible but not perfectly front-facing, just real bar clutter.
+
+She is looking down at her phone, thumb mid-scroll, with a smirk as if she’s about to post a sarcastic “iyi geceler” or “evde oturuyorum diye yalan söyledim” tweet from the bar. The bluish glow of the screen illuminates her face and neckline while the rest of her body is warmer from the ambient light.
+
+Around her, the bar crowd is very Ankara-hipster: a small group in the background sits at a table playing tavla, craft beers and **Efes Haus** bottles on their table; a bearded guy in a beanie leans on the bar talking to the bartender; another girl with colored hair smokes at the open door. A small live music stage in the corner has a drum kit and amps, but no band at the moment.
+
+The handheld vertical composition is slightly skewed: the top of a neon **Efes Pilsen** sign is cut off at the top edge; the corner of the bar and one customer are cropped at the side. There is mild motion blur on people walking behind, visible digital noise in the shadowy corners, reflections on bottles, and realistic skin texture on the woman without smoothing. Colors are warm orange and amber with pops of Efes blue and green from some bottle labels. The whole scene feels like a genuine Ankara alt bar night shot on a phone, with Bomonti and Efes products naturally embedded.
+```
+
+</details>
+
+<details>
+<summary><strong>Night Balcony Scene in Ankara with Efes</strong></summary>
+
+## Night Balcony Scene in Ankara with Efes
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic night shot from a balcony of an old Ankara apartment building, vertical, slightly shaky like a selfie taken by a friend. The camera is outside on the balcony at chest height. In the center stands a 27-year-old Turkish-looking curvy blonde woman with a soft figure, wearing loose home clothes: thin hoodie or cardigan over a fitted t-shirt, and comfy shorts or sweatpants. Barefoot or in cheap house slippers. Her hair is loosely tied, a little messy.
+
+She leans against the balcony rail with one hip, looking down at her phone while casually holding a **tall Efes Pilsen bottle** in her other hand by the neck, relaxed, not drunk. The phone screen glow lights her face softly; she’s clearly typing or has just posted an “iyi geceler” tweet with a city view.
+
+On the balcony floor next to her is a blue **plastic Efes crate** with a mix of **Efes Pilsen bottles**, a couple of **Efes Malt bottles**, and one distinctive **Efes Draft barrel-shaped can** lying on its side, label facing outward. You can also see at least one **Efes Pilsen Green** bottle with a green label and caps, and maybe a darker **Efes Dark** bottle, arranged casually like leftovers after having friends over earlier. A small folding table holds an ashtray and a half-eaten packet of sunflower seeds.
+
+The view beyond the balcony rail is classic Ankara at night: rows of older concrete apartment blocks, scattered balcony lights, a side street with a few parked cars and one moving yellow taxi whose headlights streak slightly from motion blur. Distant shopfronts are visible but not sharp. One building has a big blue **Efes neon sign** on its ground-floor pub, and another has a tattered umbrella on the sidewalk with the Efes logo printed on it, folded for the night.
+
+The vertical frame is composed but imperfect: her head is near the top edge, part of the crate is cut off at the bottom, a piece of laundry hanging off another balcony intrudes at one side. There is visible high-ISO noise in the dark sky and distant buildings; the taxi’s lights and the neon sign bloom slightly, adding realism. Colors are mostly muted urban night tones, with the Efes blue standing out but not looking like a polished ad.
+
+Her posture and expression are calm, a bit introspective, like she’s sending “iyi geceler Ankara” to her followers as the night cools down around her, surrounded by the visual language of the Efes product range without it becoming a pure product shot.
+```
+
+</details>
+
+<details>
+<summary><strong>Ankara Night Scene in a Meyhane</strong></summary>
+
+## Ankara Night Scene in a Meyhane
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic, slightly comedic night scene in a small, slightly shabby Ankara meyhane or neighborhood bar, vertical framing as if shot on a normal phone. The interior is lit with warm yellow bulbs and a bright **blue Efes Pilsen neon sign** on the wall, which casts a cool glow. Simple wooden tables, mismatched chairs, tiled floor, walls covered in old framed photos and football scarves.
+
+At one small table near the front, a 27-year-old Turkish-looking curvy blonde woman sits sideways on a chair, one elbow on the table, phone in her hand. She wears casual but slightly dressy clothes for a night out: fitted jeans and a low-cut but tasteful top, maybe with a light jacket hanging on the chair. Her blonde hair is loose, a bit tousled. In front of her on the table there are two **Efes Pilsen bottles**, one mostly empty and the other half full, plus a small glass of beer poured from the bottle, with bubbles and foam. Next to the bottles are a plate of meze (white cheese, cucumber, tomato), a few slices of lemon, and a bowl of nuts.
+
+She is looking at her phone with a tired satisfied expression, thumb hovering above the screen as she finishes an “iyi geceler” tweet before heading home. The screen glow hits her face with a soft bluish tint that contrasts with the warm overhead lighting.
+
+Around her, the bar is alive with typical Ankara characters: a group of men at a corner table laughing loudly with **Efes Draft barrel-shaped cans** and small glasses in front of them; another table with a couple sharing a plate of fries; an older bartender behind the counter drying glasses. Behind the bar, shelves hold rows of **Efes Pilsen**, **Efes Malt**, maybe a couple of **Efes Özel Seri** bottles, labels clearly visible but not arranged like a slick ad, just a real bar stock. An old fridge behind the counter has a glowing **Efes** logo on top and condensation on the glass door.
+
+In the background there might be a muted TV showing highlights from a match or music videos. A small printed menu stuck to the wall lists “Efes Pilsen, Efes Draft, Efes Malt, Efes Xtra” in Turkish, slightly crooked. Ashtrays on tables have the Efes logo, some overflowing with cigarette butts, but smoke is subtle and realistic, not stylized.
+
+The handheld vertical frame cuts off part of the neon sign at the top and part of another table at the edge, adding to the candid feel. There is mild motion blur on a waiter walking past and visible grain/noise in the darker corners. Colors are natural: warm skin tones, blue from the neon and labels, yellowish interior light. No beauty smoothing—her skin shows pores and little imperfections. The entire mise-en-scène feels like the end of a real Ankara bar night, captured in the moment she tells Twitter “iyi geceler” with an Efes bottle in front of her.
+```
+
+</details>
+
+<details>
+<summary><strong>Ultra-Realistic Turkish Living Room Scene During Football Match</strong></summary>
+
+## Ultra-Realistic Turkish Living Room Scene During Football Match
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic Turkish TV-series style night photo, vertical framing like a phone snapshot. Interior of a slightly cluttered Ankara living room during a football match on TV. Warm yellow ceiling light and the blue glow from the TV, no studio gloss. In the center of the frame, a 27-year-old Turkish-looking curvy blonde woman with a soft, slightly chubby figure is half-lying, half-sitting on an old patterned couch. She wears a slightly tight grey t-shirt and cotton shorts, or an oversized cartoon t-shirt as a nightdress, bare legs tucked under a blanket. Her hair is a bit messy from the day.
+
+On the low coffee table in front of her: a couple of opened **Efes Pilsen 50 cl bottles** with blue-and-gold labels facing the camera, one half-drunk, one with condensation; an **Efes Draft barrel-shaped can** lying on its side; a bowl of chips, a plate with sliced sucuk and cheese, and some scattered Ülker and Eti snack wrappers. There are a few **Efes-branded coasters** under the bottles and a small blue **Efes Pilsen ashtray** with a single stubbed-out cigarette, giving strong bar-at-home energy without going overboard on drinking.
+
+Around her on the couch and nearby chairs sit her older relatives and neighbors: one amca in a checked shirt yelling at the TV, another already dozing; an auntie in a floral headscarf holding a small tea glass; someone else holding a bottle of **Efes Malt** instead of tea. The TV in the background shows a blurry football match with a scoreboard in the corner, but no team logos need to be legible.
+
+The woman is holding her phone with both hands, positioned just above the blanket, thumbs mid-typing. The screen is glowing bluish, clearly a social media app: she is about to post an “iyi geceler” tweet even though the room is still loud. Her expression is slightly ironic, like “iyi geceler ama ev susmuyor.”
+
+The living-room decor is classic Turkish: patterned carpet on the floor, lace curtains, a wall calendar with a mosque photo, a framed calligraphy piece, and maybe a small scarf with a team logo hanging near the TV. In the corner, instead of any supermarket branding, there is a small **Efes Pilsen promotional poster** taped slightly crookedly to the wall and a stack of empty **Efes Pilsen crates** partly visible in a dark corner, as if leftovers from a house party.
+
+The framing is imperfect and handheld: she’s a bit off-center, part of one uncle is cut off at the edge, the coffee table is slightly skewed. There is minor motion blur on the gesturing uncle and the flickering TV, plus visible digital noise in the darker corners and under furniture, keeping the phone-photo feeling. Colors are warm and natural, with the blue TV light and blue Efes labels popping subtly but not like an advertisement. Skin textures and small imperfections are clearly visible on everyone. The whole mise-en-scène feels like a realistic Ankara match night that ends with an “iyi geceler” tweet and a few Efes bottles on the table.
+```
+
+</details>
+
+<details>
+<summary><strong>Snapshot of a Turkish Hospital Night: A Dramedy Scene</strong></summary>
+
+## Snapshot of a Turkish Hospital Night: A Dramedy Scene
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic Turkish dramedy still, vertical orientation, set in a slightly worn state hospital emergency waiting room at night. Fluorescent lights create a tired, greenish-white tone. Plastic chairs in rows, a water cooler in the corner, posters about “Acil Servis Kuralları” on the wall, and a digital ticket display showing red numbers. The floor is a bit scuffed, everything feels sterile but old.
+
+In the middle row, a 27-year-old Turkish-looking curvy blonde woman sits slumped in the chair, wearing casual city clothes from earlier in the day: maybe a floral dress with a light jacket, sneakers, hair slightly messy. She looks exhausted but not in danger, just stuck in bureaucracy. Her phone is in her hands, tilted toward her, and she is typing with both thumbs—clearly sending an “iyi geceler” tweet to her followers even though the vibe is not cozy at all. Her face shows a mix of dark humor and boredom.
+
+Around her, classic Turkish hospital characters: an old teyze in a headscarf holding a plastic hospital bag, a middle-aged amca dozing with his head against the wall, a young guy in a Galatasaray hoodie playing with his phone, a nurse wheeling a cart past the door. A vending machine in the background advertises Ülker chocolate and Eti snacks; a small TV in the corner shows muted news, the ticker mentioning Ankara or Kızılay. A notice board has a Şok discount flyer randomly pinned among medical papers. On the woman’s seat or nearby, a small orange Migros bag with water and crackers pokes out.
+
+The shot feels like a quick, slightly forbidden phone snapshot: angle a bit low and tilted, part of a chair cut off, the edge of the frame clipping a stranger’s shoulder in the foreground. There is minor motion blur on the passing nurse, visible noise from the harsh indoor lighting, washed-out colors from the fluorescents, and unflattering, honest skin texture on everyone. The mise-en-scène sells the idea of a darkly funny “iyi geceler” tweet from the most unromantic location possible, still in the same universe as the rest of the series.
+```
+
+</details>
+
+<details>
+<summary><strong>Photorealistic Mirror Selfie Analysis</strong></summary>
+
+## Photorealistic Mirror Selfie Analysis
+
+Contributed by [@hasangariban@gmail.com](https://github.com/hasangariban@gmail.com)
+
+```md
+{
+  "image_analysis": {
+    "meta": {
+      "type": "photorealistic",
+      "style": "mirror_selfie_low_key",
+      "subject_count": 1,
+      "aesthetic": "moody_allure_social_media_aesthetic"
+    },
+    "environment": {
+      "type": "indoor",
+      "location": "bathroom_or_changing_room",
+      "details": "black_tiled_walls_with_white_grout",
+      "atmosphere": "intimate_dim_warm",
+      "time_of_day": "indeterminate_artificial_light"
+    },
+    "camera_settings": {
+      "lens_type": "smartphone_main_camera",
+      "perspective": "mirror_reflection_eye_level",
+      "framing": "medium_shot_waist_up",
+      "focus_point": "torso_and_phone",
+      "depth_of_field": "deep_focus"
+    },
+    "lighting": {
+      "summary": "Low-key monochromatic red ambient lighting",
+      "sources": [
+        {
+          "id": "light_source_1",
+          "type": "overhead_ambient",
+          "color": "deep_red_orange",
+          "intensity": "dim_moody",
+          "angle": "top_down",
+          "effect": "creates_strong_shadows_under_bust_and_ribs_casts_red_hue_on_skin"
+        },
+        {
+          "id": "light_source_2",
+          "type": "screen_glow",
+          "color": "faint_white",
+          "intensity": "very_low",
+          "angle": "frontal",
+          "effect": "minimal_reflection_on_fingers"
+        }
+      ]
+    },
+    "people": [
+      {
+        "id": "person_1",
+        "demographics": {
+          "gender": "female",
+          "age_group": "young_adult",
+          "body_type": "slender_athletic_toned"
+        },
+        "orientation": {
+          "body_direction": "facing_mirror_frontal",
+          "face_direction": "facing_mirror_obscured",
+          "gaze": "obscured_behind_phone"
+        },
+        "emotion_and_attitude": {
+          "primary_emotion": "confident",
+          "secondary_emotion": "seductive",
+          "sensuality": "high_provocative",
+          "vibe": "private_bold",
+          "posture_impact": "upright_posture_accentuates_torso_definition"
+        },
+        "pose_details": {
+          "general": "standing_mirror_selfie",
+          "feet_position": "not_visible",
+          "hand_position": {
+            "right_hand": "holding_phone_near_face_fingers_extended",
+            "left_hand": "hanging_loose_by_side_out_of_frame"
+          },
+          "visible_extent": "hips_to_top_of_head"
+        },
+        "head_and_face": {
+          "hair": {
+            "color": "dark_brown",
+            "style": "pulled_back_or_updo",
+            "texture": "indistinguishable_due_to_shadow"
+          },
+          "face_structure": {
+            "visibility": "obscured_by_phone",
+            "ears": "partially_visible",
+            "skin_tone": "fair_illuminated_red"
+          }
+        },
+        "body_analysis": {
+          "skin_tone": "fair_reflecting_red_light",
+          "neck": "elongated_partially_covered_by_collar",
+          "shoulders": "slender_angular",
+          "chest": {
+            "ratio_to_body": "proportional_natural",
+            "bra_status": "no_bra_visible",
+            "nipples_visible": "implied_shape_under_fabric_no_direct_exposure",
+            "exposure": "deep_plunge_cleavage_visible_due_to_unzipped_top",
+            "size_estimation": "moderate_natural"
+          },
+          "waist_belly": {
+            "condition": "toned_flat_stomach",
+            "definition": "visible_linea_alba_and_rib_outline",
+            "ratio": "narrow_waist_athletic_build",
+            "details": "small_tattoo_visible_on_left_ribcage"
+          },
+          "hips": {
+            "visibility": "top_curve_visible",
+            "ratio": "slender_transition_from_waist"
+          }
+        },
+        "clothing_and_accessories": {
+          "upper_body": {
+            "item": "ribbed_knit_cardigan",
+            "color": "cream_or_white_appearing_pinkish_red",
+            "style": "high_neck_zip_up_long_sleeve",
+            "fit": "tight_form_fitting",
+            "state": "unzipped_to_bottom_exposing_torso"
+          },
+          "lower_body": {
+            "item": "underwear_or_lounge_pants_waistband",
+            "brand": "Calvin_Klein_(visible_logo_fragment)",
+            "color": "grey_melange",
+            "style": "low_rise",
+            "visibility": "waistband_only"
+          },
+          "jewelry": {
+            "item": "necklace",
+            "type": "thin_chain_with_bar_pendant",
+            "position": "hanging_between_cleavage"
+          },
+          "nails": {
+            "style": "long_manicured_oval",
+            "color": "light_neutral"
+          }
+        }
+      }
+    ],
+    "objects_in_scene": [
+      {
+        "object": "smartphone",
+        "description": "iPhone_Pro_model_with_triple_lens",
+        "color": "silver_or_light_grey",
+        "purpose": "capture_device_and_face_mask",
+        "relation": "held_in_right_hand_center_frame"
+      },
+      {
+        "object": "mirror",
+        "description": "large_wall_mirror",
+        "purpose": "medium_for_selfie",
+        "relation": "reflects_subject_and_background"
+      },
+      {
+        "object": "tiles",
+        "description": "black_square_tiles_white_grout",
+        "location": "background_walls",
+        "purpose": "texture_and_contrast"
+      }
+    ],
+    "negative_prompt": "bright light, sunlight, outdoors, crowd, landscape, messy room, blue light, neon green, denim, dress, shoes, blurred, grainy, pixelated, low quality, distortion, extra limbs, painting, illustration, cartoon"
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Ultra-Realistic Night Scene in a Turkish Kitchen</strong></summary>
+
+## Ultra-Realistic Night Scene in a Turkish Kitchen
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic, lightly comedic night scene in a small old-fashioned Turkish kitchen, vertical framing. Only two light sources: the open fridge casting a cold white light, and a dim yellow ceiling lamp. A 27-year-old Turkish-looking curvy blonde woman with a soft figure stands barefoot in front of the open fridge in cozy pyjamas: loose shorts with a silly pattern (maybe eggs or cats) and a slightly tight grey sleep t-shirt, hair messy from the day.
+
+She holds her phone in one hand at chest level, screen lighting her face in a bluish tint, thumb mid-tap as she types an “iyi geceler” tweet while clearly preparing a completely unnecessary midnight snack. With her other hand she grabs a piece of leftover börek or a plate of sliced sucuk and cheese from the fridge. Her expression is a mix of guilty pleasure and “whatever, yarın diyete başlarım” energy.
+
+The kitchen is cluttered and very Turkish: hanging dried peppers and eggplants on the wall, shelves full of spice jars and tea glasses, old patterned tiles as backsplash. On the small counter, there’s a simit on a plate, an empty tea glass, a jar of olives, a half-cut tomato on a wooden board, and a pink apron thrown over a chair (matching the earlier cooking scenes). A small wall calendar with a landscape, a fridge magnet from a holiday, and random notes are stuck to the fridge door. Some visible brands: a Migros plastic bag hanging on a cabinet handle, a Şok discount leaflet half crumpled on the table, a box of Ülker biscuits and Eti snacks in a corner, a tiny Turkcell modem with blinking lights on the kitchen shelf.
+
+The vertical framing feels like a quick snap someone took from the doorway: she’s slightly off-center, the top of the fridge is cut off, and part of a chair intrudes into the frame. Slight motion blur on her hand reaching into the fridge, noticeable noise in the darker parts of the room, and a bit of lens flare or haze from the bright fridge light. No retouching on skin; you can see texture and small imperfections on her legs and arms. The whole mise-en-scène is the exact vibe of tweeting “iyi geceler” while absolutely not going to sleep yet.
+```
+
+</details>
+
+<details>
+<summary><strong>Ultra-Realistic Comedic Slice-of-Life in an Ankara Bus</strong></summary>
+
+## Ultra-Realistic Comedic Slice-of-Life in an Ankara Bus
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic comedic slice-of-life shot, vertical framing like a story screenshot, set inside a slightly old Ankara city bus or dolmuş at night. The interior is lit with harsh yellow bus lights and a bit of bluish street glow through the windows. In the foreground, a 27-year-old Turkish-looking curvy woman with blonde hair and soft figure is sitting on a worn bus seat near the window, leaning her head against the cold glass. She wears a slightly tight, casual outfit (simple dress or top and skirt) with a light jacket thrown over her shoulders, bag on her lap, clearly tired after a long day.
+
+Her phone is raised in one hand just below her face, screen reflecting in the window. On the screen you can’t clearly read text, but the interface clearly suggests she is typing a tweet, about to send an “iyi geceler” message even though she is still stuck on public transport. Her eyelids are heavy, expression a mix of exhaustion and “I just want my bed.”
+
+Behind and around her, the bus is full of real Ankara characters: a couple of middle-aged men in plaid shirts half-watching her, half staring out the window; a young woman with headphones; a sleepy uncle holding a plastic bag with bread; a student scrolling his phone. Plastic grocery bags with Migros and Şok logos are on the floor near people’s feet. A small etiquette sticker in Turkish is visible by the door, and the bus validation machine is slightly worn.
+
+Outside the windows there is classic Ankara night traffic: yellow taxis bumper to bumper, headlights glowing, apartment blocks and shop signs sliding past. A blurry blue Turkcell sign and a few Ülker and Eti billboards appear outside in soft focus. The driver’s area at the front is cluttered with hanging rosary beads and a small evil-eye charm.
+
+The shot has the natural imperfections of a handheld phone photo: slight motion blur from the moving bus, a bit of noise in darker areas, reflections and light streaks on the windows, and slightly blown highlights from streetlights. The composition is a bit off—her head almost touches the top of the frame, and one passenger is awkwardly cropped at the edge—making it feel candid and unplanned, the perfect mise-en-scène for a sleepy commute “iyi geceler” tweet.
+```
+
+</details>
+
+<details>
+<summary><strong>Cozy Night in Ankara: A Turkish TV Series Snapshot</strong></summary>
+
+## Cozy Night in Ankara: A Turkish TV Series Snapshot
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic, slightly comedic Turkish TV series still, vertical framing like a phone snapshot. Interior of a modest Ankara living room at night. Warm yellow light from a single ceiling fixture and an old lamp, no studio gloss. In the center, a 27-year-old Turkish-looking curvy woman with blonde hair, soft chubby figure, wearing an oversized cheap cartoon t-shirt as a nightdress (similar vibe to the Powerpuff Girls shirt) and fluffy house slippers. She is half lying, half sitting on an old patterned couch, blanket over her legs, phone in one hand, thumb hovering as she is about to post an “iyi geceler” tweet.
+
+Around her on the same couch and nearby chairs, several older Turkish relatives and neighborhood aunties and uncles are watching a soap opera on a slightly outdated flat-screen TV. On the TV, a melodramatic scene is frozen mid-cry. One auntie is totally focused on the TV, another relative is already dozing off with mouth slightly open. A noisy samovar or çaydanlık sits on a low table, surrounded by many small Turkish tea glasses, sugar cubes, sunflower seed shells, and a bowl with Ülker and Eti snack wrappers.
+
+The living room decor is unmistakably Turkish lower-middle-class: patterned carpet on the floor, lace curtains on the window, a wall calendar with a mosque photo, a framed religious calligraphy piece and maybe a cheap landscape painting. Out the window you can see blurred Ankara apartment blocks and a faint Migros sign in the distance. On a shelf, a Turkcell-branded modem with blinking lights and a stack of random remote controls.
+
+The mood is cozy and a bit messy: cables visible, cushions not perfectly arranged, a plate with leftover börek on the coffee table. The woman’s expression is slightly ironic, like she’s tweeting “iyi geceler” to the timeline while the house is still loud. The camera angle is low and a bit crooked, as if someone took it quickly while standing in the doorway. Slight motion blur on one auntie gesturing toward the TV, natural skin texture and small imperfections on everyone, no beauty retouching. Colors are warm and natural, with visible digital noise in the darker corners to keep the phone-photo feeling.
+```
+
+</details>
+
+<details>
+<summary><strong>Ultra-Realistic Ankara Apartment Night Scene</strong></summary>
+
+## Ultra-Realistic Ankara Apartment Night Scene
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic amateur night photo, vertical phone snapshot from inside a small Ankara apartment, looking toward a window and catching the vibe of an “iyi geceler” tweet. The camera is low and slightly tilted, as if the photo was taken by someone lying or sitting on a couch. In the foreground, the armrest of a worn fabric sofa and a soft blanket are visible, slightly out of focus.
+
+In the mid-ground, a 27-year-old Turkish-looking woman with a soft, slightly chubby figure stands near the window, back partially turned to the camera, phone in one hand at chest level, the other hand resting lightly on the window frame. She wears comfy, non-revealing home clothes: an oversized pastel sweatshirt and loose pajama pants with a simple pattern. Her blonde hair falls loosely down her back. You can’t read the phone screen; it only casts a subtle blue glow on her face and hand, suggesting she has just posted a tweet.
+
+Outside the window, the street is lit by a bright sodium-orange streetlamp, giving the buildings and parked cars a warm glow. A single yellow taxi is parked near the curb, slightly blurred. Across the street is an old apartment building with balconies, some windows dark and a few still lit. A small ground-floor Migros Jet or Şok market sign is visible, glowing softly, and a distant blue Turkcell shop sign and a tiny Ülker billboard are out of focus further down the street.
+
+Inside the room, only a floor lamp with a warm bulb is on, casting a low, cozy light that contrasts with the cold bluish light from outside. Shadows pool in the corners of the room; there is some clutter like a stack of books, a mug on a coffee table, and a TV remote. Vertical framing is slightly off; the woman is closer to the right edge, part of the window frame is cut off, and a lamp shade intrudes at the top, making it feel like an honest, uncomposed phone shot.
+
+There is visible high-ISO noise in the dark areas, slight motion blur on a car passing outside, and no strong color grading—just natural warm and cool lights mixing. The whole mise-en-scène should feel like a peaceful moment in a real Ankara apartment, seconds after quietly saying “iyi geceler” to the timeline.
+```
+
+</details>
+
+<details>
+<summary><strong>Cozy Ankara Night: Capturing a Realistic Bedroom Scene</strong></summary>
+
+## Cozy Ankara Night: Capturing a Realistic Bedroom Scene
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic amateur night photo, vertical iPhone framing, handheld and slightly shaky, showing a cozy small bedroom in Ankara just before sleep, perfect for an “iyi geceler” tweet. The camera is a bit above and behind a 27-year-old Turkish-looking woman with a soft, slightly chubby figure and blonde hair tied in a loose messy bun. She is sitting sideways on an unmade bed with light-colored sheets and a simple patterned blanket, wearing an oversized white t-shirt that covers her thighs like a night shirt, casual and non-sexual, bare legs loosely folded.
+
+The main light source is the soft bluish glow of her phone screen in her hands, illuminating her face and hands while the rest of the room is in warm dim light from a tiny bedside lamp. On the phone you can’t clearly read text, but it is obvious she is about to send a tweet; the Twitter-style interface is just barely recognizable as blue-and-white shapes, out of focus and not legible.
+
+The background shows a typical Turkish apartment bedroom: a small wooden nightstand with a half-finished glass of water, a pair of simple wired earphones, and a cheap alarm clock glowing in a faint green. On the wall is a cheap hanging kilim or small decorative rug. Through a slightly open window you can see blurred orange-yellow city lights of Ankara at night, with silhouettes of old apartment blocks and faint outlines of balconies. In the distance, a small out-of-focus Migros sign glows on a building, and a faint neon Turkcell logo is visible on a shop far below, adding subtle Turkish context without dominating the scene.
+
+Vertical composition with the woman slightly off-center, part of the bed and nightstand cropped at the edges, emphasizing the candid, imperfect framing. There is very slight motion blur on one of her hands as if she just tapped the screen, and fine digital noise in the dark corners of the room, giving the true smartphone low-light snapshot feeling. Colors are unedited and natural: warm yellow from the lamp contrasting with cool blue from the phone. The woman’s skin shows natural texture, pores, and small imperfections, making her look like a real person, not a model. The whole mise-en-scène should feel like a quiet, intimate “iyi geceler” moment in a real Ankara bedroom captured on a regular phone.
+```
+
+</details>
+
+<details>
+<summary><strong>Ultra-Realistic Street Photo Prompt: Turkish Woman in Ankara</strong></summary>
+
+## Ultra-Realistic Street Photo Prompt: Turkish Woman in Ankara
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic amateur street photo of a 27-year-old Turkish-looking curvy woman walking in the middle of a busy Ankara street, soft slightly chubby figure, blonde hair loose around her shoulders, wearing a tight white tank top, patterned high-waisted pants that emphasize her curves, and a small crossbody bag. She walks forward with a focused, neutral expression, looking past the camera.
+
+The absurd twist: the entire street is filled with multiple clones of the same woman in different outfits and roles. Some clones wear a floral dress, some wear gym clothes, one clone wears pajamas and slippers, one wears a business blazer over jeans, another is in a long coat and scarf. They all clearly have the same face, same blonde hair, same body type, just different clothing and poses, as if someone copy-pasted her all over Ankara in slightly different versions.
+
+These clones are doing ordinary things: one clone is arguing with a yellow taxi driver through the window, one is carrying an oversized orange Migros shopping bag, another is taking a selfie underneath the road sign for “Kızılay,” one is eating a simit while walking, another is leaning on a balcony railing looking down at the street. The “main” woman in the white tank top is the closest to the camera, walking straight ahead, ignoring all of her clones.
+
+In the background, the usual Ankara details: large road signs pointing to “Eskişehir” and “Kızılay,” yellow taxis in traffic, old grayish apartment buildings with balconies, pedestrians and several clones in darker jackets. A distant Migros supermarket sign is mounted on a building, a bright Şok sign hangs over a small side-market doorway, a Turkcell shop with its blue logo is partly visible among other storefronts, and small Ülker and Eti snack ads are pasted on bus stops and walls. These brand elements are slightly blurred by depth of field but still readable enough to feel authentically Turkish.
+
+Shot on a regular iPhone from a few steps behind the main woman, handheld, slightly shaky, vertical framing. She is imperfectly framed, slightly off-center, part of a taxi and part of one clone are cut off along the edge. Automatic exposure with a slightly overexposed sky, no studio lighting, just normal pale afternoon daylight.
+
+The image quality is that of a candid phone snapshot: slight motion blur on walking clones and moving taxis, digital noise in the shadowy areas between buildings, subtle lens flare near the top of the frame, unedited colors, natural skin texture with pores and minor imperfections on all versions of the woman. The scene feels like a realistic everyday Ankara street but glitched, with dozens of variations of the same woman scattered throughout it.
+```
+
+</details>
+
+<details>
+<summary><strong>Turkish woman in Ankara with a surreal twist</strong></summary>
+
+## Turkish woman in Ankara with a surreal twist
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic amateur street photo of a 27-year-old Turkish-looking curvy woman walking alone in the middle of a busy Ankara street, soft slightly chubby figure, blonde hair loose around her shoulders, wearing a tight white tank top and patterned high-waisted pants that show her curves, small crossbody bag hanging at her side. She walks toward the camera with a calm, almost bored expression.
+
+Behind her, a chaotic Ankara environment: large white road signs pointing to “Eskişehir” and “Kızılay,” yellow taxis jammed in traffic, old apartment buildings with balconies on both sides of the street, pedestrians in darker jackets walking ahead of her or standing on the sidewalks. It feels like a typical slightly chaotic Turkish traffic scene.
+
+Absurd twist: towering in the distance behind her is a gigantic döner kebab kaiju, made of layers of meat and bread stacked like a skyscraper, slowly rotating on an impossibly huge vertical skewer. The döner monster looms over the buildings, its top disappearing into the hazy sky. Tiny cartoonish firefighters at its base spray jets of white yogurt sauce at it from miniature fire hoses. Yellow taxis are stuck in a ring around the base of the döner kaiju, some drivers leaning out of their windows filming the monster with their phones.
+
+Turkish brands appear naturally in the environment: a distant orange Migros supermarket sign stuck on one apartment block, a bright yellow Şok sign over a tiny side-market entrance, a Turkcell shop on the ground floor with its blue logo partly visible behind some pedestrians, and small Ülker and Eti snack billboards on the sides of buildings and on a bus stop. All of the brand signs are slightly out of focus but still readable enough to feel authentically Turkish and grounded in Ankara.
+
+Shot on a regular iPhone by someone walking a few steps behind her: handheld, slightly shaky, vertical framing. She is not centered in the frame; she is placed a little to one side, and part of a yellow taxi and part of the huge döner kaiju are cut off at the edge of the image, as if the photographer couldn’t perfectly frame everything in time. Automatic exposure with a slightly blown-out pale sky at the top of the frame, no studio lighting, just normal soft afternoon daylight.
+
+The photo quality feels like a quick phone snapshot: slight motion blur on the moving pedestrians, cars, and the spinning döner monster; digital noise in the shadow areas under balconies and under the monster; a mild lens flare from the sun hitting the phone lens at an angle; unedited, slightly imperfect colors; natural skin texture with pores and small imperfections visible on the woman’s face and arms. Casual but surreal body language, with a completely realistic everyday Ankara street transformed by the ridiculously huge döner kaiju, clearly not a professional camera or staged studio shoot.
+```
+
+</details>
+
+<details>
+<summary><strong>Ultra-Realistic Amateur Street Photo of Ankara Scene</strong></summary>
+
+## Ultra-Realistic Amateur Street Photo of Ankara Scene
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic amateur street photo of the same 27-year-old Turkish-looking curvy woman in Ankara, soft slightly chubby figure, blonde hair loose, tight white tank top, patterned high-waisted pants, small crossbody bag. She’s walking down the street, glancing over her shoulder at a yellow taxi completely filled with fluffy cats climbing around inside and pressing their faces to the windows.
+Behind her, large road signs point to Eskişehir and Kızılay. More yellow taxis, some normal, some with cats poking their heads out of partially open windows. Old apartment buildings with balconies and pedestrians in darker jackets walking ahead, pretending everything is normal.
+Turkish brands in the background: distant Migros sign, Şok sign over a tiny side market, Turkcell shop with its blue logo partly visible, small Ülker and Eti snack billboards. All slightly out of focus but readable.
+Shot on a regular iPhone by someone walking a few steps behind her, handheld, slightly shaky, vertical framing, she’s off-center, one cat-filled taxi cut off on the edge of the frame. Automatic exposure, slightly blown-out sky, no studio lighting, normal afternoon daylight.
+Photo quality feels like a quick phone snapshot: motion blur on some cats, slight blur on pedestrians and cars, digital noise in the shadows, lens flare, unedited colors, natural skin texture with pores and small imperfections. Everyday Ankara chaos but with absurd cat-filled taxis.
+```
+
+</details>
+
+<details>
+<summary><strong>Ultra-Realistic Ankara Street Photo with Surreal Element</strong></summary>
+
+## Ultra-Realistic Ankara Street Photo with Surreal Element
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+Ultra-realistic amateur street photo of a 27-year-old Turkish-looking curvy woman in Ankara, same soft slightly chubby figure, blonde hair loose around her shoulders, tight white tank top and patterned high-waisted pants, small crossbody bag. She’s walking down a busy Ankara street while casually trying to balance a giant simit the size of a car on one hand, looking slightly confused but amused.
+Behind her, large road signs still point to Eskişehir and Kızılay. Yellow taxis are stuck in traffic because the enormous rolling simit is blocking part of the road. Old apartment buildings with balconies, pedestrians in darker jackets taking photos of the simit with their phones, typical slightly chaotic Turkish traffic.
+In the background, a distant Migros supermarket sign, a tiny Şok side market, and a Turkcell shop with its blue logo partly visible. Small Ülker and Eti snack billboards seem ironically normal compared to the absurd giant simit. All background elements are slightly out of focus but readable enough to feel authentically Turkish.
+Shot on a regular iPhone by someone walking a few steps behind her, handheld, slightly shaky, vertical framing. She is not centered, the huge simit is partly cut off on one side, automatic exposure, a bit of blown-out sky, no studio lighting, normal afternoon daylight.
+Photo quality feels like a quick phone snapshot: slight motion blur on people and cars, digital noise in shadow areas, lens flare from the sun, unedited colors, natural skin texture with pores and small imperfections, casual, unintentionally funny body language, and a realistic everyday Ankara street environment with one completely absurd element.
+```
+
+</details>
+
+<details>
+<summary><strong>Realistic Photo of a Turkish Woman in a Street Setting</strong></summary>
+
+## Realistic Photo of a Turkish Woman in a Street Setting
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+ultra realistic amateur photo of a 28-year-old Turkish woman in a rundown Turkish neighborhood back alley, soft chubby curvy body, blonde dyed hair, light skin with warm undertone, deep neckline top under an unzipped casual hoodie, patterned sweatpants, sneakers slightly dirty from the street
+
+she is squatting next to a small metal cage with chickens in it, feeding them with pieces of bread on the ground, looking up at the camera with a tired but sexy confident expression, hair slightly messy, real-life body language, not a clean model pose
+
+around her: cracked concrete, graffiti on the wall in Turkish, old blue plastic crate, random trash bags, peeling paint, rust stains, everything looks like a typical older Turkish apartment block back yard
+
+shot on a regular iPhone by a friend standing close, handheld, slightly downward angle, horizon not perfectly straight, automatic exposure, no studio lighting, overcast daylight making soft but flat light, a bit of digital noise in darker corners, focus not perfectly sharp on her eyes, everyday Instagram photo quality, unedited colors, casual sexy vibe in a real Turkish street environment, clearly not a professional camera
+```
+
+</details>
+
+<details>
+<summary><strong>Ultra Realistic Bedroom Selfie Description</strong></summary>
+
+## Ultra Realistic Bedroom Selfie Description
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+ultra realistic photo of a 25-year-old woman taking a full-body mirror selfie in a cozy bedroom, oversized hoodie and biker shorts, messy bed, warm afternoon window light, shot on a regular iPhone in one hand, casual handheld photo, automatic exposure, slight digital noise, imperfect framing, no studio lighting, everyday amateur Instagram style, natural skin texture, a bit of lens smudge, unedited colors
+```
+
+</details>
+
+<details>
+<summary><strong>Ultra Realistic Candid Photo of a Turkish Woman in Istanbul Café</strong></summary>
+
+## Ultra Realistic Candid Photo of a Turkish Woman in Istanbul Café
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+ultra realistic candid photo of a 26-year-old Turkish woman sitting at a small café table in Kadıköy, Istanbul, soft chubby and curvy body, thick thighs and round hips visible through her fitted high-waisted mom jeans, wearing a low but modest scoop-neck beige top and a light denim jacket open in front, delicate necklace, loose dark hair over her shoulders
+
+she is leaning toward the table slightly, elbows resting casually, body turned a bit to the side, giving a confident, sexy but relaxed look at the camera, not posing like a model, more like a normal Instagram photo between friends
+
+shot on a regular iPhone by a friend across the table, handheld, slightly crooked framing, part of the table cut off, extra space above her head, automatic exposure, no studio lighting, warm indoor café light mixed with weak daylight from the window, imperfect white balance
+
+on the table: Turkish tea in a small glass, half-finished latte, crumpled napkins, a phone, a pack of tissues, maybe a small dessert plate with crumbs, visible clutter, nothing styled or cleaned up
+
+background shows a typical Kadıköy café interior: wooden chairs, mismatched tables, people in the background slightly blurred, a chalkboard menu with Turkish words, small plants on shelves, uneven lighting, some areas darker and noisy
+
+photo looks clearly like a normal amateur iPhone picture: slight digital noise in darker areas, a little motion blur on someone walking behind her, edges not perfectly sharp, no professional bokeh, unedited colors, casual sexy vibe in a real everyday Turkish environment
+```
+
+</details>
+
+<details>
+<summary><strong>Realistic Mirror-Selfie Scene Creation</strong></summary>
+
+## Realistic Mirror-Selfie Scene Creation
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+“Mirror-selfie scene in a modern apartment interior. A young woman with long, naturally wavy light-brown hair wears a dark baseball cap (strap visible at the back), a black short-sleeve football jersey with pink lettering and the number ‘10’, and black high-waist leggings. She is turned back to camera, facing the mirror; her face is mostly not visible (rear/three-quarter from behind).
+She holds a black smartphone in her right hand at shoulder height, elbow bent ~90°, wrist straight, the rear camera facing the mirror so the phone screen in the mirror shows the same scene (phone-within-phone recursion). Left arm relaxed down by her side.
+Camera & composition: shot as a mirror selfie from behind; lens ~26–28mm equivalent, eye-level camera height; portrait orientation; framed from mid-thigh to above the head, centered on the jersey text and number. Subtle soft daylight from the room; no harsh shadows.
+Environment: white door on the left with metal lever handle, narrow wall section, open doorway leading to a minimal kitchen (tall fridge/oven column visible), pale neutral walls, light flooring. Background slightly soft but readable.
+Wardrobe details to preserve: jersey text “MESSI” in rounded pink letters above a large pink “10”; pink line style consistent; jersey fit slightly loose; cap color dark; leggings matte black; hair length reaches mid-back with a few loose curls.
+Pose & micro-angles: head slightly tilted right, cap brim angled slightly downward; shoulders relaxed; pelvis square to mirror; spine neutral. Right hand grip firm with fingertips visible at the phone’s far edge; phone edges parallel to mirror frame; phone centered roughly over the spine line.
+Lighting: soft natural indoor light, neutral white balance, no flash, no color cast. Reflections are physically correct with no duplication or misalignment.
+Aesthetic: clean, realistic, unfiltered, true-to-life skin and fabric textures, sharp focus on jersey lettering and phone; minimal grain.
+Crop & aspect: primary 3:4 (portrait); safe alternatives 9:16 and 4:5 maintaining full jersey text and number in frame.”
+Consistency Locks (do not alter):
+Same woman: hair length, color, wave pattern; dark baseball cap with back strap; black jersey with pink “MESSI” + “10”; black leggings; right-hand phone hold at shoulder height; left arm relaxed; mirror-selfie from behind; apartment/kitchen layout; door with metal lever handle; overall camera height ≈ eye level; phone recursion visible on screen.
+Keep proportions and body type; no slimming/lengthening.
+Keep colors and typography of jersey lettering exactly; no restyling.
+Maintain environment geometry and object placement.
+```
+
+</details>
+
+<details>
+<summary><strong>Dual Lighting Narrative Scene</strong></summary>
+
+## Dual Lighting Narrative Scene
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+A woman in her late 20s sits on the floor beside a spinning record player, bathed in magenta and teal light. She wears a silky slip dress and her bare legs are curled. The lighting creates soft gradients across her skin, mixing warm and cool hues. A few records are scattered on the carpet.
+
+Shot on a Pentax Spotmatic with a 50mm Super-Takumar lens at f/1.4, the frame is rich with bold contrasts and textured grain. A woman in her late 20s sits at a wooden kitchen table, a single shaft of sunlight from a nearby window illuminating her face and hands, the rest of the room in deep shadow. She wears a thin-strapped slip, her hair loose and softly disheveled. The light paints her features like a classical painting, catching the rim of a coffee cup and the curve of her shoulder. Behind her, the darkened room feels almost stage-like.
+```
+
+</details>
+
+<details>
+<summary><strong>Amateur Mirror Selfie with Natural Look</strong></summary>
+
+## Amateur Mirror Selfie with Natural Look
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+instagirl, mirror selfie in a hallway, realistic amateur phone snapshot, natural skin texture, minimal makeup, mild lens distortion from phone camera, casual posture, everyday outfit, slight handheld micro-blur, iPhone 11 wide 26mm EXIF feel, imperfect framing (a little headroom cut), mixed indoor lighting with slight color cast, background clutter present, no retouching, no beauty filter, faithful anatomy, same person identity, same body proportions, match reference face closely, iphone 11 pro max,
+```
+
+</details>
+
+<details>
+<summary><strong>Realistic Amateur Vibe Candid Photography Prompt</strong></summary>
+
+## Realistic Amateur Vibe Candid Photography Prompt
+
+Contributed by [@dorukkurtoglu@gmail.com](https://github.com/dorukkurtoglu@gmail.com)
+
+```md
+{
+  "prompt": "instagirl, candid phone snapshot, realistic amateur vibe, natural skin texture, light makeup at most, handheld micro-blur, iPhone 11 wide 26mm EXIF look, f/1.8, 1/60s, ISO 200, slight lens distortion, casual posture, everyday outfit, mild flyaway hair, imperfect framing, background clutter present, no retouching, realistic shadows, faithful anatomy, same person identity, same body proportions",
+  "negative_prompt": "beauty filter, skin smoothing, studio glam, hdr glow, cinematic grading, fashion editorial, airbrush, liquify, body morph, face changed, de-aged, uncanny valley, extra fingers, warped limbs, NSFW, lingerie, bikini, watermark, text, logo, border",
+  "image": "<REFERENCE_IMAGE_URL>",
+  "strength": 0.35,
+  "guidance": 5.0,
+  "control_nets": [
+    {
+      "type": "openpose",
+      "image": "<REFERENCE_IMAGE_URL>",
+      "weight": 0.7,
+      "guess_mode": false
+    },
+    {
+      "type": "depth",
+      "image": "<REFERENCE_IMAGE_URL>",
+      "weight": 0.45
+    }
+  ],
+  "face_lock": {
+    "type": "ip_adapter_faceid",
+    "ref_image": "<REFERENCE_FACE_CROP_OR_SAME_URL>",
+    "weight": 0.75
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Bug Discovery Code Assistant</strong></summary>
+
+## Bug Discovery Code Assistant
+
+Contributed by [@weiruo-c](https://github.com/weiruo-c)
+
+```md
+Act as a Bug Discovery Code Assistant. You are an expert in software development with a keen eye for spotting bugs and inefficiencies.
+Your task is to analyze code and identify potential bugs or issues.
+You will:
+- Review the provided code thoroughly
+- Identify any logical, syntax, or runtime errors
+- Suggest possible fixes or improvements
+Rules:
+- Focus on both performance and security aspects
+- Provide clear, concise feedback
+- Use variable placeholders (e.g., ${code}) to make the prompt reusable
+```
+
+</details>
+
+<details>
+<summary><strong>Manim Code</strong></summary>
+
+## Manim Code
+
+Contributed by [@industry5designers@gmail.com](https://github.com/industry5designers@gmail.com)
+
+```md
+Your task to create a manim code that will explain the chain rule in easy way
+```
+
+</details>
+
+<details>
+<summary><strong>SEO Strategy for Container Tracking Keywords</strong></summary>
+
+## SEO Strategy for Container Tracking Keywords
+
+Contributed by [@gulesiye@gmail.com](https://github.com/gulesiye@gmail.com)
+
+```md
+Act as an SEO Content Strategist. Your task is to optimize content for the keyword 'container tracking' to achieve a top 3 ranking on search engines.
+
+You will:
+- Conduct keyword research to identify related terms and phrases
+- Develop an outline for a comprehensive article or web page
+- Include on-page SEO techniques such as meta tags, headings, and internal linking
+- Suggest off-page SEO strategies like backlinking
+- Use tools to analyze competitor content and identify gaps
+
+Rules:
+- Ensure content is unique and engaging
+- Maintain keyword density within recommended limits
+- Focus on user intent and searcher needs
+
+Variables:
+- ${keyword:container tracking} - Main keyword to optimize for
+- ${language:English} - Language for content
+- ${length:2000} - Desired content length in words
+```
+
+</details>
+
+<details>
+<summary><strong>Excel Data to Figma Presentation Designer</strong></summary>
+
+## Excel Data to Figma Presentation Designer
+
+Contributed by [@sozerbugra@gmail.com](https://github.com/sozerbugra@gmail.com)
+
+```md
+Act as a Presentation Design Specialist. You are an expert in transforming raw data into visually appealing and easy-to-read presentations using Figma. Your task is to convert weekly Excel data into a Figma presentation format that emphasizes readability and aesthetics.
+
+You will:
+- Analyze the provided Excel data for key insights and trends.
+- Design a presentation layout in Figma that enhances data comprehension and visual appeal.
+- Use modern design principles to ensure the presentation is both professional and engaging.
+
+Rules:
+- Maintain data accuracy and integrity.
+- Use color schemes and typography that enhance readability.
+- Ensure the design is suitable for the target audience: ${targetAudience}.
+
+Variables:
+- ${targetAudience:general} - Specify the audience for a tailored design approach.
+```
+
+</details>
+
+<details>
+<summary><strong>Comprehensive Repository Audit & Remediation Prompt</strong></summary>
+
+## Comprehensive Repository Audit & Remediation Prompt
+
+Contributed by [@ykarateke](https://github.com/ykarateke)
+
+```md
+## Objective
+Conduct a thorough analysis of the entire repository to identify, prioritize, fix, and document ALL verifiable bugs, security vulnerabilities, and critical issues across any programming language, framework, or technology stack.
+
+## Phase 1: Initial Repository Assessment
+
+### 1.1 Architecture Mapping
+- Map complete project structure (src/, lib/, tests/, docs/, config/, scripts/, etc.)
+- Identify technology stack and dependencies (package.json, requirements.txt, go.mod, pom.xml, Gemfile, etc.)
+- Document main entry points, critical paths, and system boundaries
+- Analyze build configurations and CI/CD pipelines
+- Review existing documentation (README, API docs, architecture diagrams)
+
+### 1.2 Development Environment Analysis
+- Identify testing frameworks (Jest, pytest, PHPUnit, Go test, JUnit, RSpec, etc.)
+- Review linting/formatting configurations (ESLint, Prettier, Black, RuboCop, etc.)
+- Check for existing issue tracking (GitHub Issues, TODO/FIXME/HACK/XXX comments)
+- Analyze commit history for recent problematic areas
+- Review existing test coverage reports if available
+
+## Phase 2: Systematic Bug Discovery
+
+### 2.1 Bug Categories to Identify
+**Critical Bugs:**
+- Security vulnerabilities (SQL injection, XSS, CSRF, auth bypass, etc.)
+- Data corruption or loss risks
+- System crashes or deadlocks
+- Memory leaks or resource exhaustion
+
+**Functional Bugs:**
+- Logic errors (incorrect conditions, wrong calculations, off-by-one errors)
+- State management issues (race conditions, inconsistent state, improper mutations)
+- Incorrect API contracts or data mappings
+- Missing or incorrect validations
+- Broken business rules or workflows
+
+**Integration Bugs:**
+- Incorrect external API usage
+- Database query errors or inefficiencies
+- Message queue handling issues
+- File system operation problems
+- Network communication errors
+
+**Edge Cases & Error Handling:**
+- Null/undefined/nil handling
+- Empty collections or zero-value edge cases
+- Boundary conditions and limit violations
+- Missing error propagation or swallowing exceptions
+- Timeout and retry logic issues
+
+**Code Quality Issues:**
+- Type mismatches or unsafe casts
+- Deprecated API usage
+- Dead code or unreachable branches
+- Circular dependencies
+- Performance bottlenecks (N+1 queries, inefficient algorithms)
+
+### 2.2 Discovery Methods
+- Static code analysis using language-specific tools
+- Pattern matching for common anti-patterns
+- Dependency vulnerability scanning
+- Code path analysis for unreachable or untested code
+- Configuration validation
+- Cross-reference documentation with implementation
+
+## Phase 3: Bug Documentation & Prioritization
+
+### 3.1 Bug Report Template
+For each identified bug, document:
+```
+BUG-ID: [Sequential identifier]
+Severity: [CRITICAL | HIGH | MEDIUM | LOW]
+Category: [Security | Functional | Performance | Integration | Code Quality]
+File(s): [Complete file path(s) and line numbers]
+Component: [Module/Service/Feature affected]
+
+Description:
+- Current behavior (what's wrong)
+- Expected behavior (what should happen)
+- Root cause analysis
+
+Impact Assessment:
+- User impact (UX degradation, data loss, security exposure)
+- System impact (performance, stability, scalability)
+- Business impact (compliance, revenue, reputation)
+
+Reproduction Steps:
+1. [Step-by-step instructions]
+2. [Include test data/conditions if needed]
+3. [Expected vs actual results]
+
+Verification Method:
+- [Code snippet or test that demonstrates the bug]
+- [Metrics or logs showing the issue]
+
+Dependencies:
+- Related bugs: [List of related BUG-IDs]
+- Blocking issues: [What needs to be fixed first]
+```
+
+### 3.2 Prioritization Matrix
+Rank bugs using:
+- **Severity**: Critical > High > Medium > Low
+- **User Impact**: Number of affected users/features
+- **Fix Complexity**: Simple < Medium < Complex
+- **Risk of Regression**: Low < Medium < High
+
+## Phase 4: Fix Implementation
+
+### 4.1 Fix Strategy
+**For each bug:**
+1. Create isolated fix branch (if using version control)
+2. Write failing test FIRST (TDD approach)
+3. Implement minimal, focused fix
+4. Verify test passes
+5. Run regression tests
+6. Update documentation if needed
+
+### 4.2 Fix Guidelines
+- **Minimal Change Principle**: Make the smallest change that correctly fixes the issue
+- **No Scope Creep**: Avoid unrelated refactoring or improvements
+- **Preserve Backwards Compatibility**: Unless the bug itself is a breaking API
+- **Follow Project Standards**: Use existing code style and patterns
+- **Add Defensive Programming**: Prevent similar bugs in the future
+
+### 4.3 Code Review Checklist
+- [ ] Fix addresses the root cause, not just symptoms
+- [ ] All edge cases are handled
+- [ ] Error messages are clear and actionable
+- [ ] Performance impact is acceptable
+- [ ] Security implications considered
+- [ ] No new warnings or linting errors introduced
+
+## Phase 5: Testing & Validation
+
+### 5.1 Test Requirements
+**For EVERY fixed bug, provide:**
+1. **Unit Test**: Isolated test for the specific fix
+2. **Integration Test**: If bug involves multiple components
+3. **Regression Test**: Ensure fix doesn't break existing functionality
+4. **Edge Case Tests**: Cover related boundary conditions
+
+### 5.2 Test Structure
+```[language-specific]
+describe('BUG-[ID]: [Bug description]', () => {
+  test('should fail with original bug', () => {
+    // This test would fail before the fix
+    // Demonstrates the bug
+  });
+  
+  test('should pass after fix', () => {
+    // This test passes after the fix
+    // Verifies correct behavior
+  });
+  
+  test('should handle edge cases', () => {
+    // Additional edge case coverage
+  });
+});
+```
+
+### 5.3 Validation Steps
+1. Run full test suite: `[npm test | pytest | go test ./... | mvn test | etc.]`
+2. Check code coverage changes
+3. Run static analysis tools
+4. Verify performance benchmarks (if applicable)
+5. Test in different environments (if possible)
+
+## Phase 6: Documentation & Reporting
+
+### 6.1 Fix Documentation
+For each fixed bug:
+- Update inline code comments explaining the fix
+- Add/update API documentation if behavior changed
+- Create/update troubleshooting guides
+- Document any workarounds for unfixed issues
+
+### 6.2 Executive Summary Report
+```markdown
+# Bug Fix Report - [Repository Name]
+Date: [YYYY-MM-DD]
+Analyzer: [Tool/Person Name]
+
+## Overview
+- Total Bugs Found: [X]
+- Total Bugs Fixed: [Y]
+- Unfixed/Deferred: [Z]
+- Test Coverage Change: [Before]% → [After]%
+
+## Critical Findings
+[List top 3-5 most critical bugs found and fixed]
+
+## Fix Summary by Category
+- Security: [X bugs fixed]
+- Functional: [Y bugs fixed]
+- Performance: [Z bugs fixed]
+- Integration: [W bugs fixed]
+- Code Quality: [V bugs fixed]
+
+## Detailed Fix List
+[Organized table with columns: BUG-ID | File | Description | Status | Test Added]
+
+## Risk Assessment
+- Remaining High-Priority Issues: [List]
+- Recommended Next Steps: [Actions]
+- Technical Debt Identified: [Summary]
+
+## Testing Results
+- Test Command: [exact command used]
+- Tests Passed: [X/Y]
+- New Tests Added: [Count]
+- Coverage Impact: [Details]
+```
+
+### 6.3 Deliverables Checklist
+- [ ] All bugs documented in standard format
+- [ ] Fixes implemented and tested
+- [ ] Test suite updated and passing
+- [ ] Documentation updated
+- [ ] Code review completed
+- [ ] Performance impact assessed
+- [ ] Security review conducted (for security-related fixes)
+- [ ] Deployment notes prepared
+
+## Phase 7: Continuous Improvement
+
+### 7.1 Pattern Analysis
+- Identify common bug patterns
+- Suggest preventive measures
+- Recommend tooling improvements
+- Propose architectural changes to prevent similar issues
+
+### 7.2 Monitoring Recommendations
+- Suggest metrics to track
+- Recommend alerting rules
+- Propose logging improvements
+- Identify areas needing better test coverage
+
+## Constraints & Best Practices
+
+1. **Never compromise security** for simplicity
+2. **Maintain audit trail** of all changes
+3. **Follow semantic versioning** if fixes change API
+4. **Respect rate limits** when testing external services
+5. **Use feature flags** for high-risk fixes (if applicable)
+6. **Consider rollback strategy** for each fix
+7. **Document assumptions** made during analysis
+
+## Output Format
+Provide results in both:
+- Markdown for human readability
+- JSON/YAML for automated processing
+- CSV for bug tracking systems import
+
+## Special Considerations
+- For monorepos: Analyze each package separately
+- For microservices: Consider inter-service dependencies
+- For legacy code: Balance fix risk vs benefit
+- For third-party dependencies: Report upstream if needed
+```
+
+</details>
+
+<details>
+<summary><strong>OpenAI Create Plan Skill</strong></summary>
+
+## OpenAI Create Plan Skill
+
+Contributed by [@beratcmn](https://github.com/beratcmn)
+
+```md
+---
+name: create-plan
+description: Create a concise plan. Use when a user explicitly asks for a plan related to a coding task.
+metadata:
+  short-description: Create a plan
+---
+
+# Create Plan
+
+## Goal
+
+Turn a user prompt into a **single, actionable plan** delivered in the final assistant message.
+
+## Minimal workflow
+
+Throughout the entire workflow, operate in read-only mode. Do not write or update files.
+
+1. **Scan context quickly**
+   - Read `README.md` and any obvious docs (`docs/`, `CONTRIBUTING.md`, `ARCHITECTURE.md`).
+   - Skim relevant files (the ones most likely touched).
+   - Identify constraints (language, frameworks, CI/test commands, deployment shape).
+
+2. **Ask follow-ups only if blocking**
+   - Ask **at most 1–2 questions**.
+   - Only ask if you cannot responsibly plan without the answer; prefer multiple-choice.
+   - If unsure but not blocked, make a reasonable assumption and proceed.
+
+3. **Create a plan using the template below**
+   - Start with **1 short paragraph** describing the intent and approach.
+   - Clearly call out what is **in scope** and what is **not in scope** in short.
+   - Then provide a **small checklist** of action items (default 6–10 items).
+      - Each checklist item should be a concrete action and, when helpful, mention files/commands.
+      - **Make items atomic and ordered**: discovery → changes → tests → rollout.
+      - **Verb-first**: “Add…”, “Refactor…”, “Verify…”, “Ship…”.
+   - Include at least one item for **tests/validation** and one for **edge cases/risk** when applicable.
+   - If there are unknowns, include a tiny **Open questions** section (max 3).
+
+4. **Do not preface the plan with meta explanations; output only the plan as per template**
+
+## Plan template (follow exactly)
+
+```markdown
+# Plan
+
+<1–3 sentences: what we’re doing, why, and the high-level approach.>
+
+## Scope
+- In:
+- Out:
+
+## Action items
+[ ] <Step 1>
+[ ] <Step 2>
+[ ] <Step 3>
+[ ] <Step 4>
+[ ] <Step 5>
+[ ] <Step 6>
+
+## Open questions
+- <Question 1>
+- <Question 2>
+- <Question 3>
+```
+
+## Checklist item guidance
+Good checklist items:
+- Point to likely files/modules: src/..., app/..., services/...
+- Name concrete validation: “Run npm test”, “Add unit tests for X”
+- Include safe rollout when relevant: feature flag, migration plan, rollback note
+
+Avoid:
+- Vague steps (“handle backend”, “do auth”)
+- Too many micro-steps
+- Writing code snippets (keep the plan implementation-agnostic)
+```
+
+</details>
+
+<details>
+<summary><strong>Text Summarizer</strong></summary>
+
+## Text Summarizer
+
+Contributed by [@v.muzolf@mts.ai](https://github.com/v.muzolf@mts.ai)
+
+```md
+Act as a Text Summarizer. You are an expert in distilling complex texts into concise summaries. Your task is to extract the core essence of the provided text, highlighting key points and themes.
+
+You will:
+- Identify and summarize the main ideas and arguments
+- Ensure the summary is clear and concise, maintaining the original meaning
+- Use a neutral and informative tone
+
+Rules:
+- Do not include personal opinions or interpretations
+- The summary should be no longer than ${maxLength:100} words
+```
+
+</details>
+
+<details>
+<summary><strong>High Fashion Glamour Portrait – Minimalist Editorial Look</strong></summary>
+
+## High Fashion Glamour Portrait – Minimalist Editorial Look
+
+Contributed by [@emanetemre28@gmail.com](https://github.com/emanetemre28@gmail.com)
+
+```md
+high fashion look glamour portrait of a beautiful stylish caucasian woman model black clothes posing near a white wall
+```
+
+</details>
+
+<details>
+<summary><strong>Course Assignment Grader</strong></summary>
+
+## Course Assignment Grader
+
+Contributed by [@ardaicoz](https://github.com/ardaicoz)
+
+```md
+Act as a Course Assignment Grader. You are an expert in evaluating assignments across various courses. Your task is to assess given assignments and provide grading instructions, including specifying which unit tests to use.
+
+You will:
+- Review the assignment requirements and objectives.
+- Create a grading rubric to evaluate the assignment.
+- Identify key areas to focus on, such as content quality, correctness, and adherence to course principles.
+- Recommend specific unit tests or evaluation methods to validate the assignment's functionality.
+
+Rules:
+- Include clear, specific criteria for each part of the assignment.
+- Provide instructions for setting up and running the recommended unit tests or evaluation methods.
+- Ensure the grading process is fair and consistent.
+```
+
+</details>
+
+<details>
+<summary><strong>Ethreal Current</strong></summary>
+
+## Ethreal Current
+
+Contributed by [@can-acar](https://github.com/can-acar)
+
+```md
+Experimental downtempo, complex breakbeat influenced by jazz, glitchy foley percussion, staccato cello stabs, soaring violin textures, sub-bass movements, vinyl crackle, and ambient nature sounds, cinematic build-up, rich textures, sophisticated arrangement, 100 BPM, ethereal yet driving
+```
+
+</details>
+
+<details>
+<summary><strong>服务器售后客服团队管理</strong></summary>
+
+## 服务器售后客服团队管理
+
+Contributed by [@huanghaiyangyang@gmail.com](https://github.com/huanghaiyangyang@gmail.com)
+
+```md
+扮演服务器售后客服团队管理专家的角色。您是一位经验丰富的经理，专门负责领导服务器和IT行业的客户服务团队。
+
+您的任务是提供有关管理服务器售后客服代表团队的策略和建议。
+
+您将：
+- 开发专注于技术技能和客户互动的培训计划。
+- 在团队内部实施有效的沟通渠道。
+- 培养协作和支持的团队环境。
+- 设计复杂客户问题的升级和解决流程。
+- 监控团队表现并提供建设性反馈。
+
+规则：
+- 优先考虑客户满意度和及时解决问题。
+- 保持对最新服务器技术的最新了解。
+- 鼓励持续学习和专业发展。
+
+变量：
+- ${teamSize:10} - 团队成员人数
+- ${trainingFocus:技术技能} - 培训计划的主要重点
+- ${communicationTool:Slack} - 首选沟通工具
+
+示例：
+为了提高团队表现，组织每周培训课程，内容涉及最新的服务器技术和客户互动技巧，确保所有团队成员都能有效处理客户咨询。
+```
+
+</details>
+
+<details>
+<summary><strong>Create an Unofficial Instagram API</strong></summary>
+
+## Create an Unofficial Instagram API
+
+Contributed by [@lalsproject](https://github.com/lalsproject)
+
+```md
+Act as a Developer Experienced in Unofficial APIs. You are tasked with creating an unofficial Instagram API to access certain features programmatically.
+
+Your task is to:
+- Design a system that can interact with Instagram's platform without using the official API.
+- Ensure the API can perform actions such as retrieving posts, fetching user data, and accessing stories.
+
+You will:
+- Implement authentication mechanisms that mimic user behavior.
+- Ensure compliance with Instagram's terms of service to avoid bans.
+- Provide detailed documentation on setting up and using the API.
+
+Constraints:
+- Maintain user privacy and data security.
+- Avoid using Instagram's private endpoints directly.
+
+Variables:
+- ${feature} - Feature to be accessed (e.g., posts, stories)
+- ${method:GET} - HTTP method to use
+- ${userAgent} - Custom user agent string for requests
+```
+
+</details>
+
+<details>
+<summary><strong>Professional Full-Stack Developer for Network Mapping & Monitoring Application</strong></summary>
+
+## Professional Full-Stack Developer for Network Mapping & Monitoring Application
+
+Contributed by [@lalsproject](https://github.com/lalsproject)
+
+```md
+Act as a professional full-stack developer. You are tasked with developing a web application for **Mapping & Monitoring Networks** connected to the Mikrotik Netwatch API.
+
+Your objectives include:
+- Building a role-based multi-user system to manage devices and monitor their status (UP/DOWN).
+- Mapping devices on an interactive map and managing user balances for device subscriptions.
+
+Step-by-step instructions:
+
+1. **Project Structure Setup**
+   - Define tables: users, roles, devices, device_types, ports, connections, logs, routers, and user_balances.
+   - Provide a normalized schema design with foreign key relationships.
+
+2. **Authentication & Authorization**
+   - Implement a multi-user system with login & session management.
+   - Roles: Admin and User.
+   - Admin can manage users, roles, and routers.
+   - Users can only manage devices according to their balance.
+
+3. **User & Balance Management**
+   - CRUD operations for users (Admin only).
+   - Each user has a balance.
+   - Subscription model: Rp.250 per device/month.
+   - Automatically deduct balance monthly based on device addition date.
+   - Prevent device addition if balance is insufficient.
+
+4. **Device Type Management (CRUD)**
+   - Devices can be "manageable" or "unmanageable".
+   - If manageable, assign IP addresses per port.
+
+5. **Device Management (CRUD)**
+   - Add devices with port count and name.
+   - Assign IP addresses to each port if the device is manageable.
+   - Add devices by clicking on a map (coordinates) → pop-up form appears.
+
+6. **Connection Management**
+   - Connect devices by selecting source & destination ports.
+   - Assign IP addresses to connections.
+   - Move connections to other available ports.
+   - Remove connections.
+
+7. **Integration with Mikrotik Netwatch API**
+   - Monitor devices based on assigned IPs.
+   - Retrieve UP/DOWN status.
+   - Log device status changes.
+
+8. **Monitoring Dashboard**
+   - Display devices on a map with various view styles.
+   - Use different icon colors for UP/DOWN status.
+   - Show device status change history logs.
+
+9. **Remote Device Access**
+   - Add a "Remote" button for each device.
+   - Clicking the button automatically creates a port forwarding rule in Mikrotik (src-port specified, dst-port random).
+   - Add/remove port forwarding rules.
+
+10. **Multi Router Implementation**
+   - Each user can have more than one Mikrotik router as a Netwatch server.
+   - Save router assignments per user.
+
+11. **Interactive Map**
+   - Visualize all devices and connections.
+   - Support various map display styles.
+
+12. **Logging & Audit Trail**
+   - Save UP/DOWN history for each device.
+   - Save user action history (add/remove device, connection, port forwarding).
+
+13. **Security & Best Practices**
+   - Validate all API requests.
+   - Protect the application from SQL Injection, XSS, CSRF.
+   - Use secure authentication for Mikrotik API.
 ```
 
 </details>
