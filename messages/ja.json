@@ -422,7 +422,14 @@
     "subscribers": "人の購読者",
     "promptCount": "{count}件のプロンプト",
     "subscriberCount": "{count}人の購読者",
-    "confirmDelete": "このカテゴリーを削除してもよろしいですか？"
+    "confirmDelete": "このカテゴリーを削除してもよろしいですか？",
+    "searchPlaceholder": "プロンプトを検索...",
+    "sort": {
+      "newest": "新しい順",
+      "oldest": "古い順",
+      "most_upvoted": "投票数順",
+      "most_contributors": "貢献者数順"
+    }
   },
   "tags": {
     "title": "タグ",
@@ -451,7 +458,13 @@
     "themeSystem": "システム",
     "saveSuccess": "設定を保存しました",
     "avatar": "アバター",
-    "changeAvatar": "アバターを変更"
+    "changeAvatar": "アバターを変更",
+    "getVerifiedTitle": "認証を取得",
+    "getVerifiedDescription": "コミュニティをサポートして、名前の横に認証バッジを取得しましょう。あなたの名前はサポーターの名誉の壁に表示され、さらにプレミアム機能も近日公開。",
+    "getVerifiedButton": "認証バッジを取得",
+    "verifiedBadgePrice": "月額$9.99",
+    "verifiedTitle": "認証済みサポーター",
+    "verifiedThankYou": "コミュニティをサポートしていただきありがとうございます！あなたの貢献はこのプロジェクトの維持に役立っています。"
   },
   "admin": {
     "title": "管理ダッシュボード",
@@ -777,7 +790,8 @@
     "createForToday": "今日用に作成",
     "likes": "いいね",
     "noLikes": "いいねしたプロンプトはまだありません",
-    "noLikesOwner": "まだプロンプトにいいねしていません"
+    "noLikesOwner": "まだプロンプトにいいねしていません",
+    "getVerified": "認証を取得"
   },
   "subscription": {
     "subscribe": "購読",
@@ -846,9 +860,13 @@
     "heroDescription": "コミュニティからプロンプトを共有、発見、収集。無料でオープンソース — 完全なプライバシーで組織向けにセルフホスト。",
     "heroFeature1": "無料 & オープンソース",
     "heroFeature2": "プライバシーのためセルフホスト",
-    "heroFeature3": "チーム & 組織向け",
+    "heroFeature3": "チーム＆組織向け",
+    "clients": "クライアント",
+    "commandLine": "コマンドライン",
+    "extension": "拡張機能",
     "setupPrivateServer": "プライベートサーバーを構築",
     "beStargazer": "GitHubで{count}番目のスターになる",
+    "ourHistory": "私たちの歴史について詳しく見る",
     "browsePrompts": "プロンプトを見る",
     "viewFeed": "フィードを見る",
     "readyToStart": "始める準備はできましたか？",
@@ -1033,6 +1051,7 @@
     "howTo": "使い方",
     "docs": "ドキュメント",
     "api": "API",
+    "about": "概要",
     "privacy": "プライバシー",
     "terms": "利用規約",
     "support": "サポート"
@@ -1247,5 +1266,51 @@
     "messageShort": "Appleデバイス用アプリを入手",
     "download": "ダウンロード",
     "dismiss": "閉じる"
+  },
+  "about": {
+    "title": "prompts.chatについて",
+    "description": "ChatGPT発表から2週間後に作られた、初のAIプロンプトライブラリの物語。",
+    "releasedOn": "2022年12月5日",
+    "storyTitle": "私たちの物語",
+    "goalTitle": "私たちの目標",
+    "storyDescription": "シンプルなアイデアが世界で最もスターを集めたプロンプトリポジトリになるまで。",
+    "story1Rich": "prompts.chatは<repoLink>Awesome ChatGPT Prompts</repoLink>リポジトリのウェブ版です。ChatGPTの初期バージョンに履歴機能がなかった頃、<authorLink>@f</authorLink>がプロンプトを整理するために始めた個人プロジェクトでした。",
+    "story2": "Awesome ChatGPT Promptsリポジトリは2022年12月5日、ChatGPTが世界に発表されてからわずか2週間後に作成されました。シンプルな解決策として始まったものが、数百万のAI愛好家のための主要なリソースとなりました。",
+    "testimonialsRich": "AIパイオニアから愛されています。OpenAI共同創設者の<gregLink>Greg Brockman</gregLink>と<wojciechLink>Wojciech Zaremba</wojciechLink>も含まれます。",
+    "openSource": "初日から完全に無料でオープンソース。",
+    "goal1Rich": "私たちは共有の力を信じています。私たちの使命は、<bold>数百万人が共有するAIコンテキストエンジニアリング技術</bold>をコミュニティからすべての人に届けることです。",
+    "goal2Rich": "ここで共有されるすべてのプロンプト、すべての技術、すべての洞察は人類のものです。だからこそ<licenseLink>CC0（パブリックドメイン）</licenseLink>ライセンスを選びました：制限なし、帰属不要。純粋な知識をすべての人に。",
+    "goal3": "AIを学ぶ学生、次のブレークスルーを構築する開発者、または何が可能かに興味がある方：これはあなたのライブラリです。使って、共有して、その上に構築してください。",
+    "achievementsTitle": "実績",
+    "pressCategoryTitle": "メディア掲載",
+    "academicCategoryTitle": "学術的認知",
+    "communityCategoryTitle": "コミュニティ & GitHub",
+    "featuredForbes": "<link>Forbes</link>で紹介",
+    "referencedHarvard": "<link>ハーバード大学</link>で参照",
+    "referencedColumbia": "<link>コロンビア大学</link>で参照",
+    "referencedOlympic": "<link>Olympic College</link>で参照",
+    "citedArxiv": "<link>arXiv研究論文</link>で引用",
+    "githubStars": "<link>141k+ GitHubスター</link>、最も星の多いプロンプトリポジトリ",
+    "githubStaffPick": "<link>GitHub Staff Pick</link>に選出",
+    "huggingFace": "<link>Hugging Face</link>で最も人気のデータセット",
+    "usedByDevelopers": "世界中の何千人もの開発者に利用されています",
+    "supportUsTitle": "サポートする",
+    "supportUsIntro": "私たちはこれを非商用のCC-0プロジェクトとして開発し、見返りは求めていません。素晴らしいスポンサーのおかげで運営を続けてこられました。この製品の開発を続けるため、サポートをご検討ください。",
+    "githubSponsorsTitle": "GitHub Sponsors",
+    "githubSponsorsDescription": "月額$800のGitHubスポンサーになり、ホームページにロゴを掲載。",
+    "becomeSponsor": "スポンサーになる",
+    "supportersTitle": "サポーターウォール",
+    "supportersDescription": "月額$9.99でコミュニティを支援し、ウォールにお名前を掲載。いつでもキャンセル可能。",
+    "supportNow": "今すぐサポート",
+    "techStackTitle": "技術スタックの進化",
+    "coreContributorsTitle": "コアコントリビューター",
+    "designCreditsTitle": "デザイン",
+    "ideationTitle": "アイデア",
+    "communityContributorsTitle": "コミュニティコントリビューター",
+    "viewAllContributors": "すべてのコントリビューターを見る",
+    "supportersWallTitle": "サポーターの壁",
+    "supportersWallDescription": "このプロジェクトの維持に貢献してくださっている素晴らしいサポーターの皆様。サポーターはプロフィールに認証バッジが付与されます。",
+    "verifiedBadgeNote": "認証バッジを取得",
+    "noSupportersYet": "最初のサポーターになって認証バッジを取得しましょう！"
   }
 }

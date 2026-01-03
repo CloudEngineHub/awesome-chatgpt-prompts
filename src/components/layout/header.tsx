@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
@@ -18,6 +18,7 @@ import {
   Sun,
   Copy,
   ExternalLink,
+  Chromium,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -44,6 +45,7 @@ import { NotificationBell } from "@/components/layout/notification-bell";
 import { setLocale } from "@/lib/i18n/client";
 import { useBranding } from "@/components/providers/branding-provider";
 import { analyticsAuth, analyticsSettings } from "@/lib/analytics";
+import { isChromeBrowser } from "@/lib/utils";
 
 const languages = [
   { code: "en", name: "English" },
@@ -81,6 +83,11 @@ export function Header({ authProvider = "credentials", allowRegistration = true 
   const user = session?.user;
   const isAdmin = user?.role === "ADMIN";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isChromeBased, setIsChromeBased] = useState(false);
+
+  useEffect(() => {
+    setIsChromeBased(isChromeBrowser());
+  }, []);
 
   const handleCopyLogoSvg = async () => {
     try {
@@ -287,7 +294,7 @@ export function Header({ authProvider = "credentials", allowRegistration = true 
           </Link>
           <Link
             href="/builder"
-            className="px-3 py-1.5 rounded-md text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
+            className="hidden lg:block px-3 py-1.5 rounded-md text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
           >
             {t("nav.ide")}
           </Link>
@@ -310,6 +317,24 @@ export function Header({ authProvider = "credentials", allowRegistration = true 
 
           {/* Notifications */}
           {user && <NotificationBell />}
+
+          {isChromeBased && branding.chromeExtensionUrl && (
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              asChild
+            >
+              <a
+                href={branding.chromeExtensionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Chromium className="h-4 w-4" />
+                <span className="sr-only">Get Chrome Extension</span>
+              </a>
+            </Button>
+          )}
 
           {/* Theme toggle */}
           <Button

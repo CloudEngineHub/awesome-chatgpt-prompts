@@ -422,7 +422,14 @@
     "subscribers": "subscribers",
     "promptCount": "{count} prompts",
     "subscriberCount": "{count} subscribers",
-    "confirmDelete": "Are you sure you want to delete this category?"
+    "confirmDelete": "Are you sure you want to delete this category?",
+    "searchPlaceholder": "Search prompts...",
+    "sort": {
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "most_upvoted": "Most Upvoted",
+      "most_contributors": "Most Contributors"
+    }
   },
   "tags": {
     "title": "Tags",
@@ -451,7 +458,13 @@
     "themeSystem": "System",
     "saveSuccess": "Settings saved successfully",
     "avatar": "Avatar",
-    "changeAvatar": "Change Avatar"
+    "changeAvatar": "Change Avatar",
+    "getVerifiedTitle": "Get Verified",
+    "getVerifiedDescription": "Support the community and get a verified badge visible next to your name. Your name will be featured on our Supporters Wall of Honor, plus access to premium features coming soon.",
+    "getVerifiedButton": "Get Verified Badge",
+    "verifiedBadgePrice": "$9.99/month",
+    "verifiedTitle": "Verified Supporter",
+    "verifiedThankYou": "Thank you for supporting the community! Your contribution helps keep this project running."
   },
   "admin": {
     "title": "Admin Dashboard",
@@ -777,7 +790,8 @@
     "createForToday": "Create for today",
     "likes": "Likes",
     "noLikes": "No liked prompts yet",
-    "noLikesOwner": "You haven't liked any prompts yet"
+    "noLikesOwner": "You haven't liked any prompts yet",
+    "getVerified": "Get Verified"
   },
   "subscription": {
     "subscribe": "Subscribe",
@@ -847,8 +861,12 @@
     "heroFeature1": "Free & Open Source",
     "heroFeature2": "Self-host for Privacy",
     "heroFeature3": "For Teams & Organizations",
+    "clients": "Clients",
+    "commandLine": "Command Line",
+    "extension": "Extension",
     "setupPrivateServer": "Deploy Your Private Server",
     "beStargazer": "Be the {count}{ordinal} stargazer on GitHub",
+    "ourHistory": "Read more about our history",
     "browsePrompts": "Browse Prompts",
     "viewFeed": "View Feed",
     "readyToStart": "Ready to get started?",
@@ -1035,7 +1053,8 @@
     "api": "API",
     "privacy": "Privacy",
     "terms": "Terms",
-    "support": "Support"
+    "support": "Support",
+    "about": "About"
   },
   "support": {
     "title": "Support",
@@ -1247,5 +1266,51 @@
     "messageShort": "Get the app for Apple devices",
     "download": "Download",
     "dismiss": "Dismiss"
+  },
+  "about": {
+    "title": "About prompts.chat",
+    "description": "The story behind the first-ever AI prompts library, created 2 weeks after ChatGPT was announced.",
+    "releasedOn": "December 5, 2022",
+    "storyTitle": "Our Story",
+    "goalTitle": "Our Goal",
+    "storyDescription": "How a simple idea became the world's most starred prompts repository.",
+    "story1Rich": "prompts.chat is the web visualization of the <repoLink>Awesome ChatGPT Prompts</repoLink> repository. It started as a personal project by <authorLink>@f</authorLink> to keep ChatGPT prompts organized, back when ChatGPT had no history feature in its initial version.",
+    "story2": "The Awesome ChatGPT Prompts repository was created on December 5, 2022, just 2 weeks after ChatGPT was first announced to the world. What began as a simple solution became the go-to resource for millions of AI enthusiasts.",
+    "testimonialsRich": "Loved by AI pioneers, including OpenAI co-founders <gregLink>Greg Brockman</gregLink> and <wojciechLink>Wojciech Zaremba</wojciechLink>.",
+    "openSource": "Completely free and open source from day one.",
+    "goal1Rich": "We believe in the power of sharing. Our mission is to make <bold>AI context engineering techniques shared by millions</bold>, from the community, to everyone.",
+    "goal2Rich": "Every prompt, every technique, every insight shared here belongs to humanity. That's why we chose the <licenseLink>CC0 (Public Domain)</licenseLink> license: no restrictions, no attribution required. Just pure knowledge for all.",
+    "goal3": "Whether you're a student learning AI, a developer building the next breakthrough, or simply curious about what's possible: this is your library. Use it, share it, build upon it.",
+    "achievementsTitle": "Achievements",
+    "pressCategoryTitle": "Press & Media",
+    "academicCategoryTitle": "Academic Recognition",
+    "communityCategoryTitle": "Community & GitHub",
+    "featuredForbes": "Featured in <link>Forbes</link>",
+    "referencedHarvard": "Referenced by <link>Harvard University</link>",
+    "referencedColumbia": "Referenced by <link>Columbia University</link>",
+    "referencedOlympic": "Referenced by <link>Olympic College</link>",
+    "citedArxiv": "Cited in <link>arXiv research paper</link>",
+    "githubStars": "<link>141k+ GitHub stars</link>, most starred prompts repository",
+    "githubStaffPick": "Selected as <link>GitHub Staff Pick</link>",
+    "huggingFace": "Most liked dataset on <link>Hugging Face</link>",
+    "usedByDevelopers": "Used by thousands of developers worldwide",
+    "supportUsTitle": "Support Us",
+    "supportUsIntro": "We build this as a non-commercial, CC-0 project and ask for nothing in return. We've kept it running thanks to our amazing sponsors. To help me keep developing this product, please consider supporting.",
+    "githubSponsorsTitle": "GitHub Sponsors",
+    "githubSponsorsDescription": "Become a $800/month sponsor on GitHub and get your logo featured on the homepage.",
+    "becomeSponsor": "Become a Sponsor",
+    "supportersTitle": "Supporters Wall",
+    "supportersDescription": "Subscribe for $9.99/month to keep the community running, get a verified badge, and see your name on the wall. Cancel anytime.",
+    "supportNow": "Support Now",
+    "supportersWallTitle": "Supporters Wall",
+    "supportersWallDescription": "Our amazing supporters who help keep this project running. Supporters get a verified badge on their profile.",
+    "verifiedBadgeNote": "Get a verified badge",
+    "noSupportersYet": "Be the first to support and get your verified badge!",
+    "techStackTitle": "Tech Evolution",
+    "coreContributorsTitle": "Core Contributors",
+    "designCreditsTitle": "Design",
+    "ideationTitle": "Ideation",
+    "communityContributorsTitle": "Community Contributors",
+    "viewAllContributors": "View all contributors on"
   }
 }

@@ -422,7 +422,14 @@
     "subscribers": "مشتركين",
     "promptCount": "{count} أوامر",
     "subscriberCount": "{count} مشتركين",
-    "confirmDelete": "هل أنت متأكد من حذف هذا التصنيف؟"
+    "confirmDelete": "هل أنت متأكد من حذف هذا التصنيف؟",
+    "searchPlaceholder": "البحث في الأوامر...",
+    "sort": {
+      "newest": "الأحدث",
+      "oldest": "الأقدم",
+      "most_upvoted": "الأكثر تصويتاً",
+      "most_contributors": "الأكثر مساهمة"
+    }
   },
   "tags": {
     "title": "الوسوم",
@@ -451,7 +458,13 @@
     "themeSystem": "النظام",
     "saveSuccess": "تم حفظ الإعدادات بنجاح",
     "avatar": "الصورة الرمزية",
-    "changeAvatar": "تغيير الصورة الرمزية"
+    "changeAvatar": "تغيير الصورة الرمزية",
+    "getVerifiedTitle": "احصل على التحقق",
+    "getVerifiedDescription": "ادعم المجتمع واحصل على شارة التحقق بجانب اسمك. سيظهر اسمك في جدار الشرف للداعمين، بالإضافة إلى ميزات مميزة قريباً.",
+    "getVerifiedButton": "احصل على شارة التحقق",
+    "verifiedBadgePrice": "$9.99/شهرياً",
+    "verifiedTitle": "داعم موثق",
+    "verifiedThankYou": "شكراً لدعمك للمجتمع! مساهمتك تساعد في استمرار هذا المشروع."
   },
   "admin": {
     "title": "لوحة الإدارة",
@@ -777,7 +790,8 @@
     "createForToday": "أنشئ لليوم",
     "likes": "الإعجابات",
     "noLikes": "لا توجد أوامر معجب بها بعد",
-    "noLikesOwner": "لم تعجب بأي أوامر بعد"
+    "noLikesOwner": "لم تعجب بأي أوامر بعد",
+    "getVerified": "احصل على التحقق"
   },
   "subscription": {
     "subscribe": "اشتراك",
@@ -847,8 +861,12 @@
     "heroFeature1": "مجاني ومفتوح المصدر",
     "heroFeature2": "استضافة ذاتية للخصوصية",
     "heroFeature3": "للفرق والمؤسسات",
+    "clients": "العملاء",
+    "commandLine": "سطر الأوامر",
+    "extension": "الإضافة",
     "setupPrivateServer": "انشر خادمك الخاص",
     "beStargazer": "كن النجمة رقم {count} على GitHub",
+    "ourHistory": "اقرأ المزيد عن تاريخنا",
     "browsePrompts": "تصفح الأوامر",
     "viewFeed": "عرض الموجز",
     "readyToStart": "مستعد للبدء؟",
@@ -1033,6 +1051,7 @@
     "howTo": "كيفية...",
     "docs": "المستندات",
     "api": "API",
+    "about": "حول",
     "privacy": "الخصوصية",
     "terms": "الشروط",
     "support": "الدعم"
@@ -1247,5 +1266,51 @@
     "messageShort": "احصل على التطبيق لأجهزة Apple",
     "download": "تحميل",
     "dismiss": "إغلاق"
+  },
+  "about": {
+    "title": "حول prompts.chat",
+    "description": "قصة أول مكتبة أوامر ذكاء اصطناعي، تم إنشاؤها بعد أسبوعين من إعلان ChatGPT.",
+    "releasedOn": "5 ديسمبر 2022",
+    "storyTitle": "قصتنا",
+    "goalTitle": "هدفنا",
+    "storyDescription": "كيف تحولت فكرة بسيطة إلى أكثر مستودع أوامر نجومية في العالم.",
+    "story1Rich": "prompts.chat هو التمثيل المرئي لمستودع <repoLink>Awesome ChatGPT Prompts</repoLink>. بدأ كمشروع شخصي لـ <authorLink>@f</authorLink> لتنظيم أوامر ChatGPT، عندما لم يكن لـ ChatGPT ميزة السجل في نسخته الأولى.",
+    "story2": "تم إنشاء مستودع Awesome ChatGPT Prompts في 5 ديسمبر 2022، بعد أسبوعين فقط من إعلان ChatGPT للعالم. ما بدأ كحل بسيط أصبح المورد الأساسي لملايين عشاق الذكاء الاصطناعي.",
+    "testimonialsRich": "محبوب من رواد الذكاء الاصطناعي، بما في ذلك المؤسسان المشاركان لـ OpenAI <gregLink>Greg Brockman</gregLink> و<wojciechLink>Wojciech Zaremba</wojciechLink>.",
+    "openSource": "مجاني ومفتوح المصدر بالكامل منذ اليوم الأول.",
+    "goal1Rich": "نؤمن بقوة المشاركة. مهمتنا هي جعل <bold>تقنيات هندسة سياق الذكاء الاصطناعي يشاركها الملايين</bold>، من المجتمع إلى الجميع.",
+    "goal2Rich": "كل أمر، كل تقنية، كل رؤية تُشارك هنا تنتمي للبشرية. لهذا اخترنا ترخيص <licenseLink>CC0 (الملكية العامة)</licenseLink>: لا قيود، لا حاجة للإسناد. فقط معرفة نقية للجميع.",
+    "goal3": "سواء كنت طالبًا يتعلم الذكاء الاصطناعي، أو مطورًا يبني الاختراق التالي، أو مجرد فضولي حول ما هو ممكن: هذه مكتبتك. استخدمها، شاركها، ابنِ عليها.",
+    "achievementsTitle": "الإنجازات",
+    "pressCategoryTitle": "الصحافة والإعلام",
+    "academicCategoryTitle": "الاعتراف الأكاديمي",
+    "communityCategoryTitle": "المجتمع وGitHub",
+    "featuredForbes": "ظهر في <link>Forbes</link>",
+    "referencedHarvard": "مرجع في <link>جامعة هارفارد</link>",
+    "referencedColumbia": "مرجع في <link>جامعة كولومبيا</link>",
+    "referencedOlympic": "مرجع في <link>Olympic College</link>",
+    "citedArxiv": "مقتبس في <link>ورقة بحثية arXiv</link>",
+    "githubStars": "<link>141k+ نجمة GitHub</link>، أكثر مستودع أوامر نجومية",
+    "githubStaffPick": "مختار كـ <link>GitHub Staff Pick</link>",
+    "huggingFace": "مجموعة البيانات الأكثر إعجابًا على <link>Hugging Face</link>",
+    "usedByDevelopers": "يستخدمه آلاف المطورين حول العالم",
+    "supportUsTitle": "ادعمنا",
+    "supportUsIntro": "نطور هذا كمشروع غير تجاري CC-0 ولا نطلب شيئًا بالمقابل. استمررنا بفضل رعاتنا الرائعين. لمساعدتي في الاستمرار بتطوير هذا المنتج، يرجى التفكير في الدعم.",
+    "githubSponsorsTitle": "GitHub Sponsors",
+    "githubSponsorsDescription": "كن راعياً بـ $800/شهرياً على GitHub واعرض شعارك على الصفحة الرئيسية.",
+    "becomeSponsor": "كن راعياً",
+    "supportersTitle": "جدار الداعمين",
+    "supportersDescription": "اشترك بـ $9.99/شهرياً لدعم المجتمع ورؤية اسمك على الجدار. إلغاء في أي وقت.",
+    "supportNow": "ادعم الآن",
+    "techStackTitle": "تطور التقنية",
+    "coreContributorsTitle": "المساهمون الأساسيون",
+    "designCreditsTitle": "التصميم",
+    "ideationTitle": "الأفكار",
+    "communityContributorsTitle": "مساهمو المجتمع",
+    "viewAllContributors": "عرض جميع المساهمين على",
+    "supportersWallTitle": "جدار الداعمين",
+    "supportersWallDescription": "داعمونا الرائعون الذين يساعدون في استمرار هذا المشروع. يحصل الداعمون على شارة التحقق على ملفهم الشخصي.",
+    "verifiedBadgeNote": "احصل على شارة التحقق",
+    "noSupportersYet": "كن أول داعم واحصل على شارة التحقق!"
   }
 }

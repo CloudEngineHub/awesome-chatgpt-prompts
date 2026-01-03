@@ -4,6 +4,8 @@ export interface BrandingConfig {
   logoDark?: string;
   favicon: string;
   description: string;
+  appStoreUrl?: string;
+  chromeExtensionUrl?: string;
 }
 
 export interface ThemeConfig {

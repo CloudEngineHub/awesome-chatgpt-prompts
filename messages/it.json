@@ -422,7 +422,14 @@
     "subscribers": "iscritti",
     "promptCount": "{count} prompt",
     "subscriberCount": "{count} iscritti",
-    "confirmDelete": "Sei sicuro di voler eliminare questa categoria?"
+    "confirmDelete": "Sei sicuro di voler eliminare questa categoria?",
+    "searchPlaceholder": "Cerca prompt...",
+    "sort": {
+      "newest": "Più recenti",
+      "oldest": "Più vecchi",
+      "most_upvoted": "Più votati",
+      "most_contributors": "Più contributori"
+    }
   },
   "tags": {
     "title": "Tag",
@@ -451,7 +458,13 @@
     "themeSystem": "Sistema",
     "saveSuccess": "Impostazioni salvate con successo",
     "avatar": "Avatar",
-    "changeAvatar": "Cambia Avatar"
+    "changeAvatar": "Cambia Avatar",
+    "getVerifiedTitle": "Ottieni la Verifica",
+    "getVerifiedDescription": "Sostieni la community e ottieni un badge verificato accanto al tuo nome. Il tuo nome apparirà nel nostro Muro d'Onore dei Sostenitori, più accesso alle funzionalità premium in arrivo.",
+    "getVerifiedButton": "Ottieni Badge Verificato",
+    "verifiedBadgePrice": "$9.99/mese",
+    "verifiedTitle": "Sostenitore Verificato",
+    "verifiedThankYou": "Grazie per sostenere la community! Il tuo contributo aiuta a mantenere questo progetto."
   },
   "admin": {
     "title": "Dashboard Admin",
@@ -777,7 +790,8 @@
     "createForToday": "Crea per oggi",
     "likes": "Mi piace",
     "noLikes": "Nessun prompt piaciuto ancora",
-    "noLikesOwner": "Non hai ancora messo mi piace a nessun prompt"
+    "noLikesOwner": "Non hai ancora messo like a nessun prompt",
+    "getVerified": "Ottieni la Verifica"
   },
   "subscription": {
     "subscribe": "Iscriviti",
@@ -847,8 +861,12 @@
     "heroFeature1": "Gratuito & Open Source",
     "heroFeature2": "Self-host per la Privacy",
     "heroFeature3": "Per Team & Organizzazioni",
+    "clients": "Client",
+    "commandLine": "Riga di Comando",
+    "extension": "Estensione",
     "setupPrivateServer": "Distribuisci il Tuo Server",
     "beStargazer": "Sii il {count}° stargazer su GitHub",
+    "ourHistory": "Scopri di più sulla nostra storia",
     "browsePrompts": "Sfoglia Prompt",
     "viewFeed": "Vedi Feed",
     "readyToStart": "Pronto per iniziare?",
@@ -1033,6 +1051,7 @@
     "howTo": "Come funziona",
     "docs": "Documentazione",
     "api": "API",
+    "about": "Chi siamo",
     "privacy": "Privacy",
     "terms": "Termini",
     "support": "Supporto"
@@ -1247,5 +1266,51 @@
     "messageShort": "Scarica l'app per dispositivi Apple",
     "download": "Scarica",
     "dismiss": "Chiudi"
+  },
+  "about": {
+    "title": "Info su prompts.chat",
+    "description": "La storia della prima libreria di prompt AI, creata 2 settimane dopo l'annuncio di ChatGPT.",
+    "releasedOn": "5 dicembre 2022",
+    "storyTitle": "La Nostra Storia",
+    "goalTitle": "Il Nostro Obiettivo",
+    "storyDescription": "Come una semplice idea è diventata il repository di prompt più stellato al mondo.",
+    "story1Rich": "prompts.chat è la visualizzazione web del repository <repoLink>Awesome ChatGPT Prompts</repoLink>. È iniziato come progetto personale di <authorLink>@f</authorLink> per organizzare i prompt di ChatGPT, quando ChatGPT non aveva la funzione cronologia nella sua versione iniziale.",
+    "story2": "Il repository Awesome ChatGPT Prompts è stato creato il 5 dicembre 2022, solo 2 settimane dopo l'annuncio di ChatGPT al mondo. Quello che è iniziato come una semplice soluzione è diventato la risorsa principale per milioni di appassionati di IA.",
+    "testimonialsRich": "Amato dai pionieri dell'AI, inclusi i co-fondatori di OpenAI <gregLink>Greg Brockman</gregLink> e <wojciechLink>Wojciech Zaremba</wojciechLink>.",
+    "openSource": "Completamente gratuito e open source dal primo giorno.",
+    "goal1Rich": "Crediamo nel potere della condivisione. La nostra missione è rendere le <bold>tecniche di ingegneria del contesto AI condivise da milioni</bold>, dalla community a tutti.",
+    "goal2Rich": "Ogni prompt, ogni tecnica, ogni intuizione condivisa qui appartiene all'umanità. Ecco perché abbiamo scelto la licenza <licenseLink>CC0 (Pubblico Dominio)</licenseLink>: nessuna restrizione, nessuna attribuzione richiesta. Solo conoscenza pura per tutti.",
+    "goal3": "Che tu sia uno studente che impara l'IA, uno sviluppatore che costruisce la prossima svolta, o semplicemente curioso di cosa è possibile: questa è la tua libreria. Usala, condividila, costruisci su di essa.",
+    "achievementsTitle": "Traguardi",
+    "pressCategoryTitle": "Stampa & Media",
+    "academicCategoryTitle": "Riconoscimento Accademico",
+    "communityCategoryTitle": "Community & GitHub",
+    "featuredForbes": "Presentato su <link>Forbes</link>",
+    "referencedHarvard": "Citato da <link>Harvard University</link>",
+    "referencedColumbia": "Citato da <link>Columbia University</link>",
+    "referencedOlympic": "Citato da <link>Olympic College</link>",
+    "citedArxiv": "Citato in <link>articolo di ricerca arXiv</link>",
+    "githubStars": "<link>141k+ stelle GitHub</link>, repository di prompt più stellato",
+    "githubStaffPick": "Selezionato come <link>GitHub Staff Pick</link>",
+    "huggingFace": "Dataset più apprezzato su <link>Hugging Face</link>",
+    "usedByDevelopers": "Usato da migliaia di sviluppatori in tutto il mondo",
+    "supportUsTitle": "Supportaci",
+    "supportUsIntro": "Sviluppiamo questo come progetto non commerciale, CC-0, e non chiediamo nulla in cambio. Siamo andati avanti grazie ai nostri fantastici sponsor. Per aiutarmi a continuare a sviluppare questo prodotto, considera di supportarci.",
+    "githubSponsorsTitle": "GitHub Sponsors",
+    "githubSponsorsDescription": "Diventa sponsor a $800/mese su GitHub e mostra il tuo logo sulla homepage.",
+    "becomeSponsor": "Diventa Sponsor",
+    "supportersTitle": "Muro dei Sostenitori",
+    "supportersDescription": "Abbonati a $9,99/mese per sostenere la community e vedere il tuo nome sul muro. Cancella quando vuoi.",
+    "supportNow": "Supporta Ora",
+    "techStackTitle": "Evoluzione Tecnologica",
+    "coreContributorsTitle": "Contributori Principali",
+    "designCreditsTitle": "Design",
+    "ideationTitle": "Ideazione",
+    "communityContributorsTitle": "Contributori della Community",
+    "viewAllContributors": "Vedi tutti i contributori su",
+    "supportersWallTitle": "Muro dei Sostenitori",
+    "supportersWallDescription": "I nostri fantastici sostenitori che aiutano a mantenere questo progetto. I sostenitori ricevono un badge verificato sul loro profilo.",
+    "verifiedBadgeNote": "Ottieni un badge verificato",
+    "noSupportersYet": "Sii il primo a sostenere e ottieni il tuo badge verificato!"
   }
 }
