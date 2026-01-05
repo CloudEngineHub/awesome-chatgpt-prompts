@@ -19,6 +19,7 @@ import {
   Copy,
   ExternalLink,
   Chromium,
+  Hammer,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -141,13 +142,22 @@ export function Header({ authProvider = "credentials", allowRegistration = true 
               <nav className="flex-1 p-4">
                 <div className="space-y-1">
                   {user && (
-                    <Link 
-                      href="/feed" 
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                    >
-                      {t("nav.feed")}
-                    </Link>
+                    <>
+                      <Link 
+                        href="/collection" 
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                      >
+                        {t("nav.collection")}
+                      </Link>
+                      <Link 
+                        href="/feed" 
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                      >
+                        {t("nav.feed")}
+                      </Link>
+                    </>
                   )}
                   <Link 
                     href="/prompts" 
@@ -261,12 +271,20 @@ export function Header({ authProvider = "credentials", allowRegistration = true 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1 text-sm">
           {user && (
-            <Link
-              href="/feed"
-              className="px-3 py-1.5 rounded-md text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
-            >
-              {t("nav.feed")}
-            </Link>
+            <>
+              <Link
+                href="/collection"
+                className="px-3 py-1.5 rounded-md text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
+              >
+                {t("nav.collection")}
+              </Link>
+              <Link
+                href="/feed"
+                className="px-3 py-1.5 rounded-md text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
+              >
+                {t("nav.feed")}
+              </Link>
+            </>
           )}
           <Link
             href="/prompts"
@@ -292,12 +310,6 @@ export function Header({ authProvider = "credentials", allowRegistration = true 
           >
             {t("nav.promptmasters")}
           </Link>
-          <Link
-            href="/developers"
-            className="hidden lg:block px-3 py-1.5 rounded-md text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
-          >
-            {t("nav.developers")}
-          </Link>
         </nav>
 
         {/* Spacer */}
@@ -305,6 +317,14 @@ export function Header({ authProvider = "credentials", allowRegistration = true 
 
         {/* Right side actions */}
         <div className="flex items-center gap-1">
+          {/* Developers link */}
+          <Button asChild variant="ghost" size="icon" className="hidden lg:flex h-8 w-8">
+            <Link href="/developers" title={t("nav.developers")}>
+              <Hammer className="h-4 w-4" />
+              <span className="sr-only">{t("nav.developers")}</span>
+            </Link>
+          </Button>
+
           {/* Create prompt button */}
           {user && (
             <Button asChild variant="ghost" size="icon" className="h-8 w-8">
