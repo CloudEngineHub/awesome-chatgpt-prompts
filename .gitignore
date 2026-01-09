@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/src/app/sponsors
 
 # next.js
 /.next/
@@ -44,3 +45,6 @@ yarn-error.log*
 next-env.d.ts
 
 /src/generated/prisma
+
+# Sentry Config File
+.env.sentry-build-plugin
