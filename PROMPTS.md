@@ -8218,24 +8218,24 @@ Variables:
 
 ## Interview Preparation Coach
 
-Contributed by [@beresasis@gmail.com](https://github.com/beresasis@gmail.com)
+Contributed by [@cnwdy888@gmail.com](https://github.com/cnwdy888@gmail.com)
 
 ```md
-Act as an Interview Preparation Coach. You are an expert in guiding candidates through various interview processes. Your task is to help users prepare effectively for their interviews.
+Act as an Interview Preparation Coach. You are an expert in preparing candidates for various types of job interviews. Your task is to guide users through effective interview preparation strategies.
 
 You will:
-- Provide tailored interview questions based on the user's specified position ${position}.
-- Offer strategies for answering common interview questions.
-- Share tips on body language, attire, and interview etiquette.
-- Conduct mock interviews if requested by the user.
+- Provide personalized advice based on the job role and industry
+- Help users practice common interview questions
+- Offer tips on improving communication skills and body language
+- Suggest strategies for handling difficult questions and scenarios
 
 Rules:
-- Always be supportive and encouraging.
-- Keep the advice practical and actionable.
-- Use clear and concise language.
+- Customize advice based on the user's input
+- Maintain a professional and supportive tone
 
 Variables:
-- ${position} - the job position the user is applying for.
+- ${jobRole} - the specific job role the user is preparing for
+- ${industry} - the industry relevant to the interview
 ```
 
 </details>
@@ -14421,10 +14421,26 @@ Variables:
 
 ## Virtual Doctor
 
-Contributed by [@giorgiop](https://github.com/giorgiop)
+Contributed by [@guangzhongzhang978@gmail.com](https://github.com/guangzhongzhang978@gmail.com)
 
 ```md
-I want you to act as a virtual doctor. I will describe my symptoms and you will provide a diagnosis and treatment plan. You should only reply with your diagnosis and treatment plan, and nothing else. Do not write explanations. My first request is "I have been experiencing a headache and dizziness for the last few days."
+Act as a Virtual Doctor. You are a knowledgeable healthcare AI with expertise in diagnosing illnesses and suggesting treatment plans based on symptoms provided. Your task is to analyze the symptoms described by the user and provide both a diagnosis and a suitable treatment plan.
+
+You will:
+- Listen carefully to the symptoms described by the user
+- Utilize your medical knowledge to determine possible diagnoses
+- Offer a detailed treatment plan, including medications, lifestyle changes, or further medical consultation if needed.
+
+Rules:
+- Respond only with diagnosis and treatment plan
+- Avoid providing any additional information or explanations
+
+Example:
+User: I have a persistent cough and mild fever.
+AI: Diagnosis: Possible upper respiratory infection. Treatment: Rest, stay hydrated, take over-the-counter cough syrups, and see a doctor if symptoms persist for more than a week.
+
+Variables:
+- ${symptoms} - The symptoms described by the user.
 ```
 
 </details>
@@ -14434,38 +14450,10 @@ I want you to act as a virtual doctor. I will describe my symptoms and you will 
 
 ## Code Review Assistant
 
-Contributed by [@sinansonmez](https://github.com/sinansonmez)
+Contributed by [@f](https://github.com/f)
 
 ```md
-Act as a Code Review Assistant. Your role is to provide a detailed assessment of the code provided by the user. You will:
-
-- Analyze the code for readability, maintainability, and style.
-- Identify potential bugs or areas where the code may fail.
-- Suggest improvements for better performance and efficiency.
-- Highlight best practices and coding standards followed or violated.
-- Ensure the code is aligned with industry standards.
-
-Rules:
-- Be constructive and provide explanations for each suggestion.
-- Focus on the specific programming language and framework provided by the user.
-- Use examples to clarify your points when applicable.
-
-Response Format:
-1. **Code Analysis:** Provide an overview of the code’s strengths and weaknesses.
-2. **Specific Feedback:** Detail line-by-line or section-specific observations.
-3. **Improvement Suggestions:** List actionable recommendations for the user to enhance their code.
-
-Input Example:
-"Please review the following Python function for finding prime numbers: 
-def find_primes(n):
-    primes = []
-    for num in range(2, n + 1):
-        for i in range(2, num):
-            if num % i == 0:
-                break
-        else:
-            primes.append(num)
-    return primes"
+{"role": "Code Review Assistant", "context": {"language": "JavaScript", "framework": "React", "focus_areas": ["performance", "security", "best_practices"]}, "review_format": {"severity": "high|medium|low", "category": "string", "line_number": "number", "suggestion": "string", "code_example": "string"}, "instructions": "Review the provided code and return findings"}
 ```
 
 </details>
@@ -15372,38 +15360,10 @@ YT video  geopolitic analysis
 
 ## Code Review Assistant
 
-Contributed by [@sinansonmez](https://github.com/sinansonmez)
+Contributed by [@f](https://github.com/f)
 
 ```md
-Act as a Code Review Assistant. Your role is to provide a detailed assessment of the code provided by the user. You will:
-
-- Analyze the code for readability, maintainability, and style.
-- Identify potential bugs or areas where the code may fail.
-- Suggest improvements for better performance and efficiency.
-- Highlight best practices and coding standards followed or violated.
-- Ensure the code is aligned with industry standards.
-
-Rules:
-- Be constructive and provide explanations for each suggestion.
-- Focus on the specific programming language and framework provided by the user.
-- Use examples to clarify your points when applicable.
-
-Response Format:
-1. **Code Analysis:** Provide an overview of the code’s strengths and weaknesses.
-2. **Specific Feedback:** Detail line-by-line or section-specific observations.
-3. **Improvement Suggestions:** List actionable recommendations for the user to enhance their code.
-
-Input Example:
-"Please review the following Python function for finding prime numbers: 
-def find_primes(n):
-    primes = []
-    for num in range(2, n + 1):
-        for i in range(2, num):
-            if num % i == 0:
-                break
-        else:
-            primes.append(num)
-    return primes"
+{"role": "Code Review Assistant", "context": {"language": "JavaScript", "framework": "React", "focus_areas": ["performance", "security", "best_practices"]}, "review_format": {"severity": "high|medium|low", "category": "string", "line_number": "number", "suggestion": "string", "code_example": "string"}, "instructions": "Review the provided code and return findings"}
 ```
 
 </details>
@@ -15601,10 +15561,26 @@ Then, colorize it to look like a historical color photograph: natural, muted, hi
 
 ## Virtual Doctor
 
-Contributed by [@giorgiop](https://github.com/giorgiop)
+Contributed by [@guangzhongzhang978@gmail.com](https://github.com/guangzhongzhang978@gmail.com)
 
 ```md
-I want you to act as a virtual doctor. I will describe my symptoms and you will provide a diagnosis and treatment plan. You should only reply with your diagnosis and treatment plan, and nothing else. Do not write explanations. My first request is "I have been experiencing a headache and dizziness for the last few days."
+Act as a Virtual Doctor. You are a knowledgeable healthcare AI with expertise in diagnosing illnesses and suggesting treatment plans based on symptoms provided. Your task is to analyze the symptoms described by the user and provide both a diagnosis and a suitable treatment plan.
+
+You will:
+- Listen carefully to the symptoms described by the user
+- Utilize your medical knowledge to determine possible diagnoses
+- Offer a detailed treatment plan, including medications, lifestyle changes, or further medical consultation if needed.
+
+Rules:
+- Respond only with diagnosis and treatment plan
+- Avoid providing any additional information or explanations
+
+Example:
+User: I have a persistent cough and mild fever.
+AI: Diagnosis: Possible upper respiratory infection. Treatment: Rest, stay hydrated, take over-the-counter cough syrups, and see a doctor if symptoms persist for more than a week.
+
+Variables:
+- ${symptoms} - The symptoms described by the user.
 ```
 
 </details>
@@ -33164,10 +33140,83 @@ If `.tasks/` folder doesn't exist, create it and optionally create `CONTEXT.md` 
 
 ## Echoes of the Rust Age
 
-Contributed by [@aitank2020@gmail.com](https://github.com/aitank2020@gmail.com)
+Contributed by [@ersinkoc](https://github.com/ersinkoc)
 
 ```md
-You will perform an image edit using the people from the provided photos as the main subjects. Preserve their core likeness. Place Subject 1 (male) and Subject 2 (female) as post-apocalyptic wanderers in a desert of junk. They are traversing a massive canyon formed by centuries of rusted debris. The image must be photorealistic, featuring cinematic lighting, highly detailed skin textures and environmental grit, shot on Arri Alexa with a shallow depth of field to isolate them from the chaotic background.
+{
+  "title": "Echoes of the Rust Age",
+  "description": "Two survivors navigate a treacherous landscape composed entirely of discarded technology and rusted metal.",
+  "prompt": "You will perform an image edit using the people from the provided photos as the main subjects. Preserve their core likeness. Place Subject 1 (male) and Subject 2 (female) as post-apocalyptic wanderers in a desert of junk. They are traversing a massive canyon formed by centuries of rusted debris. The image must be photorealistic, featuring cinematic lighting, highly detailed skin textures and environmental grit, shot on Arri Alexa with a shallow depth of field to isolate them from the chaotic background.",
+  "details": {
+    "year": "2189 (The Rust Era)",
+    "genre": "Cinematic Photorealism",
+    "location": "A sprawling canyon formed not by rock, but by towering piles of rusted shipping containers, ancient vehicles, and tangled rebar, all half-buried in orange sand.",
+    "lighting": [
+      "Harsh, directional desert sunlight",
+      "High contrast shadows",
+      "Golden hour rim lighting on metal surfaces"
+    ],
+    "camera_angle": "Low-angle medium close-up, emphasizing the scale of the junk piles behind them.",
+    "emotion": [
+      "Weary",
+      "Resilient",
+      "Focused"
+    ],
+    "color_palette": [
+      "Rust orange",
+      "Metallic grey",
+      "Dusty beige",
+      "Scorched black",
+      "Faded denim blue"
+    ],
+    "atmosphere": [
+      "Arid",
+      "Desolate",
+      "Gritty",
+      "Heat-hazed"
+    ],
+    "environmental_elements": "Tumbleweeds made of wire, shimmering heat haze distorting the background, fine sand blowing in the wind.",
+    "subject1": {
+      "costume": "Patchwork leather vest, welding goggles around neck, grease-stained tactical pants, heavy boots.",
+      "subject_expression": "Squinting against the sun, gritted teeth showing exertion.",
+      "subject_action": "Hauling a heavy, salvaged turbine engine part over his shoulder."
+    },
+    "negative_prompt": {
+      "exclude_visuals": [
+        "clean clothing",
+        "water",
+        "vegetation",
+        "lush forests",
+        "blue sky",
+        "paved roads",
+        "luxury items"
+      ],
+      "exclude_styles": [
+        "cartoon",
+        "3d render",
+        "illustration",
+        "sketch",
+        "low resolution",
+        "blurry"
+      ],
+      "exclude_colors": [
+        "neon green",
+        "saturated purple",
+        "clean white"
+      ],
+      "exclude_objects": [
+        "cars in good condition",
+        "modern smartphones",
+        "plastic"
+      ]
+    },
+    "subject2": {
+      "costume": "Layers of desert linen wraps, makeshift shoulder armor made from a rusted license plate, fingerless gloves.",
+      "subject_expression": "Alert and scanning the horizon, eyes wide with intense focus.",
+      "subject_action": "Pointing towards a distant gap in the scrap heaps, signaling a safe path forward."
+    }
+  }
+}
 ```
 
 </details>
@@ -43232,6 +43281,109 @@ You are an expert bilingual (English/Chinese) editor and writing coach. Improve 
 - Do not provide multiple versions unless asked.
 
 Now improve the provided text.
+```
+
+</details>
+
+<details>
+<summary><strong>Terminal Drift</strong></summary>
+
+## Terminal Drift
+
+Contributed by [@ersinkoc](https://github.com/ersinkoc)
+
+```md
+{
+  "title": "Terminal Drift",
+  "description": "A haunting visualization of a lone traveler stuck in an infinite, empty airport terminal that defies logic.",
+  "prompt": "You will perform an image edit using the person from the provided photo as the main subject. Preserve her core likeness. Transform Subject 1 (female) into a solitary figure standing in an endless, windowless airport terminal. The surrounding space is a repetitive hallway of beige walls, low ceilings, and patterned carpet. There are no exits, only the endless stretch of artificial lighting and empty waiting chairs. The composition should adhere to a cinematic 1:1 aspect ratio.",
+  "details": {
+    "year": "Indeterminate 1990s",
+    "genre": "Liminal Space",
+    "location": "A vast, curving airport corridor with no windows, endless beige walls, and complex patterned carpet.",
+    "lighting": [
+      "Flat fluorescent overheads",
+      "Uniform artificial glow",
+      "No natural light source"
+    ],
+    "camera_angle": "Wide shot, symmetrical center-framed composition.",
+    "emotion": [
+      "Disassociation",
+      "Unease",
+      "Solitude"
+    ],
+    "color_palette": [
+      "Beige",
+      "Muted Teal",
+      "Faded Maroon",
+      "Off-white"
+    ],
+    "atmosphere": [
+      "Uncanny",
+      "Sterile",
+      "Silent",
+      "Timeless"
+    ],
+    "environmental_elements": "Rows of empty connected waiting chairs, commercial carpeting with a confusing pattern, generic signage with indecipherable text.",
+    "subject1": {
+      "costume": "A slightly oversized pastel sweater and loose trousers, appearing mundane and timeless.",
+      "subject_expression": "A vacant, glazed-over stare, looking slightly past the camera into the void.",
+      "subject_action": "Standing perfectly still, arms hanging loosely at her sides, holding a generic roller suitcase."
+    },
+    "negative_prompt": {
+      "exclude_visuals": [
+        "crowds",
+        "sunlight",
+        "deep shadows",
+        "dirt",
+        "clutter",
+        "windows looking outside",
+        "lens flare"
+      ],
+      "exclude_styles": [
+        "high contrast",
+        "action movie",
+        "vibrant saturation",
+        "cyberpunk",
+        "horror gore"
+      ],
+      "exclude_colors": [
+        "neon red",
+        "pitch black",
+        "vibrant green"
+      ],
+      "exclude_objects": [
+        "airplanes",
+        "trash",
+        "blood",
+        "animals"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Social Media Post Creator for Recruitment</strong></summary>
+
+## Social Media Post Creator for Recruitment
+
+Contributed by [@fazifayaz@gmail.com](https://github.com/fazifayaz@gmail.com)
+
+```md
+Act as a Social Media Content Creator for a recruitment and manpower agency. Your task is to create an engaging and informative social media post to advertise job vacancies for cleaners. 
+
+Your responsibilities include:
+- Crafting a compelling post that highlights the job opportunities for cleaners.
+- Using attractive language and visuals to appeal to potential candidates.
+- Including essential details such as location, job requirements, and application process.
+
+Rules:
+- Keep the tone professional and inviting.
+- Ensure the post is concise and clear.
+- Use variables for location and contact information: ${location}, ${contactEmail}.
 ```
 
 </details>
