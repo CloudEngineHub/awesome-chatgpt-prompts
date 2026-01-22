@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { ArrowRight, Star, Heart, Trophy, Users, HeartHandshake, Code, Lock, Building2, Github, GraduationCap, LogIn, Rocket, Quote, FileText, History } from "lucide-react";
+import { ArrowRight, Star, Heart, Trophy, Users, HeartHandshake, Code, Lock, Building2, Github, GraduationCap, LogIn, Rocket, Quote, History } from "lucide-react";
 import { auth } from "@/lib/auth";
 import { getConfig } from "@/lib/config";
 import { Button } from "@/components/ui/button";
@@ -292,9 +292,9 @@ export default async function HomePage() {
                     <GraduationCap className="h-4 w-4 text-[#003366]" />
                     <span>{tHomepage("achievements.referencedBy")} <strong>{tHomepage("achievements.olympicCollege")}</strong></span>
                   </Link>
-                  <Link href="https://arxiv.org/pdf/2502.04484" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-                    <FileText className="h-4 w-4 text-[#B31B1B]" />
-                    <span>{tHomepage("achievements.citedIn")} <strong>{tHomepage("achievements.arxivPaper")}</strong></span>
+                  <Link href="https://scholar.google.com/citations?user=AZ0Dg8YAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                    <GraduationCap className="h-4 w-4 text-[#4285F4]" />
+                    <span><strong>40+</strong> {tHomepage("achievements.academicCitations")}</span>
                   </Link>
                   <Link href="https://github.blog/changelog/2025-02-14-personal-custom-instructions-bing-web-search-and-more-in-copilot-on-github-com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
                     <Github className="h-4 w-4" />
@@ -335,7 +335,7 @@ export default async function HomePage() {
             {!useCloneBranding && (
               <div className="mt-6 pt-6 border-t">
                 <p className="text-center text-xs text-muted-foreground mb-6">{tHomepage("achievements.lovedByPioneers")}</p>
-                <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
                   {/* Greg Brockman */}
                   <Link
                     href="https://x.com/gdb/status/1602072566671110144"
@@ -384,6 +384,31 @@ export default async function HomePage() {
                         </div>
                       </div>
                       <p className="text-sm text-muted-foreground italic leading-relaxed">&ldquo;I love it! https://github.com/f/awesome-chatgpt-prompts&rdquo;</p>
+                    </div>
+                  </Link>
+                  {/* Clement Delangue */}
+                  <Link
+                    href="https://x.com/clementdelangue/status/1830976369389642059"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative p-5 rounded-lg border bg-muted/30 overflow-hidden hover:border-primary/50 transition-colors"
+                  >
+                    <Quote className="absolute top-3 right-3 h-16 w-16 text-muted-foreground/10 -rotate-12" />
+                    <div className="relative z-10 flex flex-col gap-3 h-full">
+                      <div className="flex items-center gap-3">
+                        <Image
+                          src="/sponsors/clem.png"
+                          alt="Clement Delangue"
+                          width={40}
+                          height={40}
+                          className="rounded-full"
+                        />
+                        <div>
+                          <p className="text-sm font-medium">Clement Delangue</p>
+                          <p className="text-xs text-muted-foreground">CEO at Hugging Face · Sep 3, 2024</p>
+                        </div>
+                      </div>
+                      <p className="text-sm text-muted-foreground italic leading-relaxed">&ldquo;Keep up the great work!&rdquo;</p>
                     </div>
                   </Link>
                   {/* Thomas Dohmke */}

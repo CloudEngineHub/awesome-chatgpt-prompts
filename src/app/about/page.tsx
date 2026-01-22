@@ -368,6 +368,15 @@ export default async function AboutPage() {
                   ),
                 })}
               </li>
+              <li>
+                {t.rich("featuredTagesspiegel", {
+                  link: (chunks) => (
+                    <Link href="https://www.linkedin.com/posts/fatihkadirakin_i-was-on-german-der-tagesspiegel-newspaper-activity-7061622588774432769-o6Bc/" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
+                      {chunks}
+                    </Link>
+                  ),
+                })}
+              </li>
             </ul>
           </div>
 
@@ -403,9 +412,9 @@ export default async function AboutPage() {
                 })}
               </li>
               <li>
-                {t.rich("citedArxiv", {
+                {t.rich("googleScholarCitations", {
                   link: (chunks) => (
-                    <Link href="https://arxiv.org/pdf/2502.04484" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
+                    <Link href="https://scholar.google.com/citations?user=AZ0Dg8YAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
                       {chunks}
                     </Link>
                   ),
