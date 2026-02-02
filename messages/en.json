@@ -909,7 +909,7 @@
   "homepage": {
     "heroTitle": "The Free Social Platform for",
     "heroSubtitle": "AI Prompts",
-    "heroDescription": "Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.",
+    "heroDescription": "Prompts are the foundation of all generative AI. Share, discover, and collect them from the community. Free and open source — self-host with complete privacy.",
     "heroFeature1": "Free & Open Source",
     "heroFeature2": "Self-host for Privacy",
     "heroFeature3": "For Teams & Organizations",
@@ -1745,6 +1745,7 @@
   },
   "book": {
     "title": "The Interactive Book of Prompting",
+    "donate": "Support the project",
     "subtitle": "An Interactive Guide to Crafting Clear and Effective Prompts",
     "metaTitle": "The Interactive Book of Prompting | Free Online Guide to AI Prompt Engineering",
     "metaDescription": "Master AI prompt engineering with this free, interactive guide. Learn ChatGPT prompts, chain-of-thought reasoning, few-shot learning, and advanced techniques. 25+ chapters with real examples.",
@@ -1895,7 +1896,7 @@
       "remaining": "remaining",
       "prompt": "Prompt",
       "response": "Response",
-      "yourPrompt": "Your Prompt",
+      "yourPrompt": "Your Prompt:",
       "aiResponse": "AI Response",
       "contextOverflow": "Context overflow!",
       "contextOverflowMessage": "Your prompt + response exceeds the context window. The model will truncate or fail. Try reducing your prompt length or requesting shorter responses.",
@@ -2026,19 +2027,76 @@
       "part": "Part",
       "demoExamples": {
         "tokenPrediction": {
-          "tokens": ["The", " capital", " of", " France", " is", " Paris", "."],
+          "tokens": [
+            "The",
+            " capital",
+            " of",
+            " France",
+            " is",
+            " Paris",
+            "."
+          ],
           "fullText": "The capital of France is Paris."
         },
         "tokenizer": {
-          "default": "Hello, world!",
+          "default": "example1",
           "samples": {
-            "Hello, world!": ["Hel", "lo", ",", " world", "!"],
-            "Unbelievable": ["Un", "believ", "able"],
-            "ChatGPT is amazing": ["Chat", "G", "PT", " is", " amazing"],
-            "The quick brown fox": ["The", " quick", " brown", " fox"],
-            "Prompt engineering": ["Prom", "pt", " engineering"]
+            "example1": {
+              "text": "Hello, world!",
+              "tokens": [
+                "Hel",
+                "lo",
+                ",",
+                " wor",
+                "ld",
+                "!"
+              ]
+            },
+            "example2": {
+              "text": "Washington D.C.",
+              "tokens": [
+                "Wash",
+                "ington",
+                " D",
+                ".",
+                "C",
+                "."
+              ]
+            },
+            "example3": {
+              "text": "Artificial Intelligence",
+              "tokens": [
+                "Art",
+                "ific",
+                "ial",
+                " Int",
+                "ell",
+                "igence"
+              ]
+            },
+            "example4": {
+              "text": "The Statue of Liberty",
+              "tokens": [
+                "The",
+                " Stat",
+                "ue",
+                " of",
+                " Lib",
+                "erty"
+              ]
+            },
+            "example5": {
+              "text": "Prompt engineering",
+              "tokens": [
+                "Prom",
+                "pt",
+                " eng",
+                "ine",
+                "ering"
+              ]
+            }
           },
-          "tryExamples": "Try: \"Unbelievable\", \"ChatGPT is amazing\" or type your own"
+          "tryExamples": "Try the examples or type your own text"
         },
         "temperature": {
           "prompt": "What is the capital of France?",
@@ -2065,11 +2123,23 @@
         },
         "fewShot": {
           "examples": [
-            { "input": "I love this product!", "output": "Positive" },
-            { "input": "Terrible experience, waste of money", "output": "Negative" },
-            { "input": "It's okay, nothing special", "output": "Neutral" }
+            {
+              "input": "I love this product!",
+              "output": "Positive"
+            },
+            {
+              "input": "Terrible experience, waste of money",
+              "output": "Negative"
+            },
+            {
+              "input": "It's okay, nothing special",
+              "output": "Neutral"
+            }
           ],
-          "testCase": { "input": "Great quality but slow shipping", "expected": "Mixed" },
+          "testCase": {
+            "input": "Great quality but slow shipping",
+            "expected": "Mixed"
+          },
           "labels": {
             "positive": "Positive",
             "negative": "Negative",
@@ -2083,7 +2153,6 @@
       "yourPromptWillBeScoredOn": "Your prompt will be scored on:",
       "startChallenge": "Start Challenge",
       "writeYourPromptHere": "Write your prompt here...",
-      "yourPrompt": "Your Prompt:",
       "points": "points",
       "hints": "Hints",
       "hintsUsed": "{used}/{total} used, each -5 points",
@@ -2174,5 +2243,30 @@
       "enableContextBlocksToBuild": "Enable some context blocks to build a prompt",
       "testContext": "Test Context"
     }
+  },
+  "userExamples": {
+    "addMyExample": "Add My Example",
+    "addExampleTitle": "Add Your Example",
+    "addExampleDescriptionImage": "Share an image you created using this prompt.",
+    "addExampleDescriptionVideo": "Share a video you created using this prompt.",
+    "imageUrl": "Image URL",
+    "videoUrl": "Video URL",
+    "imagePreview": "Image Preview",
+    "videoPreview": "Video Preview",
+    "urlTab": "URL",
+    "uploadTab": "Upload",
+    "clickToUpload": "Click to upload an image",
+    "clickToUploadVideo": "Click to upload a video",
+    "uploading": "Uploading...",
+    "maxFileSize": "Max 4MB (JPEG, PNG, GIF, WebP)",
+    "fileTooLarge": "File is too large. Maximum size is 4MB.",
+    "invalidFileType": "Invalid file type. Only JPEG, PNG, GIF, and WebP are allowed.",
+    "invalidVideoType": "Invalid file type. Only MP4 videos are allowed.",
+    "commentOptional": "Comment (optional)",
+    "commentPlaceholder": "Describe your creation or share tips...",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "communityExamples": "Community Examples",
+    "userExample": "User example"
   }
 }
