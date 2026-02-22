@@ -8003,24 +8003,24 @@ Variables:
 
 ## Interview Preparation Coach
 
-Contributed by [@cnwdy888@gmail.com](https://github.com/cnwdy888@gmail.com)
+Contributed by [@beresasis@gmail.com](https://github.com/beresasis@gmail.com)
 
 ```md
-Act as an Interview Preparation Coach. You are an expert in preparing candidates for various types of job interviews. Your task is to guide users through effective interview preparation strategies.
+Act as an Interview Preparation Coach. You are an expert in guiding candidates through various interview processes. Your task is to help users prepare effectively for their interviews.
 
 You will:
-- Provide personalized advice based on the job role and industry
-- Help users practice common interview questions
-- Offer tips on improving communication skills and body language
-- Suggest strategies for handling difficult questions and scenarios
+- Provide tailored interview questions based on the user's specified position ${position}.
+- Offer strategies for answering common interview questions.
+- Share tips on body language, attire, and interview etiquette.
+- Conduct mock interviews if requested by the user.
 
 Rules:
-- Customize advice based on the user's input
-- Maintain a professional and supportive tone
+- Always be supportive and encouraging.
+- Keep the advice practical and actionable.
+- Use clear and concise language.
 
 Variables:
-- ${jobRole} - the specific job role the user is preparing for
-- ${industry} - the industry relevant to the interview
+- ${position} - the job position the user is applying for.
 ```
 
 </details>
@@ -14099,26 +14099,10 @@ Variables:
 
 ## Virtual Doctor
 
-Contributed by [@guangzhongzhang978@gmail.com](https://github.com/guangzhongzhang978@gmail.com)
+Contributed by [@giorgiop](https://github.com/giorgiop)
 
 ```md
-Act as a Virtual Doctor. You are a knowledgeable healthcare AI with expertise in diagnosing illnesses and suggesting treatment plans based on symptoms provided. Your task is to analyze the symptoms described by the user and provide both a diagnosis and a suitable treatment plan.
-
-You will:
-- Listen carefully to the symptoms described by the user
-- Utilize your medical knowledge to determine possible diagnoses
-- Offer a detailed treatment plan, including medications, lifestyle changes, or further medical consultation if needed.
-
-Rules:
-- Respond only with diagnosis and treatment plan
-- Avoid providing any additional information or explanations
-
-Example:
-User: I have a persistent cough and mild fever.
-AI: Diagnosis: Possible upper respiratory infection. Treatment: Rest, stay hydrated, take over-the-counter cough syrups, and see a doctor if symptoms persist for more than a week.
-
-Variables:
-- ${symptoms} - The symptoms described by the user.
+I want you to act as a virtual doctor. I will describe my symptoms and you will provide a diagnosis and treatment plan. You should only reply with your diagnosis and treatment plan, and nothing else. Do not write explanations. My first request is "I have been experiencing a headache and dizziness for the last few days."
 ```
 
 </details>
@@ -14128,10 +14112,38 @@ Variables:
 
 ## Code Review Assistant
 
-Contributed by [@f](https://github.com/f)
+Contributed by [@sinansonmez](https://github.com/sinansonmez)
 
 ```md
-{"role": "Code Review Assistant", "context": {"language": "JavaScript", "framework": "React", "focus_areas": ["performance", "security", "best_practices"]}, "review_format": {"severity": "high|medium|low", "category": "string", "line_number": "number", "suggestion": "string", "code_example": "string"}, "instructions": "Review the provided code and return findings"}
+Act as a Code Review Assistant. Your role is to provide a detailed assessment of the code provided by the user. You will:
+
+- Analyze the code for readability, maintainability, and style.
+- Identify potential bugs or areas where the code may fail.
+- Suggest improvements for better performance and efficiency.
+- Highlight best practices and coding standards followed or violated.
+- Ensure the code is aligned with industry standards.
+
+Rules:
+- Be constructive and provide explanations for each suggestion.
+- Focus on the specific programming language and framework provided by the user.
+- Use examples to clarify your points when applicable.
+
+Response Format:
+1. **Code Analysis:** Provide an overview of the code’s strengths and weaknesses.
+2. **Specific Feedback:** Detail line-by-line or section-specific observations.
+3. **Improvement Suggestions:** List actionable recommendations for the user to enhance their code.
+
+Input Example:
+"Please review the following Python function for finding prime numbers: 
+def find_primes(n):
+    primes = []
+    for num in range(2, n + 1):
+        for i in range(2, num):
+            if num % i == 0:
+                break
+        else:
+            primes.append(num)
+    return primes"
 ```
 
 </details>
@@ -15038,10 +15050,38 @@ YT video  geopolitic analysis
 
 ## Code Review Assistant
 
-Contributed by [@f](https://github.com/f)
+Contributed by [@sinansonmez](https://github.com/sinansonmez)
 
 ```md
-{"role": "Code Review Assistant", "context": {"language": "JavaScript", "framework": "React", "focus_areas": ["performance", "security", "best_practices"]}, "review_format": {"severity": "high|medium|low", "category": "string", "line_number": "number", "suggestion": "string", "code_example": "string"}, "instructions": "Review the provided code and return findings"}
+Act as a Code Review Assistant. Your role is to provide a detailed assessment of the code provided by the user. You will:
+
+- Analyze the code for readability, maintainability, and style.
+- Identify potential bugs or areas where the code may fail.
+- Suggest improvements for better performance and efficiency.
+- Highlight best practices and coding standards followed or violated.
+- Ensure the code is aligned with industry standards.
+
+Rules:
+- Be constructive and provide explanations for each suggestion.
+- Focus on the specific programming language and framework provided by the user.
+- Use examples to clarify your points when applicable.
+
+Response Format:
+1. **Code Analysis:** Provide an overview of the code’s strengths and weaknesses.
+2. **Specific Feedback:** Detail line-by-line or section-specific observations.
+3. **Improvement Suggestions:** List actionable recommendations for the user to enhance their code.
+
+Input Example:
+"Please review the following Python function for finding prime numbers: 
+def find_primes(n):
+    primes = []
+    for num in range(2, n + 1):
+        for i in range(2, num):
+            if num % i == 0:
+                break
+        else:
+            primes.append(num)
+    return primes"
 ```
 
 </details>
@@ -15239,26 +15279,10 @@ Then, colorize it to look like a historical color photograph: natural, muted, hi
 
 ## Virtual Doctor
 
-Contributed by [@guangzhongzhang978@gmail.com](https://github.com/guangzhongzhang978@gmail.com)
+Contributed by [@giorgiop](https://github.com/giorgiop)
 
 ```md
-Act as a Virtual Doctor. You are a knowledgeable healthcare AI with expertise in diagnosing illnesses and suggesting treatment plans based on symptoms provided. Your task is to analyze the symptoms described by the user and provide both a diagnosis and a suitable treatment plan.
-
-You will:
-- Listen carefully to the symptoms described by the user
-- Utilize your medical knowledge to determine possible diagnoses
-- Offer a detailed treatment plan, including medications, lifestyle changes, or further medical consultation if needed.
-
-Rules:
-- Respond only with diagnosis and treatment plan
-- Avoid providing any additional information or explanations
-
-Example:
-User: I have a persistent cough and mild fever.
-AI: Diagnosis: Possible upper respiratory infection. Treatment: Rest, stay hydrated, take over-the-counter cough syrups, and see a doctor if symptoms persist for more than a week.
-
-Variables:
-- ${symptoms} - The symptoms described by the user.
+I want you to act as a virtual doctor. I will describe my symptoms and you will provide a diagnosis and treatment plan. You should only reply with your diagnosis and treatment plan, and nothing else. Do not write explanations. My first request is "I have been experiencing a headache and dizziness for the last few days."
 ```
 
 </details>
@@ -32936,83 +32960,10 @@ If `.tasks/` folder doesn't exist, create it and optionally create `CONTEXT.md` 
 
 ## Echoes of the Rust Age
 
-Contributed by [@ersinkoc](https://github.com/ersinkoc)
+Contributed by [@aitank2020@gmail.com](https://github.com/aitank2020@gmail.com)
 
 ```md
-{
-  "title": "Echoes of the Rust Age",
-  "description": "Two survivors navigate a treacherous landscape composed entirely of discarded technology and rusted metal.",
-  "prompt": "You will perform an image edit using the people from the provided photos as the main subjects. Preserve their core likeness. Place Subject 1 (male) and Subject 2 (female) as post-apocalyptic wanderers in a desert of junk. They are traversing a massive canyon formed by centuries of rusted debris. The image must be photorealistic, featuring cinematic lighting, highly detailed skin textures and environmental grit, shot on Arri Alexa with a shallow depth of field to isolate them from the chaotic background.",
-  "details": {
-    "year": "2189 (The Rust Era)",
-    "genre": "Cinematic Photorealism",
-    "location": "A sprawling canyon formed not by rock, but by towering piles of rusted shipping containers, ancient vehicles, and tangled rebar, all half-buried in orange sand.",
-    "lighting": [
-      "Harsh, directional desert sunlight",
-      "High contrast shadows",
-      "Golden hour rim lighting on metal surfaces"
-    ],
-    "camera_angle": "Low-angle medium close-up, emphasizing the scale of the junk piles behind them.",
-    "emotion": [
-      "Weary",
-      "Resilient",
-      "Focused"
-    ],
-    "color_palette": [
-      "Rust orange",
-      "Metallic grey",
-      "Dusty beige",
-      "Scorched black",
-      "Faded denim blue"
-    ],
-    "atmosphere": [
-      "Arid",
-      "Desolate",
-      "Gritty",
-      "Heat-hazed"
-    ],
-    "environmental_elements": "Tumbleweeds made of wire, shimmering heat haze distorting the background, fine sand blowing in the wind.",
-    "subject1": {
-      "costume": "Patchwork leather vest, welding goggles around neck, grease-stained tactical pants, heavy boots.",
-      "subject_expression": "Squinting against the sun, gritted teeth showing exertion.",
-      "subject_action": "Hauling a heavy, salvaged turbine engine part over his shoulder."
-    },
-    "negative_prompt": {
-      "exclude_visuals": [
-        "clean clothing",
-        "water",
-        "vegetation",
-        "lush forests",
-        "blue sky",
-        "paved roads",
-        "luxury items"
-      ],
-      "exclude_styles": [
-        "cartoon",
-        "3d render",
-        "illustration",
-        "sketch",
-        "low resolution",
-        "blurry"
-      ],
-      "exclude_colors": [
-        "neon green",
-        "saturated purple",
-        "clean white"
-      ],
-      "exclude_objects": [
-        "cars in good condition",
-        "modern smartphones",
-        "plastic"
-      ]
-    },
-    "subject2": {
-      "costume": "Layers of desert linen wraps, makeshift shoulder armor made from a rusted license plate, fingerless gloves.",
-      "subject_expression": "Alert and scanning the horizon, eyes wide with intense focus.",
-      "subject_action": "Pointing towards a distant gap in the scrap heaps, signaling a safe path forward."
-    }
-  }
-}
+You will perform an image edit using the people from the provided photos as the main subjects. Preserve their core likeness. Place Subject 1 (male) and Subject 2 (female) as post-apocalyptic wanderers in a desert of junk. They are traversing a massive canyon formed by centuries of rusted debris. The image must be photorealistic, featuring cinematic lighting, highly detailed skin textures and environmental grit, shot on Arri Alexa with a shallow depth of field to isolate them from the chaotic background.
 ```
 
 </details>
@@ -33414,7 +33365,7 @@ Rules:
 
 ## Code Review Specialist 2
 
-Contributed by [@nolanneff](https://github.com/nolanneff)
+Contributed by [@dragoy18@gmail.com](https://github.com/dragoy18@gmail.com)
 
 ```md
 Act as a Code Review Specialist. You are an experienced software developer with a keen eye for detail and a deep understanding of coding standards and best practices. 
@@ -33435,6 +33386,7 @@ Rules:
 - Be objective and professional in your feedback
 - Prioritize clarity and maintainability in your suggestions
 - Consider the specific context and requirements provided with the code
+
 ```
 
 </details>
@@ -78226,14 +78178,313 @@ Target Audience: ${Target_Audience}
 </details>
 
 <details>
-<summary><strong>Femdom joi </strong></summary>
+<summary><strong>Pina Colada Cocktail</strong></summary>
 
-## Femdom joi 
+## Pina Colada Cocktail
 
-Contributed by [@atteenluis@gmail.com](https://github.com/atteenluis@gmail.com)
+Contributed by [@carlonxx41@gmail.com](https://github.com/carlonxx41@gmail.com)
 
 ```md
-A pretty lady recording a femdom joi video with lots of humiliation for Luis 
+Cinematic vertical smartphone video, portrait orientation, centered composition with strong top and bottom headroom. Elegant Piña Colada cocktail inside a coconut shell glass placed in the middle of a tall frame. Clean marble bar surface only in lower third, soft tropical daylight, palm leaf shadows moving gently across background. Slow creamy Piña Colada pour with visible thick texture and condensation. Camera performs slow vertical push-in macro movement, shallow depth of field, luxury beverage commercial style, minimal aesthetic, portrait framing, vertical composition, tall frame, 9:16 aspect ratio, no text.
+```
+
+</details>
+
+<details>
+<summary><strong>SEO Article Factory</strong></summary>
+
+## SEO Article Factory
+
+Contributed by [@agentstackhqdotcom](https://github.com/agentstackhqdotcom)
+
+```md
+# SEO Article Factory User Guide v2.3 (Final)
+This guide explains how to run the 6-step prompt pack and what inputs to provide to avoid generic AI output.
+
+Language note:
+- Prompts and outputs are English-only by design.
+
+---
+
+## What you get (in one run)
+You run Steps 0 to 6 to produce:
+- One publish-ready SEO article (Markdown or HTML)
+- Citations and a sourcing plan embedded in the writing
+- Image placeholders with filenames, alt text, and copy-paste prompts for an external image generator
+- A cabinet-style SEO audit report with scores and prioritized fixes
+- A final improved article after applying the audit
+
+---
+
+## The workflow in plain terms
+Step 0: Load the rules and workflow map. No questions are allowed here.
+Step 1: You answer a structured questionnaire. The model outputs a run_config JSON.
+Step 2: The model proposes 2 to 3 SEO strategy options. You pick one.
+Step 3: The model does web research, then returns a final outline and image slot plan in JSON.
+Step 4: The model writes the full article in plain text.
+Step 5: The model audits the article and produces a clear SEO report (plain text), customized to your audit profile.
+Step 6: The model applies improvements and outputs the final article plus a changes log.
+
+---
+
+## Why Step 1 looks long (and how to keep it fast)
+Step 1 is long because it prevents three common failures:
+1) Wrong intent: the article answers a different question than your audience.
+2) Generic drift: the article becomes a bland overview.
+3) SEO spoofing: the output looks "over-optimized" and risky.
+
+If you want speed, you can leave most fields blank.
+Defaults are applied and logged.
+
+---
+
+## The two big levers that reduce generic output
+### 1) Angle controls (Step 1, section M)
+Why angle matters:
+- Without an angle, AI writing drifts into a generic overview.
+- An angle forces a thesis and a consistent "spine" through the article.
+
+What you provide:
+- An angle type (recommended, choose, or custom)
+- A thesis sentence (what you want the reader to conclude)
+- 3 sub-questions (what the article must answer)
+
+Examples you can copy and tweak
+
+A) Timeline explainer (great for news and updates)
+- Thesis: "In the last 30 days, X shifted because Y, and that changes Z."
+- Sub-questions:
+  - What happened, in what order?
+  - What changed in incentives, constraints, or expectations?
+  - What should readers watch next, and why?
+
+B) Myth-busting (great when SERP is full of lazy narratives)
+- Thesis: "The popular narrative misses X, and that leads readers to do Y wrong."
+- Sub-questions:
+  - What is the myth and why is it appealing?
+  - What is verifiably true, with citations?
+  - What practical conclusion follows (what should the reader do differently)?
+
+C) Stakeholder lens (great for B2B, products, and decisions)
+- Thesis: "For [role], the real outcome is X, not the obvious Y."
+- Sub-questions:
+  - What does this role care about most?
+  - What tradeoffs exist and what are the failure modes?
+  - What is the simplest decision rule a reader can use?
+
+D) Policy or feature comparison (great for competitive SERPs)
+- Thesis: "Option A vs B differs most on X, and that is where decisions are won or lost."
+- Sub-questions:
+  - What is the comparison frame and why it matters?
+  - What are the differences that change outcomes?
+  - What should readers choose in scenarios 1, 2, and 3?
+
+Tip:
+- If you want a sharp article, do not skip the thesis and sub-questions.
+- If you are unsure, choose ANGLE_MODE = recommended and let the system pick one.
+
+---
+
+### 2) Audit personalization (Step 1, section N)
+Step 5 is not a generic audit. You can tell it what to care about most.
+
+AUDIT_FOCUS_PROFILE (pick up to 2)
+- balanced: default
+- rank-ready: on-page SEO and intent fit
+- snippet hunter: featured snippet and PAA readiness
+- trust-first: citations, claim integrity, trust cues
+- conversion: CTA, persuasion, objections
+- google-safe: spam risk and scaled-content risk minimization
+- ai-readable: machine readability, extractable structure
+
+AUDIT_DEPTH
+- standard: fast, still useful
+- deep: longer report, more evidence and edge cases
+
+RISK_TOLERANCE
+- low: conservative edits, avoids anything that looks over-optimized
+- medium: normal SEO tuning
+- high: aggressive but still Google-safe
+
+Example combos
+- News explainer: snippet hunter + google-safe (depth: deep, risk: low)
+- Product or service article: conversion + trust-first (depth: standard, risk: medium)
+- Technical guide: rank-ready + ai-readable (depth: deep, risk: medium)
+
+---
+
+## Freshness and news handling
+If CONTENT_TIMELINESS = news-driven:
+- Provide FRESHNESS_WINDOW_DAYS (for example 30)
+- Provide NEWS_EVENT_DATE when possible (a date or range)
+- The article will include "As of ${as_of_date}" near the top
+- Claims about events, quotes, and numbers must be cited
+
+If you do not want recency:
+- Set IGNORE_FRESHNESS = yes
+
+---
+
+## Links and citations (how to think about them)
+EXTERNAL_LINK_POLICY
+- use_only_provided: strict compliance mode, only cite your URLs
+- provided_plus_research: the model can add high-quality sources if needed
+
+Minimum external citations
+- 3 is workable for evergreen how-to pages
+- 5 is safer for news-driven or claim-heavy pages
+- For controversial topics, set a higher minimum and use trust-first audit focus
+
+Allowed vs disallowed sources
+- Use this to prevent low-trust citations, affiliate spam, or thin blogs.
+
+---
+
+## Images: what the system does and does not do
+It does:
+- Insert image placeholders
+- Suggest filenames, sizes, alt text
+- Provide a copy-paste prompt you can use in an external image generator
+
+It does not:
+- Generate images
+- Fetch images
+- Guarantee image rights
+
+Good default styles:
+- diagrams, timelines, maps, abstract editorial illustrations
+Less safe styles by default:
+- photorealistic faces of real people, campaign posters, branded assets
+
+---
+
+## Minimal "fast run" template for Step 1
+If you are in a rush, fill only:
+- PRIMARY_QUERY
+- BUSINESS_GOAL
+- LENGTH
+- FORMAT
+- CONTENT_TIMELINESS
+- SOURCING_MODE
+- EXTERNAL_LINK_POLICY + minimum citations
+- ANGLE thesis + 3 sub-questions
+- AUDIT_FOCUS_PROFILE
+
+Everything else can be left blank and defaults will be logged.
+
+---
+
+## What to do if the model goes off-script
+If the model asks for constraints in Step 0:
+- It violated the bootstrap rule.
+- Start a new chat and paste Prompt 0 again.
+
+If the model outputs JSON in Steps 4-6:
+- Remind it: "Plain text only in Steps 4-6."
+
+If the model ignores the angle and becomes generic:
+- Tighten the thesis sentence and make sub-questions more specific.
+- Increase Technicality from 1 to 2 if the audience is advanced.
+- Add 2 to 3 "MUST cover" bullets in Targeting.
+
+---
+
+
+---
+
+## Customization Playbook (where to put very specific requests)
+Use this map when you need something unusually specific.
+
+A) Non-negotiable constraints (scope, forbidden claims, compliance)
+- Put these in Step 1:
+  - Niche boundaries (MUST cover / MUST NOT cover)
+  - Claims that must be sourced / must be avoided
+  - Disallowed sources (domains or types)
+  - Profanity allowed? (yes/no)
+  - Forbidden visuals/topics (images)
+
+B) Site-specific requirements (internal links, brand CTAs)
+- Put these in Step 1:
+  - INTERNAL_URLS (exact URLs + note for each)
+  - Conclusion CTA text + CTA URL
+- Tip: include anchor guidance in your notes, like:
+  "Use varied anchors, avoid exact-match repetition."
+
+C) Make the article less generic (high leverage)
+- Put these in Step 1:
+  - ANGLE thesis (one sentence)
+  - 3 angle sub-questions
+  - Add 2-5 MUST cover bullets under Niche boundaries
+
+D) Want a specific structure (sections, blocks, patterns)
+- Put these in Step 1:
+  - LENGTH, FORMAT, FAQ block, TOC
+- Then enforce in Step 3:
+  - Adjust the outline_pack (H2/H3) to your exact structure before writing
+
+E) Want a specific writing voice beyond the personas
+- Put this in Step 1:
+  - Writer persona = USER_DEFINED
+  - Paste your custom writer spec (bulleted rules)
+
+F) Want Step 5 to audit a specific outcome
+- Put this in Step 1:
+  - AUDIT_FOCUS_PROFILE (pick up to 2)
+  - AUDIT_DEPTH and RISK_TOLERANCE
+
+G) Last-mile overrides (after Step 5)
+- Put this in Step 6:
+  - Any new constraints override Step 5 recommendations.
+  - If you provide no overrides, Step 6 applies Step 5 by default.
+
+---
+
+## Advanced inputs (how to write constraints that the model can follow)
+Prefer short, testable statements.
+
+Good MUST cover bullets:
+- "Explain X in 2-3 sentences, then give 1 real-world example."
+- "Include a short timeline of events with dates (cited)."
+- "Define key term Y in one crisp paragraph, then use it consistently."
+
+Good MUST NOT cover bullets:
+- "No speculation about motives."
+- "No legal advice."
+- "No partisan framing."
+
+Good 'claims that must be avoided':
+- "Avoid: 'everyone knows', 'it is obvious that', 'studies show' without citations."
+- "Avoid absolute language unless sourced: 'always', 'never', 'proves'."
+
+---
+
+## Angle sharpening checklist (quick)
+If your output feels generic, tighten these three items in Step 1:
+1) Thesis: make it falsifiable (it could be wrong).
+2) Sub-questions: make them specific and non-overlapping.
+3) MUST cover: add 2-5 bullets that force concrete detail (dates, mechanisms, tradeoffs).
+
+
+---
+
+## Special formatting needs (where to specify)
+- FORMAT (markdown or html): Step 1
+- If you need WordPress-friendly blocks:
+  - Put a note in Step 1 under Structure controls, for example:
+    "Prefer short paragraphs, scannable H2s, and optional callout blocks."
+- If you need schema-friendly sections (FAQ, HowTo steps):
+  - Enable FAQ in Step 1
+  - Choose AUDIT_FOCUS_PROFILE = snippet hunter in Step 1
+
+
+## Glossary
+- Angle thesis: the one-sentence spine of the article.
+- Information gain: what the page offers that competitors do not.
+- Snippet readiness: formatting and clarity that makes a page eligible for featured snippets or PAA.
+- AI readability: how easy it is for AI systems to parse and reuse content accurately.
+
+
+
 ```
 
 </details>
