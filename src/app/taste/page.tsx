@@ -8,7 +8,7 @@ import { InfinitePromptList } from "@/components/prompts/infinite-prompt-list";
 import { db } from "@/lib/db";
 
 export const metadata: Metadata = {
-  title: "Tastes",
+  title: "Taste",
   description: "Browse and discover coding taste profiles",
 };
 
@@ -98,7 +98,7 @@ function getCachedTastes(
         total: totalCount,
       };
     },
-    ["tastes", cacheKey],
+    ["taste", cacheKey],
     { tags: ["prompts"] }
   )();
 }
@@ -135,7 +135,7 @@ export default async function TastesPage({ searchParams }: TastesPageProps) {
     <div className="container py-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div className="flex items-baseline gap-2">
-          <h1 className="text-lg font-semibold">{tNav("tastes")}</h1>
+          <h1 className="text-lg font-semibold">{tNav("taste")}</h1>
           <span className="text-xs text-muted-foreground">{tSearch("found", { count: total })}</span>
         </div>
         <Button size="sm" className="h-8 text-xs w-full sm:w-auto" asChild>
