@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { runEzoic } from "@/lib/ezoic";
@@ -12,34 +12,21 @@ declare global {
       showAds: (...ids: number[]) => void;
       destroyAll: () => void;
       destroyPlaceholders: (...ids: number[]) => void;
+      [key: string]: unknown;
     };
   }
 }
 
-export function EzoicAds() {
-  const pathname = usePathname();
-  const isFirstRender = useRef(true);
-
-  // Re-trigger ads on SPA route changes
-  // Per Ezoic docs: destroyPlaceholders first, then showAds in next frame.
-  // Skip the first render to avoid racing with individual EzoicPlaceholder
-  // components that call showAds(id) on mount.
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-    runEzoic(() => {
-      window.ezstandalone?.destroyPlaceholders();
-      requestAnimationFrame(() => {
-        window.ezstandalone?.showAds();
-      });
-    });
-  }, [pathname]);
-
+/**
+ * Ezoic script loader — renders all required <Script> tags.
+ * Place inside <head> in layout.tsx per official docs.
+ *
+ * @see https://docs.ezoic.com/docs/ezoicadsadvanced/nextjs/
+ */
+export function EzoicScripts() {
   return (
     <>
-      {/* Ezoic Privacy / Consent Management - must load first */}
+      {/* Ezoic Privacy / Consent Management */}
       <Script
         id="ezoic-cmp"
         src="https://cmp.gatekeeperconsent.com/min.js"
@@ -53,12 +40,14 @@ export function EzoicAds() {
         data-cfasync="false"
       />
 
-      {/* Ezoic Header Script */}
+      {/* Ezoic standalone script */}
       <Script
         id="ezoic-sa"
         src="//www.ezojs.com/ezoic/sa.min.js"
         strategy="afterInteractive"
       />
+
+      {/* Ezoic init — cmd queue must exist before any runEzoic() calls */}
       <Script id="ezoic-init" strategy="afterInteractive">
         {`
           window.ezstandalone = window.ezstandalone || {};
@@ -75,3 +64,25 @@ export function EzoicAds() {
     </>
   );
 }
+
+/**
+ * Handles SPA route changes for Ezoic.
+ * Destroys stale placeholders and re-scans the DOM on each navigation.
+ *
+ * @see https://docs.ezoic.com/docs/ezoicadsadvanced/nextjs/
+ */
+export function EzoicRouteHandler() {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    runEzoic(() => {
+      window.ezstandalone?.destroyPlaceholders();
+      requestAnimationFrame(() => {
+        window.ezstandalone?.showAds();
+      });
+    });
+  }, [pathname]);
+
+  return null;
+}
+

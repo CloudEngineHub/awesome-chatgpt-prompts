@@ -21,9 +21,9 @@ export const ezoicWidget: WidgetPlugin = {
         position: 4,
         mode: "repeat",
         repeatEvery: 12,
-        maxCount: 5,
+        maxCount: 20,
       },
-      shouldInject: () => true,
+      shouldInject: () => process.env.NEXT_PUBLIC_EZOIC_ENABLED === "true",
       render: (instanceIndex: number) => (
         <EzoicPlaceholder id={EZOIC_FEED_BASE_ID + instanceIndex} />
       ),
