@@ -17,12 +17,12 @@ services:
       start_period: 10s
 
   app:
+    image: ghcr.io/f/prompts.chat:latest
+    # By default, uses the pre-built image above. To build locally instead,
+    # run: docker compose up -d --build
     build:
-      context: .
-      dockerfile: docker/Dockerfile
-    # To use a pre-built image instead of building locally, comment out
-    # the 'build' block above and uncomment the line below:
-    # image: ghcr.io/f/prompts.chat:latest
+       context: .
+       dockerfile: docker/Dockerfile
     restart: unless-stopped
     ports:
       - "${PORT:-4444}:3000"
