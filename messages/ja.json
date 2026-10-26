@@ -436,7 +436,8 @@
     "dismiss": "取り下げ",
     "dismissed": "変更リクエストを取り下げました",
     "dismissConfirmTitle": "変更リクエストを取り下げますか？",
-    "dismissConfirmDescription": "変更リクエストは完全に削除されます。この操作は取り消せません。"
+    "dismissConfirmDescription": "変更リクエストは完全に削除されます。この操作は取り消せません。",
+    "backToBot": "ボットに戻る"
   },
   "categories": {
     "title": "カテゴリー",
@@ -826,7 +827,12 @@
     "getVerified": "認証を取得",
     "examples": "例",
     "noExamples": "まだ例が共有されていません",
-    "noExamplesOwner": "まだ例を共有していません"
+    "noExamplesOwner": "まだ例を共有していません",
+    "bots": "ボット",
+    "noBots": "まだボットはありません。",
+    "noBotsOwner": "まだボットを作成していません。",
+    "createFirstBot": "最初のボットを作成",
+    "botsCount": "ボット"
   },
   "subscription": {
     "subscribe": "購読",
@@ -918,6 +924,7 @@
     "description": "指示・ルーティン・スキルを備えたすぐに使える AI エージェントボット。OpenClaw、Hermes Agent、Grok Bot にインストールできます。",
     "count": "{count, plural, other {# 件のボット}}",
     "allPlatforms": "すべて",
+    "searchPlaceholder": "ボットを検索...",
     "noBots": "このプラットフォームのボットはまだありません。",
     "scheduledCount": "{count, plural, other {# 件の定期ルーティン}}",
     "eventCount": "{count, plural, other {# 件のイベントトリガー}}",
@@ -2484,7 +2491,9 @@
     },
     "profile": {
       "title": "{name} (@{username}) - AIプロンプト",
-      "description": "{name} (@{username}) さんがprompts.chatで公開しているAIプロンプト{count}件。prompts.chatは無料・オープンソースのプロンプトライブラリです。"
+      "description": "{name} (@{username}) さんがprompts.chatで公開しているAIプロンプト{count}件。prompts.chatは無料・オープンソースのプロンプトライブラリです。",
+      "descriptionWithBots": "{name} (@{username}) さんがprompts.chatで公開しているAIプロンプト{count}件とAIボット{botCount}件。prompts.chatは無料・オープンソースのプロンプトライブラリです。",
+      "descriptionBotsOnly": "{name} (@{username}) さんがprompts.chatで公開しているAIボット{botCount}件。prompts.chatは無料・オープンソースのプロンプトライブラリです。"
     },
     "bookChapter": {
       "title": "{chapter} - プロンプトエンジニアリングガイド"

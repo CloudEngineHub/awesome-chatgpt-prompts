@@ -436,7 +436,8 @@
     "dismiss": "Отклонить",
     "dismissed": "Запрос на изменение отклонен",
     "dismissConfirmTitle": "Отклонить запрос на изменение?",
-    "dismissConfirmDescription": "Это навсегда удалит ваш запрос на изменение. Это действие нельзя отменить."
+    "dismissConfirmDescription": "Это навсегда удалит ваш запрос на изменение. Это действие нельзя отменить.",
+    "backToBot": "Назад к боту"
   },
   "categories": {
     "title": "Категории",
@@ -826,7 +827,12 @@
     "getVerified": "Получить верификацию",
     "examples": "Примеры",
     "noExamples": "Пока нет опубликованных примеров",
-    "noExamplesOwner": "Вы ещё не опубликовали ни одного примера"
+    "noExamplesOwner": "Вы ещё не опубликовали ни одного примера",
+    "bots": "Боты",
+    "noBots": "Пока нет ботов.",
+    "noBotsOwner": "Вы ещё не создали ни одного бота.",
+    "createFirstBot": "Создайте своего первого бота",
+    "botsCount": "ботов"
   },
   "subscription": {
     "subscribe": "Подписаться",
@@ -918,6 +924,7 @@
     "description": "Готовые боты ИИ-агентов с инструкциями, рутинами и навыками. Установите их в OpenClaw, Hermes Agent или Grok Bot.",
     "count": "{count, plural, one {# бот} few {# бота} many {# ботов} other {# бота}}",
     "allPlatforms": "Все",
+    "searchPlaceholder": "Поиск ботов...",
     "noBots": "Для этой платформы пока нет ботов.",
     "scheduledCount": "{count, plural, one {# запланированная рутина} few {# запланированные рутины} many {# запланированных рутин} other {# запланированной рутины}}",
     "eventCount": "{count, plural, one {# триггер события} few {# триггера событий} many {# триггеров событий} other {# триггера событий}}",
@@ -2481,7 +2488,9 @@
     },
     "profile": {
       "title": "{name} (@{username}) — ИИ-промпты",
-      "description": "ИИ-промпты от {name} (@{username}) на prompts.chat — бесплатной библиотеке промптов с открытым кодом. Всего промптов: {count}."
+      "description": "ИИ-промпты от {name} (@{username}) на prompts.chat — бесплатной библиотеке промптов с открытым кодом. Всего промптов: {count}.",
+      "descriptionWithBots": "ИИ-промпты и ИИ-боты от {name} (@{username}) на prompts.chat — бесплатной библиотеке промптов с открытым кодом. Промптов: {count}, ботов: {botCount}.",
+      "descriptionBotsOnly": "ИИ-боты от {name} (@{username}) на prompts.chat — бесплатной библиотеке промптов с открытым кодом. Всего ботов: {botCount}."
     },
     "bookChapter": {
       "title": "{chapter} — руководство по промпт-инжинирингу"
