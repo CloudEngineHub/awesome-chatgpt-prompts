@@ -1,6 +1,7 @@
 import type { Prisma } from "@prisma/client";
 import { db } from "@/lib/db";
 import { getBotUrl } from "@/lib/urls";
+import { isTrending } from "@/lib/trending";
 import {
   BOT_PLATFORM_INFO,
   isBotColor,
@@ -30,6 +31,7 @@ export const botSelect = {
   isPrivate: true,
   isUnlisted: true,
   isFeatured: true,
+  trendingUntil: true,
   delistReason: true,
   deletedAt: true,
   authorId: true,
@@ -60,6 +62,7 @@ export interface BotView {
   isPrivate: boolean;
   isUnlisted: boolean;
   isFeatured: boolean;
+  trendingUntil: Date | null;
   delistReason: BotRecord["delistReason"];
   deletedAt: Date | null;
   authorId: string;
@@ -90,6 +93,7 @@ export function toBotView(record: BotRecord): BotView {
     isPrivate: record.isPrivate,
     isUnlisted: record.isUnlisted,
     isFeatured: record.isFeatured,
+    trendingUntil: record.trendingUntil,
     delistReason: record.delistReason,
     deletedAt: record.deletedAt,
     authorId: record.authorId,
@@ -154,6 +158,11 @@ export async function listBots({ skip = 0, take = 24, ...filters }: BotListFilte
     db.prompt.count({ where }),
   ]);
   return { bots: records.map(toBotView), total };
+}
+
+/** Public bots matching the same filters /bots applies, for linking to a filtered /bots listing */
+export function countBots(filters: Omit<BotListFilters, "sort"> = {}) {
+  return db.prompt.count({ where: botListWhere(filters) });
 }
 
 /** A user's bots for their profile; private ones only for the owner */
@@ -415,6 +424,8 @@ export function botToJson(bot: BotView, baseUrl: string) {
     installUrl: bot.installUrl,
     category: botCategoryJson(bot),
     tags: botTagsJson(bot),
+    isTrending: isTrending(bot.trendingUntil),
+    trendingUntil: bot.trendingUntil,
     author: { username: bot.author.username, name: bot.author.name },
     createdAt: bot.createdAt,
     updatedAt: bot.updatedAt,
