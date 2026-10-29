@@ -186,6 +186,8 @@
     "relistRequestAlreadySent": "You have already submitted a relist request for this prompt.",
     "relistRequestError": "Failed to submit relist request. Please try again.",
     "relatedPrompts": "Related Prompts",
+    "relatedSkills": "Related Skills",
+    "relatedBots": "Related Bots",
     "deletePrompt": "Delete Prompt",
     "deletePromptTitle": "Delete this prompt?",
     "deletePromptDescription": "This action cannot be undone. The prompt will be permanently removed.",
@@ -929,7 +931,7 @@
     "browsePrompts": "Browse Prompts"
   },
   "bots": {
-    "description": "Ready-made AI agent bots with instructions, routines and skills. Install them on OpenClaw, Hermes Agent or Grok Bot.",
+    "description": "Ready-made AI agent bots with instructions, routines and skills. Install them on OpenClaw, AutoGPT, OpenAI Dots, Claude Duet, Meta Muse, Hermes Agent or Grok Bot.",
     "count": "{count, plural, one {# bot} other {# bots}}",
     "allPlatforms": "All",
     "searchPlaceholder": "Search bots...",
@@ -954,6 +956,14 @@
     "installPromptHint": "Paste this prompt into your agent. It fetches the bot definition and sets up the instructions, routines and skills.",
     "installPromptFallbackHint": "Or paste this prompt into Grok Bot to create the bot yourself:",
     "installPromptPlatformFallbackHint": "Or paste this prompt into {platform} to create the bot yourself:",
+    "autogptPromptHint": "Paste this prompt into a chat with Otto on AutoGPT. Otto sets the bot up as an Expert with its instructions, skills and routines.",
+    "openAutogpt": "Open AutoGPT",
+    "dotsPromptHint": "Paste this prompt into a chat with your dot in ChatGPT. Your dot adopts the bot's instructions, asks you to connect the apps it needs and schedules its routines as recurring tasks.",
+    "openDots": "Open Dots",
+    "duetPromptHint": "Paste this prompt into your Claude Duet thread. Claude Duet adopts the bot's instructions and routines and uses the skills and connectors of your Claude account, so add any missing ones in Claude's settings.",
+    "openDuet": "Open Claude Duet",
+    "musePromptHint": "Paste this prompt into a chat with Muse. Muse's skills are built in, so it adopts the bot's instructions, asks you to connect the apps it needs and sets up its routines as scheduled tasks.",
+    "openMuse": "Open Muse",
     "copyInstallPrompt": "Copy install prompt",
     "machineReadable": "Machine-readable",
     "create": "New bot",
@@ -999,7 +1009,15 @@
       "submit": "Create bot",
       "save": "Save bot",
       "created": "Bot created",
-      "updated": "Bot updated"
+      "updated": "Bot updated",
+      "pairingsHint": "Link bots that work well with this one. Links show on both bots' pages.",
+      "pairingsSearch": "Search bots to pair with...",
+      "pairingsNoResults": "No bots found",
+      "pairingNotePlaceholder": "Why do they pair well? (optional)",
+      "pairingNoteLabel": "Why {bot} pairs well",
+      "removePairing": "Remove {bot}",
+      "pairingsMax": "You can link up to {max} bots",
+      "pairingsInvalid": "One of the paired bots no longer exists. Remove it and try again."
     },
     "colors": {
       "slate": "Slate",
@@ -1055,7 +1073,21 @@
       "coffee": "Coffee"
     },
     "latestBots": "Latest Bots",
-    "viewAll": "View all"
+    "viewAll": "View all",
+    "betterTogether": "Better together with",
+    "installAllTogether": "Install all together",
+    "installAllTitle": "{count, plural, one {Install # bot} other {Install all # bots together}}",
+    "installAllDescription": "Set up {bot} and the bots it pairs with in one go.",
+    "installAllPromptHint": "Paste this prompt into {platform}. It sets up every bot in the set, one after another.",
+    "installAllAutogptPromptHint": "Paste this prompt into a chat with Otto on AutoGPT. Otto sets up every bot in the set as an Expert, one after another.",
+    "installAllDotsPromptHint": "Paste this prompt into a chat with your dot in ChatGPT. Your dot sets up every bot in the set, one after another.",
+    "installAllDuetPromptHint": "Paste this prompt into your Claude Duet thread. Claude Duet sets up every bot in the set, one after another. Add any missing skills and connectors in Claude's settings.",
+    "installAllMusePromptHint": "Paste this prompt into a chat with Muse. Muse sets up every bot in the set, one after another, and asks you to connect the apps they need.",
+    "installAllCommandHint": "Install every bot in the set as a skill:",
+    "installAllTemplatesHint": "Or open each {platform} template:",
+    "installAllSkipped": "Not available on {platform}: {bots}",
+    "copyCommands": "Copy commands",
+    "openTemplate": "Open {bot} template"
   },
   "collection": {
     "title": "My Collection",
@@ -2472,7 +2504,7 @@
     },
     "bots": {
       "title": "Ready-Made AI Agent Bots for OpenClaw, Hermes & Grok",
-      "description": "Browse ready-made AI agent bots with instructions, scheduled routines and skills, and install them on OpenClaw, Hermes Agent or Grok Bot in one click.",
+      "description": "Browse ready-made AI agent bots with instructions, scheduled routines and skills, and install them on OpenClaw, AutoGPT, OpenAI Dots, Claude Duet, Meta Muse, Hermes Agent or Grok Bot in one click.",
       "heading": "Bots"
     },
     "taste": {

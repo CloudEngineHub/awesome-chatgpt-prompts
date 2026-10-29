@@ -186,6 +186,8 @@
     "relistRequestAlreadySent": "이 프롬프트에 대한 재등재 요청을 이미 제출하셨습니다.",
     "relistRequestError": "재등재 요청 제출에 실패했습니다. 다시 시도해 주세요.",
     "relatedPrompts": "관련 프롬프트",
+    "relatedSkills": "관련 스킬",
+    "relatedBots": "관련 봇",
     "deletePrompt": "프롬프트 삭제",
     "deletePromptTitle": "이 프롬프트를 삭제하시겠습니까?",
     "deletePromptDescription": "이 작업은 취소할 수 없습니다. 프롬프트가 영구적으로 삭제됩니다.",
@@ -929,7 +931,7 @@
     "browsePrompts": "프롬프트 둘러보기"
   },
   "bots": {
-    "description": "지침, 루틴, 스킬을 갖춘 바로 쓸 수 있는 AI 에이전트 봇입니다. OpenClaw, Hermes Agent 또는 Grok Bot에 설치하세요.",
+    "description": "지침, 루틴, 스킬을 갖춘 바로 쓸 수 있는 AI 에이전트 봇입니다. OpenClaw, AutoGPT, OpenAI Dots, Claude Duet, Meta Muse, Hermes Agent 또는 Grok Bot에 설치하세요.",
     "count": "{count, plural, other {봇 #개}}",
     "allPlatforms": "전체",
     "searchPlaceholder": "봇 검색...",
@@ -954,6 +956,14 @@
     "installPromptHint": "이 프롬프트를 에이전트에 붙여 넣으세요. 봇 정의를 가져와 지침, 루틴, 스킬을 설정합니다.",
     "installPromptFallbackHint": "또는 이 프롬프트를 Grok Bot에 붙여 넣어 직접 봇을 만드세요:",
     "installPromptPlatformFallbackHint": "또는 이 프롬프트를 {platform}에 붙여넣어 직접 봇을 만드세요:",
+    "autogptPromptHint": "이 프롬프트를 AutoGPT의 Otto와의 채팅에 붙여넣으세요. Otto가 지침, 스킬, 루틴을 갖춘 Expert로 봇을 설정합니다.",
+    "openAutogpt": "AutoGPT 열기",
+    "dotsPromptHint": "이 프롬프트를 ChatGPT의 dot과의 채팅에 붙여넣으세요. dot이 봇의 지침을 따르고, 필요한 앱 연결을 요청하며, 루틴을 반복 작업으로 예약합니다.",
+    "openDots": "Dots 열기",
+    "duetPromptHint": "이 프롬프트를 Claude Duet 스레드에 붙여넣으세요. Claude Duet이 봇의 지침과 루틴을 따르고 Claude 계정의 스킬과 커넥터를 사용하므로, 없는 항목은 Claude 설정에서 추가하세요.",
+    "openDuet": "Claude Duet 열기",
+    "musePromptHint": "이 프롬프트를 Muse와의 채팅에 붙여넣으세요. Muse의 스킬은 기본 내장되어 있어, 봇의 지침을 따르고 필요한 앱 연결을 요청하며 루틴을 예약 작업으로 설정합니다.",
+    "openMuse": "Muse 열기",
     "copyInstallPrompt": "설치 프롬프트 복사",
     "machineReadable": "기계 판독용",
     "create": "새 봇",
@@ -999,7 +1009,15 @@
       "submit": "봇 만들기",
       "save": "봇 저장",
       "created": "봇이 생성되었습니다",
-      "updated": "봇이 업데이트되었습니다"
+      "updated": "봇이 업데이트되었습니다",
+      "pairingsHint": "이 봇과 잘 어울리는 봇을 연결하세요. 연결은 두 봇의 페이지에 모두 표시됩니다.",
+      "pairingsSearch": "연결할 봇 검색...",
+      "pairingsNoResults": "봇을 찾을 수 없습니다",
+      "pairingNotePlaceholder": "왜 잘 어울리나요? (선택 사항)",
+      "pairingNoteLabel": "{bot}이(가) 잘 어울리는 이유",
+      "removePairing": "{bot} 제거",
+      "pairingsMax": "최대 {max}개의 봇을 연결할 수 있습니다",
+      "pairingsInvalid": "연결된 봇 중 하나가 더 이상 존재하지 않습니다. 제거한 후 다시 시도하세요."
     },
     "colors": {
       "slate": "슬레이트",
@@ -1055,7 +1073,21 @@
       "coffee": "커피"
     },
     "latestBots": "최신 봇",
-    "viewAll": "모두 보기"
+    "viewAll": "모두 보기",
+    "betterTogether": "함께 쓰면 더 좋은",
+    "installAllTogether": "모두 함께 설치",
+    "installAllTitle": "{count, plural, other {봇 #개 모두 함께 설치}}",
+    "installAllDescription": "{bot}와(과) 함께 쓰기 좋은 봇을 한 번에 설정하세요.",
+    "installAllPromptHint": "이 프롬프트를 {platform}에 붙여넣으세요. 세트의 모든 봇을 차례대로 설정합니다.",
+    "installAllAutogptPromptHint": "이 프롬프트를 AutoGPT의 Otto와의 채팅에 붙여넣으세요. Otto가 세트의 모든 봇을 차례대로 Expert로 설정합니다.",
+    "installAllDotsPromptHint": "이 프롬프트를 ChatGPT의 dot과의 채팅에 붙여넣으세요. dot이 세트의 모든 봇을 차례대로 설정합니다.",
+    "installAllDuetPromptHint": "이 프롬프트를 Claude Duet 스레드에 붙여넣으세요. Claude Duet이 세트의 모든 봇을 차례대로 설정합니다. 없는 스킬과 커넥터는 Claude 설정에서 추가하세요.",
+    "installAllMusePromptHint": "이 프롬프트를 Muse와의 채팅에 붙여넣으세요. Muse가 세트의 모든 봇을 차례대로 설정하고 필요한 앱 연결을 요청합니다.",
+    "installAllCommandHint": "세트의 각 봇을 스킬로 설치:",
+    "installAllTemplatesHint": "또는 각 {platform} 템플릿 열기:",
+    "installAllSkipped": "{platform}에서 사용할 수 없음: {bots}",
+    "copyCommands": "명령어 복사",
+    "openTemplate": "{bot} 템플릿 열기"
   },
   "collection": {
     "title": "내 컬렉션",
@@ -2456,7 +2488,7 @@
     },
     "bots": {
       "title": "OpenClaw, Hermes, Grok용 바로 쓰는 AI 에이전트 봇",
-      "description": "지침, 예약 루틴, 스킬을 갖춘 바로 쓸 수 있는 AI 에이전트 봇을 둘러보고 클릭 한 번으로 OpenClaw, Hermes Agent 또는 Grok Bot에 설치하세요.",
+      "description": "지침, 예약 루틴, 스킬을 갖춘 바로 쓸 수 있는 AI 에이전트 봇을 둘러보고 클릭 한 번으로 OpenClaw, AutoGPT, OpenAI Dots, Claude Duet, Meta Muse, Hermes Agent 또는 Grok Bot에 설치하세요.",
       "heading": "봇"
     },
     "taste": {

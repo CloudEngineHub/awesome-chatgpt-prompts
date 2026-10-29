@@ -186,6 +186,8 @@
     "relistRequestAlreadySent": "شما قبلاً درخواست بازگشت به لیست برای این پرامپت ارسال کرده‌اید.",
     "relistRequestError": "ارسال درخواست بازگشت به لیست ناموفق بود. لطفاً دوباره امتحان کنید.",
     "relatedPrompts": "پرامپت‌های مرتبط",
+    "relatedSkills": "مهارت‌های مرتبط",
+    "relatedBots": "ربات‌های مرتبط",
     "deletePrompt": "حذف پرامپت",
     "deletePromptTitle": "این پرامپت حذف شود؟",
     "deletePromptDescription": "این عمل قابل بازگشت نیست. پرامپت برای همیشه حذف خواهد شد.",
@@ -929,7 +931,7 @@
     "browsePrompts": "مرور پرامپت‌ها"
   },
   "bots": {
-    "description": "ربات‌های آماده عامل هوش مصنوعی با دستورالعمل‌ها، روال‌ها و مهارت‌ها. آن‌ها را روی OpenClaw، Hermes Agent یا Grok Bot نصب کنید.",
+    "description": "ربات‌های آماده عامل هوش مصنوعی با دستورالعمل‌ها، روال‌ها و مهارت‌ها. آن‌ها را روی OpenClaw، AutoGPT، OpenAI Dots، Claude Duet، Meta Muse، Hermes Agent یا Grok Bot نصب کنید.",
     "count": "{count, plural, other {# ربات}}",
     "allPlatforms": "همه",
     "searchPlaceholder": "جستجوی بات‌ها...",
@@ -954,6 +956,14 @@
     "installPromptHint": "این پرامپت را در عامل خود قرار دهید. تعریف ربات را دریافت می‌کند و دستورالعمل‌ها، روال‌ها و مهارت‌ها را راه‌اندازی می‌کند.",
     "installPromptFallbackHint": "یا این پرامپت را در Grok Bot قرار دهید تا خودتان ربات را بسازید:",
     "installPromptPlatformFallbackHint": "یا این پرامپت را در {platform} بچسبانید تا ربات را خودتان بسازید:",
+    "autogptPromptHint": "این پرامپت را در گفتگو با Otto در AutoGPT بچسبانید. Otto ربات را با دستورالعمل‌ها، مهارت‌ها و روال‌هایش به‌عنوان یک Expert راه‌اندازی می‌کند.",
+    "openAutogpt": "باز کردن AutoGPT",
+    "dotsPromptHint": "این پرامپت را در گفتگو با dot خود در ChatGPT بچسبانید. dot شما دستورالعمل‌های ربات را می‌پذیرد، از شما می‌خواهد برنامه‌های لازم را متصل کنید و روال‌هایش را به‌عنوان کارهای تکرارشونده زمان‌بندی می‌کند.",
+    "openDots": "باز کردن Dots",
+    "duetPromptHint": "این پرامپت را در رشته گفتگوی Claude Duet خود بچسبانید. Claude Duet دستورالعمل‌ها و روال‌های ربات را می‌پذیرد و از مهارت‌ها و کانکتورهای حساب Claude شما استفاده می‌کند، پس موارد ناموجود را در تنظیمات Claude اضافه کنید.",
+    "openDuet": "باز کردن Claude Duet",
+    "musePromptHint": "این پرامپت را در گفتگو با Muse بچسبانید. مهارت‌های Muse داخلی هستند، پس دستورالعمل‌های ربات را می‌پذیرد، از شما می‌خواهد برنامه‌های لازم را متصل کنید و روال‌هایش را به‌عنوان کارهای زمان‌بندی‌شده راه‌اندازی می‌کند.",
+    "openMuse": "باز کردن Muse",
     "copyInstallPrompt": "کپی پرامپت نصب",
     "machineReadable": "قابل خواندن توسط ماشین",
     "create": "ربات جدید",
@@ -999,7 +1009,15 @@
       "submit": "ساخت ربات",
       "save": "ذخیره ربات",
       "created": "ربات ساخته شد",
-      "updated": "ربات به‌روزرسانی شد"
+      "updated": "ربات به‌روزرسانی شد",
+      "pairingsHint": "ربات‌هایی را که با این ربات خوب کار می‌کنند پیوند دهید. پیوندها در صفحه هر دو ربات نمایش داده می‌شوند.",
+      "pairingsSearch": "جستجوی ربات برای پیوند...",
+      "pairingsNoResults": "رباتی یافت نشد",
+      "pairingNotePlaceholder": "چرا با هم خوب کار می‌کنند؟ (اختیاری)",
+      "pairingNoteLabel": "چرا {bot} خوب هماهنگ است",
+      "removePairing": "حذف {bot}",
+      "pairingsMax": "حداکثر {max} ربات را می‌توانید پیوند دهید",
+      "pairingsInvalid": "یکی از ربات‌های پیوندشده دیگر وجود ندارد. آن را حذف کرده و دوباره تلاش کنید."
     },
     "colors": {
       "slate": "سنگی",
@@ -1055,7 +1073,21 @@
       "coffee": "قهوه"
     },
     "latestBots": "جدیدترین ربات‌ها",
-    "viewAll": "مشاهده همه"
+    "viewAll": "مشاهده همه",
+    "betterTogether": "بهتر در کنار",
+    "installAllTogether": "نصب همه با هم",
+    "installAllTitle": "{count, plural, other {نصب همه ربات‌ها با هم (#)}}",
+    "installAllDescription": "{bot} و ربات‌هایی که با آن هماهنگ‌اند را یک‌جا راه‌اندازی کنید.",
+    "installAllPromptHint": "این پرامپت را در {platform} بچسبانید. همه ربات‌های مجموعه را یکی پس از دیگری راه‌اندازی می‌کند.",
+    "installAllAutogptPromptHint": "این پرامپت را در گفتگو با Otto در AutoGPT بچسبانید. Otto همه ربات‌های مجموعه را یکی پس از دیگری به‌عنوان Expert راه‌اندازی می‌کند.",
+    "installAllDotsPromptHint": "این پرامپت را در گفتگو با dot خود در ChatGPT بچسبانید. dot شما همه ربات‌های مجموعه را یکی پس از دیگری راه‌اندازی می‌کند.",
+    "installAllDuetPromptHint": "این پرامپت را در رشته گفتگوی Claude Duet خود بچسبانید. Claude Duet همه ربات‌های مجموعه را یکی پس از دیگری راه‌اندازی می‌کند. مهارت‌ها و کانکتورهای ناموجود را در تنظیمات Claude اضافه کنید.",
+    "installAllMusePromptHint": "این پرامپت را در گفتگو با Muse بچسبانید. Muse همه ربات‌های مجموعه را یکی پس از دیگری راه‌اندازی می‌کند و از شما می‌خواهد برنامه‌های لازم را متصل کنید.",
+    "installAllCommandHint": "هر ربات مجموعه را به‌عنوان مهارت نصب کنید:",
+    "installAllTemplatesHint": "یا هر قالب {platform} را باز کنید:",
+    "installAllSkipped": "در {platform} در دسترس نیست: {bots}",
+    "copyCommands": "کپی دستورها",
+    "openTemplate": "باز کردن قالب {bot}"
   },
   "collection": {
     "title": "مجموعه من",
@@ -2452,7 +2484,7 @@
     },
     "bots": {
       "title": "ربات‌های آماده عامل هوش مصنوعی برای OpenClaw، Hermes و Grok",
-      "description": "ربات‌های آماده عامل هوش مصنوعی با دستورالعمل‌ها، روال‌های زمان‌بندی‌شده و مهارت‌ها را مرور کنید و با یک کلیک روی OpenClaw، Hermes Agent یا Grok Bot نصب کنید.",
+      "description": "ربات‌های آماده عامل هوش مصنوعی با دستورالعمل‌ها، روال‌های زمان‌بندی‌شده و مهارت‌ها را مرور کنید و با یک کلیک روی OpenClaw، AutoGPT، OpenAI Dots، Claude Duet، Meta Muse، Hermes Agent یا Grok Bot نصب کنید.",
       "heading": "ربات‌ها"
     },
     "taste": {

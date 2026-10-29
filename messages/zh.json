@@ -183,6 +183,8 @@
     "relistRequestAlreadySent": "您已经为此提示词提交了重新上架请求。",
     "relistRequestError": "提交重新上架请求失败。请重试。",
     "relatedPrompts": "相关提示词",
+    "relatedSkills": "相关技能",
+    "relatedBots": "相关机器人",
     "deletePrompt": "删除提示词",
     "deletePromptTitle": "删除此提示词？",
     "deletePromptDescription": "此操作无法撤销。提示词将被永久删除。",
@@ -929,7 +931,7 @@
     "browsePrompts": "浏览提示词"
   },
   "bots": {
-    "description": "现成的 AI 智能体机器人，包含指令、例行任务和技能。可安装到 OpenClaw、Hermes Agent 或 Grok Bot。",
+    "description": "现成的 AI 智能体机器人，包含指令、例行任务和技能。可安装到 OpenClaw、AutoGPT、OpenAI Dots、Claude Duet、Meta Muse、Hermes Agent 或 Grok Bot。",
     "count": "{count, plural, other {# 个机器人}}",
     "allPlatforms": "全部",
     "searchPlaceholder": "搜索机器人...",
@@ -954,6 +956,14 @@
     "installPromptHint": "将此提示粘贴到你的智能体中。它会获取机器人定义并设置指令、例行任务和技能。",
     "installPromptFallbackHint": "或者将此提示粘贴到 Grok Bot 中自行创建机器人：",
     "installPromptPlatformFallbackHint": "或者将此提示词粘贴到 {platform} 中自行创建机器人：",
+    "autogptPromptHint": "将此提示词粘贴到 AutoGPT 上与 Otto 的对话中。Otto 会将机器人设置为一个 Expert，并配置其指令、技能和例行任务。",
+    "openAutogpt": "打开 AutoGPT",
+    "dotsPromptHint": "将此提示词粘贴到 ChatGPT 中与你的 dot 的对话里。你的 dot 会采用机器人的指令，请你连接所需的应用，并将其例行任务安排为定期任务。",
+    "openDots": "打开 Dots",
+    "duetPromptHint": "将此提示词粘贴到你的 Claude Duet 对话中。Claude Duet 会采用机器人的指令和例行任务，并使用你 Claude 账户中的技能和连接器，缺少的请在 Claude 设置中添加。",
+    "openDuet": "打开 Claude Duet",
+    "musePromptHint": "将此提示词粘贴到与 Muse 的对话中。Muse 的技能是内置的，它会采用机器人的指令，请你连接所需的应用，并将其例行任务设置为计划任务。",
+    "openMuse": "打开 Muse",
     "copyInstallPrompt": "复制安装提示",
     "machineReadable": "机器可读",
     "create": "新建机器人",
@@ -999,7 +1009,15 @@
       "submit": "创建机器人",
       "save": "保存机器人",
       "created": "机器人已创建",
-      "updated": "机器人已更新"
+      "updated": "机器人已更新",
+      "pairingsHint": "关联与此机器人配合良好的机器人。关联会显示在两个机器人的页面上。",
+      "pairingsSearch": "搜索要搭配的机器人...",
+      "pairingsNoResults": "未找到机器人",
+      "pairingNotePlaceholder": "为什么它们搭配良好?(可选)",
+      "pairingNoteLabel": "{bot} 为什么搭配良好",
+      "removePairing": "移除 {bot}",
+      "pairingsMax": "最多可关联 {max} 个机器人",
+      "pairingsInvalid": "某个已关联的机器人已不存在。请将其移除后重试。"
     },
     "colors": {
       "slate": "石板灰",
@@ -1055,7 +1073,21 @@
       "coffee": "咖啡"
     },
     "latestBots": "最新机器人",
-    "viewAll": "查看全部"
+    "viewAll": "查看全部",
+    "betterTogether": "搭配使用更佳",
+    "installAllTogether": "全部一起安装",
+    "installAllTitle": "{count, plural, other {一起安装全部 # 个机器人}}",
+    "installAllDescription": "一次性设置 {bot} 及其搭配的机器人。",
+    "installAllPromptHint": "将此提示粘贴到 {platform}。它会依次设置组合中的每个机器人。",
+    "installAllAutogptPromptHint": "将此提示粘贴到 AutoGPT 上与 Otto 的对话中。Otto 会依次将组合中的每个机器人设置为 Expert。",
+    "installAllDotsPromptHint": "将此提示词粘贴到 ChatGPT 中与你的 dot 的对话里。你的 dot 会依次设置组合中的每个机器人。",
+    "installAllDuetPromptHint": "将此提示词粘贴到你的 Claude Duet 对话中。Claude Duet 会依次设置组合中的每个机器人。缺少的技能和连接器请在 Claude 设置中添加。",
+    "installAllMusePromptHint": "将此提示词粘贴到与 Muse 的对话中。Muse 会依次设置组合中的每个机器人，并请你连接所需的应用。",
+    "installAllCommandHint": "将组合中的每个机器人安装为技能:",
+    "installAllTemplatesHint": "或打开每个 {platform} 模板:",
+    "installAllSkipped": "{platform} 不可用:{bots}",
+    "copyCommands": "复制命令",
+    "openTemplate": "打开 {bot} 模板"
   },
   "collection": {
     "title": "我的收藏",
@@ -2456,7 +2488,7 @@
     },
     "bots": {
       "title": "适用于 OpenClaw、Hermes 和 Grok 的现成 AI 智能体机器人",
-      "description": "浏览包含指令、定时任务和技能的现成 AI 智能体机器人，一键安装到 OpenClaw、Hermes Agent 或 Grok Bot。",
+      "description": "浏览包含指令、定时任务和技能的现成 AI 智能体机器人，一键安装到 OpenClaw、AutoGPT、OpenAI Dots、Claude Duet、Meta Muse、Hermes Agent 或 Grok Bot。",
       "heading": "机器人"
     },
     "taste": {

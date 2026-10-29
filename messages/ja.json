@@ -183,6 +183,8 @@
     "relistRequestAlreadySent": "このプロンプトの再公開依頼は既に送信されています。",
     "relistRequestError": "再公開依頼の送信に失敗しました。もう一度お試しください。",
     "relatedPrompts": "関連プロンプト",
+    "relatedSkills": "関連スキル",
+    "relatedBots": "関連ボット",
     "deletePrompt": "プロンプトを削除",
     "deletePromptTitle": "このプロンプトを削除しますか？",
     "deletePromptDescription": "この操作は取り消せません。プロンプトは完全に削除されます。",
@@ -929,7 +931,7 @@
     "browsePrompts": "プロンプトを見る"
   },
   "bots": {
-    "description": "指示・ルーティン・スキルを備えたすぐに使える AI エージェントボット。OpenClaw、Hermes Agent、Grok Bot にインストールできます。",
+    "description": "指示・ルーティン・スキルを備えたすぐに使える AI エージェントボット。OpenClaw、AutoGPT、OpenAI Dots、Claude Duet、Meta Muse、Hermes Agent、Grok Bot にインストールできます。",
     "count": "{count, plural, other {# 件のボット}}",
     "allPlatforms": "すべて",
     "searchPlaceholder": "ボットを検索...",
@@ -954,6 +956,14 @@
     "installPromptHint": "このプロンプトをエージェントに貼り付けてください。ボットの定義を取得し、指示・ルーティン・スキルを設定します。",
     "installPromptFallbackHint": "または、このプロンプトを Grok Bot に貼り付けて自分でボットを作成します:",
     "installPromptPlatformFallbackHint": "または、このプロンプトを {platform} に貼り付けて自分でボットを作成します:",
+    "autogptPromptHint": "このプロンプトを AutoGPT の Otto とのチャットに貼り付けてください。Otto が指示・スキル・ルーティンを備えた Expert としてボットをセットアップします。",
+    "openAutogpt": "AutoGPT を開く",
+    "dotsPromptHint": "このプロンプトを ChatGPT の dot とのチャットに貼り付けてください。dot がボットの指示を引き継ぎ、必要なアプリの接続を依頼し、ルーティンを定期タスクとしてスケジュールします。",
+    "openDots": "Dots を開く",
+    "duetPromptHint": "このプロンプトを Claude Duet のスレッドに貼り付けてください。Claude Duet はボットの指示とルーティンを引き継ぎ、Claude アカウントのスキルとコネクタを使います。足りないものは Claude の設定で追加してください。",
+    "openDuet": "Claude Duet を開く",
+    "musePromptHint": "このプロンプトを Muse とのチャットに貼り付けてください。Muse のスキルは組み込み済みなので、ボットの指示を引き継ぎ、必要なアプリの接続を依頼し、ルーティンを予定タスクとして設定します。",
+    "openMuse": "Muse を開く",
     "copyInstallPrompt": "インストールプロンプトをコピー",
     "machineReadable": "機械可読",
     "create": "新しいボット",
@@ -999,7 +1009,15 @@
       "submit": "ボットを作成",
       "save": "ボットを保存",
       "created": "ボットを作成しました",
-      "updated": "ボットを更新しました"
+      "updated": "ボットを更新しました",
+      "pairingsHint": "このボットと相性の良いボットをリンクします。リンクは両方のボットのページに表示されます。",
+      "pairingsSearch": "組み合わせるボットを検索...",
+      "pairingsNoResults": "ボットが見つかりません",
+      "pairingNotePlaceholder": "相性が良い理由(任意)",
+      "pairingNoteLabel": "{bot} と相性が良い理由",
+      "removePairing": "{bot} を削除",
+      "pairingsMax": "リンクできるボットは最大 {max} 個です",
+      "pairingsInvalid": "リンクしたボットの一つが存在しません。削除してからもう一度お試しください。"
     },
     "colors": {
       "slate": "スレート",
@@ -1055,7 +1073,21 @@
       "coffee": "コーヒー"
     },
     "latestBots": "最新のボット",
-    "viewAll": "すべて表示"
+    "viewAll": "すべて表示",
+    "betterTogether": "一緒に使うとさらに便利",
+    "installAllTogether": "まとめてインストール",
+    "installAllTitle": "{count, plural, other {# 個のボットをまとめてインストール}}",
+    "installAllDescription": "{bot} と相性の良いボットを一度にセットアップします。",
+    "installAllPromptHint": "このプロンプトを {platform} に貼り付けてください。セット内のボットを順番にセットアップします。",
+    "installAllAutogptPromptHint": "このプロンプトを AutoGPT の Otto とのチャットに貼り付けてください。Otto がセット内の各ボットを順番に Expert としてセットアップします。",
+    "installAllDotsPromptHint": "このプロンプトを ChatGPT の dot とのチャットに貼り付けてください。dot がセット内の各ボットを順番にセットアップします。",
+    "installAllDuetPromptHint": "このプロンプトを Claude Duet のスレッドに貼り付けてください。Claude Duet がセット内の各ボットを順番にセットアップします。足りないスキルとコネクタは Claude の設定で追加してください。",
+    "installAllMusePromptHint": "このプロンプトを Muse とのチャットに貼り付けてください。Muse がセット内の各ボットを順番にセットアップし、必要なアプリの接続を依頼します。",
+    "installAllCommandHint": "セット内の各ボットをスキルとしてインストール:",
+    "installAllTemplatesHint": "または各 {platform} テンプレートを開く:",
+    "installAllSkipped": "{platform} では利用できません: {bots}",
+    "copyCommands": "コマンドをコピー",
+    "openTemplate": "{bot} のテンプレートを開く"
   },
   "collection": {
     "title": "マイコレクション",
@@ -2456,7 +2488,7 @@
     },
     "bots": {
       "title": "OpenClaw・Hermes・Grok 向けのすぐに使える AI エージェントボット",
-      "description": "指示、定期ルーティン、スキルを備えたすぐに使える AI エージェントボットを探して、OpenClaw、Hermes Agent、Grok Bot にワンクリックでインストールできます。",
+      "description": "指示、定期ルーティン、スキルを備えたすぐに使える AI エージェントボットを探して、OpenClaw、AutoGPT、OpenAI Dots、Claude Duet、Meta Muse、Hermes Agent、Grok Bot にワンクリックでインストールできます。",
       "heading": "ボット"
     },
     "taste": {

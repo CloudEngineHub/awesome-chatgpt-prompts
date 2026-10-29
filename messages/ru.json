@@ -186,6 +186,8 @@
     "relistRequestAlreadySent": "Вы уже отправили запрос на повторный листинг для этого промпта.",
     "relistRequestError": "Не удалось отправить запрос на повторный листинг. Пожалуйста, попробуйте снова.",
     "relatedPrompts": "Похожие промпты",
+    "relatedSkills": "Похожие навыки",
+    "relatedBots": "Похожие боты",
     "deletePrompt": "Удалить Промпт",
     "deletePromptTitle": "Удалить этот промпт?",
     "deletePromptDescription": "Это действие нельзя отменить. Промпт будет удалён навсегда.",
@@ -929,7 +931,7 @@
     "browsePrompts": "Обзор промптов"
   },
   "bots": {
-    "description": "Готовые боты ИИ-агентов с инструкциями, рутинами и навыками. Установите их в OpenClaw, Hermes Agent или Grok Bot.",
+    "description": "Готовые боты ИИ-агентов с инструкциями, рутинами и навыками. Установите их в OpenClaw, AutoGPT, OpenAI Dots, Claude Duet, Meta Muse, Hermes Agent или Grok Bot.",
     "count": "{count, plural, one {# бот} few {# бота} many {# ботов} other {# бота}}",
     "allPlatforms": "Все",
     "searchPlaceholder": "Поиск ботов...",
@@ -954,6 +956,14 @@
     "installPromptHint": "Вставьте этот промпт в своего агента. Он загрузит описание бота и настроит инструкции, рутины и навыки.",
     "installPromptFallbackHint": "Или вставьте этот промпт в Grok Bot, чтобы создать бота самостоятельно:",
     "installPromptPlatformFallbackHint": "Или вставьте этот промпт в {platform}, чтобы создать бота самостоятельно:",
+    "autogptPromptHint": "Вставьте этот промпт в чат с Otto в AutoGPT. Otto настроит бота как Expert с его инструкциями, навыками и рутинами.",
+    "openAutogpt": "Открыть AutoGPT",
+    "dotsPromptHint": "Вставьте этот промпт в чат со своим dot в ChatGPT. Ваш dot примет инструкции бота, попросит подключить нужные приложения и запланирует его рутины как повторяющиеся задачи.",
+    "openDots": "Открыть Dots",
+    "duetPromptHint": "Вставьте этот промпт в свою ветку Claude Duet. Claude Duet примет инструкции и рутины бота и использует навыки и коннекторы вашего аккаунта Claude, поэтому добавьте недостающие в настройках Claude.",
+    "openDuet": "Открыть Claude Duet",
+    "musePromptHint": "Вставьте этот промпт в чат с Muse. Навыки Muse встроенные, поэтому он примет инструкции бота, попросит подключить нужные приложения и настроит его рутины как запланированные задачи.",
+    "openMuse": "Открыть Muse",
     "copyInstallPrompt": "Копировать промпт установки",
     "machineReadable": "Машиночитаемый формат",
     "create": "Новый бот",
@@ -999,7 +1009,15 @@
       "submit": "Создать бота",
       "save": "Сохранить бота",
       "created": "Бот создан",
-      "updated": "Бот обновлён"
+      "updated": "Бот обновлён",
+      "pairingsHint": "Свяжите ботов, которые хорошо работают с этим. Связи отображаются на страницах обоих ботов.",
+      "pairingsSearch": "Найти ботов для связи...",
+      "pairingsNoResults": "Боты не найдены",
+      "pairingNotePlaceholder": "Почему они хорошо сочетаются? (необязательно)",
+      "pairingNoteLabel": "Почему {bot} хорошо сочетается",
+      "removePairing": "Удалить {bot}",
+      "pairingsMax": "Можно связать не более {max} ботов",
+      "pairingsInvalid": "Один из связанных ботов больше не существует. Удалите его и попробуйте снова."
     },
     "colors": {
       "slate": "Сланцевый",
@@ -1055,7 +1073,21 @@
       "coffee": "Кофе"
     },
     "latestBots": "Новые боты",
-    "viewAll": "Смотреть все"
+    "viewAll": "Смотреть все",
+    "betterTogether": "Лучше вместе с",
+    "installAllTogether": "Установить все вместе",
+    "installAllTitle": "{count, plural, one {Установить # бота} few {Установить все # бота вместе} many {Установить все # ботов вместе} other {Установить все # бота вместе}}",
+    "installAllDescription": "Настройте {bot} и подходящих к нему ботов за один раз.",
+    "installAllPromptHint": "Вставьте этот промпт в {platform}. Он по очереди настроит каждого бота из набора.",
+    "installAllAutogptPromptHint": "Вставьте этот промпт в чат с Otto в AutoGPT. Otto по очереди настроит каждого бота из набора как Expert.",
+    "installAllDotsPromptHint": "Вставьте этот промпт в чат со своим dot в ChatGPT. Ваш dot по очереди настроит каждого бота из набора.",
+    "installAllDuetPromptHint": "Вставьте этот промпт в свою ветку Claude Duet. Claude Duet по очереди настроит каждого бота из набора. Добавьте недостающие навыки и коннекторы в настройках Claude.",
+    "installAllMusePromptHint": "Вставьте этот промпт в чат с Muse. Muse по очереди настроит каждого бота из набора и попросит подключить нужные приложения.",
+    "installAllCommandHint": "Установите каждого бота из набора как навык:",
+    "installAllTemplatesHint": "Или откройте каждый шаблон {platform}:",
+    "installAllSkipped": "Недоступно в {platform}: {bots}",
+    "copyCommands": "Копировать команды",
+    "openTemplate": "Открыть шаблон {bot}"
   },
   "collection": {
     "title": "Моя Коллекция",
@@ -2453,7 +2485,7 @@
     },
     "bots": {
       "title": "Готовые боты ИИ-агентов для OpenClaw, Hermes и Grok",
-      "description": "Просматривайте готовых ботов ИИ-агентов с инструкциями, рутинами по расписанию и навыками и устанавливайте их в OpenClaw, Hermes Agent или Grok Bot в один клик.",
+      "description": "Просматривайте готовых ботов ИИ-агентов с инструкциями, рутинами по расписанию и навыками и устанавливайте их в OpenClaw, AutoGPT, OpenAI Dots, Claude Duet, Meta Muse, Hermes Agent или Grok Bot в один клик.",
       "heading": "Боты"
     },
     "taste": {

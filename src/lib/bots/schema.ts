@@ -1,13 +1,40 @@
 import { z } from "zod";
 
-export const BOT_PLATFORMS = ["GROK_BOT", "OPENCLAW", "HERMES"] as const;
+export const BOT_PLATFORMS = ["GROK_BOT", "OPENCLAW", "HERMES", "AUTOGPT", "DOTS", "DUET", "MUSE"] as const;
 export type BotPlatform = (typeof BOT_PLATFORMS)[number];
 
 export const BOT_PLATFORM_INFO: Record<BotPlatform, { name: string; shortName: string; param: string }> = {
-  GROK_BOT: { name: "Grok Bot", shortName: "Grok Bot", param: "grok" },
+  GROK_BOT: { name: "Grok Bot", shortName: "Grok", param: "grok" },
   OPENCLAW: { name: "OpenClaw", shortName: "OpenClaw", param: "openclaw" },
   HERMES: { name: "Hermes Agent", shortName: "Hermes", param: "hermes" },
+  AUTOGPT: { name: "AutoGPT", shortName: "AutoGPT", param: "autogpt" },
+  DOTS: { name: "OpenAI Dots", shortName: "Dots", param: "dots" },
+  DUET: { name: "Claude Duet", shortName: "Duet", param: "duet" },
+  MUSE: { name: "Meta Muse", shortName: "Muse", param: "muse" },
 };
+
+/**
+ * Platforms with no import command or template link: the install prompt is pasted into a chat with the
+ * agent at `url`. AutoGPT: Otto, its head-of-AI agent. Dots: your dot in ChatGPT. Claude Duet: claude.ai,
+ * its only web address. Muse: the Muse web app. The other fields are "bots" message keys.
+ */
+export const BOT_PLATFORM_CHAT_INSTALL = {
+  AUTOGPT: {
+    url: "https://platform.agpt.co/copilot",
+    hint: "autogptPromptHint",
+    bundleHint: "installAllAutogptPromptHint",
+    open: "openAutogpt",
+  },
+  DOTS: { url: "https://chatgpt.com/dots", hint: "dotsPromptHint", bundleHint: "installAllDotsPromptHint", open: "openDots" },
+  DUET: { url: "https://claude.ai", hint: "duetPromptHint", bundleHint: "installAllDuetPromptHint", open: "openDuet" },
+  MUSE: { url: "https://muse.ai", hint: "musePromptHint", bundleHint: "installAllMusePromptHint", open: "openMuse" },
+} as const satisfies Partial<Record<BotPlatform, { url: string; hint: string; bundleHint: string; open: string }>>;
+
+export type ChatInstallPlatform = keyof typeof BOT_PLATFORM_CHAT_INSTALL;
+
+export function isChatInstallPlatform(platform: BotPlatform): platform is ChatInstallPlatform {
+  return platform in BOT_PLATFORM_CHAT_INSTALL;
+}
 
 export function platformFromParam(param: string | undefined): BotPlatform | undefined {
   return BOT_PLATFORMS.find((platform) => BOT_PLATFORM_INFO[platform].param === param);
@@ -137,3 +164,26 @@ export function parseBotConfig(value: unknown): BotConfig {
 export const installUrlSchema = z.string().trim().url().refine((url) => url.startsWith("https://"), {
   message: "Install URL must use https",
 });
+
+export const MAX_BOT_PAIRINGS = 12;
+export const BOT_PAIRING_NOTE_MAX_LENGTH = 200;
+
+/** One "Better together with" link as sent to the create and update APIs */
+export const botPairingInputSchema = z.object({
+  botId: z.string().trim().min(1),
+  note: z.string().trim().max(BOT_PAIRING_NOTE_MAX_LENGTH).nullish(),
+});
+
+export const botPairingsSchema = z
+  .array(botPairingInputSchema)
+  .max(MAX_BOT_PAIRINGS)
+  .refine((pairings) => new Set(pairings.map((p) => p.botId)).size === pairings.length, {
+    message: "Each bot can only be paired once",
+  });
+
+export type BotPairingInput = z.infer<typeof botPairingInputSchema>;
+
+/** BotPairing rows are stored once per pair, ordered so that fromId < toId */
+export function canonicalPair(a: string, b: string): { fromId: string; toId: string } {
+  return a < b ? { fromId: a, toId: b } : { fromId: b, toId: a };
+}
