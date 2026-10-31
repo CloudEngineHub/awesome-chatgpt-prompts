@@ -146,7 +146,7 @@ function botListWhere({ platform, categorySlug, tagSlugs = [], q }: BotListFilte
 }
 
 const BOT_ORDER: Record<BotSort, Prisma.PromptOrderByWithRelationInput[]> = {
-  newest: [{ isFeatured: "desc" }, { createdAt: "desc" }],
+  newest: [{ createdAt: "desc" }, { id: "desc" }],
   oldest: [{ createdAt: "asc" }],
   upvotes: [{ votes: { _count: "desc" } }, { createdAt: "desc" }],
 };
@@ -226,6 +226,26 @@ export async function listLatestBots(take = 6): Promise<BotView[]> {
 export async function getBotById(id: string, { includeDeleted = false } = {}): Promise<BotView | null> {
   const record = await db.prompt.findFirst({
     where: { id, type: "BOT", ...(includeDeleted ? {} : { deletedAt: null }) },
+    select: botSelect,
+  });
+  return record ? toBotView(record) : null;
+}
+
+/**
+ * A live bot by id (or "id_slug" URL segment), else by slug, with the visibility rules of the bot page:
+ * public and unlisted bots for everyone, private ones for their author and admins. Slugs are not
+ * unique, so a slug resolves to the oldest visible match.
+ */
+export async function findVisibleBot(
+  { id, slug }: { id?: string; slug?: string },
+  viewer: { id: string; role: string } | null = null
+): Promise<BotView | null> {
+  if (!id && !slug) return null;
+  const visibility: Prisma.PromptWhereInput =
+    viewer?.role === "ADMIN" ? {} : { OR: [{ isPrivate: false }, ...(viewer ? [{ authorId: viewer.id }] : [])] };
+  const record = await db.prompt.findFirst({
+    where: { type: "BOT", deletedAt: null, ...visibility, ...(id ? { id: extractBotId(id) } : { slug }) },
+    orderBy: { createdAt: "asc" },
     select: botSelect,
   });
   return record ? toBotView(record) : null;
