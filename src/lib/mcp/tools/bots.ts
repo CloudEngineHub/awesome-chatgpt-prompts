@@ -5,6 +5,8 @@ import { db } from "@/lib/db";
 import { isAISearchEnabled, semanticSearch } from "@/lib/ai/embeddings";
 import {
   BOT_COLORS,
+  BOT_COMPUTER_FILTERS,
+  BOT_COMPUTER_REQUIREMENTS,
   BOT_ICONS,
   BOT_PLATFORM_INFO,
   BOT_PLATFORMS,
@@ -15,6 +17,7 @@ import {
   botSkillSchema,
   botTagsJson,
   botToJson,
+  computerFilterWhere,
   findVisibleBot,
   getBotUrls,
   listBots,
@@ -27,8 +30,8 @@ import { botPairingsJson, getBotPairings } from "@/lib/bots/pairings";
 import { findOwnBot, upsertOwnBot } from "@/lib/bots/upsert";
 import { isTrending } from "@/lib/trending";
 import type { McpContext } from "../context";
-import { botDetailOutput, botSummaryOutput, cursorInput, decodeCursor, limitInput, nextCursor } from "../schemas";
-import { findOrCreateTagIds, resolveCategoryId, resourceLink } from "../shared";
+import { TAG_NAMES_DESCRIPTION, botDetailOutput, botSummaryOutput, cursorInput, decodeCursor, limitInput, nextCursor, unknownTagsOutput } from "../schemas";
+import { resolveCategoryId, resolveTagIds, resourceLink, unknownTagsWarning } from "../shared";
 import { defineTool, toolResult, ToolError, unwrapWriteResult } from "../tool";
 
 /** A bot as returned to its owner: the public JSON plus visibility fields only the owner sees */
@@ -51,6 +54,7 @@ function botSummary(ctx: McpContext, bot: BotView) {
     platformNames: bot.platforms.map((platform) => BOT_PLATFORM_INFO[platform].name),
     icon: bot.icon,
     color: bot.color,
+    computerRequirements: bot.computerRequirements,
     category: botCategoryJson(bot),
     tags: botTagsJson(bot),
     author: bot.author.name || bot.author.username,
@@ -65,6 +69,17 @@ function botLink(bot: BotView) {
 }
 
 const platformInput = z.enum(BOT_PLATFORMS);
+const computerRequirementsInput = z
+  .array(z.enum(BOT_COMPUTER_REQUIREMENTS))
+  .max(BOT_COMPUTER_REQUIREMENTS.length)
+  .describe(
+    "Computers the bot needs besides chat, any combination of: CLOUD (its own remote computer, desktop or browser) and LOCAL (access to the user's own machine, files or apps). An empty list means it needs no computer. Replaces the stored list."
+  );
+const computerFilterInput = z
+  .enum(BOT_COMPUTER_FILTERS)
+  .describe(
+    "Only bots that need this computer: CLOUD or LOCAL (including bots that need both), or NONE for bots that need no computer"
+  );
 
 export function registerBotTools(server: McpServer, ctx: McpContext) {
   defineTool(
@@ -86,6 +101,7 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
           .optional()
           .describe("Keywords matched against name, description and instructions; separate alternatives with commas"),
         platform: platformInput.optional().describe("Only bots that run on this platform"),
+        computerRequirement: computerFilterInput.optional(),
         category: z.string().optional().describe("Category slug; a parent category also matches its subcategories"),
         tags: z.array(z.string()).max(10).optional().describe("Tag slugs; every tag must match"),
         sort: z.enum(BOT_SORTS).default("newest").describe("Sort order for keyword results"),
@@ -103,7 +119,7 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
       },
       failureMessage: "Failed to search bots",
     },
-    async ({ query, platform, category, tags, sort, semantic, limit, cursor }) => {
+    async ({ query, platform, computerRequirement, category, tags, sort, semantic, limit, cursor }) => {
       const offset = decodeCursor(cursor);
       const q = query?.trim();
 
@@ -111,6 +127,7 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
         const where: Prisma.PromptWhereInput = {
           ...publicBotWhere,
           ...(platform && { botPlatforms: { has: platform } }),
+          ...computerFilterWhere(computerRequirement),
           ...(category && { category: { OR: [{ slug: category }, { parent: { slug: category } }] } }),
           ...(tags?.length && { AND: tags.map((slug) => ({ tags: { some: { tag: { slug } } } })) }),
         };
@@ -131,7 +148,7 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
         );
       }
 
-      const { bots, total } = await listBots({ platform, categorySlug: category, tagSlugs: tags, q, sort, skip: offset, take: limit });
+      const { bots, total } = await listBots({ platform, computer: computerRequirement, categorySlug: category, tagSlugs: tags, q, sort, skip: offset, take: limit });
       return toolResult(
         {
           searchMode: "keyword",
@@ -211,6 +228,7 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
         icon: z.enum(BOT_ICONS).nullable().optional().describe("Preset icon; null for the default"),
         color: z.enum(BOT_COLORS).nullable().optional().describe("Preset color; null for the neutral default"),
         installUrl: z.string().nullable().optional().describe("https link that installs the bot in one click (Grok Bot template link)"),
+        computerRequirements: computerRequirementsInput.optional(),
         routines: z
           .array(botRoutineSchema.extend({ triggerLabel: botRoutineSchema.shape.triggerLabel.default("") }))
           .max(20)
@@ -232,7 +250,7 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
           .optional()
           .describe("Connectors the user must connect, e.g. \"Gmail\". Replaces all connectors."),
         category: z.string().nullable().optional().describe("Category slug; null removes the category"),
-        tags: z.array(z.string()).max(10).optional().describe("Tag names (created if they don't exist). Replaces all tags."),
+        tags: z.array(z.string()).max(10).optional().describe(`${TAG_NAMES_DESCRIPTION} Replaces all tags.`),
         isPrivate: z.boolean().optional().describe("Whether the bot is private (new bots default to your account setting)"),
       },
       outputSchema: {
@@ -241,13 +259,15 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
         changedFields: z.array(z.string()),
         bot: botDetailOutput,
         link: z.string().nullable(),
+        ...unknownTagsOutput,
       },
       failureMessage: "Failed to save bot",
     },
     async (
-      { id, slug, name, description, instructions, platforms, icon, color, installUrl, routines, skills, connectors, category, tags, isPrivate },
+      { id, slug, name, description, instructions, platforms, icon, color, installUrl, computerRequirements, routines, skills, connectors, category, tags, isPrivate },
       { user }
     ) => {
+      const resolvedTags = tags === undefined ? undefined : await resolveTagIds(tags);
       const { action, bot, changedFields } = unwrapWriteResult(
         await upsertOwnBot(
           { id: user.id, role: user.role },
@@ -261,11 +281,12 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
             botIcon: icon,
             botColor: color,
             installUrl,
+            computerRequirements,
             routines,
             skills,
             connectors,
             categoryId: await resolveCategoryId(category),
-            tagIds: tags === undefined ? undefined : await findOrCreateTagIds(tags),
+            tagIds: resolvedTags?.ids,
             isPrivate,
           },
           { defaultPrivate: !user.mcpPromptsPublicByDefault }
@@ -279,6 +300,7 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
           changedFields,
           bot: ownBotJson(ctx, bot),
           link: bot.isPrivate ? null : getBotUrls(bot, ctx.baseUrl).page,
+          ...unknownTagsWarning(resolvedTags?.unknownTags ?? []),
         },
         [botLink(bot)]
       );
@@ -310,6 +332,7 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
             name: z.string(),
             description: z.string().nullable(),
             platforms: z.array(z.string()),
+            computerRequirements: z.array(z.enum(BOT_COMPUTER_REQUIREMENTS)),
             isPrivate: z.boolean(),
             isUnlisted: z.boolean(),
             createdAt: z.string(),
@@ -334,6 +357,7 @@ export function registerBotTools(server: McpServer, ctx: McpContext) {
             name: bot.title,
             description: bot.description,
             platforms: bot.platforms,
+            computerRequirements: bot.computerRequirements,
             isPrivate: bot.isPrivate,
             isUnlisted: bot.isUnlisted,
             createdAt: bot.createdAt.toISOString(),

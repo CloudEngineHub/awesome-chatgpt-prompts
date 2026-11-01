@@ -25,11 +25,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { BotPlatformIcon } from "@/components/bots/bot-platform-icon";
 import { BotAppearancePicker } from "@/components/bots/bot-appearance-picker";
+import { COMPUTER_REQUIREMENT_ICONS, COMPUTER_REQUIREMENT_LABELS } from "@/components/bots/bot-computer-badge";
 import { BotPairingPicker, type BotPairingValue } from "@/components/bots/bot-pairing-picker";
 import { CategorySelect, type CategoryOption } from "@/components/prompts/category-select";
 import { TagPicker, type TagOption } from "@/components/prompts/tag-picker";
 import {
   BOT_COLORS,
+  BOT_COMPUTER_REQUIREMENTS,
   BOT_ICONS,
   BOT_PLATFORMS,
   BOT_PLATFORM_INFO,
@@ -38,7 +40,9 @@ import {
   botRoutineSchema,
   botSkillSchema,
   normalizeBotPlatforms,
+  normalizeComputerRequirements,
   type BotColor,
+  type BotComputerRequirement,
   type BotConfig,
   type BotIconName,
   type BotPlatform,
@@ -53,6 +57,7 @@ const botFormSchema = z.object({
   botPlatforms: z.array(z.enum(BOT_PLATFORMS)).min(1),
   botIcon: z.union([z.literal(""), z.enum(BOT_ICONS)]),
   botColor: z.union([z.literal(""), z.enum(BOT_COLORS)]),
+  computerRequirements: z.array(z.enum(BOT_COMPUTER_REQUIREMENTS)),
   installUrl: z
     .string()
     .trim()
@@ -85,6 +90,7 @@ export interface BotFormInitialData {
   botPlatforms: BotPlatform[];
   botIcon: BotIconName | null;
   botColor: BotColor | null;
+  computerRequirements: BotComputerRequirement[];
   installUrl: string;
   content: string;
   isPrivate: boolean;
@@ -103,6 +109,9 @@ interface BotFormProps {
   /** Only admins can link bots as "Better together with" */
   canManagePairings?: boolean;
 }
+
+/** "bots.computer" message keys for each checkbox's helper text; the label is COMPUTER_REQUIREMENT_LABELS */
+const COMPUTER_HINT_KEYS = { CLOUD: "cloudHint", LOCAL: "localHint" } as const satisfies Record<BotComputerRequirement, string>;
 
 function parseConnectors(value: string): string[] {
   return Array.from(new Set(value.split(",").map((c) => c.trim()).filter(Boolean))).slice(0, 20);
@@ -123,6 +132,7 @@ export function BotForm({ mode, botId, initialData, categories, tags, canManageP
       botPlatforms: initialData?.botPlatforms ?? [],
       botIcon: initialData?.botIcon ?? "",
       botColor: initialData?.botColor ?? "",
+      computerRequirements: initialData?.computerRequirements ?? [],
       installUrl: initialData?.installUrl ?? "",
       content: initialData?.content ?? "",
       isPrivate: initialData?.isPrivate ?? false,
@@ -152,6 +162,7 @@ export function BotForm({ mode, botId, initialData, categories, tags, canManageP
         botPlatforms: data.botPlatforms,
         botIcon: data.botIcon || null,
         botColor: data.botColor || null,
+        computerRequirements: data.computerRequirements,
         installUrl: data.installUrl,
         botConfig: {
           routines: data.routines,
@@ -281,6 +292,56 @@ export function BotForm({ mode, botId, initialData, categories, tags, canManageP
                   })}
                 </div>
                 {fieldState.error && <p className="text-destructive text-sm">{t("form.platformsRequired")}</p>}
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="computerRequirements"
+            render={({ field }) => (
+              <FormItem>
+                <p id="bot-computer-label" className="text-sm font-medium leading-none">
+                  {t("computer.label")}
+                </p>
+                <FormDescription>{t("computer.hint")}</FormDescription>
+                <div role="group" aria-labelledby="bot-computer-label" className="grid gap-2 sm:grid-cols-2">
+                  {BOT_COMPUTER_REQUIREMENTS.map((requirement) => {
+                    const checked = field.value.includes(requirement);
+                    const Icon = COMPUTER_REQUIREMENT_ICONS[requirement];
+                    const hintId = `bot-computer-${requirement.toLowerCase()}-hint`;
+                    return (
+                      <label
+                        key={requirement}
+                        className={cn(
+                          "flex cursor-pointer items-start gap-2 rounded-md border px-3 py-2 text-sm transition-colors hover:bg-accent/50",
+                          checked && "border-primary bg-primary/5"
+                        )}
+                      >
+                        <Checkbox
+                          checked={checked}
+                          aria-describedby={hintId}
+                          onCheckedChange={(value) =>
+                            field.onChange(
+                              value
+                                ? normalizeComputerRequirements([...field.value, requirement])
+                                : field.value.filter((item) => item !== requirement)
+                            )
+                          }
+                          onBlur={field.onBlur}
+                          className="mt-0.5"
+                        />
+                        <Icon className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                        <span className="space-y-0.5">
+                          <span className="block font-medium">{t(`computer.${COMPUTER_REQUIREMENT_LABELS[requirement]}`)}</span>
+                          <span id={hintId} className="block text-xs text-muted-foreground">
+                            {t(`computer.${COMPUTER_HINT_KEYS[requirement]}`)}
+                          </span>
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
               </FormItem>
             )}
           />

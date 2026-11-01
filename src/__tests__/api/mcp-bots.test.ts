@@ -10,7 +10,7 @@ vi.mock("@/lib/db", () => ({
   db: {
     user: { findUnique: vi.fn() },
     prompt: { findMany: vi.fn(), findFirst: vi.fn(), findUniqueOrThrow: vi.fn(), count: vi.fn() },
-    tag: { findUnique: vi.fn(), create: vi.fn() },
+    tag: { findUnique: vi.fn(), findMany: vi.fn(), create: vi.fn() },
     category: { findUnique: vi.fn() },
     botPairing: { findMany: vi.fn().mockResolvedValue([]) },
   },
@@ -48,6 +48,7 @@ function botRecord(overrides: Record<string, unknown> = {}) {
     botIcon: null,
     botColor: null,
     installUrl: null,
+    computerRequirements: [],
     botConfig: { routines: [], skills: [], connectors: [] },
     isPrivate: true,
     isUnlisted: false,
@@ -114,8 +115,10 @@ describe("MCP bot tools", () => {
     it("creates a new private bot through the web creation flow", async () => {
       vi.mocked(db.prompt.findFirst).mockResolvedValue(null);
       vi.mocked(db.category.findUnique).mockResolvedValue({ id: "cat-1" } as never);
-      vi.mocked(db.tag.findUnique).mockResolvedValueOnce({ id: "tag-1" } as never).mockResolvedValueOnce(null);
-      vi.mocked(db.tag.create).mockResolvedValue({ id: "tag-2" } as never);
+      vi.mocked(db.tag.findMany).mockResolvedValue([
+        { id: "tag-1", name: "Email", slug: "email" },
+        { id: "tag-2", name: "Inbox", slug: "inbox" },
+      ] as never);
       vi.mocked(createPrompt).mockResolvedValue({ ok: true, data: { id: "bot-1" } } as never);
       vi.mocked(db.prompt.findUniqueOrThrow).mockResolvedValue(botRecord() as never);
       await connect(alice);
@@ -155,6 +158,29 @@ describe("MCP bot tools", () => {
         isPrivate: true,
       });
       expect(promptCreateSchema.safeParse(body).success).toBe(true);
+      expect(data.unknownTags).toBeUndefined();
+      expect(db.tag.create).not.toHaveBeenCalled();
+    });
+
+    it("skips tags that do not exist and reports them instead of creating them", async () => {
+      vi.mocked(db.prompt.findFirst).mockResolvedValue(null);
+      vi.mocked(db.tag.findMany).mockResolvedValue([{ id: "tag-1", name: "Email", slug: "email" }] as never);
+      vi.mocked(createPrompt).mockResolvedValue({ ok: true, data: { id: "bot-1" } } as never);
+      vi.mocked(db.prompt.findUniqueOrThrow).mockResolvedValue(botRecord() as never);
+      await connect(alice);
+
+      const { isError, data } = await callTool("save_bot", {
+        name: "Inbox Triage",
+        instructions: "Triage my inbox.",
+        platforms: ["OPENCLAW"],
+        tags: ["EMAIL", "Brand New Tag"],
+      });
+
+      expect(isError).toBe(false);
+      expect(data.unknownTags).toEqual(["Brand New Tag"]);
+      expect(data.warning).toMatch(/Brand New Tag/);
+      expect(vi.mocked(createPrompt).mock.calls[0][1]).toMatchObject({ tagIds: ["tag-1"] });
+      expect(db.tag.create).not.toHaveBeenCalled();
     });
 
     it("is a no-op when called again with the same definition", async () => {
@@ -232,6 +258,68 @@ describe("MCP bot tools", () => {
       expect(result.isError).toBe(true);
       expect(createPrompt).not.toHaveBeenCalled();
     });
+
+    it("saves the computer requirements, and keeps the stored ones when they are omitted", async () => {
+      vi.mocked(db.prompt.findFirst).mockResolvedValue(null);
+      vi.mocked(createPrompt).mockResolvedValue({ ok: true, data: { id: "bot-1" } } as never);
+      vi.mocked(db.prompt.findUniqueOrThrow).mockResolvedValue(botRecord({ computerRequirements: ["CLOUD"] }) as never);
+      await connect(alice);
+
+      const created = await callTool("save_bot", { name: "Desk", instructions: "Use the browser.", platforms: ["MUSE"], computerRequirements: ["CLOUD"] });
+
+      expect(vi.mocked(createPrompt).mock.calls[0][1]).toMatchObject({ computerRequirements: ["CLOUD"] });
+      expect(created.data.bot).toMatchObject({ computerRequirements: ["CLOUD"] });
+
+      vi.mocked(db.prompt.findFirst).mockResolvedValue(botRecord({ computerRequirements: ["CLOUD"] }) as never);
+      const unchanged = await callTool("save_bot", { name: "Inbox Triage", instructions: "Triage my inbox.", platforms: ["OPENCLAW"] });
+      expect(unchanged.data).toMatchObject({ action: "unchanged", changedFields: [] });
+
+      vi.mocked(updatePrompt).mockResolvedValue({ ok: true, data: { id: "bot-1" } } as never);
+      const updated = await callTool("save_bot", {
+        name: "Inbox Triage",
+        instructions: "Triage my inbox.",
+        platforms: ["OPENCLAW"],
+        computerRequirements: ["LOCAL"],
+      });
+      expect(updatePrompt).toHaveBeenCalledWith({ id: "user-1", role: "USER" }, "bot-1", { computerRequirements: ["LOCAL"] });
+      expect(updated.data).toMatchObject({ action: "updated", changedFields: ["computerRequirements"] });
+    });
+
+    it("saves a bot that needs both computers, and clears them with an empty list", async () => {
+      vi.mocked(db.prompt.findFirst).mockResolvedValue(null);
+      vi.mocked(createPrompt).mockResolvedValue({ ok: true, data: { id: "bot-1" } } as never);
+      vi.mocked(db.prompt.findUniqueOrThrow).mockResolvedValue(botRecord({ computerRequirements: ["CLOUD", "LOCAL"] }) as never);
+      await connect(alice);
+
+      const created = await callTool("save_bot", { name: "Desk", instructions: "Use both.", platforms: ["MUSE"], computerRequirements: ["LOCAL", "CLOUD"] });
+
+      expect(vi.mocked(createPrompt).mock.calls[0][1]).toMatchObject({ computerRequirements: ["LOCAL", "CLOUD"] });
+      expect(created.data.bot).toMatchObject({ computerRequirements: ["CLOUD", "LOCAL"] });
+
+      vi.mocked(db.prompt.findFirst).mockResolvedValue(botRecord({ computerRequirements: ["CLOUD", "LOCAL"] }) as never);
+      const reordered = await callTool("save_bot", { name: "Inbox Triage", instructions: "Triage my inbox.", platforms: ["OPENCLAW"], computerRequirements: ["LOCAL", "CLOUD"] });
+      expect(reordered.data).toMatchObject({ action: "unchanged", changedFields: [] });
+
+      vi.mocked(updatePrompt).mockResolvedValue({ ok: true, data: { id: "bot-1" } } as never);
+      await callTool("save_bot", { name: "Inbox Triage", instructions: "Triage my inbox.", platforms: ["OPENCLAW"], computerRequirements: [] });
+      expect(updatePrompt).toHaveBeenCalledWith({ id: "user-1", role: "USER" }, "bot-1", { computerRequirements: [] });
+    });
+
+    it.each([
+      ["an unknown value", ["DESKTOP"]],
+      ["NONE", ["NONE"]],
+      ["a single string", "CLOUD"],
+    ])("rejects %s as computer requirements", async (_label, computerRequirements) => {
+      await connect(alice);
+
+      const result = await client.callTool({
+        name: "save_bot",
+        arguments: { name: "A", instructions: "B", platforms: ["MUSE"], computerRequirements },
+      });
+
+      expect(result.isError).toBe(true);
+      expect(createPrompt).not.toHaveBeenCalled();
+    });
   });
 
   it("list_my_bots returns the caller's bots including private ones", async () => {
@@ -253,6 +341,7 @@ describe("MCP bot tools", () => {
           name: "Inbox Triage",
           description: null,
           platforms: ["OPENCLAW"],
+          computerRequirements: [],
           isPrivate: true,
           isUnlisted: false,
           createdAt: "2026-01-01T00:00:00.000Z",
@@ -325,6 +414,20 @@ describe("MCP bot tools", () => {
 
       await client.callTool({ name: "search_bots", arguments: { query: "inbox", limit: 1, cursor: data.nextCursor } });
       expect(vi.mocked(db.prompt.findMany).mock.calls[1][0]).toMatchObject({ skip: 1, take: 1 });
+    });
+
+    it("filters by computer requirement and returns the list in each summary", async () => {
+      vi.mocked(db.prompt.findMany).mockResolvedValue([botRecord({ isPrivate: false, computerRequirements: ["CLOUD", "LOCAL"] })] as never);
+      vi.mocked(db.prompt.count).mockResolvedValue(1);
+      await connect(null);
+
+      const { data } = await callTool("search_bots", { computerRequirement: "LOCAL" });
+
+      expect(vi.mocked(db.prompt.findMany).mock.calls[0][0]?.where).toMatchObject({ type: "BOT", computerRequirements: { has: "LOCAL" } });
+      expect(data.bots).toEqual([expect.objectContaining({ id: "bot-1", computerRequirements: ["CLOUD", "LOCAL"] })]);
+
+      await callTool("search_bots", { computerRequirement: "NONE" });
+      expect(vi.mocked(db.prompt.findMany).mock.calls[1][0]?.where).toMatchObject({ computerRequirements: { isEmpty: true } });
     });
 
     it("falls back to keyword search when AI search is off", async () => {

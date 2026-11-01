@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { ToolError } from "./tool";
+import { BOT_COMPUTER_REQUIREMENTS } from "@/lib/bots/schema";
 
 /** Input fields shared by several tools */
 export const limitInput = (defaultValue: number, max: number, noun: string) =>
@@ -7,7 +8,16 @@ export const limitInput = (defaultValue: number, max: number, noun: string) =>
 
 export const cursorInput = z.string().optional().describe("Pass the nextCursor of a previous result to get the next page");
 
-export const tagNamesInput = z.array(z.string()).max(10).optional().describe("Tag names (created if they don't exist)");
+export const TAG_NAMES_DESCRIPTION =
+  "Names or slugs of existing tags (case-insensitive). Only existing tags are accepted; unknown ones are skipped and reported in unknownTags.";
+
+export const tagNamesInput = z.array(z.string()).max(10).optional().describe(TAG_NAMES_DESCRIPTION);
+
+/** Output fields of save tools, present when some requested tags do not exist */
+export const unknownTagsOutput = {
+  unknownTags: z.array(z.string()).optional().describe("Requested tags that do not exist and were not applied"),
+  warning: z.string().optional(),
+};
 
 export const categorySlugInput = z.string().optional().describe("Category slug");
 
@@ -38,7 +48,7 @@ export function nextCursor(offset: number, pageSize: number, limit: number, tota
  * Output schemas describe the documented fields; objects stay open so new fields can be added
  * without breaking clients that validate structuredContent.
  */
-const taxonomyOutput = z.looseObject({ name: z.string(), slug: z.string() });
+export const taxonomyOutput = z.looseObject({ name: z.string(), slug: z.string() });
 
 export const promptSummaryOutput = z.looseObject({
   id: z.string(),
@@ -77,6 +87,7 @@ export const botSummaryOutput = z.looseObject({
   platformNames: z.array(z.string()),
   icon: z.string().nullable(),
   color: z.string().nullable(),
+  computerRequirements: z.array(z.enum(BOT_COMPUTER_REQUIREMENTS)),
   category: taxonomyOutput.nullable(),
   tags: z.array(taxonomyOutput),
   author: z.string(),
@@ -95,6 +106,7 @@ export const botDetailOutput = z.looseObject({
   platformNames: z.array(z.string()),
   icon: z.string().nullable(),
   color: z.string().nullable(),
+  computerRequirements: z.array(z.enum(BOT_COMPUTER_REQUIREMENTS)),
   instructions: z.string(),
   routines: z.array(z.looseObject({ name: z.string(), type: z.string(), trigger: z.string(), triggerLabel: z.string(), prompt: z.string() })),
   skills: z.array(z.looseObject({ name: z.string(), description: z.string(), source: z.string() })),

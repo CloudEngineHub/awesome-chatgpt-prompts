@@ -57,6 +57,7 @@ export default async function EditBotPage({ params }: EditBotPageProps) {
           botPlatforms: bot.platforms,
           botIcon: bot.icon,
           botColor: bot.color,
+          computerRequirements: bot.computerRequirements,
           installUrl: bot.installUrl ?? "",
           content: bot.instructions,
           isPrivate: bot.isPrivate,

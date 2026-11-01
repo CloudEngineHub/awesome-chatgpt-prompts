@@ -6,7 +6,7 @@ import { generatePromptEmbedding, findAndSaveRelatedPrompts } from "@/lib/ai/emb
 import { generatePromptSlug } from "@/lib/slug";
 import { checkPromptQuality } from "@/lib/ai/quality-check";
 import { isSimilarContent, normalizeContent } from "@/lib/similarity";
-import { BOT_PLATFORMS, EMPTY_BOT_CONFIG, botColorSchema, botConfigSchema, botIconSchema, botPairingsSchema, botPlatformsData, botPlatformsSchema, installUrlSchema } from "@/lib/bots/schema";
+import { BOT_PLATFORMS, EMPTY_BOT_CONFIG, botColorSchema, botComputerRequirementsSchema, botConfigSchema, botIconSchema, botPairingsSchema, botPlatformsData, botPlatformsSchema, installUrlSchema } from "@/lib/bots/schema";
 import { BotPairingError, buildPairingRows, findInvalidPairingTargets, replaceBotPairings } from "@/lib/bots/pairings";
 
 /**
@@ -53,6 +53,7 @@ export const promptCreateSchema = z.object({
   botPlatform: z.enum(BOT_PLATFORMS).optional(),
   botIcon: botIconSchema.nullish().or(z.literal("")),
   botColor: botColorSchema.nullish().or(z.literal("")),
+  computerRequirements: botComputerRequirementsSchema.optional(),
   installUrl: installUrlSchema.optional().or(z.literal("")),
   botConfig: botConfigSchema.optional(),
   /** "Better together with" links to other bots; admins only */
@@ -91,10 +92,13 @@ export const promptUpdateSchema = z.object({
   botPlatform: z.enum(BOT_PLATFORMS).optional(),
   botIcon: botIconSchema.nullish().or(z.literal("")),
   botColor: botColorSchema.nullish().or(z.literal("")),
+  computerRequirements: botComputerRequirementsSchema.optional(),
   installUrl: installUrlSchema.optional().or(z.literal("")).nullable(),
   botConfig: botConfigSchema.optional(),
   /** Replaces every "Better together with" link of the bot; admins only */
   pairings: botPairingsSchema.optional(),
+  /** Hides the prompt or bot from listings, search and profiles; admins only */
+  isUnlisted: z.boolean().optional(),
 });
 
 /** A failed cache revalidation must not fail a write that has already been committed */
@@ -115,7 +119,7 @@ export async function createPrompt(user: PromptWriter, body: unknown) {
     return fail(400, "validation_error", "Invalid input", { details: parsed.error.issues });
   }
 
-  const { title, description, content, type, structuredFormat, categoryId, tagIds, contributorIds, isPrivate, mediaUrl, requiresMediaUpload, requiredMediaType, requiredMediaCount, bestWithModels, bestWithMCP, workflowLink, botPlatforms, botPlatform, botIcon, botColor, installUrl, botConfig, pairings } = parsed.data;
+  const { title, description, content, type, structuredFormat, categoryId, tagIds, contributorIds, isPrivate, mediaUrl, requiresMediaUpload, requiredMediaType, requiredMediaCount, bestWithModels, bestWithMCP, workflowLink, botPlatforms, botPlatform, botIcon, botColor, computerRequirements, installUrl, botConfig, pairings } = parsed.data;
   const isBot = type === "BOT";
 
   if (pairings !== undefined) {
@@ -247,6 +251,7 @@ export async function createPrompt(user: PromptWriter, body: unknown) {
         ...botPlatformsData(botPlatforms ?? (botPlatform ? [botPlatform] : [])),
         botIcon: botIcon || null,
         botColor: botColor || null,
+        computerRequirements: computerRequirements ?? [],
         installUrl: installUrl || null,
         botConfig: botConfig ?? EMPTY_BOT_CONFIG,
       }),
@@ -392,7 +397,11 @@ export async function updatePrompt(user: PromptWriter, id: string, body: unknown
     return fail(400, "validation_error", "Invalid input", { details: parsed.error.issues });
   }
 
-  const { tagIds, contributorIds, categoryId, mediaUrl, title, bestWithModels, bestWithMCP, workflowLink, installUrl, botPlatforms, botPlatform, botIcon, botColor, pairings, ...data } = parsed.data;
+  const { tagIds, contributorIds, categoryId, mediaUrl, title, bestWithModels, bestWithMCP, workflowLink, installUrl, botPlatforms, botPlatform, botIcon, botColor, pairings, isUnlisted, ...data } = parsed.data;
+
+  if (isUnlisted !== undefined && user.role !== "ADMIN") {
+    return fail(403, "forbidden", "Only admins can unlist prompts");
+  }
 
   let pairingRows: ReturnType<typeof buildPairingRows> | undefined;
   if (pairings !== undefined) {
@@ -437,6 +446,7 @@ export async function updatePrompt(user: PromptWriter, id: string, body: unknown
     ...(nextBotPlatforms && botPlatformsData(nextBotPlatforms)),
     ...(botIcon !== undefined && { botIcon: botIcon || null }),
     ...(botColor !== undefined && { botColor: botColor || null }),
+    ...(isUnlisted !== undefined && { isUnlisted, unlistedAt: isUnlisted ? new Date() : null }),
   };
 
   // Update prompt
@@ -597,7 +607,7 @@ export async function updatePrompt(user: PromptWriter, id: string, body: unknown
   }
 
   // Revalidate prompts and flow cache
-  revalidateTags(["prompts", "prompt-flow"]);
+  revalidateTags(["prompts", "prompt-flow", ...(isUnlisted !== undefined ? ["categories", "tags"] : [])]);
 
   return {
     ok: true as const,

@@ -7,7 +7,7 @@ vi.mock("@/lib/db", () => ({
   db: {
     user: { findUnique: vi.fn() },
     prompt: { findMany: vi.fn(), findFirst: vi.fn(), count: vi.fn() },
-    tag: { findUnique: vi.fn(), create: vi.fn() },
+    tag: { findUnique: vi.fn(), findMany: vi.fn(), create: vi.fn() },
     category: { findUnique: vi.fn() },
   },
 }));
@@ -139,6 +139,9 @@ describe("MCP route", () => {
         "save_bot",
         "list_my_bots",
         "get_my_bot",
+        "list_teams",
+        "get_team",
+        "save_team",
       ]);
     });
 
