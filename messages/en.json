@@ -56,7 +56,14 @@
     "developers": "Developers",
     "book": "Book",
     "forKids": "For Kids",
-    "more": "More"
+    "more": "More",
+    "createMenu": {
+      "label": "Create",
+      "prompt": "Prompt",
+      "skill": "Skill",
+      "bot": "Bot",
+      "team": "Team"
+    }
   },
   "brand": {
     "copyLogoSvg": "Copy Logo SVG",
@@ -123,7 +130,12 @@
       "selectExample": "Select an example...",
       "aiGenerate": "AI Generate",
       "aiPlaceholder": "Describe the SQL query you need...",
-      "generateSql": "Generate SQL"
+      "generateSql": "Generate SQL",
+      "listingQuery": {
+        "skills": "🧩 Agent Skills",
+        "bots": "🤖 Bots & assistants",
+        "teams": "👥 Multi-agent teams"
+      }
     },
     "edit": "Edit Prompt",
     "delete": "Delete Prompt",
@@ -446,7 +458,46 @@
     "dismissed": "Change request dismissed",
     "dismissConfirmTitle": "Dismiss Change Request?",
     "dismissConfirmDescription": "This will permanently delete your change request. This action cannot be undone.",
-    "backToBot": "Back to bot"
+    "backToBot": "Back to bot",
+    "backToTeam": "Back to team",
+    "proposeBotTitle": "Propose changes to this bot",
+    "proposeBotIntro": "Suggest improvements to this bot. The owner reviews your proposal and can approve or reject it.",
+    "proposeTeamTitle": "Propose changes to this team",
+    "proposeTeamIntro": "Suggest improvements to this team. The owner reviews your proposal and can approve or reject it.",
+    "viewVersion": "View version",
+    "viewVersionHint": "Changes compared to version {previous}",
+    "viewFirstVersionHint": "First version",
+    "memberRole": "Role",
+    "memberDescription": "Description",
+    "membersReordered": "Member order changed",
+    "noFieldChanges": "No changes",
+    "reviewedBy": "Reviewed by {user}",
+    "teamApprovedSuccess": "Change request approved and team updated",
+    "botFields": {
+      "title": "Title",
+      "description": "Description",
+      "platforms": "Platforms",
+      "computers": "Computer requirements",
+      "appearance": "Appearance",
+      "installUrl": "Install URL",
+      "instructions": "Instructions",
+      "routines": "Routines",
+      "skills": "Skills",
+      "connectors": "Connectors"
+    },
+    "teamFields": {
+      "title": "Title",
+      "description": "Description",
+      "category": "Category",
+      "tags": "Tags",
+      "handoffs": "Handoffs",
+      "members": "Members"
+    },
+    "member": {
+      "added": "Added",
+      "removed": "Removed",
+      "changed": "Changed"
+    }
   },
   "categories": {
     "title": "Categories",
@@ -975,6 +1026,7 @@
     "trigger": "Trigger",
     "skills": "Skills",
     "connectors": "Required connectors",
+    "connectorRegistryLink": "{name} on the MCP Registry (opens in a new tab)",
     "install": "Install",
     "installOn": "Install on {platform}",
     "installLinkComingSoon": "Install link coming soon",
@@ -1100,6 +1152,7 @@
       "coffee": "Coffee"
     },
     "latestBots": "Latest Bots",
+    "featuredTeams": "Featured Bot Teams",
     "viewAll": "View all",
     "betterTogether": "Better together with",
     "installAllTogether": "Install all together",
@@ -1440,7 +1493,23 @@
     "categoryPlaceholder": "Add category slug...",
     "tags": "Tags",
     "tagPlaceholder": "Add tag slug...",
-    "generateApiKey": "Generate API key to save prompts via MCP"
+    "generateApiKey": "Generate API key to save prompts via MCP",
+    "clientNotes": {
+      "claudeDesktopRemote": "In Claude Desktop, open Settings → Connectors → Add custom connector and paste this URL.",
+      "claudeDesktopLocal": "Add to claude_desktop_config.json (Settings → Developer → Edit Config), then restart Claude Desktop.",
+      "codex": "Add to ~/.codex/config.toml. The Codex CLI and IDE extension share it.",
+      "grokBotRemote": "Paste this URL into a Grok Bot chat and ask it to connect the MCP server.",
+      "grokBotLocal": "Ask Grok Bot in chat to add a command MCP server that runs this. It runs on the Bot's cloud computer.",
+      "openclaw": "Add to openclaw.json, then check it with openclaw mcp doctor prompts-chat --probe.",
+      "devinRemote": "For the Devin CLI (~/.config/devin/mcp_config.json). In the Devin web app, go to Customize → MCPs → Add custom MCP, choose HTTP and paste the server URL.",
+      "devinLocal": "For the Devin CLI (~/.config/devin/mcp_config.json). In the Devin web app, add a custom MCP with the STDIO transport and this command.",
+      "urlOnlyApiKey": "This client only takes a URL, so your API key isn't included. Search and read tools work without it."
+    },
+    "resourceHint": {
+      "skills": "Skills use the same server: search_skills finds Agent Skills and get_skill returns all their files.",
+      "bots": "Bots use the same server: search_bots finds bots and get_bot returns their instructions and install options.",
+      "teams": "Teams use the same server: list_teams finds bot teams and get_team returns their members and handoffs."
+    }
   },
   "footer": {
     "howTo": "How to...",
@@ -1580,7 +1649,7 @@
     "interactiveBanner": {
       "badge": "Interactive Version Available",
       "title": "Want a More Detailed & Interactive Experience?",
-      "description": "Dive deeper with our comprehensive interactive guide featuring 29 chapters, hands-on exercises, and real-world examples to master AI prompting.",
+      "description": "Dive deeper with our comprehensive interactive guide featuring 30 chapters, hands-on exercises, and real-world examples to master AI prompting.",
       "cta": "Read the Interactive Book"
     },
     "generalTips": {
@@ -2050,7 +2119,7 @@
     "donate": "Support the project",
     "subtitle": "An Interactive Guide to Crafting Clear and Effective Prompts",
     "metaTitle": "Prompt Engineering Guide: The Interactive Book of Prompting",
-    "metaDescription": "Master AI prompt engineering with this free, interactive guide. Learn ChatGPT prompts, chain-of-thought reasoning, few-shot learning, and advanced techniques. 29+ chapters with real examples.",
+    "metaDescription": "Master AI prompt engineering with this free, interactive guide. Learn ChatGPT prompts, chain-of-thought reasoning, few-shot learning, and advanced techniques. 30+ chapters with real examples.",
     "interactiveGuideBy": "An Interactive Guide by",
     "authorIntro": "Hi, I'm <author>Fatih Kadir Akın</author>, the curator of the popular <repoLink>Awesome ChatGPT Prompts</repoLink> repository on GitHub and <siteName>prompts.chat</siteName>.",
     "bookDescription": "In this comprehensive and interactive guide, you'll discover expert strategies for crafting compelling AI prompts that drive engaging and effective conversations. From understanding how AI models work to mastering advanced techniques like prompt chaining and agentic systems, this book provides you with the tools you need to take your AI interactions to the next level.",
@@ -2072,7 +2141,7 @@
       "part4": "Part 4: Best Practices",
       "part5": "Part 5: Use Cases",
       "part6": "Part 6: Conclusion",
-      "chapters": "29 Interactive Chapters"
+      "chapters": "30 Interactive Chapters"
     },
     "startReading": "Start Reading",
     "skipToChapter1": "Skip to Chapter 1",
@@ -2130,6 +2199,7 @@
       "13-multimodal-prompting": "Multimodal Prompting",
       "14-context-engineering": "Context Engineering",
       "14a-loop-engineering": "Loop Engineering",
+      "24a-from-prompt-to-team": "From Prompt to Team",
       "25-agents-and-skills": "Agents & Skills",
       "15-common-pitfalls": "Common Pitfalls",
       "16-ethics-responsible-use": "Ethics & Responsible Use",
@@ -2164,6 +2234,7 @@
       "13-multimodal-prompting": "Working with images, audio, and video",
       "14-context-engineering": "RAG, embeddings, function calling, and MCP",
       "14a-loop-engineering": "Designing feedback cycles that act, verify, adapt, and know when to stop",
+      "24a-from-prompt-to-team": "Prompts, skills, agents, bots, and teams in plain words, and how they differ",
       "25-agents-and-skills": "Building AI agents with reusable skill packages",
       "15-common-pitfalls": "Mistakes to avoid",
       "16-ethics-responsible-use": "Ethical considerations in AI",
@@ -2709,5 +2780,23 @@
   "apiDocs": {
     "computerRequirementFilter": "Only bots that need a <code>CLOUD</code> computer or the user's <code>LOCAL</code> computer (bots that need both match either), or <code>NONE</code> for bots that need no computer",
     "computerRequirementsInput": "A list with any of <code>CLOUD</code> (the bot needs its own remote computer, desktop or browser) and <code>LOCAL</code> (it needs the user's own machine, files or apps); an empty list means it needs no computer. Replaces the stored list"
+  },
+  "actionButtons": {
+    "deployWithSpacefast": "Deploy with Spacefast"
+  },
+  "widgets": {
+    "sponsored": "Sponsored",
+    "spacefast": {
+      "title": "Bots that answer with a <hl>live link</hl>",
+      "description": "Add the Spacefast MCP connector and your bots publish sites, reports and dashboards. Private by default, same link every time they republish.",
+      "published": "Published with Spacefast",
+      "live": "Live",
+      "connector": "Add MCP connector",
+      "features": {
+        "privateByDefault": "Private by default",
+        "sameLink": "Same link for updates",
+        "versionHistory": "Version history"
+      }
+    }
   }
 }

@@ -132,9 +132,32 @@ export function teamCellHeight(size: number, width: number, hub = false, footer 
   return Math.ceil(Math.max(200 + footer, grid, ring));
 }
 
+/** Narrowest width a standalone team card is drawn at, e.g. one column of the homepage grid on a phone */
+export const TEAM_CARD_MIN_WIDTH = 300;
+
+/**
+ * Height of each card in a grid of standalone team cards with the given number of columns: the
+ * height that fits the largest team of its row at the narrowest card width, so a row lines up and
+ * every card keeps its size once its graph is drawn
+ */
+export function teamCardHeights(
+  teams: readonly { members: readonly { id: string }[]; links: readonly { fromBotId: string; toBotId: string }[] }[],
+  columns = 1,
+  width = TEAM_CARD_MIN_WIDTH
+): number[] {
+  const own = teams.map((team) =>
+    teamCellHeight(team.members.length, width, findHub(team.members.map((m) => m.id), team.links) >= 0, TEAM_BOX_FOOTER)
+  );
+  return own.map((_, index) => {
+    const start = index - (index % columns);
+    return Math.max(...own.slice(start, start + columns));
+  });
+}
+
 /**
  * Places one cell per team, left to right in as many columns of at least minCellWidth as fit.
- * Each row is as tall as its tallest team.
+ * Each row is as tall as its tallest team. A cell with a `fixedHeights` entry, such as a widget
+ * placed between teams, asks for that height instead of one fitted to its size.
  */
 export function teamGridLayout(
   teamSizes: number[],
@@ -144,7 +167,8 @@ export function teamGridLayout(
     gap = 16,
     hubs = [],
     footer = 0,
-  }: { minCellWidth?: number; gap?: number; hubs?: boolean[]; footer?: number } = {}
+    fixedHeights = [],
+  }: { minCellWidth?: number; gap?: number; hubs?: boolean[]; footer?: number; fixedHeights?: (number | undefined)[] } = {}
 ): { cells: GraphCell[]; height: number; columns: number } {
   const columns = Math.max(1, Math.min(teamSizes.length || 1, Math.floor((width + gap) / (minCellWidth + gap))));
   const cellWidth = (width - gap * (columns - 1)) / columns;
@@ -152,11 +176,54 @@ export function teamGridLayout(
   let y = 0;
   for (let start = 0; start < teamSizes.length; start += columns) {
     const row = teamSizes.slice(start, start + columns);
-    const rowHeight = Math.max(...row.map((size, column) => teamCellHeight(size, cellWidth, hubs[start + column], footer)));
+    const rowHeight = Math.max(
+      ...row.map((size, column) => fixedHeights[start + column] ?? teamCellHeight(size, cellWidth, hubs[start + column], footer))
+    );
     row.forEach((_, column) => cells.push({ x: column * (cellWidth + gap), y, width: cellWidth, height: rowHeight, footer }));
     y += rowHeight + gap;
   }
   return { cells, height: Math.max(0, y - gap), columns };
+}
+
+/** Height of a widget cell placed between team boxes in the overview */
+export const WIDGET_CELL_HEIGHT = 284;
+
+/**
+ * Lays out team boxes with widget cells between them. `widgetSlots` are the indexes of widgets in
+ * the combined list of teams and widgets. Returns the teams' cells in team order and the widgets'
+ * cells in slot order.
+ */
+export function teamGridLayoutWithWidgets(
+  teamSizes: number[],
+  widgetSlots: readonly number[],
+  width: number,
+  options: { minCellWidth?: number; gap?: number; hubs?: boolean[]; footer?: number } = {}
+): { cells: GraphCell[]; widgetCells: GraphCell[]; height: number; columns: number } {
+  const widgets = new Set(widgetSlots.filter((slot) => Number.isInteger(slot) && slot >= 0));
+  const total = teamSizes.length + widgets.size;
+  const kinds: ("team" | "widget")[] = [];
+  let teamIndex = 0;
+  for (let slot = 0; slot < total; slot++) {
+    // Slots past the end of the list collapse onto it, as when a widget is appended after the last team
+    kinds.push(widgets.has(slot) || teamIndex >= teamSizes.length ? "widget" : "team");
+    if (kinds[slot] === "team") teamIndex++;
+  }
+  const hubs = options.hubs ?? [];
+  let next = 0;
+  const sizes = kinds.map((kind) => (kind === "team" ? teamSizes[next++] : 0));
+  next = 0;
+  const slotHubs = kinds.map((kind) => (kind === "team" ? !!hubs[next++] : false));
+  const grid = teamGridLayout(sizes, width, {
+    ...options,
+    hubs: slotHubs,
+    fixedHeights: kinds.map((kind) => (kind === "widget" ? WIDGET_CELL_HEIGHT : undefined)),
+  });
+  return {
+    cells: grid.cells.filter((_, slot) => kinds[slot] === "team"),
+    widgetCells: grid.cells.filter((_, slot) => kinds[slot] === "widget"),
+    height: grid.height,
+    columns: grid.columns,
+  };
 }
 
 /**

@@ -56,7 +56,14 @@
     "developers": "Προγραμματιστές",
     "book": "Βιβλίο",
     "forKids": "Για Παιδιά",
-    "more": "Περισσότερα"
+    "more": "Περισσότερα",
+    "createMenu": {
+      "label": "Δημιουργία",
+      "prompt": "Prompt",
+      "skill": "Δεξιότητα",
+      "bot": "Bot",
+      "team": "Ομάδα"
+    }
   },
   "brand": {
     "copyLogoSvg": "Αντιγραφή Logo SVG",
@@ -123,7 +130,12 @@
       "selectExample": "Επιλέξτε παράδειγμα...",
       "aiGenerate": "Δημιουργία με AI",
       "aiPlaceholder": "Περιγράψτε το ερώτημα SQL που χρειάζεστε...",
-      "generateSql": "Δημιουργία SQL"
+      "generateSql": "Δημιουργία SQL",
+      "listingQuery": {
+        "skills": "🧩 Agent Skills",
+        "bots": "🤖 Bots και βοηθοί",
+        "teams": "👥 Ομάδες πολλαπλών πρακτόρων"
+      }
     },
     "edit": "Επεξεργασία Prompt",
     "delete": "Διαγραφή Prompt",
@@ -446,7 +458,46 @@
     "dismissed": "Η αίτηση αλλαγής απορρίφθηκε",
     "dismissConfirmTitle": "Απόρριψη αίτησης αλλαγής;",
     "dismissConfirmDescription": "Αυτό θα διαγράψει μόνιμα την αίτηση αλλαγής σας. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
-    "backToBot": "Πίσω στο bot"
+    "backToBot": "Πίσω στο bot",
+    "backToTeam": "Επιστροφή στην ομάδα",
+    "proposeBotTitle": "Πρόταση αλλαγών σε αυτό το bot",
+    "proposeBotIntro": "Προτείνετε βελτιώσεις για αυτό το bot. Ο ιδιοκτήτης θα εξετάσει την πρότασή σας και μπορεί να την εγκρίνει ή να την απορρίψει.",
+    "proposeTeamTitle": "Πρόταση αλλαγών σε αυτή την ομάδα",
+    "proposeTeamIntro": "Προτείνετε βελτιώσεις για αυτή την ομάδα. Ο ιδιοκτήτης θα εξετάσει την πρότασή σας και μπορεί να την εγκρίνει ή να την απορρίψει.",
+    "viewVersion": "Προβολή έκδοσης",
+    "viewVersionHint": "Αλλαγές σε σχέση με την έκδοση {previous}",
+    "viewFirstVersionHint": "Πρώτη έκδοση",
+    "memberRole": "Ρόλος",
+    "memberDescription": "Περιγραφή",
+    "membersReordered": "Η σειρά των μελών άλλαξε",
+    "noFieldChanges": "Καμία αλλαγή",
+    "reviewedBy": "Ελέγχθηκε από {user}",
+    "teamApprovedSuccess": "Το αίτημα αλλαγής εγκρίθηκε και η ομάδα ενημερώθηκε",
+    "botFields": {
+      "title": "Τίτλος",
+      "description": "Περιγραφή",
+      "platforms": "Πλατφόρμες",
+      "computers": "Απαιτήσεις υπολογιστή",
+      "appearance": "Εμφάνιση",
+      "installUrl": "URL εγκατάστασης",
+      "instructions": "Οδηγίες",
+      "routines": "Ρουτίνες",
+      "skills": "Δεξιότητες",
+      "connectors": "Σύνδεσμοι"
+    },
+    "teamFields": {
+      "title": "Τίτλος",
+      "description": "Περιγραφή",
+      "category": "Κατηγορία",
+      "tags": "Ετικέτες",
+      "handoffs": "Παραδόσεις",
+      "members": "Μέλη"
+    },
+    "member": {
+      "added": "Προστέθηκε",
+      "removed": "Αφαιρέθηκε",
+      "changed": "Άλλαξε"
+    }
   },
   "categories": {
     "title": "Κατηγορίες",
@@ -975,6 +1026,7 @@
     "trigger": "Έναυσμα",
     "skills": "Δεξιότητες",
     "connectors": "Απαιτούμενοι σύνδεσμοι",
+    "connectorRegistryLink": "{name} στο MCP Registry (ανοίγει σε νέα καρτέλα)",
     "install": "Εγκατάσταση",
     "installOn": "Εγκατάσταση στο {platform}",
     "installLinkComingSoon": "Ο σύνδεσμος εγκατάστασης έρχεται σύντομα",
@@ -1100,6 +1152,7 @@
       "coffee": "Καφές"
     },
     "latestBots": "Πιο πρόσφατα bots",
+    "featuredTeams": "Προτεινόμενες ομάδες bots",
     "viewAll": "Προβολή όλων",
     "betterTogether": "Καλύτερα μαζί με",
     "installAllTogether": "Εγκατάσταση όλων μαζί",
@@ -1440,7 +1493,23 @@
     "categoryPlaceholder": "Προσθέστε slug κατηγορίας...",
     "tags": "Ετικέτες",
     "tagPlaceholder": "Προσθέστε slug ετικέτας...",
-    "generateApiKey": "Δημιουργήστε κλειδί API για αποθήκευση prompts μέσω MCP"
+    "generateApiKey": "Δημιουργήστε κλειδί API για αποθήκευση prompts μέσω MCP",
+    "clientNotes": {
+      "claudeDesktopRemote": "Στο Claude Desktop, ανοίξτε Ρυθμίσεις → Συνδέσεις → Προσθήκη προσαρμοσμένης σύνδεσης και επικολλήστε αυτό το URL.",
+      "claudeDesktopLocal": "Προσθέστε το στο claude_desktop_config.json (Ρυθμίσεις → Developer → Επεξεργασία ρυθμίσεων) και επανεκκινήστε το Claude Desktop.",
+      "codex": "Προσθέστε το στο ~/.codex/config.toml. Το Codex CLI και η επέκταση IDE το μοιράζονται.",
+      "grokBotRemote": "Επικολλήστε αυτό το URL σε μια συνομιλία του Grok Bot και ζητήστε του να συνδέσει τον διακομιστή MCP.",
+      "grokBotLocal": "Ζητήστε από το Grok Bot στη συνομιλία να προσθέσει έναν διακομιστή MCP εντολής που εκτελεί αυτό. Τρέχει στον υπολογιστή cloud του Bot.",
+      "openclaw": "Προσθέστε το στο openclaw.json και ελέγξτε το με openclaw mcp doctor prompts-chat --probe.",
+      "devinRemote": "Για το Devin CLI (~/.config/devin/mcp_config.json). Στην εφαρμογή web του Devin, μεταβείτε στο Customize → MCPs → Add custom MCP, επιλέξτε HTTP και επικολλήστε το URL του διακομιστή.",
+      "devinLocal": "Για το Devin CLI (~/.config/devin/mcp_config.json). Στην εφαρμογή web του Devin, προσθέστε προσαρμοσμένο MCP με τη μεταφορά STDIO και αυτή την εντολή.",
+      "urlOnlyApiKey": "Αυτός ο πελάτης δέχεται μόνο URL, οπότε το κλειδί API σας δεν περιλαμβάνεται. Τα εργαλεία αναζήτησης και ανάγνωσης λειτουργούν χωρίς αυτό."
+    },
+    "resourceHint": {
+      "skills": "Οι δεξιότητες χρησιμοποιούν τον ίδιο διακομιστή: το search_skills βρίσκει Agent Skills και το get_skill επιστρέφει όλα τα αρχεία τους.",
+      "bots": "Τα bots χρησιμοποιούν τον ίδιο διακομιστή: το search_bots βρίσκει bots και το get_bot επιστρέφει τις οδηγίες και τις επιλογές εγκατάστασής τους.",
+      "teams": "Οι ομάδες χρησιμοποιούν τον ίδιο διακομιστή: το list_teams βρίσκει ομάδες bots και το get_team επιστρέφει τα μέλη και τις παραδόσεις τους."
+    }
   },
   "footer": {
     "howTo": "Πώς να ξεκινήσετε",
@@ -1580,7 +1649,7 @@
     "interactiveBanner": {
       "badge": "Διαδραστική Έκδοση Διαθέσιμη",
       "title": "Θέλετε μια πιο λεπτομερή και διαδραστική εμπειρία;",
-      "description": "Εμβαθύνετε με τον πλήρη διαδραστικό οδηγό μας με 29 κεφάλαια, πρακτικές ασκήσεις και παραδείγματα από τον πραγματικό κόσμο για να κατακτήσετε τα AI prompts.",
+      "description": "Εμβαθύνετε με τον πλήρη διαδραστικό οδηγό μας με 30 κεφάλαια, πρακτικές ασκήσεις και παραδείγματα από τον πραγματικό κόσμο για να κατακτήσετε τα AI prompts.",
       "cta": "Διαβάστε το Διαδραστικό Βιβλίο"
     },
     "generalTips": {
@@ -2050,7 +2119,7 @@
     "donate": "Υποστηρίξτε το έργο",
     "subtitle": "Ένας Διαδραστικός Οδηγός για τη Δημιουργία Σαφών και Αποτελεσματικών Prompts",
     "metaTitle": "Οδηγός Prompt Engineering: Το Διαδραστικό Βιβλίο Prompting",
-    "metaDescription": "Κατακτήστε το AI prompt engineering με αυτόν τον δωρεάν διαδραστικό οδηγό. Μάθετε ChatGPT prompts, αλυσίδα σκέψης, few-shot μάθηση και προηγμένες τεχνικές. 29+ κεφάλαια με πραγματικά παραδείγματα.",
+    "metaDescription": "Κατακτήστε το AI prompt engineering με αυτόν τον δωρεάν διαδραστικό οδηγό. Μάθετε ChatGPT prompts, αλυσίδα σκέψης, few-shot μάθηση και προηγμένες τεχνικές. 30+ κεφάλαια με πραγματικά παραδείγματα.",
     "interactiveGuideBy": "Ένας Διαδραστικός Οδηγός από",
     "authorIntro": "Γεια, είμαι ο <author>Fatih Kadir Akın</author>, επιμελητής του δημοφιλούς αποθετηρίου <repoLink>Awesome ChatGPT Prompts</repoLink> στο GitHub και του <siteName>prompts.chat</siteName>.",
     "bookDescription": "Σε αυτόν τον ολοκληρωμένο, διαδραστικό οδηγό, θα ανακαλύψετε ειδικές στρατηγικές για τη δημιουργία πειστικών AI prompts που δημιουργούν ελκυστικές και αποτελεσματικές συνομιλίες. Από την κατανόηση του τρόπου λειτουργίας των AI μοντέλων έως την εκμάθηση προηγμένων τεχνικών όπως η αλυσίδα prompts και τα πρακτορικά συστήματα, αυτό το βιβλίο σας δίνει τα εργαλεία για να αναβαθμίσετε τις AI αλληλεπιδράσεις σας.",
@@ -2072,7 +2141,7 @@
       "part4": "Μέρος 4: Βέλτιστες Πρακτικές",
       "part5": "Μέρος 5: Περιπτώσεις Χρήσης",
       "part6": "Μέρος 6: Συμπέρασμα",
-      "chapters": "29 Διαδραστικά Κεφάλαια"
+      "chapters": "30 Διαδραστικά Κεφάλαια"
     },
     "startReading": "Ξεκινήστε την Ανάγνωση",
     "skipToChapter1": "Μετάβαση στο Κεφάλαιο 1",
@@ -2130,6 +2199,7 @@
       "13-multimodal-prompting": "Πολυτροπικό Prompting",
       "14-context-engineering": "Μηχανική Πλαισίου",
       "14a-loop-engineering": "Μηχανική Βρόχων",
+      "24a-from-prompt-to-team": "Από την προτροπή στην ομάδα",
       "25-agents-and-skills": "Πράκτορες και Δεξιότητες",
       "15-common-pitfalls": "Συνήθη Λάθη",
       "16-ethics-responsible-use": "Ηθική και Υπεύθυνη Χρήση",
@@ -2164,6 +2234,7 @@
       "13-multimodal-prompting": "Εργασία με εικόνες, ήχο και βίντεο",
       "14-context-engineering": "RAG, embeddings, κλήσεις συναρτήσεων και MCP",
       "14a-loop-engineering": "Σχεδιασμός βρόχων ανατροφοδότησης που δρουν, επαληθεύουν, προσαρμόζονται και γνωρίζουν πότε να σταματήσουν",
+      "24a-from-prompt-to-team": "Προτροπές, δεξιότητες, πράκτορες, bots και ομάδες με απλά λόγια, και τι τα ξεχωρίζει",
       "25-agents-and-skills": "Δημιουργία AI πρακτόρων με επαναχρησιμοποιήσιμα πακέτα δεξιοτήτων",
       "15-common-pitfalls": "Λάθη προς αποφυγή",
       "16-ethics-responsible-use": "Ηθικές εκτιμήσεις στην AI",
@@ -2696,5 +2767,23 @@
   "apiDocs": {
     "computerRequirementFilter": "Μόνο bots που χρειάζονται έναν υπολογιστή <code>CLOUD</code> ή τον υπολογιστή <code>LOCAL</code> του χρήστη (όσα χρειάζονται και τους δύο ταιριάζουν με οποιονδήποτε), ή <code>NONE</code> για bots που δεν χρειάζονται υπολογιστή",
     "computerRequirementsInput": "Μια λίστα με <code>CLOUD</code> (το bot χρειάζεται δικό του απομακρυσμένο υπολογιστή, επιφάνεια εργασίας ή πρόγραμμα περιήγησης) και/ή <code>LOCAL</code> (χρειάζεται τη συσκευή, τα αρχεία ή τις εφαρμογές του χρήστη)· μια κενή λίστα σημαίνει ότι δεν χρειάζεται υπολογιστή. Αντικαθιστά την αποθηκευμένη λίστα"
+  },
+  "actionButtons": {
+    "deployWithSpacefast": "Ανάπτυξη με Spacefast"
+  },
+  "widgets": {
+    "sponsored": "Χορηγούμενο",
+    "spacefast": {
+      "title": "Bots που απαντούν με <hl>ζωντανό σύνδεσμο</hl>",
+      "description": "Προσθέστε τον σύνδεσμο MCP του Spacefast και τα bots σας δημοσιεύουν ιστότοπους, αναφορές και πίνακες ελέγχου. Ιδιωτικά από προεπιλογή, ίδιος σύνδεσμος σε κάθε αναδημοσίευση.",
+      "published": "Δημοσιεύτηκε με το Spacefast",
+      "live": "Ζωντανά",
+      "connector": "Προσθήκη συνδέσμου MCP",
+      "features": {
+        "privateByDefault": "Ιδιωτικά από προεπιλογή",
+        "sameLink": "Ίδιος σύνδεσμος στις ενημερώσεις",
+        "versionHistory": "Ιστορικό εκδόσεων"
+      }
+    }
   }
 }

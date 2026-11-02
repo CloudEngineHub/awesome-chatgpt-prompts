@@ -33,6 +33,7 @@ import {
   type BotTeamLinkInput,
   type BotTeamMemberInput,
 } from "./team-schema";
+import type { TeamSnapshot } from "./team-snapshot";
 
 export * from "./team-schema";
 
@@ -238,7 +239,7 @@ export function teamSortFromParam(param: string | undefined): TeamSort {
 }
 
 const TEAM_ORDER: Record<TeamSort, Prisma.BotTeamOrderByWithRelationInput[]> = {
-  newest: [{ isFeatured: "desc" }, { createdAt: "desc" }, { id: "desc" }],
+  newest: [{ createdAt: "desc" }, { id: "desc" }],
   oldest: [{ createdAt: "asc" }, { id: "asc" }],
   upvotes: [{ votes: { _count: "desc" } }, { createdAt: "desc" }, { id: "desc" }],
 };
@@ -264,24 +265,19 @@ function teamListWhere({ q, authorId, categorySlug, tagSlugs = [], platform, inc
   };
 }
 
-/**
- * Newest first, with featured teams ahead of the rest unless `featuredFirst` is false (strictly by
- * creation date, e.g. for moderation scans), or sorted otherwise
- */
+/** Newest first by default, or sorted oldest first or by upvotes */
 export async function listTeams({
   skip = 0,
   take = 24,
   viewer = null,
   sort = "newest",
-  featuredFirst = true,
   ...filters
-}: TeamListFilters & { skip?: number; take?: number; viewer?: TeamViewer | null; sort?: TeamSort; featuredFirst?: boolean } = {}) {
+}: TeamListFilters & { skip?: number; take?: number; viewer?: TeamViewer | null; sort?: TeamSort } = {}) {
   const where = teamListWhere(filters);
-  const orderBy = sort === "newest" && !featuredFirst ? TEAM_ORDER.newest.slice(1) : TEAM_ORDER[sort];
   const [records, total] = await Promise.all([
     db.botTeam.findMany({
       where,
-      orderBy,
+      orderBy: TEAM_ORDER[sort],
       skip,
       take,
       select: teamSummarySelect,
@@ -289,6 +285,17 @@ export async function listTeams({
     db.botTeam.count({ where }),
   ]);
   return { teams: records.map((record) => summaryView(record, viewer)), total };
+}
+
+/** Featured listed teams, most upvoted first, then newest; members are limited to public, listed bots */
+export async function listFeaturedTeams(take = 6) {
+  const records = await db.botTeam.findMany({
+    where: { ...listedTeamWhere, isFeatured: true },
+    orderBy: TEAM_ORDER.upvotes,
+    take,
+    select: teamSummarySelect,
+  });
+  return records.map((record) => summaryView(record, null));
 }
 
 /** Which of the given teams the user has upvoted */
@@ -622,7 +629,7 @@ function linkRows(teamId: string, links: BotTeamLinkInput[]) {
   return links.map((link, order) => ({ teamId, fromBotId: link.fromBotId, toBotId: link.toBotId, label: link.label, order }));
 }
 
-async function checkTeamInput(user: PromptWriter, input: BotTeamInput, teamId?: string): Promise<PromptWriteResult<never> | null> {
+export async function checkTeamInput(user: PromptWriter, input: BotTeamInput, teamId?: string): Promise<PromptWriteResult<never> | null> {
   const issues = teamLinkIssues(input.members.map((m) => m.botId), input.links);
   if (issues.length > 0) return fail(400, "validation_error", issues[0]);
   const invalid = await findInvalidTeamBots(input.members.map((m) => m.botId), user, teamId);
@@ -645,11 +652,68 @@ function tagRows(tagIds: string[]) {
   return tagIds.map((tagId) => ({ tagId }));
 }
 
+const teamSnapshotSelect = {
+  title: true,
+  description: true,
+  category: { select: { id: true, name: true } },
+  tags: { select: { tag: { select: { id: true, name: true } } }, orderBy: { tag: { name: "asc" } } },
+  members: { orderBy: memberOrder, select: { botId: true, role: true, description: true, bot: { select: { title: true } } } },
+  links: { orderBy: [{ order: "asc" }, { createdAt: "asc" }], select: { fromBotId: true, toBotId: true, label: true } },
+} satisfies Prisma.BotTeamSelect;
+
+type DbClient = Pick<typeof db, "botTeam" | "botTeamVersion">;
+
+/** The whole stored team, every member included whoever looks at it; null when it does not exist */
+export async function loadTeamSnapshot(teamId: string, client: Pick<typeof db, "botTeam"> = db): Promise<TeamSnapshot | null> {
+  const record = await client.botTeam.findUnique({ where: { id: teamId }, select: teamSnapshotSelect });
+  if (!record) return null;
+  return {
+    title: record.title,
+    description: record.description || null,
+    category: record.category ? { id: record.category.id, name: record.category.name } : null,
+    tags: record.tags.map(({ tag }) => ({ id: tag.id, name: tag.name })),
+    members: record.members.map((member) => ({
+      botId: member.botId,
+      title: member.bot.title,
+      role: member.role || null,
+      description: member.description || null,
+    })),
+    links: record.links.map(({ fromBotId, toBotId, label }) => ({ fromBotId, toBotId, label })),
+  };
+}
+
+export interface TeamVersionOptions {
+  /** Shown in the team's history; defaults to "Initial version" on create and "Team updated" on update */
+  changeNote?: string;
+  /** Who the version is credited to; defaults to the writer */
+  versionAuthorId?: string;
+}
+
+/** Saves the team as it now is as its next version */
+async function recordTeamVersion(client: DbClient, teamId: string, createdById: string, changeNote: string) {
+  const snapshot = await loadTeamSnapshot(teamId, client);
+  if (!snapshot) return;
+  const latest = await client.botTeamVersion.findFirst({ where: { teamId }, orderBy: { version: "desc" }, select: { version: true } });
+  await client.botTeamVersion.create({
+    data: {
+      teamId,
+      version: (latest?.version ?? 0) + 1,
+      snapshot: snapshot as unknown as Prisma.InputJsonValue,
+      changeNote,
+      createdById,
+    },
+  });
+}
+
 function isSlugConflict(error: unknown): boolean {
   return error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002" && JSON.stringify(error.meta ?? {}).includes("slug");
 }
 
-export async function createTeam(user: PromptWriter, input: BotTeamInput): Promise<PromptWriteResult<BotTeamView<BotView>>> {
+export async function createTeam(
+  user: PromptWriter,
+  input: BotTeamInput,
+  { changeNote = "Initial version", versionAuthorId = user.id }: TeamVersionOptions = {}
+): Promise<PromptWriteResult<BotTeamView<BotView>>> {
   const invalid = await checkTeamInput(user, input);
   if (invalid) return invalid;
 
@@ -671,6 +735,7 @@ export async function createTeam(user: PromptWriter, input: BotTeamInput): Promi
           select: { id: true },
         });
         if (input.links.length > 0) await tx.botTeamLink.createMany({ data: linkRows(team.id, input.links) });
+        await recordTeamVersion(tx, team.id, versionAuthorId, changeNote);
         return team.id;
       });
       const team = await getTeam({ id }, user);
@@ -686,7 +751,15 @@ export async function createTeam(user: PromptWriter, input: BotTeamInput): Promi
 export async function updateTeam(
   user: PromptWriter,
   teamId: string,
-  input: BotTeamInput
+  input: BotTeamInput,
+  {
+    changeNote = "Team updated",
+    versionAuthorId = user.id,
+    afterWrite,
+  }: TeamVersionOptions & {
+    /** Runs inside the write's transaction, e.g. to mark the change request that was applied */
+    afterWrite?: (tx: Prisma.TransactionClient) => Promise<unknown>;
+  } = {}
 ): Promise<PromptWriteResult<BotTeamView<BotView>>> {
   const invalid = await checkTeamInput(user, input, teamId);
   if (invalid) return invalid;
@@ -705,6 +778,8 @@ export async function updateTeam(
     await tx.botTeamMember.deleteMany({ where: { teamId } });
     await tx.botTeamMember.createMany({ data: memberRows(input.members).map((row) => ({ ...row, teamId })) });
     if (input.links.length > 0) await tx.botTeamLink.createMany({ data: linkRows(teamId, input.links) });
+    await recordTeamVersion(tx, teamId, versionAuthorId, changeNote);
+    if (afterWrite) await afterWrite(tx);
   });
   const team = await getTeam({ id: teamId }, user);
   return { ok: true, data: team! };

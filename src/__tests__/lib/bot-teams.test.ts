@@ -9,6 +9,7 @@ import {
   getTeam,
   getTeamInstallPrompt,
   getTeamPlatforms,
+  listFeaturedTeams,
   teamExcerpt,
   teamLinkIssues,
   teamSummaryJson,
@@ -20,7 +21,9 @@ import {
 import { pairingGroups, parseMaxMembers, teamTitleFromBots, teamsFromPairings, type ConversionBot } from "@/lib/bots/team-conversion";
 import {
   MAX_NODE_EXTENT,
+  TEAM_BOX_FOOTER,
   TEAM_BOX_HEADER,
+  TEAM_CARD_MIN_WIDTH,
   TEAM_NODE_RADIUS,
   cellCenter,
   clampToCell,
@@ -30,6 +33,7 @@ import {
   nodeBounds,
   nodeExtent,
   ringTarget,
+  teamCardHeights,
   teamCellHeight,
   teamGridLayout,
   truncateLabel,
@@ -42,6 +46,7 @@ vi.mock("@/lib/db", () => ({
     botTeam: { findMany: vi.fn(), findFirst: vi.fn(), findUnique: vi.fn(), create: vi.fn(), update: vi.fn() },
     botTeamMember: { deleteMany: vi.fn(), createMany: vi.fn(), findMany: vi.fn() },
     botTeamLink: { createMany: vi.fn(), deleteMany: vi.fn() },
+    botTeamVersion: { findFirst: vi.fn(), create: vi.fn() },
     botTeamTag: {},
   },
 }));
@@ -521,6 +526,31 @@ describe("teams of a bot", () => {
   });
 });
 
+describe("featured teams", () => {
+  beforeEach(() => vi.clearAllMocks());
+
+  it("lists featured listed teams by upvotes then newest, showing only public members", async () => {
+    vi.mocked(db.botTeam.findMany).mockResolvedValue([teamRecord({ isFeatured: true, isUnlisted: false, unlistedAt: null })] as never);
+    const teams = await listFeaturedTeams(6);
+    const args = vi.mocked(db.botTeam.findMany).mock.calls[0][0]!;
+    expect(args.where).toEqual({
+      isUnlisted: false,
+      isFeatured: true,
+      members: { some: { bot: { type: "BOT", deletedAt: null, isPrivate: false, isUnlisted: false } } },
+    });
+    expect(args.orderBy).toEqual([{ votes: { _count: "desc" } }, { createdAt: "desc" }, { id: "desc" }]);
+    expect(args.take).toBe(6);
+    expect(teams).toHaveLength(1);
+    expect(teams[0].members.map((member) => member.bot.id)).toEqual(["a", "b"]);
+    expect(teams[0].voteCount).toBe(3);
+  });
+
+  it("returns nothing when no team is featured", async () => {
+    vi.mocked(db.botTeam.findMany).mockResolvedValue([]);
+    expect(await listFeaturedTeams()).toEqual([]);
+  });
+});
+
 describe("member descriptions", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -661,6 +691,18 @@ describe("hub teams", () => {
     const plain = teamGridLayout([ids.length], 900, { minCellWidth: 900 });
     const hub = teamGridLayout([ids.length], 900, { minCellWidth: 900, hubs: [true] });
     expect(hub.height).toBeGreaterThan(plain.height);
+  });
+
+  it("size standalone team cards to fit the largest team of their grid row, with its footer, at the narrowest card width", () => {
+    const pair = { members: [{ id: "a" }, { id: "b" }], links: [{ fromBotId: "a", toBotId: "b" }] };
+    const star = { members: ids.map((id) => ({ id })), links: ids.slice(1).map((id) => ({ fromBotId: ids[0], toBotId: id })) };
+    const small = teamCellHeight(2, TEAM_CARD_MIN_WIDTH, false, TEAM_BOX_FOOTER);
+    const large = teamCellHeight(ids.length, TEAM_CARD_MIN_WIDTH, true, TEAM_BOX_FOOTER);
+    expect(large).toBeGreaterThan(small);
+    expect(teamCardHeights([pair, star, pair])).toEqual([small, large, small]);
+    expect(teamCardHeights([pair, star, pair], 2)).toEqual([large, large, small]);
+    expect(teamCardHeights([pair, star, pair], 3)).toEqual([large, large, large]);
+    expect(teamCardHeights([])).toEqual([]);
   });
 
   it("draw the two directions of a handoff pair as curves on opposite sides", () => {

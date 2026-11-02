@@ -56,7 +56,14 @@
     "developers": "מפתחים",
     "book": "ספר",
     "forKids": "לילדים",
-    "more": "עוד"
+    "more": "עוד",
+    "createMenu": {
+      "label": "יצירה",
+      "prompt": "פרומפט",
+      "skill": "מיומנות",
+      "bot": "בוט",
+      "team": "צוות"
+    }
   },
   "brand": {
     "copyLogoSvg": "העתק לוגו SVG",
@@ -123,7 +130,12 @@
       "selectExample": "בחר דוגמה...",
       "aiGenerate": "יצירה עם AI",
       "aiPlaceholder": "תאר את שאילתת ה-SQL שאתה צריך...",
-      "generateSql": "צור SQL"
+      "generateSql": "צור SQL",
+      "listingQuery": {
+        "skills": "🧩 Agent Skills",
+        "bots": "🤖 בוטים ועוזרים",
+        "teams": "👥 צוותים מרובי סוכנים"
+      }
     },
     "edit": "ערוך פרומפט",
     "delete": "מחק פרומפט",
@@ -446,7 +458,46 @@
     "dismissed": "בקשת השינוי בוטלה",
     "dismissConfirmTitle": "לבטל בקשת שינוי?",
     "dismissConfirmDescription": "פעולה זו תמחק לצמיתות את בקשת השינוי שלך. לא ניתן לבטל פעולה זו.",
-    "backToBot": "חזרה לבוט"
+    "backToBot": "חזרה לבוט",
+    "backToTeam": "חזרה לצוות",
+    "proposeBotTitle": "הצעת שינויים לבוט זה",
+    "proposeBotIntro": "הציעו שיפורים לבוט זה. הבעלים יבדוק את ההצעה ויוכל לאשר או לדחות אותה.",
+    "proposeTeamTitle": "הצעת שינויים לצוות זה",
+    "proposeTeamIntro": "הציעו שיפורים לצוות זה. הבעלים יבדוק את ההצעה ויוכל לאשר או לדחות אותה.",
+    "viewVersion": "הצגת גרסה",
+    "viewVersionHint": "שינויים לעומת גרסה {previous}",
+    "viewFirstVersionHint": "גרסה ראשונה",
+    "memberRole": "תפקיד",
+    "memberDescription": "תיאור",
+    "membersReordered": "סדר החברים השתנה",
+    "noFieldChanges": "אין שינויים",
+    "reviewedBy": "נבדק על ידי {user}",
+    "teamApprovedSuccess": "בקשת השינוי אושרה והצוות עודכן",
+    "botFields": {
+      "title": "כותרת",
+      "description": "תיאור",
+      "platforms": "פלטפורמות",
+      "computers": "דרישות מחשב",
+      "appearance": "מראה",
+      "installUrl": "כתובת התקנה",
+      "instructions": "הוראות",
+      "routines": "שגרות",
+      "skills": "מיומנויות",
+      "connectors": "מחברים"
+    },
+    "teamFields": {
+      "title": "כותרת",
+      "description": "תיאור",
+      "category": "קטגוריה",
+      "tags": "תגיות",
+      "handoffs": "העברות",
+      "members": "חברים"
+    },
+    "member": {
+      "added": "נוסף",
+      "removed": "הוסר",
+      "changed": "שונה"
+    }
   },
   "categories": {
     "title": "קטגוריות",
@@ -975,6 +1026,7 @@
     "trigger": "טריגר",
     "skills": "מיומנויות",
     "connectors": "מחברים נדרשים",
+    "connectorRegistryLink": "{name} במאגר MCP (נפתח בכרטיסייה חדשה)",
     "install": "התקנה",
     "installOn": "התקנה ב-{platform}",
     "installLinkComingSoon": "קישור התקנה יגיע בקרוב",
@@ -1100,6 +1152,7 @@
       "coffee": "קפה"
     },
     "latestBots": "הבוטים האחרונים",
+    "featuredTeams": "צוותי בוטים מומלצים",
     "viewAll": "הצג הכול",
     "betterTogether": "טוב יותר יחד עם",
     "installAllTogether": "התקנת כולם יחד",
@@ -1440,7 +1493,23 @@
     "categoryPlaceholder": "הוסף slug קטגוריה...",
     "tags": "תגיות",
     "tagPlaceholder": "הוסף slug תגית...",
-    "generateApiKey": "צור מפתח API לשמירת פרומפטים דרך MCP"
+    "generateApiKey": "צור מפתח API לשמירת פרומפטים דרך MCP",
+    "clientNotes": {
+      "claudeDesktopRemote": "ב-Claude Desktop, פתחו הגדרות ← מחברים ← הוספת מחבר מותאם אישית והדביקו את כתובת ה-URL הזו.",
+      "claudeDesktopLocal": "הוסיפו ל-claude_desktop_config.json (הגדרות ← מפתחים ← עריכת תצורה), ואז הפעילו מחדש את Claude Desktop.",
+      "codex": "הוסיפו ל-~/.codex/config.toml. ה-CLI של Codex ותוסף ה-IDE חולקים אותו.",
+      "grokBotRemote": "הדביקו את כתובת ה-URL הזו בצ'אט של Grok Bot ובקשו ממנו לחבר את שרת ה-MCP.",
+      "grokBotLocal": "בקשו מ-Grok Bot בצ'אט להוסיף שרת MCP מסוג פקודה שמריץ את זה. הוא רץ על מחשב הענן של הבוט.",
+      "openclaw": "הוסיפו ל-openclaw.json, ואז בדקו עם openclaw mcp doctor prompts-chat --probe.",
+      "devinRemote": "עבור Devin CLI (~/.config/devin/mcp_config.json). באפליקציית הווב של Devin, עברו אל Customize → MCPs → Add custom MCP, בחרו HTTP והדביקו את כתובת השרת.",
+      "devinLocal": "עבור Devin CLI (~/.config/devin/mcp_config.json). באפליקציית הווב של Devin, הוסיפו MCP מותאם אישית עם תעבורת STDIO והפקודה הזו.",
+      "urlOnlyApiKey": "לקוח זה מקבל רק כתובת URL, ולכן מפתח ה-API שלכם לא נכלל. כלי החיפוש והקריאה עובדים גם בלעדיו."
+    },
+    "resourceHint": {
+      "skills": "כישורים משתמשים באותו שרת: search_skills מוצא Agent Skills ו-get_skill מחזיר את כל הקבצים שלהם.",
+      "bots": "בוטים משתמשים באותו שרת: search_bots מוצא בוטים ו-get_bot מחזיר את ההוראות ואפשרויות ההתקנה שלהם.",
+      "teams": "צוותים משתמשים באותו שרת: list_teams מוצא צוותי בוטים ו-get_team מחזיר את חבריהם ואת ההעברות ביניהם."
+    }
   },
   "footer": {
     "howTo": "איך להשתמש",
@@ -1580,7 +1649,7 @@
     "interactiveBanner": {
       "badge": "גרסה אינטראקטיבית זמינה",
       "title": "רוצים חוויה מפורטת ואינטראקטיבית יותר?",
-      "description": "העמיקו עם המדריך האינטראקטיבי המקיף שלנו הכולל 29 פרקים, תרגילים מעשיים ודוגמאות מהעולם האמיתי לשליטה בפרומפטים ל-AI.",
+      "description": "העמיקו עם המדריך האינטראקטיבי המקיף שלנו הכולל 30 פרקים, תרגילים מעשיים ודוגמאות מהעולם האמיתי לשליטה בפרומפטים ל-AI.",
       "cta": "קראו את הספר האינטראקטיבי"
     },
     "generalTips": {
@@ -2050,7 +2119,7 @@
     "donate": "תמכו בפרויקט",
     "subtitle": "מדריך אינטראקטיבי ליצירת פרומפטים ברורים ויעילים",
     "metaTitle": "מדריך להנדסת פרומפטים: הספר האינטראקטיבי של Prompting",
-    "metaDescription": "שלטו בהנדסת פרומפטים של AI עם המדריך האינטראקטיבי החינמי הזה. למדו פרומפטים ל-ChatGPT, שרשרת חשיבה, למידת few-shot וטכניקות מתקדמות. יותר מ-29 פרקים עם דוגמאות מהעולם האמיתי.",
+    "metaDescription": "שלטו בהנדסת פרומפטים של AI עם המדריך האינטראקטיבי החינמי הזה. למדו פרומפטים ל-ChatGPT, שרשרת חשיבה, למידת few-shot וטכניקות מתקדמות. יותר מ-30 פרקים עם דוגמאות מהעולם האמיתי.",
     "interactiveGuideBy": "מדריך אינטראקטיבי מאת",
     "authorIntro": "שלום, אני <author>פאטיח קאדיר אקין</author>, אוצר המאגר הפופולרי <repoLink>Awesome ChatGPT Prompts</repoLink> ב-GitHub ו-<siteName>prompts.chat</siteName>.",
     "bookDescription": "במדריך המקיף והאינטראקטיבי הזה, תגלו אסטרטגיות מומחה ליצירת פרומפטים משכנעים ל-AI שמייצרים שיחות מעניינות ויעילות. מהבנת אופן הפעולה של מודלי AI ועד שליטה בטכניקות מתקדמות כמו שרשור פרומפטים ומערכות סוכנים, הספר הזה נותן לכם את הכלים לשדרג את האינטראקציות שלכם עם AI.",
@@ -2072,7 +2141,7 @@
       "part4": "חלק 4: שיטות עבודה מומלצות",
       "part5": "חלק 5: מקרי שימוש",
       "part6": "חלק 6: סיכום",
-      "chapters": "29 פרקים אינטראקטיביים"
+      "chapters": "30 פרקים אינטראקטיביים"
     },
     "startReading": "התחל לקרוא",
     "skipToChapter1": "דלג לפרק 1",
@@ -2130,6 +2199,7 @@
       "13-multimodal-prompting": "Prompting רב-מודאלי",
       "14-context-engineering": "הנדסת הקשר",
       "14a-loop-engineering": "הנדסת לולאות",
+      "24a-from-prompt-to-team": "מפרומפט לצוות",
       "25-agents-and-skills": "סוכנים ומיומנויות",
       "15-common-pitfalls": "מלכודות נפוצות",
       "16-ethics-responsible-use": "אתיקה ושימוש אחראי",
@@ -2164,6 +2234,7 @@
       "13-multimodal-prompting": "עבודה עם תמונות, אודיו ווידאו",
       "14-context-engineering": "RAG, embeddings, קריאות פונקציות ו-MCP",
       "14a-loop-engineering": "תכנון לולאות משוב שפועלות, מאמתות, מסתגלות ויודעות מתי לעצור",
+      "24a-from-prompt-to-team": "פרומפטים, מיומנויות, סוכנים, בוטים וצוותים במילים פשוטות, ומה ההבדל ביניהם",
       "25-agents-and-skills": "בניית סוכני AI עם חבילות מיומנות לשימוש חוזר",
       "15-common-pitfalls": "טעויות שיש להימנע מהן",
       "16-ethics-responsible-use": "שיקולים אתיים ב-AI",
@@ -2689,5 +2760,23 @@
   "apiDocs": {
     "computerRequirementFilter": "רק בוטים שצריכים מחשב <code>CLOUD</code> או את המחשב <code>LOCAL</code> של המשתמש (בוטים שצריכים את שניהם תואמים לכל אחד מהם), או <code>NONE</code> לבוטים שלא צריכים מחשב",
     "computerRequirementsInput": "רשימה עם <code>CLOUD</code> (הבוט צריך מחשב מרוחק, שולחן עבודה או דפדפן משלו) ו/או <code>LOCAL</code> (הוא צריך את המחשב, הקבצים או האפליקציות של המשתמש); רשימה ריקה פירושה שאינו צריך מחשב. מחליפה את הרשימה השמורה"
+  },
+  "actionButtons": {
+    "deployWithSpacefast": "פריסה עם Spacefast"
+  },
+  "widgets": {
+    "sponsored": "ממומן",
+    "spacefast": {
+      "title": "בוטים שעונים עם <hl>קישור חי</hl>",
+      "description": "הוסיפו את מחבר ה-MCP של Spacefast והבוטים שלכם יפרסמו אתרים, דוחות ולוחות מחוונים. פרטי כברירת מחדל, אותו קישור בכל פרסום מחדש.",
+      "published": "פורסם עם Spacefast",
+      "live": "חי",
+      "connector": "הוספת מחבר MCP",
+      "features": {
+        "privateByDefault": "פרטי כברירת מחדל",
+        "sameLink": "אותו קישור לעדכונים",
+        "versionHistory": "היסטוריית גרסאות"
+      }
+    }
   }
 }

@@ -56,7 +56,14 @@
     "developers": "Ontwikkelaars",
     "book": "Boek",
     "forKids": "Voor kinderen",
-    "more": "Meer"
+    "more": "Meer",
+    "createMenu": {
+      "label": "Aanmaken",
+      "prompt": "Prompt",
+      "skill": "Skill",
+      "bot": "Bot",
+      "team": "Team"
+    }
   },
   "brand": {
     "copyLogoSvg": "Logo SVG kopiëren",
@@ -123,7 +130,12 @@
       "selectExample": "Selecteer een voorbeeld...",
       "aiGenerate": "AI Genereren",
       "aiPlaceholder": "Beschrijf de SQL-query die je nodig hebt...",
-      "generateSql": "SQL Genereren"
+      "generateSql": "SQL Genereren",
+      "listingQuery": {
+        "skills": "🧩 Agent Skills",
+        "bots": "🤖 Bots en assistenten",
+        "teams": "👥 Multi-agentteams"
+      }
     },
     "edit": "Prompt bewerken",
     "delete": "Prompt verwijderen",
@@ -446,7 +458,46 @@
     "dismissed": "Wijzigingsverzoek afgewezen",
     "dismissConfirmTitle": "Wijzigingsverzoek afwijzen?",
     "dismissConfirmDescription": "Dit zal je wijzigingsverzoek permanent verwijderen. Deze actie kan niet ongedaan worden gemaakt.",
-    "backToBot": "Terug naar bot"
+    "backToBot": "Terug naar bot",
+    "backToTeam": "Terug naar team",
+    "proposeBotTitle": "Wijzigingen voorstellen voor deze bot",
+    "proposeBotIntro": "Stel verbeteringen voor deze bot voor. De eigenaar beoordeelt je voorstel en kan het goedkeuren of afwijzen.",
+    "proposeTeamTitle": "Wijzigingen voorstellen voor dit team",
+    "proposeTeamIntro": "Stel verbeteringen voor dit team voor. De eigenaar beoordeelt je voorstel en kan het goedkeuren of afwijzen.",
+    "viewVersion": "Versie bekijken",
+    "viewVersionHint": "Wijzigingen ten opzichte van versie {previous}",
+    "viewFirstVersionHint": "Eerste versie",
+    "memberRole": "Rol",
+    "memberDescription": "Beschrijving",
+    "membersReordered": "Volgorde van leden gewijzigd",
+    "noFieldChanges": "Geen wijzigingen",
+    "reviewedBy": "Beoordeeld door {user}",
+    "teamApprovedSuccess": "Wijzigingsverzoek goedgekeurd en team bijgewerkt",
+    "botFields": {
+      "title": "Titel",
+      "description": "Beschrijving",
+      "platforms": "Platforms",
+      "computers": "Computervereisten",
+      "appearance": "Uiterlijk",
+      "installUrl": "Installatie-URL",
+      "instructions": "Instructies",
+      "routines": "Routines",
+      "skills": "Vaardigheden",
+      "connectors": "Connectoren"
+    },
+    "teamFields": {
+      "title": "Titel",
+      "description": "Beschrijving",
+      "category": "Categorie",
+      "tags": "Tags",
+      "handoffs": "Overdrachten",
+      "members": "Leden"
+    },
+    "member": {
+      "added": "Toegevoegd",
+      "removed": "Verwijderd",
+      "changed": "Gewijzigd"
+    }
   },
   "categories": {
     "title": "Categorieën",
@@ -975,6 +1026,7 @@
     "trigger": "Trigger",
     "skills": "Skills",
     "connectors": "Vereiste connectors",
+    "connectorRegistryLink": "{name} in het MCP Registry (opent in een nieuw tabblad)",
     "install": "Installeren",
     "installOn": "Installeren op {platform}",
     "installLinkComingSoon": "Installatielink volgt binnenkort",
@@ -1100,6 +1152,7 @@
       "coffee": "Koffie"
     },
     "latestBots": "Nieuwste bots",
+    "featuredTeams": "Uitgelichte botteams",
     "viewAll": "Alles bekijken",
     "betterTogether": "Beter samen met",
     "installAllTogether": "Alles samen installeren",
@@ -1440,7 +1493,23 @@
     "categoryPlaceholder": "Categorie-slug toevoegen...",
     "tags": "Tags",
     "tagPlaceholder": "Tag-slug toevoegen...",
-    "generateApiKey": "Genereer API-sleutel om prompts via MCP op te slaan"
+    "generateApiKey": "Genereer API-sleutel om prompts via MCP op te slaan",
+    "clientNotes": {
+      "claudeDesktopRemote": "Open in Claude Desktop Instellingen → Connectors → Aangepaste connector toevoegen en plak deze URL.",
+      "claudeDesktopLocal": "Voeg toe aan claude_desktop_config.json (Instellingen → Ontwikkelaar → Configuratie bewerken) en start Claude Desktop opnieuw.",
+      "codex": "Voeg toe aan ~/.codex/config.toml. De Codex CLI en IDE-extensie delen dit bestand.",
+      "grokBotRemote": "Plak deze URL in een Grok Bot-chat en vraag hem de MCP-server te verbinden.",
+      "grokBotLocal": "Vraag Grok Bot in de chat een command-MCP-server toe te voegen die dit uitvoert. Die draait op de cloudcomputer van de Bot.",
+      "openclaw": "Voeg toe aan openclaw.json en controleer met openclaw mcp doctor prompts-chat --probe.",
+      "devinRemote": "Voor de Devin CLI (~/.config/devin/mcp_config.json). Ga in de Devin-webapp naar Customize → MCPs → Add custom MCP, kies HTTP en plak de server-URL.",
+      "devinLocal": "Voor de Devin CLI (~/.config/devin/mcp_config.json). Voeg in de Devin-webapp een aangepaste MCP toe met het STDIO-transport en deze opdracht.",
+      "urlOnlyApiKey": "Deze client accepteert alleen een URL, dus je API-sleutel wordt niet meegegeven. Zoek- en leestools werken ook zonder."
+    },
+    "resourceHint": {
+      "skills": "Skills gebruiken dezelfde server: search_skills vindt Agent Skills en get_skill geeft al hun bestanden terug.",
+      "bots": "Bots gebruiken dezelfde server: search_bots vindt bots en get_bot geeft hun instructies en installatieopties terug.",
+      "teams": "Teams gebruiken dezelfde server: list_teams vindt botteams en get_team geeft hun leden en overdrachten terug."
+    }
   },
   "footer": {
     "howTo": "Hoe...",
@@ -1580,7 +1649,7 @@
     "interactiveBanner": {
       "badge": "Interactieve versie beschikbaar",
       "title": "Wil je een meer gedetailleerde & interactieve ervaring?",
-      "description": "Duik dieper met onze uitgebreide interactieve gids met 29 hoofdstukken, praktische oefeningen en echte voorbeelden om AI-prompting te beheersen.",
+      "description": "Duik dieper met onze uitgebreide interactieve gids met 30 hoofdstukken, praktische oefeningen en echte voorbeelden om AI-prompting te beheersen.",
       "cta": "Lees het interactieve boek"
     },
     "generalTips": {
@@ -2050,7 +2119,7 @@
     "donate": "Steun het project",
     "subtitle": "Een Interactieve Gids voor het Maken van Duidelijke en Effectieve Prompts",
     "metaTitle": "Gids voor prompt engineering: Het Interactieve Prompting Boek",
-    "metaDescription": "Beheers AI prompt engineering met deze gratis interactieve gids. Leer ChatGPT prompts, chain-of-thought redeneren, few-shot leren en geavanceerde technieken. 29+ hoofdstukken met echte voorbeelden.",
+    "metaDescription": "Beheers AI prompt engineering met deze gratis interactieve gids. Leer ChatGPT prompts, chain-of-thought redeneren, few-shot leren en geavanceerde technieken. 30+ hoofdstukken met echte voorbeelden.",
     "interactiveGuideBy": "Een Interactieve Gids door",
     "authorIntro": "Hallo, ik ben <author>Fatih Kadir Akın</author>, de curator van de populaire <repoLink>Awesome ChatGPT Prompts</repoLink> repository op GitHub en <siteName>prompts.chat</siteName>.",
     "bookDescription": "In deze uitgebreide, interactieve gids ontdek je expertstrategieën voor het maken van overtuigende AI-prompts die boeiende en effectieve gesprekken genereren. Van het begrijpen hoe AI-modellen werken tot het beheersen van geavanceerde technieken zoals prompt chaining en agentische systemen, dit boek geeft je de tools om je AI-interacties naar een hoger niveau te tillen.",
@@ -2072,7 +2141,7 @@
       "part4": "Deel 4: Best Practices",
       "part5": "Deel 5: Use Cases",
       "part6": "Deel 6: Conclusie",
-      "chapters": "29 Interactieve Hoofdstukken"
+      "chapters": "30 Interactieve Hoofdstukken"
     },
     "startReading": "Begin met Lezen",
     "skipToChapter1": "Ga naar Hoofdstuk 1",
@@ -2130,6 +2199,7 @@
       "13-multimodal-prompting": "Multimodale Prompting",
       "14-context-engineering": "Context Engineering",
       "14a-loop-engineering": "Loop Engineering",
+      "24a-from-prompt-to-team": "Van prompt tot team",
       "25-agents-and-skills": "Agents en Skills",
       "15-common-pitfalls": "Veelvoorkomende Valkuilen",
       "16-ethics-responsible-use": "Ethiek en Verantwoord Gebruik",
@@ -2164,6 +2234,7 @@
       "13-multimodal-prompting": "Werken met afbeeldingen, audio en video",
       "14-context-engineering": "RAG, embeddings, function calling en MCP",
       "14a-loop-engineering": "Feedbackloops ontwerpen die handelen, verifiëren, bijsturen en weten wanneer ze moeten stoppen",
+      "24a-from-prompt-to-team": "Prompts, skills, agents, bots en teams in gewone woorden, en waarin ze verschillen",
       "25-agents-and-skills": "AI-agents bouwen met herbruikbare skill-pakketten",
       "15-common-pitfalls": "Fouten om te vermijden",
       "16-ethics-responsible-use": "Ethische overwegingen in AI",
@@ -2696,5 +2767,23 @@
   "apiDocs": {
     "computerRequirementFilter": "Alleen bots die een <code>CLOUD</code>-computer of de <code>LOCAL</code>-computer van de gebruiker nodig hebben (bots die beide nodig hebben komen bij elk overeen), of <code>NONE</code> voor bots die geen computer nodig hebben",
     "computerRequirementsInput": "Een lijst met <code>CLOUD</code> (de bot heeft een eigen externe computer, desktop of browser nodig) en/of <code>LOCAL</code> (hij heeft de machine, bestanden of apps van de gebruiker nodig); een lege lijst betekent dat hij geen computer nodig heeft. Vervangt de opgeslagen lijst"
+  },
+  "actionButtons": {
+    "deployWithSpacefast": "Implementeren met Spacefast"
+  },
+  "widgets": {
+    "sponsored": "Gesponsord",
+    "spacefast": {
+      "title": "Bots die antwoorden met een <hl>live link</hl>",
+      "description": "Voeg de Spacefast MCP-connector toe en je bots publiceren sites, rapporten en dashboards. Standaard privé, dezelfde link bij elke herpublicatie.",
+      "published": "Gepubliceerd met Spacefast",
+      "live": "Live",
+      "connector": "MCP-connector toevoegen",
+      "features": {
+        "privateByDefault": "Standaard privé",
+        "sameLink": "Zelfde link bij updates",
+        "versionHistory": "Versiegeschiedenis"
+      }
+    }
   }
 }

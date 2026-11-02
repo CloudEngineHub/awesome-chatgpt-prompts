@@ -56,7 +56,14 @@
     "developers": "Sviluppatori",
     "book": "Libro",
     "forKids": "Per Bambini",
-    "more": "Altro"
+    "more": "Altro",
+    "createMenu": {
+      "label": "Crea",
+      "prompt": "Prompt",
+      "skill": "Skill",
+      "bot": "Bot",
+      "team": "Team"
+    }
   },
   "brand": {
     "copyLogoSvg": "Copia Logo SVG",
@@ -123,7 +130,12 @@
       "selectExample": "Seleziona un esempio...",
       "aiGenerate": "Genera AI",
       "aiPlaceholder": "Descrivi la query SQL di cui hai bisogno...",
-      "generateSql": "Genera SQL"
+      "generateSql": "Genera SQL",
+      "listingQuery": {
+        "skills": "🧩 Agent Skills",
+        "bots": "🤖 Bot e assistenti",
+        "teams": "👥 Team multi-agente"
+      }
     },
     "edit": "Modifica Prompt",
     "delete": "Elimina Prompt",
@@ -446,7 +458,46 @@
     "dismissed": "Richiesta di modifica eliminata",
     "dismissConfirmTitle": "Eliminare la Richiesta di Modifica?",
     "dismissConfirmDescription": "Questo eliminerà permanentemente la tua richiesta di modifica. Questa azione non può essere annullata.",
-    "backToBot": "Torna al bot"
+    "backToBot": "Torna al bot",
+    "backToTeam": "Torna al team",
+    "proposeBotTitle": "Proponi modifiche a questo bot",
+    "proposeBotIntro": "Suggerisci miglioramenti per questo bot. Il proprietario esaminerà la tua proposta e potrà approvarla o rifiutarla.",
+    "proposeTeamTitle": "Proponi modifiche a questo team",
+    "proposeTeamIntro": "Suggerisci miglioramenti per questo team. Il proprietario esaminerà la tua proposta e potrà approvarla o rifiutarla.",
+    "viewVersion": "Visualizza versione",
+    "viewVersionHint": "Modifiche rispetto alla versione {previous}",
+    "viewFirstVersionHint": "Prima versione",
+    "memberRole": "Ruolo",
+    "memberDescription": "Descrizione",
+    "membersReordered": "Ordine dei membri modificato",
+    "noFieldChanges": "Nessuna modifica",
+    "reviewedBy": "Revisionato da {user}",
+    "teamApprovedSuccess": "Richiesta di modifica approvata e team aggiornato",
+    "botFields": {
+      "title": "Titolo",
+      "description": "Descrizione",
+      "platforms": "Piattaforme",
+      "computers": "Requisiti del computer",
+      "appearance": "Aspetto",
+      "installUrl": "URL di installazione",
+      "instructions": "Istruzioni",
+      "routines": "Routine",
+      "skills": "Competenze",
+      "connectors": "Connettori"
+    },
+    "teamFields": {
+      "title": "Titolo",
+      "description": "Descrizione",
+      "category": "Categoria",
+      "tags": "Tag",
+      "handoffs": "Passaggi",
+      "members": "Membri"
+    },
+    "member": {
+      "added": "Aggiunto",
+      "removed": "Rimosso",
+      "changed": "Modificato"
+    }
   },
   "categories": {
     "title": "Categorie",
@@ -975,6 +1026,7 @@
     "trigger": "Trigger",
     "skills": "Skill",
     "connectors": "Connettori richiesti",
+    "connectorRegistryLink": "{name} sul MCP Registry (si apre in una nuova scheda)",
     "install": "Installa",
     "installOn": "Installa su {platform}",
     "installLinkComingSoon": "Link di installazione in arrivo",
@@ -1100,6 +1152,7 @@
       "coffee": "Caffè"
     },
     "latestBots": "Ultimi bot",
+    "featuredTeams": "Team di bot in evidenza",
     "viewAll": "Vedi tutti",
     "betterTogether": "Meglio insieme a",
     "installAllTogether": "Installa tutti insieme",
@@ -1440,7 +1493,23 @@
     "categoryPlaceholder": "Aggiungi slug categoria...",
     "tags": "Tag",
     "tagPlaceholder": "Aggiungi slug tag...",
-    "generateApiKey": "Genera una chiave API per salvare prompt tramite MCP"
+    "generateApiKey": "Genera una chiave API per salvare prompt tramite MCP",
+    "clientNotes": {
+      "claudeDesktopRemote": "In Claude Desktop, apri Impostazioni → Connettori → Aggiungi connettore personalizzato e incolla questo URL.",
+      "claudeDesktopLocal": "Aggiungilo a claude_desktop_config.json (Impostazioni → Sviluppatore → Modifica configurazione), poi riavvia Claude Desktop.",
+      "codex": "Aggiungilo a ~/.codex/config.toml. La CLI di Codex e l'estensione IDE lo condividono.",
+      "grokBotRemote": "Incolla questo URL in una chat di Grok Bot e chiedigli di collegare il server MCP.",
+      "grokBotLocal": "Chiedi a Grok Bot in chat di aggiungere un server MCP a comando che esegua questo. Gira sul computer cloud del Bot.",
+      "openclaw": "Aggiungilo a openclaw.json, poi verificalo con openclaw mcp doctor prompts-chat --probe.",
+      "devinRemote": "Per la CLI di Devin (~/.config/devin/mcp_config.json). Nell'app web di Devin, vai su Customize → MCPs → Add custom MCP, scegli HTTP e incolla l'URL del server.",
+      "devinLocal": "Per la CLI di Devin (~/.config/devin/mcp_config.json). Nell'app web di Devin, aggiungi un MCP personalizzato con il trasporto STDIO e questo comando.",
+      "urlOnlyApiKey": "Questo client accetta solo un URL, quindi la tua chiave API non è inclusa. Gli strumenti di ricerca e lettura funzionano senza."
+    },
+    "resourceHint": {
+      "skills": "Le skill usano lo stesso server: search_skills trova Agent Skills e get_skill restituisce tutti i loro file.",
+      "bots": "I bot usano lo stesso server: search_bots trova bot e get_bot restituisce istruzioni e opzioni di installazione.",
+      "teams": "I team usano lo stesso server: list_teams trova team di bot e get_team restituisce membri e passaggi di consegne."
+    }
   },
   "footer": {
     "howTo": "Come funziona",
@@ -1580,7 +1649,7 @@
     "interactiveBanner": {
       "badge": "Versione Interattiva Disponibile",
       "title": "Vuoi un'Esperienza Più Dettagliata e Interattiva?",
-      "description": "Approfondisci con la nostra guida interattiva completa con 29 capitoli, esercizi pratici ed esempi reali per padroneggiare i prompt IA.",
+      "description": "Approfondisci con la nostra guida interattiva completa con 30 capitoli, esercizi pratici ed esempi reali per padroneggiare i prompt IA.",
       "cta": "Leggi il Libro Interattivo"
     },
     "generalTips": {
@@ -2050,7 +2119,7 @@
     "donate": "Sostieni il progetto",
     "subtitle": "Una Guida Interattiva per Creare Prompt Chiari ed Efficaci",
     "metaTitle": "Guida all'ingegneria dei prompt: Il Libro Interattivo del Prompting",
-    "metaDescription": "Padroneggia l'ingegneria dei prompt AI con questa guida interattiva gratuita. Impara i prompt ChatGPT, il ragionamento chain-of-thought, il few-shot learning e tecniche avanzate. 29+ capitoli con esempi reali.",
+    "metaDescription": "Padroneggia l'ingegneria dei prompt AI con questa guida interattiva gratuita. Impara i prompt ChatGPT, il ragionamento chain-of-thought, il few-shot learning e tecniche avanzate. 30+ capitoli con esempi reali.",
     "interactiveGuideBy": "Una Guida Interattiva di",
     "authorIntro": "Ciao, sono <author>Fatih Kadir Akın</author>, il curatore del popolare repository <repoLink>Awesome ChatGPT Prompts</repoLink> su GitHub e di <siteName>prompts.chat</siteName>.",
     "bookDescription": "In questa guida completa e interattiva, scoprirai strategie esperte per creare prompt AI coinvolgenti che guidano conversazioni efficaci. Dalla comprensione di come funzionano i modelli AI alla padronanza di tecniche avanzate come il prompt chaining e i sistemi agentici, questo libro ti fornisce gli strumenti necessari per portare le tue interazioni AI al livello successivo.",
@@ -2072,7 +2141,7 @@
       "part4": "Parte 4: Best Practice",
       "part5": "Parte 5: Casi d'Uso",
       "part6": "Parte 6: Conclusione",
-      "chapters": "29 Capitoli Interattivi"
+      "chapters": "30 Capitoli Interattivi"
     },
     "startReading": "Inizia a Leggere",
     "skipToChapter1": "Vai al Capitolo 1",
@@ -2130,6 +2199,7 @@
       "13-multimodal-prompting": "Prompting Multimodale",
       "14-context-engineering": "Ingegneria del Contesto",
       "14a-loop-engineering": "Ingegneria dei Loop",
+      "24a-from-prompt-to-team": "Dal prompt alla squadra",
       "25-agents-and-skills": "Agenti e Skill",
       "15-common-pitfalls": "Errori Comuni",
       "16-ethics-responsible-use": "Etica e Uso Responsabile",
@@ -2164,6 +2234,7 @@
       "13-multimodal-prompting": "Lavorare con immagini, audio e video",
       "14-context-engineering": "RAG, embeddings, function calling e MCP",
       "14a-loop-engineering": "Progettare cicli di feedback che agiscono, verificano, si adattano e sanno quando fermarsi",
+      "24a-from-prompt-to-team": "Prompt, skill, agenti, bot e squadre in parole semplici, e che cosa li distingue",
       "25-agents-and-skills": "Costruire agenti AI con pacchetti di skill riutilizzabili",
       "15-common-pitfalls": "Errori da evitare",
       "16-ethics-responsible-use": "Considerazioni etiche nell'AI",
@@ -2711,5 +2782,23 @@
   "apiDocs": {
     "computerRequirementFilter": "Solo i bot che richiedono un computer <code>CLOUD</code> o il computer <code>LOCAL</code> dell'utente (quelli che li richiedono entrambi corrispondono a ciascuno), oppure <code>NONE</code> per i bot che non richiedono un computer",
     "computerRequirementsInput": "Un elenco con <code>CLOUD</code> (il bot ha bisogno di un proprio computer remoto, desktop o browser) e/o <code>LOCAL</code> (ha bisogno della macchina, dei file o delle app dell'utente); un elenco vuoto significa che non serve alcun computer. Sostituisce l'elenco salvato"
+  },
+  "actionButtons": {
+    "deployWithSpacefast": "Distribuisci con Spacefast"
+  },
+  "widgets": {
+    "sponsored": "Sponsorizzato",
+    "spacefast": {
+      "title": "Bot che rispondono con un <hl>link live</hl>",
+      "description": "Aggiungi il connettore MCP di Spacefast e i tuoi bot pubblicano siti, report e dashboard. Privato per impostazione predefinita, lo stesso link a ogni ripubblicazione.",
+      "published": "Pubblicato con Spacefast",
+      "live": "Live",
+      "connector": "Aggiungi connettore MCP",
+      "features": {
+        "privateByDefault": "Privato per impostazione predefinita",
+        "sameLink": "Stesso link per gli aggiornamenti",
+        "versionHistory": "Cronologia versioni"
+      }
+    }
   }
 }

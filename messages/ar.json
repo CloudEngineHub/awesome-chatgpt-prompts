@@ -56,7 +56,14 @@
     "developers": "المطورون",
     "book": "كتاب",
     "forKids": "للأطفال",
-    "more": "المزيد"
+    "more": "المزيد",
+    "createMenu": {
+      "label": "إنشاء",
+      "prompt": "موجه",
+      "skill": "مهارة",
+      "bot": "بوت",
+      "team": "فريق"
+    }
   },
   "brand": {
     "copyLogoSvg": "نسخ شعار SVG",
@@ -123,7 +130,12 @@
       "selectExample": "اختر مثالاً...",
       "aiGenerate": "توليد AI",
       "aiPlaceholder": "صف استعلام SQL الذي تحتاجه...",
-      "generateSql": "إنشاء SQL"
+      "generateSql": "إنشاء SQL",
+      "listingQuery": {
+        "skills": "🧩 Agent Skills",
+        "bots": "🤖 البوتات والمساعدون",
+        "teams": "👥 فرق متعددة الوكلاء"
+      }
     },
     "edit": "تعديل الأمر",
     "delete": "حذف الأمر",
@@ -446,7 +458,46 @@
     "dismissed": "تم سحب طلب التغيير",
     "dismissConfirmTitle": "سحب طلب التغيير؟",
     "dismissConfirmDescription": "سيؤدي هذا إلى حذف طلب التغيير نهائياً. لا يمكن التراجع عن هذا الإجراء.",
-    "backToBot": "العودة إلى البوت"
+    "backToBot": "العودة إلى البوت",
+    "backToTeam": "العودة إلى الفريق",
+    "proposeBotTitle": "اقتراح تغييرات على هذا البوت",
+    "proposeBotIntro": "اقترح تحسينات لهذا البوت. سيراجع المالك اقتراحك ويمكنه قبوله أو رفضه.",
+    "proposeTeamTitle": "اقتراح تغييرات على هذا الفريق",
+    "proposeTeamIntro": "اقترح تحسينات لهذا الفريق. سيراجع المالك اقتراحك ويمكنه قبوله أو رفضه.",
+    "viewVersion": "عرض الإصدار",
+    "viewVersionHint": "التغييرات مقارنة بالإصدار {previous}",
+    "viewFirstVersionHint": "الإصدار الأول",
+    "memberRole": "الدور",
+    "memberDescription": "الوصف",
+    "membersReordered": "تم تغيير ترتيب الأعضاء",
+    "noFieldChanges": "لا توجد تغييرات",
+    "reviewedBy": "تمت المراجعة بواسطة {user}",
+    "teamApprovedSuccess": "تمت الموافقة على طلب التغيير وتحديث الفريق",
+    "botFields": {
+      "title": "العنوان",
+      "description": "الوصف",
+      "platforms": "المنصات",
+      "computers": "متطلبات الحاسوب",
+      "appearance": "المظهر",
+      "installUrl": "رابط التثبيت",
+      "instructions": "التعليمات",
+      "routines": "الروتينات",
+      "skills": "المهارات",
+      "connectors": "الموصلات"
+    },
+    "teamFields": {
+      "title": "العنوان",
+      "description": "الوصف",
+      "category": "الفئة",
+      "tags": "الوسوم",
+      "handoffs": "التسليمات",
+      "members": "الأعضاء"
+    },
+    "member": {
+      "added": "مضاف",
+      "removed": "محذوف",
+      "changed": "معدّل"
+    }
   },
   "categories": {
     "title": "التصنيفات",
@@ -975,6 +1026,7 @@
     "trigger": "المشغّل",
     "skills": "المهارات",
     "connectors": "الموصلات المطلوبة",
+    "connectorRegistryLink": "{name} في سجل MCP (يفتح في علامة تبويب جديدة)",
     "install": "تثبيت",
     "installOn": "التثبيت على {platform}",
     "installLinkComingSoon": "رابط التثبيت قريبًا",
@@ -1100,6 +1152,7 @@
       "coffee": "قهوة"
     },
     "latestBots": "أحدث البوتات",
+    "featuredTeams": "فرق البوتات المميزة",
     "viewAll": "عرض الكل",
     "betterTogether": "أفضل معًا مع",
     "installAllTogether": "تثبيت الكل معًا",
@@ -1440,7 +1493,23 @@
     "categoryPlaceholder": "إضافة رمز الفئة...",
     "tags": "العلامات",
     "tagPlaceholder": "إضافة رمز العلامة...",
-    "generateApiKey": "أنشئ مفتاح API لحفظ الأوامر عبر MCP"
+    "generateApiKey": "أنشئ مفتاح API لحفظ الأوامر عبر MCP",
+    "clientNotes": {
+      "claudeDesktopRemote": "في Claude Desktop، افتح الإعدادات ← الموصلات ← إضافة موصل مخصص والصق هذا الرابط.",
+      "claudeDesktopLocal": "أضفه إلى claude_desktop_config.json (الإعدادات ← المطور ← تحرير الإعدادات)، ثم أعد تشغيل Claude Desktop.",
+      "codex": "أضفه إلى ~/.codex/config.toml. تتشاركه Codex CLI وإضافة بيئة التطوير.",
+      "grokBotRemote": "الصق هذا الرابط في محادثة Grok Bot واطلب منه توصيل خادم MCP.",
+      "grokBotLocal": "اطلب من Grok Bot في المحادثة إضافة خادم MCP بأمر يشغّل هذا. يعمل على حاسوب البوت السحابي.",
+      "openclaw": "أضفه إلى openclaw.json، ثم تحقق منه باستخدام openclaw mcp doctor prompts-chat --probe.",
+      "devinRemote": "لـ Devin CLI (~/.config/devin/mcp_config.json). في تطبيق Devin على الويب، انتقل إلى Customize → MCPs → Add custom MCP، واختر HTTP والصق رابط الخادم.",
+      "devinLocal": "لـ Devin CLI (~/.config/devin/mcp_config.json). في تطبيق Devin على الويب، أضف MCP مخصصًا بنقل STDIO وهذا الأمر.",
+      "urlOnlyApiKey": "هذا العميل يقبل رابطًا فقط، لذا لا يُضمَّن مفتاح API الخاص بك. أدوات البحث والقراءة تعمل بدونه."
+    },
+    "resourceHint": {
+      "skills": "المهارات تستخدم الخادم نفسه: search_skills يبحث عن Agent Skills وget_skill يعيد جميع ملفاتها.",
+      "bots": "البوتات تستخدم الخادم نفسه: search_bots يبحث عن البوتات وget_bot يعيد تعليماتها وخيارات تثبيتها.",
+      "teams": "الفرق تستخدم الخادم نفسه: list_teams يبحث عن فرق البوتات وget_team يعيد أعضاءها وعمليات التسليم بينهم."
+    }
   },
   "footer": {
     "howTo": "كيفية...",
@@ -1580,7 +1649,7 @@
     "interactiveBanner": {
       "badge": "النسخة التفاعلية متاحة",
       "title": "هل تريد تجربة أكثر تفصيلاً وتفاعلية؟",
-      "description": "تعمق أكثر مع دليلنا التفاعلي الشامل الذي يضم 29 فصلاً وتمارين عملية وأمثلة من الواقع لإتقان كتابة الأوامر.",
+      "description": "تعمق أكثر مع دليلنا التفاعلي الشامل الذي يضم 30 فصلاً وتمارين عملية وأمثلة من الواقع لإتقان كتابة الأوامر.",
       "cta": "اقرأ الكتاب التفاعلي"
     },
     "generalTips": {
@@ -2050,7 +2119,7 @@
     "donate": "ادعم المشروع",
     "subtitle": "دليل تفاعلي لإنشاء أوامر واضحة وفعالة",
     "metaTitle": "دليل هندسة الأوامر: كتاب هندسة الأوامر التفاعلي",
-    "metaDescription": "أتقن هندسة أوامر الذكاء الاصطناعي مع هذا الدليل التفاعلي المجاني. تعلم أوامر ChatGPT، التفكير المتسلسل، التعلم بأمثلة قليلة والتقنيات المتقدمة. أكثر من 29 فصلاً مع أمثلة حقيقية.",
+    "metaDescription": "أتقن هندسة أوامر الذكاء الاصطناعي مع هذا الدليل التفاعلي المجاني. تعلم أوامر ChatGPT، التفكير المتسلسل، التعلم بأمثلة قليلة والتقنيات المتقدمة. أكثر من 30 فصلاً مع أمثلة حقيقية.",
     "interactiveGuideBy": "دليل تفاعلي من",
     "authorIntro": "مرحباً، أنا <author>فاتح قادر آكين</author>، منسق مستودع <repoLink>Awesome ChatGPT Prompts</repoLink> الشهير على GitHub و<siteName>prompts.chat</siteName>.",
     "bookDescription": "في هذا الدليل التفاعلي الشامل، ستكتشف استراتيجيات الخبراء لإنشاء أوامر ذكاء اصطناعي مقنعة تولد محادثات جذابة وفعالة. من فهم كيفية عمل نماذج الذكاء الاصطناعي إلى إتقان التقنيات المتقدمة مثل تسلسل الأوامر والأنظمة الوكيلة، يوفر لك هذا الكتاب الأدوات التي تحتاجها للارتقاء بتفاعلاتك مع الذكاء الاصطناعي.",
@@ -2072,7 +2141,7 @@
       "part4": "الجزء 4: أفضل الممارسات",
       "part5": "الجزء 5: حالات الاستخدام",
       "part6": "الجزء 6: الخاتمة",
-      "chapters": "29 فصلاً تفاعلياً"
+      "chapters": "30 فصلاً تفاعلياً"
     },
     "startReading": "ابدأ القراءة",
     "skipToChapter1": "انتقل إلى الفصل 1",
@@ -2130,6 +2199,7 @@
       "13-multimodal-prompting": "الأوامر متعددة الوسائط",
       "14-context-engineering": "هندسة السياق",
       "14a-loop-engineering": "هندسة الحلقات",
+      "24a-from-prompt-to-team": "من التوجيه إلى الفريق",
       "25-agents-and-skills": "الوكلاء والمهارات",
       "15-common-pitfalls": "الأخطاء الشائعة",
       "16-ethics-responsible-use": "الأخلاق والاستخدام المسؤول",
@@ -2164,6 +2234,7 @@
       "13-multimodal-prompting": "العمل مع الصور والصوت والفيديو",
       "14-context-engineering": "RAG، التضمينات، استدعاءات الوظائف و MCP",
       "14a-loop-engineering": "تصميم حلقات تغذية راجعة تتصرف وتتحقق وتتكيف وتعرف متى تتوقف",
+      "24a-from-prompt-to-team": "التوجيهات والمهارات والوكلاء والبوتات والفرق بكلمات بسيطة، وما الذي يميّز كلاً منها",
       "25-agents-and-skills": "بناء وكلاء ذكاء اصطناعي بحزم مهارات قابلة لإعادة الاستخدام",
       "15-common-pitfalls": "أخطاء يجب تجنبها",
       "16-ethics-responsible-use": "الاعتبارات الأخلاقية في الذكاء الاصطناعي",
@@ -2691,5 +2762,23 @@
   "apiDocs": {
     "computerRequirementFilter": "فقط البوتات التي تحتاج حاسوب <code>CLOUD</code> أو حاسوب المستخدم <code>LOCAL</code> (البوتات التي تحتاج كليهما تطابق أيًّا منهما)، أو <code>NONE</code> للبوتات التي لا تحتاج حاسوبًا",
     "computerRequirementsInput": "قائمة تضم <code>CLOUD</code> (يحتاج البوت إلى حاسوب بعيد أو سطح مكتب أو متصفح خاص به) و/أو <code>LOCAL</code> (يحتاج إلى جهاز المستخدم أو ملفاته أو تطبيقاته)؛ القائمة الفارغة تعني أنه لا يحتاج حاسوبًا. تستبدل القائمة المحفوظة"
+  },
+  "actionButtons": {
+    "deployWithSpacefast": "انشر باستخدام Spacefast"
+  },
+  "widgets": {
+    "sponsored": "برعاية",
+    "spacefast": {
+      "title": "بوتات تجيب <hl>برابط مباشر</hl>",
+      "description": "أضف موصل Spacefast MCP لتنشر بوتاتك المواقع والتقارير ولوحات المعلومات. خاصة افتراضيًا، والرابط نفسه في كل مرة تعيد فيها النشر.",
+      "published": "تم النشر عبر Spacefast",
+      "live": "مباشر",
+      "connector": "إضافة موصل MCP",
+      "features": {
+        "privateByDefault": "خاص افتراضيًا",
+        "sameLink": "الرابط نفسه للتحديثات",
+        "versionHistory": "سجل الإصدارات"
+      }
+    }
   }
 }
