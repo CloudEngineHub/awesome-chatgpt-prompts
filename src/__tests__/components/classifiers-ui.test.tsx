@@ -3,7 +3,14 @@ import { render, screen, fireEvent, within } from "@testing-library/react";
 import { ClassifierCatalog } from "@/components/classifiers/classifier-catalog";
 import { ScenarioExplorer } from "@/components/classifiers/scenario-explorer";
 import { ChainFlow } from "@/components/classifiers/chain-flow";
-import { getChain, getChains, getClassifier, getClassifiers } from "@/lib/classifiers";
+import { CHAINS, CLASSIFIERS, SOURCES } from "../../../prisma/classifiers/fixtures";
+
+const author = { id: "user-ada", name: "Ada", username: "ada", avatar: null, verified: false };
+const getClassifiers = () =>
+  CLASSIFIERS.map((c, index) => ({ ...c, id: `prompt-${c.slug}`, author, voteCount: index, voted: index === 1 }));
+const getChains = () => CHAINS;
+const getClassifier = (slug: string) => CLASSIFIERS.find((c) => c.slug === slug);
+const getChain = (slug: string) => CHAINS.find((c) => c.slug === slug);
 
 const classifierMap = Object.fromEntries(getClassifiers().map((c) => [c.slug, c]));
 const chainNames = Object.fromEntries(getChains().map((c) => [c.slug, c.name]));
@@ -21,6 +28,26 @@ describe("ClassifierCatalog", () => {
     expect(screen.getAllByTestId("chain-card")).toHaveLength(getChains().length);
   });
 
+  it("shows the author and upvotes like prompt cards, with the title linking the whole card", () => {
+    renderCatalog();
+    const [first, second] = screen.getAllByTestId("classifier-card");
+    const [firstClassifier, secondClassifier] = getClassifiers();
+
+    const title = within(first).getByRole("link", { name: firstClassifier.name });
+    expect(title).toHaveAttribute("href", `/classifiers/${firstClassifier.slug}`);
+    expect(title.className).toContain("after:inset-0");
+    const profile = within(first).getByRole("link", { name: /@ada/ });
+    expect(profile).toHaveAttribute("href", "/@ada");
+    expect(profile).toHaveClass("relative", "z-10");
+    expect(within(first).getAllByRole("link")).toHaveLength(2);
+    expect(first.querySelector("a a")).toBeNull();
+
+    const count = (card: HTMLElement, value: number) => within(card).getByText(String(value), { selector: "span" });
+    expect(count(first, 0)).not.toHaveClass("text-primary");
+    expect(count(second, 1)).toHaveClass("text-primary");
+    expect(within(second).getByRole("link", { name: secondClassifier.name })).toBeInTheDocument();
+  });
+
   it("filters by category and syncs the URL", () => {
     renderCatalog();
     const button = screen.getByRole("button", { name: "categories.security" });
@@ -29,6 +56,17 @@ describe("ClassifierCatalog", () => {
     const cards = screen.getAllByTestId("classifier-card");
     expect(cards).toHaveLength(getClassifiers().filter((c) => c.category === "security").length);
     expect(window.location.search).toContain("category=security");
+  });
+
+  it("filters by a domain category and keeps chains that use it", () => {
+    renderCatalog();
+    fireEvent.click(screen.getByRole("button", { name: "categories.logistics" }));
+    expect(screen.getAllByTestId("classifier-card")).toHaveLength(
+      getClassifiers().filter((c) => c.category === "logistics").length
+    );
+    const chainCards = screen.getAllByTestId("chain-card").map((card) => card.textContent ?? "");
+    expect(chainCards.some((text) => text.includes(getChain("delivery-exception-routing")!.name))).toBe(true);
+    expect(window.location.search).toContain("category=logistics");
   });
 
   it("searches and recovers from no results", () => {
@@ -50,7 +88,7 @@ describe("ClassifierCatalog", () => {
 describe("ScenarioExplorer", () => {
   it("switches between predefined scenarios", () => {
     const classifier = getClassifier("support-ticket-routing")!;
-    render(<ScenarioExplorer classifier={classifier} />);
+    render(<ScenarioExplorer classifier={classifier} sources={SOURCES} />);
     const tabs = screen.getAllByRole("tab");
     expect(tabs).toHaveLength(classifier.scenarios.length);
     expect(tabs[0]).toHaveAttribute("aria-selected", "true");
@@ -157,5 +195,39 @@ describe("ChainFlow", () => {
     const steps = screen.getAllByTestId("chain-step");
     const branchText = steps.map((s) => s.querySelector("ul")!.textContent).join(" ");
     for (const label of humanEnds) expect(branchText).toContain(label);
+  });
+});
+
+describe("ChainFlow across the catalog", () => {
+  it("opens every scenario of every chain from its deep link", () => {
+    for (const each of getChains()) {
+      for (const scenario of each.scenarios) {
+        window.history.replaceState(null, "", `/classifiers/chains/${each.slug}?scenario=${scenario.id}`);
+        const { unmount } = render(<ChainFlow chain={each} classifiers={classifierMap} chainNames={chainNames} />);
+        const label = `${each.slug}?scenario=${scenario.id}`;
+        expect(screen.queryByTestId("scenario-path"), label).not.toBeNull();
+        expect(document.querySelectorAll("[data-taken]").length, label).toBe(scenario.path.length);
+        const reached = document.querySelectorAll("[data-reached]");
+        expect(reached.length, label).toBe(1);
+        expect(reached[0].closest("li"), label).toHaveAttribute("id", `end-${scenario.terminal}`);
+        unmount();
+      }
+    }
+  });
+
+  it("links every handoff endpoint to its chain", () => {
+    for (const each of getChains()) {
+      const handoffs = each.terminals.filter((t) => t.kind === "handoff");
+      if (handoffs.length === 0) continue;
+      const { unmount } = render(<ChainFlow chain={each} classifiers={classifierMap} chainNames={chainNames} />);
+      const overview = screen.getByTestId("chain-overview");
+      for (const t of handoffs) {
+        expect(within(overview).getByRole("link", { name: t.label }), `${each.slug}/${t.id}`).toHaveAttribute(
+          "href",
+          `/classifiers/chains/${t.handoffChain}`
+        );
+      }
+      unmount();
+    }
   });
 });
